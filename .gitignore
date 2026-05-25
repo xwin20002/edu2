@@ -1,0 +1,9 @@
+# 原始大檔，不上傳 GitHub
+assets/*.png
+assets/*.pdf
+assets/*.mp4
+assets/*.mp3
+
+# OS
+.DS_Store
+Thumbs.db

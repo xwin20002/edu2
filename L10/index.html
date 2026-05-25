@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>翰林版三下 第 10 課｜飛行員和小王子</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--board:#1a2a1a;--board-light:#243524;--chalk:#e8e4d8;--chalk-dim:#a8a498;
+  --yellow:#ffd54f;--wood:#8d6e4a;--wood-dark:#5d4530;--wood-light:#a8875a;
+  --pink:#ff8a80;--blue:#81d4fa;--green:#a5d6a7}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--board);
+  color:var(--chalk);min-height:100vh;font-size:16px}
+header{background:linear-gradient(180deg,var(--wood-light) 0%,var(--wood) 40%,var(--wood-dark) 100%);
+  padding:22px 28px 18px;box-shadow:0 4px 16px rgba(0,0,0,.5);border-bottom:3px solid #3a2a1a;
+  position:sticky;top:0;z-index:100}
+header h1{font-size:1.8rem;font-weight:900;text-shadow:1px 1px 3px rgba(0,0,0,.5)}
+header .meta{font-size:.95rem;opacity:.85;margin-top:6px}
+.badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  border-radius:20px;padding:3px 12px;font-size:.88rem;margin-right:6px}
+.mode-bar{display:flex;gap:12px;padding:10px 28px;background:rgba(0,0,0,.3);
+  border-bottom:1px solid rgba(255,255,255,.1);font-size:.95rem}
+.mode-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  border-radius:20px;padding:4px 16px;font-size:.9rem;cursor:pointer;color:var(--chalk);
+  transition:all .2s}
+.mode-btn.active{background:var(--yellow);color:#1a1a1a;border-color:var(--yellow)}
+#teacher-only{display:none}
+.container{max-width:960px;margin:0 auto;padding:36px 20px 80px}
+h2{font-size:1.15rem;color:var(--yellow);margin-bottom:18px;padding-bottom:8px;
+  border-bottom:2px dashed var(--yellow)}
+.section{background:var(--board-light);border-radius:14px;padding:24px;margin-bottom:24px;
+  border:1px solid rgba(232,228,216,.12)}
+.objectives{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:0}
+.obj-chip{background:rgba(129,212,250,.12);border:1px solid var(--blue);border-radius:20px;
+  padding:4px 14px;font-size:.85rem;color:var(--blue)}
+/* 課文直式 */
+.vert-wrap{background:rgba(0,0,0,.2);border-radius:8px;padding:14px;
+  border:1px solid rgba(255,213,79,.3)}
+.vert-text{writing-mode:vertical-rl;width:100%;min-height:200px;max-height:340px;
+  overflow-x:auto;overflow-y:hidden;padding:10px 14px;line-height:2.6;
+  font-size:22px;color:#e8f5ea;letter-spacing:.05em}
+.vchar{cursor:pointer;position:relative;transition:color .15s}
+.vchar:hover{color:#ffd54f}
+.vchar .inline-zy{position:absolute;right:-1.2em;font-size:.48em;color:#a8d4b8;display:none;white-space:nowrap}
+.vchar:hover .inline-zy,.show-all-zy .vchar .inline-zy{display:block}
+.vert-hint{font-size:.78rem;color:var(--chalk-dim);text-align:center;margin-top:8px}
+.toggle-zy-btn{display:inline-block;margin-top:10px;background:rgba(255,213,79,.15);
+  border:1px solid var(--yellow);border-radius:16px;padding:4px 16px;font-size:.82rem;
+  color:var(--yellow);cursor:pointer;transition:background .2s}
+.toggle-zy-btn:hover{background:rgba(255,213,79,.3)}
+/* 生字 */
+.char-grid-v{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:4px}
+.char-box-v{display:inline-flex;align-items:center;gap:5px;
+  background:rgba(255,213,79,.1);border:2px solid rgba(255,213,79,.4);
+  border-radius:10px;padding:8px 10px;cursor:pointer;transition:background .15s}
+.char-box-v:hover{background:rgba(255,213,79,.25)}
+.char-box-v.read-char{border-color:rgba(129,212,250,.5);background:rgba(129,212,250,.08)}
+.char-box-v.read-char:hover{background:rgba(129,212,250,.2)}
+.char-main{font-size:1.8em;font-weight:700;color:var(--yellow);line-height:1}
+.char-box-v.read-char .char-main{color:var(--blue)}
+.zy-col{display:flex;flex-direction:column;align-items:flex-start;line-height:1.3}
+.zy-col > span{font-size:.6em;color:#9abcaa;white-space:nowrap;display:block}
+.zy-row{display:flex !important;align-items:baseline;gap:1px}
+.zy-tone{font-size:.82em;color:#b8d4c4;vertical-align:super;line-height:1}
+/* Tooltip */
+.zy-tooltip{position:fixed;background:#1a2a1a;border:1.5px solid var(--yellow);
+  border-radius:10px;padding:10px 14px;z-index:500;pointer-events:none;display:none;
+  text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.6);min-width:70px}
+.zy-tooltip.show{display:block}
+.zy-tip-char{font-size:2.4em;font-weight:700;color:var(--yellow);line-height:1.1}
+.zy-tip-zy{font-size:.95em;color:#9abcaa;margin-top:4px;letter-spacing:2px}
+.zy-tip-hint{font-size:.65em;color:var(--chalk-dim);margin-top:5px}
+/* 重點詞彙 */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.vocab-card{background:rgba(165,214,167,.08);border:1px solid rgba(165,214,167,.25);
+  border-radius:10px;padding:12px 16px}
+.vocab-word{font-size:1.1rem;font-weight:700;color:var(--green)}
+.vocab-zy{font-size:.78rem;color:var(--chalk-dim);margin:3px 0}
+.vocab-def{font-size:.88rem}
+/* 圖片 */
+.img-wrap{border-radius:10px;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,.1);
+  transition:transform .2s;line-height:0}
+.img-wrap:hover{transform:scale(1.01);border-color:var(--yellow)}
+.img-wrap img{width:100%;height:auto;display:block}
+.img-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:4px}
+/* 形成性評量 */
+.quiz-item{background:rgba(255,255,255,.05);border-radius:10px;padding:16px;margin-bottom:12px;
+  border:1px solid rgba(255,255,255,.1)}
+.quiz-q{font-size:.95rem;margin-bottom:10px;font-weight:600}
+.quiz-opts{display:flex;flex-direction:column;gap:7px}
+.quiz-opts button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);
+  border-radius:8px;padding:8px 14px;text-align:left;cursor:pointer;color:var(--chalk);
+  font-size:.88rem;transition:background .15s;font-family:inherit}
+.quiz-opts button:hover{background:rgba(255,213,79,.15);border-color:var(--yellow)}
+.quiz-opts button.correct{background:rgba(165,214,167,.25);border-color:var(--green);color:var(--green)}
+.quiz-opts button.wrong{background:rgba(255,138,128,.15);border-color:var(--pink);color:var(--pink)}
+/* 浮動工具面板 */
+.float-panel{position:fixed;right:0;top:50%;transform:translateY(-50%);
+  background:var(--board-light);border:1px solid rgba(255,255,255,.15);
+  border-right:none;border-radius:12px 0 0 12px;padding:12px 10px;z-index:200;
+  display:flex;flex-direction:column;gap:10px;box-shadow:-4px 0 20px rgba(0,0,0,.3)}
+.float-btn{width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);cursor:pointer;color:var(--chalk);
+  font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.float-btn:hover{background:rgba(255,213,79,.2);border-color:var(--yellow)}
+.font-display{font-size:.72rem;color:var(--chalk-dim);text-align:center;line-height:1.2}
+/* 燈箱 */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:900;display:none;
+  align-items:center;justify-content:center;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-width:95vw;max-height:92vh;object-fit:contain;border-radius:8px}
+/* 返回首頁 */
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 16px;
+  font-size:.82rem;color:var(--chalk-dim);text-decoration:none;transition:all .2s;margin-bottom:20px}
+.back-btn:hover{background:rgba(255,213,79,.15);color:var(--yellow);border-color:var(--yellow)}
+/* 多音字提示 */
+.phonetic-note{background:rgba(255,138,128,.08);border:1px solid rgba(255,138,128,.25);
+  border-radius:10px;padding:12px 16px;font-size:.88rem}
+.phonetic-note h3{color:var(--pink);margin-bottom:8px;font-size:.9rem}
+.phonetic-note ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 20px}
+.phonetic-note li{color:var(--chalk-dim)}
+.phonetic-note strong{color:var(--chalk)}
+/* RWD */
+@media(max-width:768px){
+  header h1{font-size:1.3rem}
+  .vert-text{font-size:18px;max-height:260px}
+  .char-main{font-size:1.5em}
+  .float-panel{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>🌟 第 10 課｜飛行員和小王子</h1>
+  <div class="meta">
+    <span class="badge">翰林版</span>
+    <span class="badge">三年級下學期</span>
+    <span class="badge">114學年度</span>
+    <span class="badge">作者：聖修伯里（Saint-Exupéry）改編</span>
+    <span class="badge" style="background:rgba(255,213,79,.2);border-color:var(--yellow);color:var(--yellow)">想像力・純真童心・友誼・世界名著</span>
+  </div>
+</header>
+
+<div class="mode-bar">
+  <button class="mode-btn" data-mode="student" onclick="setMode('student')">👨‍🎓 學生模式</button>
+  <button class="mode-btn" data-mode="teacher" onclick="setMode('teacher')">👩‍🏫 教師模式</button>
+</div>
+
+<div class="container">
+  <a href="../index.html" class="back-btn">← 返回課程總覽</a>
+
+  <!-- 學習目標 -->
+  <div class="section">
+    <h2>🎯 學習目標</h2>
+    <div class="objectives"><span class="obj-chip">欣賞世界名著《小王子》的片段</span><span class="obj-chip">理解純真想像力的可貴</span><span class="obj-chip">學習「迫降」「繁星」等詞語</span><span class="obj-chip">習寫本課 13 個生字</span></div>
+  </div>
+
+  <!-- 課文摘要 -->
+  <div class="section">
+    <h2>📖 課文摘要</h2>
+    <p style="line-height:1.9;font-size:.97rem">改編自法國名著《小王子》。飛行員在沙漠迫降，遇見來自外星的小王子。小王子請飛行員畫羊，飛行員畫了幾次都不合意，最後畫了一個箱子說羊在裡面，小王子卻非常滿意，兩人成為好朋友。</p>
+  </div>
+
+  <!-- 課文直式閱讀 -->
+  <div class="section">
+    <h2>📜 課文（直式朗讀）</h2>
+    <div class="vert-wrap">
+      <div class="vert-text" id="vt-L10">
+        <span class="vchar" data-zy="ㄧㄝˋ">夜</span><span class="vchar" data-zy="ㄇㄨˋ">幕</span><span class="vchar" data-zy="ㄐㄧㄤˋ">降</span><span class="vchar" data-zy="ㄌㄧㄣˊ">臨</span>，<span class="vchar" data-zy="ㄨˊ">無</span><span class="vchar" data-zy="ㄕㄨˋ">數</span><span class="vchar" data-zy="ㄈㄢˊ">繁</span><span class="vchar" data-zy="ㄒㄧㄥ">星</span><span class="vchar" data-zy="ㄕㄢˇ">閃</span><span class="vchar" data-zy="ㄕㄨㄛˋ">爍</span>。<span class="vchar" data-zy="ㄈㄟ">飛</span><span class="vchar" data-zy="ㄒㄧㄥˊ">行</span><span class="vchar" data-zy="ㄩㄢˊ">員</span><span class="vchar" data-zy="ㄆㄛˋ">迫</span><span class="vchar" data-zy="ㄐㄧㄤˋ">降</span><span class="vchar" data-zy="ㄗㄞˋ">在</span><span class="vchar" data-zy="ㄕㄚ">沙</span><span class="vchar" data-zy="ㄇㄛˋ">漠</span>，<span class="vchar" data-zy="ㄉㄨˊ">獨</span><span class="vchar" data-zy="ㄗˋ">自</span><span class="vchar" data-zy="ㄒㄧㄡ">修</span><span class="vchar" data-zy="ㄌㄧˇ">理</span><span class="vchar" data-zy="ㄈㄟ">飛</span><span class="vchar" data-zy="ㄐㄧ">機</span>。<span class="vchar" data-zy="ㄏㄨ">忽</span><span class="vchar" data-zy="ㄖㄢˊ">然</span><span class="vchar" data-zy="ㄔㄨ">出</span><span class="vchar" data-zy="ㄒㄧㄢˋ">現</span><span class="vchar" data-zy="ㄧ">一</span><span class="vchar" data-zy="ˋㄍㄜ">個</span><span class="vchar" data-zy="ㄑㄧˊ">奇</span><span class="vchar" data-zy="ㄊㄜˋ">特</span><span class="vchar" data-zy="˙ㄉㄜ">的</span><span class="vchar" data-zy="ㄒㄧㄠˇ">小</span><span class="vchar" data-zy="ㄋㄢˊ">男</span><span class="vchar" data-zy="ˊㄏㄞ">孩</span>。<span class="vchar" data-zy="ㄊㄚ">他</span><span class="vchar" data-zy="ㄑㄧㄥˇ">請</span><span class="vchar" data-zy="ㄑㄧㄡˊ">求</span>：<span class="vchar" data-zy="ㄑㄧㄥˇ">請</span><span class="vchar" data-zy="ㄅㄤ">幫</span><span class="vchar" data-zy="ㄨㄛˇ">我</span><span class="vchar" data-zy="ㄏㄨㄚˋ">畫</span><span class="vchar" data-zy="ㄧ">一</span><span class="vchar" data-zy="ㄓ">隻</span><span class="vchar" data-zy="ㄧㄤˊ">羊</span>！<span class="vchar" data-zy="ㄗㄨㄟˋ">最</span><span class="vchar" data-zy="ㄏㄡˋ">後</span><span class="vchar" data-zy="ㄈㄟ">飛</span><span class="vchar" data-zy="ㄒㄧㄥˊ">行</span><span class="vchar" data-zy="ㄩㄢˊ">員</span><span class="vchar" data-zy="ㄏㄨㄚˋ">畫</span><span class="vchar" data-zy="˙ㄌㄜ">了</span><span class="vchar" data-zy="ㄧ">一</span><span class="vchar" data-zy="ˋㄍㄜ">個</span><span class="vchar" data-zy="ㄒㄧㄤ">箱</span><span class="vchar" data-zy="˙ㄗ">子</span>，<span class="vchar" data-zy="ㄕㄨㄛ">說</span><span class="vchar" data-zy="ㄧㄤˊ">羊</span><span class="vchar" data-zy="ㄗㄞˋ">在</span><span class="vchar" data-zy="ㄌㄧˇ">裡</span><span class="vchar" data-zy="ˋㄇㄧㄢ">面</span><span class="vchar" data-zy="，">，</span><span class="vchar" data-zy="ㄒㄧㄠˇ">小</span><span class="vchar" data-zy="ㄨㄤˊ">王</span><span class="vchar" data-zy="˙ㄗ">子</span><span class="vchar" data-zy="ㄔㄨㄣˊ">純</span><span class="vchar" data-zy="ㄓㄣ">真</span><span class="vchar" data-zy="˙ㄉㄜ">地</span><span class="vchar" data-zy="ㄒㄧㄠˋ">笑</span><span class="vchar" data-zy="˙ㄌㄜ">了</span>。
+      </div>
+      <div class="vert-hint">← 由右往左閱讀・可左右滑動 →</div>
+      <button class="toggle-zy-btn" onclick="toggleAllZY()">顯示 / 隱藏全部注音</button>
+    </div>
+  </div>
+
+  <!-- 圖片 -->
+  <div class="section">
+    <h2>🖼 教學圖表</h2>
+    <div class="img-grid">
+      <div>
+        <p style="font-size:.82rem;color:var(--chalk-dim);margin-bottom:8px">生字卡</p>
+        <div class="img-wrap" onclick="openLB('../assets/chars_L10.jpg')">
+          <img src="../assets/chars_L10.jpg" alt="生字卡" loading="lazy">
+        </div>
+      </div>
+      <div>
+        <p style="font-size:.82rem;color:var(--chalk-dim);margin-bottom:8px">課文直式排版</p>
+        <div class="img-wrap" onclick="openLB('../assets/text_L10.jpg')">
+          <img src="../assets/text_L10.jpg" alt="課文直式" loading="lazy">
+        </div>
+      </div>
+      <div>
+        <p style="font-size:.82rem;color:var(--chalk-dim);margin-bottom:8px">故事地圖</p>
+        <div class="img-wrap" onclick="openLB('../assets/theme_L10.jpg')">
+          <img src="../assets/theme_L10.jpg" alt="故事地圖" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 重點詞彙 -->
+  <div class="section">
+    <h2>📝 重點詞彙</h2>
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="vocab-word">飛行員</div>
+        <div class="vocab-zy">ㄈㄟ ㄒㄧㄥˊ ㄩㄢˊ</div>
+        <div class="vocab-def">駕駛飛機的人</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">夜幕</div>
+        <div class="vocab-zy">ㄧㄝˋ ㄇㄨˋ</div>
+        <div class="vocab-def">夜晚的天幕</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">無數繁星</div>
+        <div class="vocab-zy">ㄨˊ ㄕㄨˋ ㄈㄢˊ ㄒㄧㄥ</div>
+        <div class="vocab-def">數不清的星星</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">迫降</div>
+        <div class="vocab-zy">ㄆㄛˋ ㄐㄧㄤˋ</div>
+        <div class="vocab-def">緊急降落</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">奇特</div>
+        <div class="vocab-zy">ㄑㄧˊ ㄊㄜˋ</div>
+        <div class="vocab-def">非常特別不尋常</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">純真</div>
+        <div class="vocab-zy">ㄔㄨㄣˊ ㄓㄣ</div>
+        <div class="vocab-def">天真無邪</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">修理</div>
+        <div class="vocab-zy">ㄒㄧㄡ ㄌㄧˇ</div>
+        <div class="vocab-def">修復損壞的東西</div>
+      </div></div>
+  </div>
+
+  <!-- 生字區 -->
+  
+      <div class="section">
+        <h2>✏️ 習寫字</h2>
+        <div class="char-grid-v"><div class="char-box-v" data-char="員" data-zy="ㄩㄢˊ"><span class="char-main">員</span><div class="zy-col"><span>ㄩ</span><span class="zy-row">ㄢ<span class="zy-tone">ˊ</span></span></div></div><div class="char-box-v" data-char="幕" data-zy="ㄇㄨˋ"><span class="char-main">幕</span><div class="zy-col"><span>ㄇ</span><span class="zy-row">ㄨ<span class="zy-tone">ˋ</span></span></div></div><div class="char-box-v" data-char="無" data-zy="ㄨˊ"><span class="char-main">無</span><div class="zy-col"><span class="zy-row">ㄨ<span class="zy-tone">ˊ</span></span></div></div><div class="char-box-v" data-char="繁" data-zy="ㄈㄢˊ"><span class="char-main">繁</span><div class="zy-col"><span>ㄈ</span><span class="zy-row">ㄢ<span class="zy-tone">ˊ</span></span></div></div><div class="char-box-v" data-char="星" data-zy="ㄒㄧㄥ"><span class="char-main">星</span><div class="zy-col"><span>ㄒ</span><span>ㄧ</span><span>ㄥ</span></div></div><div class="char-box-v" data-char="迫" data-zy="ㄆㄛˋ"><span class="char-main">迫</span><div class="zy-col"><span>ㄆ</span><span class="zy-row">ㄛ<span class="zy-tone">ˋ</span></span></div></div><div class="char-box-v" data-char="降" data-zy="ㄐㄧㄤˋ"><span class="char-main">降</span><div class="zy-col"><span>ㄐ</span><span>ㄧ</span><span class="zy-row">ㄤ<span class="zy-tone">ˋ</span></span></div></div><div class="char-box-v" data-char="修" data-zy="ㄒㄧㄡ"><span class="char-main">修</span><div class="zy-col"><span>ㄒ</span><span>ㄧ</span><span>ㄡ</span></div></div><div class="char-box-v" data-char="理" data-zy="ㄌㄧˇ"><span class="char-main">理</span><div class="zy-col"><span>ㄌ</span><span class="zy-row">ㄧ<span class="zy-tone">ˇ</span></span></div></div><div class="char-box-v" data-char="奇" data-zy="ㄑㄧˊ"><span class="char-main">奇</span><div class="zy-col"><span>ㄑ</span><span class="zy-row">ㄧ<span class="zy-tone">ˊ</span></span></div></div><div class="char-box-v" data-char="特" data-zy="ㄊㄜˋ"><span class="char-main">特</span><div class="zy-col"><span>ㄊ</span><span class="zy-row">ㄜ<span class="zy-tone">ˋ</span></span></div></div><div class="char-box-v" data-char="純" data-zy="ㄔㄨㄣˊ"><span class="char-main">純</span><div class="zy-col"><span>ㄔ</span><span>ㄨ</span><span class="zy-row">ㄣ<span class="zy-tone">ˊ</span></span></div></div><div class="char-box-v" data-char="真" data-zy="ㄓㄣ"><span class="char-main">真</span><div class="zy-col"><span>ㄓ</span><span>ㄣ</span></div></div></div>
+      </div>
+      <div class="section">
+        <h2>👁 認讀字</h2>
+        <div class="char-grid-v"><div class="char-box-v read-char" data-char="拇" data-zy="ㄇㄨˇ"><span class="char-main">拇</span><div class="zy-col"><span>ㄇ</span><span class="zy-row">ㄨ<span class="zy-tone">ˇ</span></span></div></div><div class="char-box-v read-char" data-char="胃" data-zy="ㄨㄟˋ"><span class="char-main">胃</span><div class="zy-col"><span>ㄨ</span><span class="zy-row">ㄟ<span class="zy-tone">ˋ</span></span></div></div></div>
+      </div>
+
+  <!-- 形成性評量 -->
+  <div class="section">
+    <h2>✅ 形成性評量</h2>
+    
+      <div class="quiz-item">
+        <div class="quiz-q">Q1. 飛行員在哪裡遇見小王子？</div>
+        <div class="quiz-opts"><button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">A. 森林裡</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">B. 海邊</button>
+<button data-correct="true" onclick="checkQ(this,this.dataset.correct==='true')">C. 沙漠中</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">D. 城市裡</button>
+</div>
+      </div>
+      <div class="quiz-item">
+        <div class="quiz-q">Q2. 小王子請飛行員做什麼？</div>
+        <div class="quiz-opts"><button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">A. 修飛機</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">B. 說故事</button>
+<button data-correct="true" onclick="checkQ(this,this.dataset.correct==='true')">C. 畫一隻羊</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">D. 唱一首歌</button>
+</div>
+      </div>
+      <div class="quiz-item">
+        <div class="quiz-q">Q3. 最後飛行員畫了什麼讓小王子滿意？</div>
+        <div class="quiz-opts"><button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">A. 一隻白色的羊</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">B. 一隻小黑羊</button>
+<button data-correct="true" onclick="checkQ(this,this.dataset.correct==='true')">C. 一個箱子（說羊在裡面）</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">D. 一片草地上的羊</button>
+</div>
+      </div>
+      <div class="quiz-item">
+        <div class="quiz-q">Q4. 「純真」的意思是什麼？</div>
+        <div class="quiz-opts"><button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">A. 非常聰明</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">B. 很有禮貌</button>
+<button data-correct="true" onclick="checkQ(this,this.dataset.correct==='true')">C. 天真無邪</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">D. 非常勤勞</button>
+</div>
+      </div>
+  </div>
+
+  <!-- 教師專區 -->
+  <div id="teacher-only">
+    <div class="section">
+      <h2>👩‍🏫 教師備課提示</h2>
+      <p style="line-height:1.8;font-size:.92rem">
+        本課主題：<strong>想像力・純真童心・友誼・世界名著</strong><br>
+        建議教學策略：先讓學生觀察圖片、進行預測，再帶入課文閱讀。生字教學建議結合造詞練習，重點詞彙可進行造句比賽。
+      </p>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- 燈箱 -->
+<div class="lightbox" id="lightbox"><img src="" alt=""></div>
+
+<!-- 浮動工具面板 -->
+<div class="float-panel">
+  <button class="float-btn" onclick="adjFont(2)" title="放大字體">A+</button>
+  <div class="font-display">16px</div>
+  <button class="float-btn" onclick="adjFont(-2)" title="縮小字體">A-</button>
+</div>
+
+<script>
+// ── 模式切換 ──
+function setMode(m){
+  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.mode-btn[data-mode='+m+']').classList.add('active');
+  document.getElementById('teacher-only').style.display = m==='teacher'?'block':'none';
+}
+document.querySelector('.mode-btn[data-mode=student]').click();
+
+// ── 生字 Tooltip ──
+(function(){
+  var tip=document.createElement('div');
+  tip.className='zy-tooltip';
+  tip.innerHTML='<div class="zy-tip-char"></div><div class="zy-tip-zy"></div><div class="zy-tip-hint">點擊播放發音</div>';
+  document.body.appendChild(tip);
+  function mv(e){
+    var x=e.clientX+14,y=e.clientY-80;
+    tip.style.left=Math.min(x,window.innerWidth-110)+'px';
+    tip.style.top=Math.max(y,8)+'px';
+  }
+  document.querySelectorAll('.char-box-v').forEach(function(b){
+    b.addEventListener('mouseenter',function(e){
+      tip.querySelector('.zy-tip-char').textContent=b.dataset.char;
+      tip.querySelector('.zy-tip-zy').textContent=b.dataset.zy;
+      tip.classList.add('show'); mv(e);
+    });
+    b.addEventListener('mousemove',mv);
+    b.addEventListener('mouseleave',function(){tip.classList.remove('show');});
+    b.addEventListener('click',function(){
+      if('speechSynthesis' in window){
+        var u=new SpeechSynthesisUtterance(b.dataset.char);
+        u.lang='zh-TW';u.rate=0.75;speechSynthesis.cancel();speechSynthesis.speak(u);
+      }
+    });
+  });
+})();
+
+// ── 直式課文注音 ──
+function showInlineZY(el){
+  var zy=el.dataset.zy; if(!zy) return;
+  var s=el.querySelector('.inline-zy');
+  if(!s){s=document.createElement('span');s.className='inline-zy';s.textContent=zy;el.appendChild(s);}
+  s.style.display='block';
+}
+function hideInlineZY(el){var s=el.querySelector('.inline-zy');if(s)s.style.display='';}
+function speakInline(el){
+  var u=new SpeechSynthesisUtterance(el.textContent.trim().replace(/[　-〿＀-￯]/g,''));
+  u.lang='zh-TW';u.rate=0.7;speechSynthesis.cancel();speechSynthesis.speak(u);
+}
+var allZY=false;
+function toggleAllZY(){
+  allZY=!allZY;
+  document.querySelectorAll('.vert-text').forEach(function(el){
+    el.classList.toggle('show-all-zy',allZY);
+    if(allZY){el.querySelectorAll('.vchar').forEach(function(c){
+      if(!c.querySelector('.inline-zy')&&c.dataset.zy){
+        var s=document.createElement('span');s.className='inline-zy';
+        s.textContent=c.dataset.zy;c.appendChild(s);
+      }
+    });}
+  });
+}
+
+// ── 燈箱 ──
+var lb=document.getElementById('lightbox');
+function openLB(src){
+  lb.querySelector('img').src=src;
+  lb.classList.add('open');
+}
+lb.addEventListener('click',function(){lb.classList.remove('open');});
+
+// ── 評量 ──
+function checkQ(btn,correct){
+  var opts=btn.parentNode.querySelectorAll('button');
+  opts.forEach(function(b){b.disabled=true;});
+  btn.classList.add(correct?'correct':'wrong');
+  if(!correct){
+    opts.forEach(function(b,i){if(b.dataset.correct==='true')b.classList.add('correct');});
+  }
+}
+
+// ── 字級調整 ──
+var fs=16;
+function adjFont(d){
+  fs=Math.min(22,Math.max(12,fs+d));
+  document.body.style.fontSize=fs+'px';
+  document.querySelector('.font-display').textContent=fs+'px';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>翰林版三下 第 8 課｜行人的守護者</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--board:#1a2a1a;--board-light:#243524;--chalk:#e8e4d8;--chalk-dim:#a8a498;
+  --yellow:#ffd54f;--wood:#8d6e4a;--wood-dark:#5d4530;--wood-light:#a8875a;
+  --pink:#ff8a80;--blue:#81d4fa;--green:#a5d6a7}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--board);
+  color:var(--chalk);min-height:100vh;font-size:16px}
+header{background:linear-gradient(180deg,var(--wood-light) 0%,var(--wood) 40%,var(--wood-dark) 100%);
+  padding:22px 28px 18px;box-shadow:0 4px 16px rgba(0,0,0,.5);border-bottom:3px solid #3a2a1a;
+  position:sticky;top:0;z-index:100}
+header h1{font-size:1.8rem;font-weight:900;text-shadow:1px 1px 3px rgba(0,0,0,.5)}
+header .meta{font-size:.95rem;opacity:.85;margin-top:6px}
+.badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  border-radius:20px;padding:3px 12px;font-size:.88rem;margin-right:6px}
+.mode-bar{display:flex;gap:12px;padding:10px 28px;background:rgba(0,0,0,.3);
+  border-bottom:1px solid rgba(255,255,255,.1);font-size:.95rem}
+.mode-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  border-radius:20px;padding:4px 16px;font-size:.9rem;cursor:pointer;color:var(--chalk);
+  transition:all .2s}
+.mode-btn.active{background:var(--yellow);color:#1a1a1a;border-color:var(--yellow)}
+#teacher-only{display:none}
+.container{max-width:960px;margin:0 auto;padding:36px 20px 80px}
+h2{font-size:1.15rem;color:var(--yellow);margin-bottom:18px;padding-bottom:8px;
+  border-bottom:2px dashed var(--yellow)}
+.section{background:var(--board-light);border-radius:14px;padding:24px;margin-bottom:24px;
+  border:1px solid rgba(232,228,216,.12)}
+.objectives{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:0}
+.obj-chip{background:rgba(129,212,250,.12);border:1px solid var(--blue);border-radius:20px;
+  padding:4px 14px;font-size:.85rem;color:var(--blue)}
+/* 課文直式 */
+.vert-wrap{background:rgba(0,0,0,.2);border-radius:8px;padding:14px;
+  border:1px solid rgba(255,213,79,.3)}
+.vert-text{writing-mode:vertical-rl;width:100%;min-height:200px;max-height:340px;
+  overflow-x:auto;overflow-y:hidden;padding:10px 14px;line-height:2.6;
+  font-size:22px;color:#e8f5ea;letter-spacing:.05em}
+.vchar{cursor:pointer;position:relative;transition:color .15s}
+.vchar:hover{color:#ffd54f}
+.vchar .inline-zy{position:absolute;right:-1.2em;font-size:.48em;color:#a8d4b8;display:none;white-space:nowrap}
+.vchar:hover .inline-zy,.show-all-zy .vchar .inline-zy{display:block}
+.vert-hint{font-size:.78rem;color:var(--chalk-dim);text-align:center;margin-top:8px}
+.toggle-zy-btn{display:inline-block;margin-top:10px;background:rgba(255,213,79,.15);
+  border:1px solid var(--yellow);border-radius:16px;padding:4px 16px;font-size:.82rem;
+  color:var(--yellow);cursor:pointer;transition:background .2s}
+.toggle-zy-btn:hover{background:rgba(255,213,79,.3)}
+/* 生字 */
+.char-grid-v{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:4px}
+.char-box-v{display:inline-flex;align-items:center;gap:5px;
+  background:rgba(255,213,79,.1);border:2px solid rgba(255,213,79,.4);
+  border-radius:10px;padding:8px 10px;cursor:pointer;transition:background .15s}
+.char-box-v:hover{background:rgba(255,213,79,.25)}
+.char-box-v.read-char{border-color:rgba(129,212,250,.5);background:rgba(129,212,250,.08)}
+.char-box-v.read-char:hover{background:rgba(129,212,250,.2)}
+.char-main{font-size:1.8em;font-weight:700;color:var(--yellow);line-height:1}
+.char-box-v.read-char .char-main{color:var(--blue)}
+.zy-col{display:flex;flex-direction:column;align-items:flex-start;line-height:1.3}
+.zy-col > span{font-size:.6em;color:#9abcaa;white-space:nowrap;display:block}
+.zy-row{display:flex !important;align-items:baseline;gap:1px}
+.zy-tone{font-size:.82em;color:#b8d4c4;vertical-align:super;line-height:1}
+/* Tooltip */
+.zy-tooltip{position:fixed;background:#1a2a1a;border:1.5px solid var(--yellow);
+  border-radius:10px;padding:10px 14px;z-index:500;pointer-events:none;display:none;
+  text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.6);min-width:70px}
+.zy-tooltip.show{display:block}
+.zy-tip-char{font-size:2.4em;font-weight:700;color:var(--yellow);line-height:1.1}
+.zy-tip-zy{font-size:.95em;color:#9abcaa;margin-top:4px;letter-spacing:2px}
+.zy-tip-hint{font-size:.65em;color:var(--chalk-dim);margin-top:5px}
+/* 重點詞彙 */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.vocab-card{background:rgba(165,214,167,.08);border:1px solid rgba(165,214,167,.25);
+  border-radius:10px;padding:12px 16px}
+.vocab-word{font-size:1.1rem;font-weight:700;color:var(--green)}
+.vocab-zy{font-size:.78rem;color:var(--chalk-dim);margin:3px 0}
+.vocab-def{font-size:.88rem}
+/* 圖片 */
+.img-wrap{border-radius:10px;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,.1);
+  transition:transform .2s;line-height:0}
+.img-wrap:hover{transform:scale(1.01);border-color:var(--yellow)}
+.img-wrap img{width:100%;height:auto;display:block}
+.img-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:4px}
+/* 形成性評量 */
+.quiz-item{background:rgba(255,255,255,.05);border-radius:10px;padding:16px;margin-bottom:12px;
+  border:1px solid rgba(255,255,255,.1)}
+.quiz-q{font-size:.95rem;margin-bottom:10px;font-weight:600}
+.quiz-opts{display:flex;flex-direction:column;gap:7px}
+.quiz-opts button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);
+  border-radius:8px;padding:8px 14px;text-align:left;cursor:pointer;color:var(--chalk);
+  font-size:.88rem;transition:background .15s;font-family:inherit}
+.quiz-opts button:hover{background:rgba(255,213,79,.15);border-color:var(--yellow)}
+.quiz-opts button.correct{background:rgba(165,214,167,.25);border-color:var(--green);color:var(--green)}
+.quiz-opts button.wrong{background:rgba(255,138,128,.15);border-color:var(--pink);color:var(--pink)}
+/* 浮動工具面板 */
+.float-panel{position:fixed;right:0;top:50%;transform:translateY(-50%);
+  background:var(--board-light);border:1px solid rgba(255,255,255,.15);
+  border-right:none;border-radius:12px 0 0 12px;padding:12px 10px;z-index:200;
+  display:flex;flex-direction:column;gap:10px;box-shadow:-4px 0 20px rgba(0,0,0,.3)}
+.float-btn{width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);cursor:pointer;color:var(--chalk);
+  font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.float-btn:hover{background:rgba(255,213,79,.2);border-color:var(--yellow)}
+.font-display{font-size:.72rem;color:var(--chalk-dim);text-align:center;line-height:1.2}
+/* 燈箱 */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:900;display:none;
+  align-items:center;justify-content:center;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-width:95vw;max-height:92vh;object-fit:contain;border-radius:8px}
+/* 返回首頁 */
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 16px;
+  font-size:.82rem;color:var(--chalk-dim);text-decoration:none;transition:all .2s;margin-bottom:20px}
+.back-btn:hover{background:rgba(255,213,79,.15);color:var(--yellow);border-color:var(--yellow)}
+/* 多音字提示 */
+.phonetic-note{background:rgba(255,138,128,.08);border:1px solid rgba(255,138,128,.25);
+  border-radius:10px;padding:12px 16px;font-size:.88rem}
+.phonetic-note h3{color:var(--pink);margin-bottom:8px;font-size:.9rem}
+.phonetic-note ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 20px}
+.phonetic-note li{color:var(--chalk-dim)}
+.phonetic-note strong{color:var(--chalk)}
+/* RWD */
+@media(max-width:768px){
+  header h1{font-size:1.3rem}
+  .vert-text{font-size:18px;max-height:260px}
+  .char-main{font-size:1.5em}
+  .float-panel{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>🦺 第 8 課｜行人的守護者</h1>
+  <div class="meta">
+    <span class="badge">翰林版</span>
+    <span class="badge">三年級下學期</span>
+    <span class="badge">114學年度</span>
+    
+    <span class="badge" style="background:rgba(255,213,79,.2);border-color:var(--yellow);color:var(--yellow)">公民意識・志工服務・交通安全</span>
+  </div>
+</header>
+
+<div class="mode-bar">
+  <button class="mode-btn" data-mode="student" onclick="setMode('student')">👨‍🎓 學生模式</button>
+  <button class="mode-btn" data-mode="teacher" onclick="setMode('teacher')">👩‍🏫 教師模式</button>
+</div>
+
+<div class="container">
+  <a href="../index.html" class="back-btn">← 返回課程總覽</a>
+
+  <!-- 學習目標 -->
+  <div class="section">
+    <h2>🎯 學習目標</h2>
+    <div class="objectives"><span class="obj-chip">了解交通義工的工作與精神</span><span class="obj-chip">學習「不疾不徐」等詞語</span><span class="obj-chip">培養公民意識與服務精神</span><span class="obj-chip">習寫本課 12 個生字</span></div>
+  </div>
+
+  <!-- 課文摘要 -->
+  <div class="section">
+    <h2>📖 課文摘要</h2>
+    <p style="line-height:1.9;font-size:.97rem">交通義工站在路口指揮交通、協助行人過馬路。他們打扮整齊、精神抖擻，不疾不徐地引導行人，展現活潑形象，維持交通秩序，為社區帶來正面影響。</p>
+  </div>
+
+  <!-- 課文直式閱讀 -->
+  <div class="section">
+    <h2>📜 課文（直式朗讀）</h2>
+    <div class="vert-wrap">
+      <div class="vert-text" id="vt-L8">
+        <span class="vchar" data-zy="ㄐㄧㄠ">交</span><span class="vchar" data-zy="ㄊㄨㄥ">通</span><span class="vchar" data-zy="ㄧˋ">義</span><span class="vchar" data-zy="ㄍㄨㄥ">工</span><span class="vchar" data-zy="ㄓㄢˋ">站</span><span class="vchar" data-zy="ㄗㄞˋ">在</span><span class="vchar" data-zy="ㄌㄨˋ">路</span><span class="vchar" data-zy="ㄎㄡˇ">口</span>，<span class="vchar" data-zy="ㄉㄚˇ">打</span><span class="vchar" data-zy="ㄅㄢˋ">扮</span><span class="vchar" data-zy="ㄓㄥˇ">整</span><span class="vchar" data-zy="ㄑㄧˊ">齊</span><span class="vchar" data-zy="，">，</span><span class="vchar" data-zy="ㄐㄧㄥ">精</span><span class="vchar" data-zy="ㄕㄣˊ">神</span><span class="vchar" data-zy="ㄉㄡˇ">抖</span><span class="vchar" data-zy="ㄙㄡˇ">擻</span>。<span class="vchar" data-zy="ㄊㄚ">他</span><span class="vchar" data-zy="ㄅㄨˋ">不</span><span class="vchar" data-zy="ㄐㄧˊ">疾</span><span class="vchar" data-zy="ㄅㄨˋ">不</span><span class="vchar" data-zy="ㄒㄩˊ">徐</span><span class="vchar" data-zy="˙ㄉㄜ">地</span><span class="vchar" data-zy="ㄧㄣˇ">引</span><span class="vchar" data-zy="ㄉㄠˇ">導</span><span class="vchar" data-zy="ㄒㄧㄥˊ">行</span><span class="vchar" data-zy="ㄖㄣˊ">人</span><span class="vchar" data-zy="ㄍㄨㄛˋ">過</span><span class="vchar" data-zy="ㄇㄚˇ">馬</span><span class="vchar" data-zy="ㄌㄨˋ">路</span>，<span class="vchar" data-zy="ㄓㄢˇ">展</span><span class="vchar" data-zy="ㄒㄧㄢˋ">現</span><span class="vchar" data-zy="ㄏㄨㄛˊ">活</span><span class="vchar" data-zy="ㄆㄛ">潑</span><span class="vchar" data-zy="˙ㄉㄜ">的</span><span class="vchar" data-zy="ㄗㄠˋ">造</span><span class="vchar" data-zy="ㄒㄧㄥˊ">型</span>。<span class="vchar" data-zy="ㄕㄡˇ">守</span><span class="vchar" data-zy="ㄏㄨˋ">護</span><span class="vchar" data-zy="ㄒㄧㄥˊ">行</span><span class="vchar" data-zy="ㄖㄣˊ">人</span><span class="vchar" data-zy="˙ㄉㄜ">的</span><span class="vchar" data-zy="ㄢ">安</span><span class="vchar" data-zy="ㄑㄩㄢˊ">全</span><span class="vchar" data-zy="，">，</span><span class="vchar" data-zy="ㄨㄟˊ">維</span><span class="vchar" data-zy="ㄔˊ">持</span><span class="vchar" data-zy="ㄐㄧㄠ">交</span><span class="vchar" data-zy="ㄊㄨㄥ">通</span><span class="vchar" data-zy="ㄓˋ">秩</span><span class="vchar" data-zy="ㄒㄩˋ">序</span>。
+      </div>
+      <div class="vert-hint">← 由右往左閱讀・可左右滑動 →</div>
+      <button class="toggle-zy-btn" onclick="toggleAllZY()">顯示 / 隱藏全部注音</button>
+    </div>
+  </div>
+
+  <!-- 圖片 -->
+  <div class="section">
+    <h2>🖼 教學圖表</h2>
+    <div class="img-grid">
+      <div>
+        <p style="font-size:.82rem;color:var(--chalk-dim);margin-bottom:8px">生字卡</p>
+        <div class="img-wrap" onclick="openLB('../assets/chars_L08.jpg')">
+          <img src="../assets/chars_L08.jpg" alt="生字卡" loading="lazy">
+        </div>
+      </div>
+      <div>
+        <p style="font-size:.82rem;color:var(--chalk-dim);margin-bottom:8px">課文直式排版</p>
+        <div class="img-wrap" onclick="openLB('../assets/text_L08.jpg')">
+          <img src="../assets/text_L08.jpg" alt="課文直式" loading="lazy">
+        </div>
+      </div>
+      <div>
+        <p style="font-size:.82rem;color:var(--chalk-dim);margin-bottom:8px">故事地圖</p>
+        <div class="img-wrap" onclick="openLB('../assets/theme_L08.jpg')">
+          <img src="../assets/theme_L08.jpg" alt="故事地圖" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 重點詞彙 -->
+  <div class="section">
+    <h2>📝 重點詞彙</h2>
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="vocab-word">守護</div>
+        <div class="vocab-zy">ㄕㄡˇ ㄏㄨˋ</div>
+        <div class="vocab-def">保護守衛</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">展現</div>
+        <div class="vocab-zy">ㄓㄢˇ ㄒㄧㄢˋ</div>
+        <div class="vocab-def">展示呈現</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">活潑</div>
+        <div class="vocab-zy">ㄏㄨㄛˊ ㄆㄛ</div>
+        <div class="vocab-def">生動有活力</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">不疾不徐</div>
+        <div class="vocab-zy">ㄅㄨˋ ㄐㄧˊ ㄅㄨˋ ㄒㄩˊ</div>
+        <div class="vocab-def">不快不慢，速度適中</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">秩序</div>
+        <div class="vocab-zy">ㄓˋ ㄒㄩˋ</div>
+        <div class="vocab-def">有條有理的狀態</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">交談</div>
+        <div class="vocab-zy">ㄐㄧㄠ ㄊㄢˊ</div>
+        <div class="vocab-def">互相交流談話</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">光芒</div>
+        <div class="vocab-zy">ㄍㄨㄤ ㄇㄤˊ</div>
+        <div class="vocab-def">強烈的光線</div>
+      </div></div>
+  </div>
+
+  <!-- 生字區 -->
+  
+      <div class="section">
+        <h2>✏️ 習寫字</h2>
+        <div class="char-grid-v"><div class="char-box-v" data-char="守" data-zy="ㄕㄡˇ"><span class="char-main">守</span><div class="zy-col"><span>ㄕ</span><span class="zy-row">ㄡ<span class="zy-tone">ˇ</span></span></div></div><div class="char-box-v" data-char="護" data-zy="ㄏㄨˋ"><span class="char-main">護</span><div class="zy-col"><span>ㄏ</span><span class="zy-row">ㄨ<span class="zy-tone">ˋ</span></span></div></div><div class="char-box-v" data-char="徐" data-zy="ㄒㄩˊ"><span class="char-main">徐</span><div class="zy-col"><span>ㄒ</span><span class="zy-row">ㄩ<span class="zy-tone">ˊ</span></span></div></div><div class="char-box-v" data-char="展" data-zy="ㄓㄢˇ"><span class="char-main">展</span><div class="zy-col"><span>ㄓ</span><span class="zy-row">ㄢ<span class="zy-tone">ˇ</span></span></div></div><div class="char-box-v" data-char="現" data-zy="ㄒㄧㄢˋ"><span class="char-main">現</span><div class="zy-col"><span>ㄒ</span><span>ㄧ</span><span class="zy-row">ㄢ<span class="zy-tone">ˋ</span></span></div></div><div class="char-box-v" data-char="潑" data-zy="ㄆㄛ"><span class="char-main">潑</span><div class="zy-col"><span>ㄆ</span><span>ㄛ</span></div></div><div class="char-box-v" data-char="談" data-zy="ㄊㄢˊ"><span class="char-main">談</span><div class="zy-col"><span>ㄊ</span><span class="zy-row">ㄢ<span class="zy-tone">ˊ</span></span></div></div><div class="char-box-v" data-char="秩" data-zy="ㄓˋ"><span class="char-main">秩</span><div class="zy-col"><span class="zy-row">ㄓ<span class="zy-tone">ˋ</span></span></div></div><div class="char-box-v" data-char="序" data-zy="ㄒㄩˋ"><span class="char-main">序</span><div class="zy-col"><span>ㄒ</span><span class="zy-row">ㄩ<span class="zy-tone">ˋ</span></span></div></div><div class="char-box-v" data-char="扮" data-zy="ㄅㄢˋ"><span class="char-main">扮</span><div class="zy-col"><span>ㄅ</span><span class="zy-row">ㄢ<span class="zy-tone">ˋ</span></span></div></div><div class="char-box-v" data-char="型" data-zy="ㄒㄧㄥˊ"><span class="char-main">型</span><div class="zy-col"><span>ㄒ</span><span>ㄧ</span><span class="zy-row">ㄥ<span class="zy-tone">ˊ</span></span></div></div><div class="char-box-v" data-char="倍" data-zy="ㄅㄟˋ"><span class="char-main">倍</span><div class="zy-col"><span>ㄅ</span><span class="zy-row">ㄟ<span class="zy-tone">ˋ</span></span></div></div></div>
+      </div>
+      <div class="section">
+        <h2>👁 認讀字</h2>
+        <div class="char-grid-v"><div class="char-box-v read-char" data-char="疾" data-zy="ㄐㄧˊ"><span class="char-main">疾</span><div class="zy-col"><span>ㄐ</span><span class="zy-row">ㄧ<span class="zy-tone">ˊ</span></span></div></div><div class="char-box-v read-char" data-char="芒" data-zy="ㄇㄤˊ"><span class="char-main">芒</span><div class="zy-col"><span>ㄇ</span><span class="zy-row">ㄤ<span class="zy-tone">ˊ</span></span></div></div></div>
+      </div>
+
+  <!-- 形成性評量 -->
+  <div class="section">
+    <h2>✅ 形成性評量</h2>
+    
+      <div class="quiz-item">
+        <div class="quiz-q">Q1. 交通義工的工作是什麼？</div>
+        <div class="quiz-opts"><button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">A. 修理道路</button>
+<button data-correct="true" onclick="checkQ(this,this.dataset.correct==='true')">B. 站在路口協助行人過馬路</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">C. 開計程車</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">D. 賣便當</button>
+</div>
+      </div>
+      <div class="quiz-item">
+        <div class="quiz-q">Q2. 「不疾不徐」的意思是什麼？</div>
+        <div class="quiz-opts"><button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">A. 非常快速</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">B. 非常緩慢</button>
+<button data-correct="true" onclick="checkQ(this,this.dataset.correct==='true')">C. 不快不慢，速度適中</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">D. 忽快忽慢</button>
+</div>
+      </div>
+      <div class="quiz-item">
+        <div class="quiz-q">Q3. 義工的工作帶給社區什麼影響？</div>
+        <div class="quiz-opts"><button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">A. 噪音增加</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">B. 交通堵塞</button>
+<button data-correct="true" onclick="checkQ(this,this.dataset.correct==='true')">C. 維持秩序、保護行人安全</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">D. 增加費用</button>
+</div>
+      </div>
+      <div class="quiz-item">
+        <div class="quiz-q">Q4. 文章中「打扮整齊、精神抖擻」是在形容義工的什麼？</div>
+        <div class="quiz-opts"><button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">A. 工作時間很長</button>
+<button data-correct="true" onclick="checkQ(this,this.dataset.correct==='true')">B. 認真負責的外在形象</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">C. 薪水很高</button>
+<button data-correct="false" onclick="checkQ(this,this.dataset.correct==='true')">D. 年紀很大</button>
+</div>
+      </div>
+  </div>
+
+  <!-- 教師專區 -->
+  <div id="teacher-only">
+    <div class="section">
+      <h2>👩‍🏫 教師備課提示</h2>
+      <p style="line-height:1.8;font-size:.92rem">
+        本課主題：<strong>公民意識・志工服務・交通安全</strong><br>
+        建議教學策略：先讓學生觀察圖片、進行預測，再帶入課文閱讀。生字教學建議結合造詞練習，重點詞彙可進行造句比賽。
+      </p>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- 燈箱 -->
+<div class="lightbox" id="lightbox"><img src="" alt=""></div>
+
+<!-- 浮動工具面板 -->
+<div class="float-panel">
+  <button class="float-btn" onclick="adjFont(2)" title="放大字體">A+</button>
+  <div class="font-display">16px</div>
+  <button class="float-btn" onclick="adjFont(-2)" title="縮小字體">A-</button>
+</div>
+
+<script>
+// ── 模式切換 ──
+function setMode(m){
+  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.mode-btn[data-mode='+m+']').classList.add('active');
+  document.getElementById('teacher-only').style.display = m==='teacher'?'block':'none';
+}
+document.querySelector('.mode-btn[data-mode=student]').click();
+
+// ── 生字 Tooltip ──
+(function(){
+  var tip=document.createElement('div');
+  tip.className='zy-tooltip';
+  tip.innerHTML='<div class="zy-tip-char"></div><div class="zy-tip-zy"></div><div class="zy-tip-hint">點擊播放發音</div>';
+  document.body.appendChild(tip);
+  function mv(e){
+    var x=e.clientX+14,y=e.clientY-80;
+    tip.style.left=Math.min(x,window.innerWidth-110)+'px';
+    tip.style.top=Math.max(y,8)+'px';
+  }
+  document.querySelectorAll('.char-box-v').forEach(function(b){
+    b.addEventListener('mouseenter',function(e){
+      tip.querySelector('.zy-tip-char').textContent=b.dataset.char;
+      tip.querySelector('.zy-tip-zy').textContent=b.dataset.zy;
+      tip.classList.add('show'); mv(e);
+    });
+    b.addEventListener('mousemove',mv);
+    b.addEventListener('mouseleave',function(){tip.classList.remove('show');});
+    b.addEventListener('click',function(){
+      if('speechSynthesis' in window){
+        var u=new SpeechSynthesisUtterance(b.dataset.char);
+        u.lang='zh-TW';u.rate=0.75;speechSynthesis.cancel();speechSynthesis.speak(u);
+      }
+    });
+  });
+})();
+
+// ── 直式課文注音 ──
+function showInlineZY(el){
+  var zy=el.dataset.zy; if(!zy) return;
+  var s=el.querySelector('.inline-zy');
+  if(!s){s=document.createElement('span');s.className='inline-zy';s.textContent=zy;el.appendChild(s);}
+  s.style.display='block';
+}
+function hideInlineZY(el){var s=el.querySelector('.inline-zy');if(s)s.style.display='';}
+function speakInline(el){
+  var u=new SpeechSynthesisUtterance(el.textContent.trim().replace(/[　-〿＀-￯]/g,''));
+  u.lang='zh-TW';u.rate=0.7;speechSynthesis.cancel();speechSynthesis.speak(u);
+}
+var allZY=false;
+function toggleAllZY(){
+  allZY=!allZY;
+  document.querySelectorAll('.vert-text').forEach(function(el){
+    el.classList.toggle('show-all-zy',allZY);
+    if(allZY){el.querySelectorAll('.vchar').forEach(function(c){
+      if(!c.querySelector('.inline-zy')&&c.dataset.zy){
+        var s=document.createElement('span');s.className='inline-zy';
+        s.textContent=c.dataset.zy;c.appendChild(s);
+      }
+    });}
+  });
+}
+
+// ── 燈箱 ──
+var lb=document.getElementById('lightbox');
+function openLB(src){
+  lb.querySelector('img').src=src;
+  lb.classList.add('open');
+}
+lb.addEventListener('click',function(){lb.classList.remove('open');});
+
+// ── 評量 ──
+function checkQ(btn,correct){
+  var opts=btn.parentNode.querySelectorAll('button');
+  opts.forEach(function(b){b.disabled=true;});
+  btn.classList.add(correct?'correct':'wrong');
+  if(!correct){
+    opts.forEach(function(b,i){if(b.dataset.correct==='true')b.classList.add('correct');});
+  }
+}
+
+// ── 字級調整 ──
+var fs=16;
+function adjFont(d){
+  fs=Math.min(22,Math.max(12,fs+d));
+  document.body.style.fontSize=fs+'px';
+  document.querySelector('.font-display').textContent=fs+'px';
+}
+</script>
+</body>
+</html>
