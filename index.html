@@ -44,6 +44,7 @@ h2{font-size:1.15rem;color:var(--yellow);margin-bottom:24px;padding-bottom:8px;
   border-radius:20px;padding:6px 18px;font-size:.82rem;font-weight:700;border:1px solid rgba(255,255,255,.2)}
 .subject-card.active .go-btn{background:var(--yellow);color:#1a1a1a;border-color:var(--yellow)}
 .subject-card.science.active .go-btn{background:var(--green)}
+.subject-card.math.active .go-btn{background:var(--blue)}
 .subject-card .status-badge{position:absolute;top:14px;right:14px;background:rgba(255,138,128,.2);
   border:1px solid var(--pink);color:var(--pink);border-radius:12px;padding:2px 10px;font-size:.7rem;font-weight:700}
 .subject-card.active .status-badge{display:none}
@@ -72,13 +73,12 @@ footer a{color:var(--yellow);text-decoration:none}
       <span class="go-btn">進入課程 →</span>
     </a>
 
-    <div class="subject-card math coming">
-      <span class="status-badge">建置中</span>
-      <span class="emoji">🔢</span>
+    <a href="math/index.html" class="subject-card math active">
+      <span class="emoji">📐</span>
       <h3>數學</h3>
-      <div class="desc">敬請期待</div>
-      <span class="go-btn">即將上線</span>
-    </div>
+      <div class="desc">全 9 單元<br>除法・分數・圓・小數・面積等</div>
+      <span class="go-btn">進入課程 →</span>
+    </a>
 
     <a href="science/index.html" class="subject-card science active">
       <span class="emoji">🔬</span>
