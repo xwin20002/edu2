@@ -2,115 +2,133 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>翰林版三下數學 第 3 單元｜分數與加減</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第3單元：分數與加減</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>
+  MathJax = {
+    tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
-:root{--board:#1a2a1a;--board-light:#243524;--chalk:#e8e4d8;--chalk-dim:#a8a498;
-  --yellow:#ffd54f;--wood:#8d6e4a;--wood-dark:#5d4530;--wood-light:#a8875a;
-  --pink:#ff8a80;--blue:#81d4fa;--green:#a5d6a7;--orange:#ffb74d}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--board);
-  color:var(--chalk);min-height:100vh;font-size:16px;line-height:1.7}
-header{background:linear-gradient(180deg,var(--wood-light) 0%,var(--wood) 40%,var(--wood-dark) 100%);
-  padding:22px 28px 18px;box-shadow:0 4px 16px rgba(0,0,0,.5);border-bottom:3px solid #3a2a1a;
-  position:sticky;top:0;z-index:100}
-header h1{font-size:1.8rem;font-weight:900;text-shadow:1px 1px 3px rgba(0,0,0,.5)}
-header .meta{font-size:.95rem;opacity:.85;margin-top:6px}
-.badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
-  border-radius:20px;padding:3px 12px;font-size:.88rem;margin-right:6px;margin-bottom:4px}
-.mode-bar{display:flex;gap:12px;padding:10px 28px;background:rgba(0,0,0,.3);
-  border-bottom:1px solid rgba(255,255,255,.1);font-size:.95rem}
-.mode-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
-  border-radius:20px;padding:4px 16px;font-size:.9rem;cursor:pointer;color:var(--chalk);
-  transition:all .2s;font-family:inherit}
-.mode-btn.active{background:var(--yellow);color:#1a1a1a;border-color:var(--yellow)}
-#teacher-only{display:none}
-.container{max-width:960px;margin:0 auto;padding:36px 20px 80px}
-h2{font-size:1.15rem;color:var(--yellow);margin-bottom:18px;padding-bottom:8px;
-  border-bottom:2px dashed var(--yellow)}
-h3{font-size:1rem;color:var(--green);margin:14px 0 8px}
-.section{background:var(--board-light);border-radius:14px;padding:24px;margin-bottom:24px;
-  border:1px solid rgba(232,228,216,.12)}
-.objectives{display:flex;flex-wrap:wrap;gap:8px}
-.obj-chip{background:rgba(129,212,250,.12);border:1px solid var(--blue);border-radius:20px;
-  padding:4px 14px;font-size:.85rem;color:var(--blue)}
-.back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 16px;
-  font-size:.82rem;color:var(--chalk-dim);text-decoration:none;transition:all .2s;margin-bottom:20px}
-.back-btn:hover{background:rgba(255,213,79,.15);color:var(--yellow);border-color:var(--yellow)}
-/* 名詞表 */
-table{width:100%;border-collapse:collapse;margin-top:6px}
-th,td{padding:9px 12px;text-align:left;border:1px solid rgba(232,228,216,.18);
-  font-size:.92rem;vertical-align:top}
-th{background:rgba(255,213,79,.12);color:var(--yellow);font-weight:700;width:32%}
-td{color:var(--chalk)}
+:root {
+  --board:#1a2a1a; --board-light:#243524; --chalk:#e8e4d8; --chalk-dim:#a8a498;
+  --yellow:#ffd54f; --wood:#8d6e4a; --wood-dark:#5d4530; --wood-light:#a8875a;
+  --pink:#ff8a80; --blue:#81d4fa; --green:#a5d6a7; --orange:#ffb74d; --purple:#ce93d8;
+  --formula:#ffeb3b;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Noto Sans TC',sans-serif; background:var(--board); color:var(--chalk); line-height:1.8; font-size:18px; }
+header { position:sticky; top:0; z-index:100; background:linear-gradient(180deg,var(--wood-light),var(--wood),var(--wood-dark)); border-bottom:4px solid var(--wood-dark); text-align:center; padding:12px 16px; box-shadow:0 4px 12px rgba(0,0,0,.5); }
+header h1 { font-size:1.6em; color:#fff; text-shadow:1px 1px 3px rgba(0,0,0,.6); }
+header .badge { display:inline-block; background:var(--yellow); color:var(--wood-dark); font-size:.5em; padding:2px 10px; border-radius:12px; margin-left:8px; vertical-align:middle; font-weight:700; }
+.mode-bar { display:flex; justify-content:center; gap:8px; background:var(--board-light); padding:8px; border-bottom:2px solid var(--wood-dark); }
+.mode-btn { padding:6px 20px; border:2px solid var(--chalk-dim); border-radius:20px; background:transparent; color:var(--chalk-dim); cursor:pointer; font-family:inherit; font-size:.9em; transition:.2s; }
+.mode-btn.active { background:var(--yellow); color:var(--wood-dark); border-color:var(--yellow); font-weight:700; }
+.mode-btn:hover { opacity:.85; }
+.container { max-width:960px; margin:0 auto; padding:20px 16px 80px; }
+.back-btn { display:inline-block; margin-bottom:16px; padding:6px 16px; background:var(--wood); color:#fff; border-radius:8px; text-decoration:none; font-size:.9em; transition:.2s; }
+.back-btn:hover { background:var(--wood-light); }
+.section { background:var(--board-light); border:1px solid var(--wood); border-radius:12px; padding:24px; margin-bottom:24px; }
+h2 { color:var(--yellow); font-size:1.3em; padding-bottom:6px; border-bottom:2px dashed var(--yellow); margin-bottom:16px; }
+h3 { color:var(--green); font-size:1.1em; margin:14px 0 8px; }
+.objectives { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.obj-chip { background:rgba(129,212,250,.15); color:var(--blue); border:1px solid var(--blue); padding:4px 14px; border-radius:20px; font-size:.85em; }
+table { width:100%; border-collapse:collapse; margin:12px 0; }
+th { background:rgba(255,213,79,.2); color:var(--yellow); }
+th, td { border:1px solid var(--wood); padding:8px 12px; text-align:center; font-size:.95em; }
+td { color:var(--chalk); }
+ul.bullet { list-style:disc; padding-left:24px; margin:8px 0; }
+ul.bullet li { margin-bottom:4px; }
+.note { border-left:4px solid var(--blue); background:rgba(129,212,250,.08); padding:10px 14px; margin:12px 0; border-radius:0 8px 8px 0; font-size:.95em; }
+
+/* 算式區塊 */
+.math-display { background:rgba(0,0,0,.25); border-radius:8px; padding:14px; margin:10px 0; text-align:center; font-size:1.2rem; color:var(--formula); overflow-x:auto; border:1px solid rgba(255,235,59,.25); }
+
 /* 步驟卡 */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
-.step-card{background:rgba(165,214,167,.08);border:1px solid rgba(165,214,167,.3);
-  border-radius:10px;padding:14px}
-.step-num{display:inline-block;background:var(--green);color:#1a1a1a;border-radius:50%;
-  width:26px;height:26px;text-align:center;line-height:26px;font-weight:700;font-size:.85rem;margin-bottom:6px}
-.step-title{font-size:1rem;font-weight:700;color:var(--green);margin-bottom:4px}
-.step-desc{font-size:.88rem;color:var(--chalk)}
-/* 觀察重點卡 */
-.obs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.obs-card{background:rgba(255,183,77,.08);border:1px solid rgba(255,183,77,.3);
-  border-radius:10px;padding:14px}
-.obs-title{color:var(--orange);font-weight:700;font-size:1rem;margin-bottom:6px}
-.obs-desc{font-size:.9rem}
-/* 評量 */
-.quiz-item{background:rgba(255,255,255,.05);border-radius:10px;padding:16px;margin-bottom:12px;
-  border:1px solid rgba(255,255,255,.1)}
-.quiz-q{font-size:.95rem;margin-bottom:10px;font-weight:600}
-.quiz-opts{display:flex;flex-direction:column;gap:7px}
-.quiz-opts button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);
-  border-radius:8px;padding:8px 14px;text-align:left;cursor:pointer;color:var(--chalk);
-  font-size:.88rem;transition:background .15s;font-family:inherit}
-.quiz-opts button:hover{background:rgba(255,213,79,.15);border-color:var(--yellow)}
-.quiz-opts button.correct{background:rgba(165,214,167,.25);border-color:var(--green);color:var(--green)}
-.quiz-opts button.wrong{background:rgba(255,138,128,.15);border-color:var(--pink);color:var(--pink)}
-/* T/F */
-.tf-item{background:rgba(255,255,255,.05);border-radius:10px;padding:14px;margin-bottom:10px;
-  border:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.tf-q{flex:1;font-size:.92rem;min-width:200px}
-.tf-btns{display:flex;gap:8px}
-.tf-btns button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);
-  border-radius:8px;padding:6px 16px;cursor:pointer;color:var(--chalk);font-family:inherit;transition:background .15s}
-.tf-btns button.correct{background:rgba(165,214,167,.3);border-color:var(--green);color:var(--green)}
-.tf-btns button.wrong{background:rgba(255,138,128,.2);border-color:var(--pink);color:var(--pink)}
-/* 填空 */
-.fill-item{background:rgba(255,255,255,.05);border-radius:10px;padding:14px;margin-bottom:10px;
-  border:1px solid rgba(255,255,255,.1)}
-.fill-q{font-size:.92rem;margin-bottom:8px}
-.fill-input{background:rgba(0,0,0,.3);border:1px solid rgba(255,213,79,.4);border-radius:6px;
-  padding:5px 10px;color:var(--yellow);font-size:.95rem;font-family:inherit;width:160px}
-.fill-btn{background:var(--yellow);color:#1a1a1a;border:none;border-radius:6px;padding:5px 14px;
-  margin-left:8px;cursor:pointer;font-weight:700;font-family:inherit}
-.fill-feedback{margin-top:6px;font-size:.85rem}
-.fill-feedback.correct{color:var(--green)}
-.fill-feedback.wrong{color:var(--pink)}
-/* 浮動工具 */
-.float-panel{position:fixed;right:0;top:50%;transform:translateY(-50%);
-  background:var(--board-light);border:1px solid rgba(255,255,255,.15);
-  border-right:none;border-radius:12px 0 0 12px;padding:12px 10px;z-index:200;
-  display:flex;flex-direction:column;gap:10px;box-shadow:-4px 0 20px rgba(0,0,0,.3)}
-.float-btn{width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.15);cursor:pointer;color:var(--chalk);
-  font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background .15s;font-family:inherit}
-.float-btn:hover{background:rgba(255,213,79,.2);border-color:var(--yellow)}
-.font-display{font-size:.72rem;color:var(--chalk-dim);text-align:center;line-height:1.2}
-ul.bullet{padding-left:1.4em;margin-top:6px}
-ul.bullet li{margin-bottom:4px;font-size:.93rem}
-.note{background:rgba(129,212,250,.08);border-left:3px solid var(--blue);padding:10px 14px;
-  border-radius:6px;font-size:.9rem;margin-top:10px}
-/* 分數顯示 */
-.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;
-  margin:0 4px;font-size:.88em;line-height:1.1}
-.frac .num{border-bottom:1.5px solid var(--chalk);padding:0 4px 2px}
-.frac .den{padding:2px 4px 0}
-.mixed{display:inline-flex;align-items:center;gap:2px;vertical-align:middle}
-@media(max-width:768px){header h1{font-size:1.3rem}.float-panel{display:none}}
+.steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin:12px 0; }
+.step-card { background:rgba(255,213,79,.08); border:1px solid var(--wood); border-radius:10px; padding:14px; text-align:center; }
+.step-num { font-size:1.6em; color:var(--yellow); font-weight:900; }
+.step-title { color:var(--green); font-weight:700; margin:4px 0; }
+.step-desc { font-size:.9em; color:var(--chalk-dim); }
+
+/* Accordion 解題步驟 */
+.solve-steps { margin:10px 0; }
+.solve-item { background:rgba(255,213,79,.06); border:1px solid rgba(255,213,79,.3); border-radius:10px; margin-bottom:8px; overflow:hidden; }
+.solve-head { background:none; border:none; width:100%; text-align:left; padding:12px 16px; color:var(--yellow); font-weight:700; cursor:pointer; font-family:inherit; font-size:1em; display:flex; justify-content:space-between; align-items:center; }
+.solve-head::after { content:'▼'; transition:transform .2s; font-size:.85em; }
+.solve-item.open .solve-head::after { transform:rotate(180deg); }
+.solve-body { padding:0 16px; max-height:0; overflow:hidden; transition:max-height .35s, padding .35s; color:var(--chalk); }
+.solve-item.open .solve-body { max-height:700px; padding:8px 16px 16px; }
+.example-q { color:var(--blue); font-weight:600; margin-bottom:8px; }
+.example-a { color:var(--green); font-weight:600; margin-top:8px; }
+
+.obs-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin:12px 0; }
+.obs-card { background:rgba(165,214,167,.08); border:1px solid var(--green); border-radius:10px; padding:14px; }
+.obs-title { color:var(--orange); font-weight:700; margin-bottom:4px; }
+.obs-desc { font-size:.9em; color:var(--chalk); }
+
+/* 互動計算題 */
+.calc-grid { display:grid; gap:12px; margin:10px 0; }
+.calc-item { background:rgba(165,214,167,.08); border:1px solid rgba(165,214,167,.35); border-radius:10px; padding:14px; }
+.calc-q { color:var(--chalk); font-weight:500; margin-bottom:10px; }
+.calc-input { padding:6px 12px; border:2px solid var(--chalk-dim); border-radius:8px; background:rgba(0,0,0,.3); color:var(--formula); font-family:inherit; font-size:1.05em; width:120px; text-align:center; }
+.calc-unit { color:var(--chalk-dim); margin-left:4px; }
+.calc-btn { padding:6px 16px; border:2px solid var(--yellow); border-radius:8px; background:var(--yellow); color:var(--wood-dark); cursor:pointer; font-family:inherit; font-size:.9em; font-weight:700; margin-left:6px; }
+.calc-feedback { display:inline-block; margin-left:10px; font-size:.95em; font-weight:700; }
+.calc-feedback.correct { color:var(--green); }
+.calc-feedback.wrong { color:var(--pink); }
+
+/* Quiz */
+.quiz-item, .tf-item, .fill-item { margin-bottom:16px; }
+.quiz-q, .tf-q, .fill-q { margin-bottom:8px; font-weight:500; }
+.quiz-opts { display:flex; flex-wrap:wrap; gap:8px; }
+.quiz-opts button, .tf-btns button, .fill-btn { padding:6px 16px; border:2px solid var(--chalk-dim); border-radius:8px; background:transparent; color:var(--chalk); cursor:pointer; font-family:inherit; font-size:.9em; transition:.2s; }
+.quiz-opts button:hover, .tf-btns button:hover, .fill-btn:hover { border-color:var(--yellow); }
+.correct { background:rgba(165,214,167,.3)!important; border-color:var(--green)!important; color:var(--green)!important; }
+.wrong { background:rgba(255,138,128,.3)!important; border-color:var(--pink)!important; color:var(--pink)!important; }
+.tf-btns { display:flex; gap:8px; }
+.fill-item { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.fill-q { flex:1 1 100%; }
+.fill-input { padding:6px 12px; border:2px solid var(--chalk-dim); border-radius:8px; background:transparent; color:var(--yellow); font-family:inherit; font-size:1em; width:140px; text-align:center; }
+.fill-feedback { font-size:.9em; margin-left:4px; }
+
+#teacher-only { display:none; }
+/* 右側工具面板 */
+.tool-panel{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:400;display:flex;align-items:stretch}
+.tool-toggle{background:var(--wood);color:#fff;border:none;width:28px;border-radius:10px 0 0 10px;cursor:pointer;font-size:.82em;writing-mode:vertical-rl;letter-spacing:3px;padding:14px 4px;box-shadow:-3px 0 12px rgba(0,0,0,.4);transition:background .2s;font-family:inherit}
+.tool-toggle:hover{background:var(--wood-light)}
+.tool-content{background:#162616;border:2px solid rgba(232,228,216,.18);border-right:none;border-radius:12px 0 0 12px;padding:14px 12px;display:none;flex-direction:column;gap:14px;width:164px;box-shadow:-4px 0 20px rgba(0,0,0,.5)}
+.tool-content.open{display:flex}
+.tool-lbl{font-size:.7em;color:var(--chalk-dim);letter-spacing:1px;border-bottom:1px solid rgba(232,228,216,.1);padding-bottom:4px;margin-bottom:2px}
+.font-ctrl{display:flex;align-items:center;gap:6px;justify-content:center}
+.font-btn{background:rgba(255,213,79,.15);border:1px solid rgba(255,213,79,.4);color:var(--yellow);border-radius:6px;width:32px;height:30px;font-size:1em;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.font-btn:hover{background:rgba(255,213,79,.3)}
+.font-val{font-size:.8em;color:var(--chalk-dim);min-width:38px;text-align:center}
+.timer-disp{font-family:'Courier New',monospace;font-size:1.9em;color:var(--yellow);text-align:center;letter-spacing:2px;margin:4px 0}
+.timer-disp.running{color:var(--green)}
+.timer-disp.ended{color:var(--pink);animation:blink .7s infinite}
+@keyframes blink{50%{opacity:.3}}
+.timer-presets{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.timer-preset{background:rgba(129,212,250,.1);border:1px solid rgba(129,212,250,.3);color:var(--blue);border-radius:6px;padding:3px 7px;font-size:.72em;cursor:pointer;font-family:inherit}
+.timer-preset:hover{background:rgba(129,212,250,.25)}
+.timer-btns{display:flex;gap:4px;justify-content:center}
+.timer-btn{background:rgba(255,213,79,.15);border:1px solid rgba(255,213,79,.3);color:var(--yellow);border-radius:6px;padding:4px 0;font-size:.82em;cursor:pointer;flex:1;font-family:inherit}
+.timer-btn:hover{background:rgba(255,213,79,.3)}
+.timer-btn.on{background:rgba(165,214,167,.2);border-color:var(--green);color:var(--green)}
+.draw-btn{background:rgba(232,228,216,.1);border:1px solid rgba(232,228,216,.2);color:var(--chalk);border-radius:6px;padding:5px 0;font-size:.78em;cursor:pointer;width:100%;text-align:center;font-family:inherit}
+.draw-btn:hover{background:rgba(232,228,216,.2)}
+.draw-btn.on{background:rgba(165,214,167,.2);border-color:var(--green);color:var(--green)}
+.draw-colors{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
+.draw-color{width:20px;height:20px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:transform .15s}
+.draw-color:hover,.draw-color.active{transform:scale(1.3);border-color:white}
+.draw-sizes{display:flex;gap:6px;justify-content:center;align-items:center}
+.draw-size{border-radius:50%;background:var(--chalk);cursor:pointer;transition:transform .15s;border:2px solid transparent}
+.draw-size.active{border-color:var(--yellow);transform:scale(1.2)}
+#draw-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:350;display:none;cursor:crosshair;touch-action:none}
+#draw-canvas.active{display:block}
 .carousel{position:relative;background:#000;border-radius:10px;overflow:hidden;margin-bottom:12px}
 .carousel img{width:100%;display:none;border-radius:10px}
 .carousel img.active{display:block}
@@ -124,156 +142,315 @@ ul.bullet li{margin-bottom:4px;font-size:.93rem}
 </style>
 </head>
 <body>
-<header>
-  <h1>🍕 第 3 單元｜分數與加減</h1>
-  <div class="meta">
-    <span class="badge">翰林版</span>
-    <span class="badge">三年級下學期</span>
-    <span class="badge">114學年度</span>
-    <span class="badge" style="background:rgba(165,214,167,.2);border-color:var(--green);color:var(--green)">假分數・帶分數・同分母加減</span>
-  </div>
-</header>
+<canvas id="draw-canvas"></canvas>
 
-<div class="mode-bar">
-  <button class="mode-btn" data-mode="student" onclick="setMode('student')">👨‍🎓 學生模式</button>
-  <button class="mode-btn" data-mode="teacher" onclick="setMode('teacher')">👩‍🏫 教師模式</button>
-</div>
-
-<div class="container">
-  <a href="../index.html" class="back-btn">← 返回單元總覽</a>
-
-  <div class="section">
-    <h2>🎯 學習目標</h2>
-    <div class="objectives">
-      <span class="obj-chip">認識假分數與帶分數</span>
-      <span class="obj-chip">能比較同分母分數的大小</span>
-      <span class="obj-chip">會做同分母分數加減</span>
-      <span class="obj-chip">能做假分數與帶分數的互換</span>
+<div class="tool-panel">
+  <div class="tool-content" id="tool-content">
+    <div>
+      <div class="tool-lbl">字　級</div>
+      <div class="font-ctrl" style="margin-top:6px">
+        <button class="font-btn" id="font-dec">A−</button>
+        <span class="font-val" id="font-val">18px</span>
+        <button class="font-btn" id="font-inc">A＋</button>
+      </div>
+    </div>
+    <div>
+      <div class="tool-lbl">計時器</div>
+      <div class="timer-disp" id="timer-disp">05:00</div>
+      <div class="timer-presets">
+        <button class="timer-preset" data-sec="60">1分</button>
+        <button class="timer-preset" data-sec="180">3分</button>
+        <button class="timer-preset" data-sec="300">5分</button>
+        <button class="timer-preset" data-sec="600">10分</button>
+      </div>
+      <div class="timer-btns" style="margin-top:6px">
+        <button class="timer-btn" id="timer-start">▶ 開始</button>
+        <button class="timer-btn" id="timer-reset">↺ 重置</button>
+      </div>
+    </div>
+    <div>
+      <div class="tool-lbl">畫　筆</div>
+      <button class="draw-btn" id="draw-toggle" style="margin:6px 0">🖌️ 開啟畫筆</button>
+      <div class="draw-colors" style="margin-bottom:6px">
+        <div class="draw-color active" data-color="#ffd54f" style="background:#ffd54f"></div>
+        <div class="draw-color" data-color="#ff8a80" style="background:#ff8a80"></div>
+        <div class="draw-color" data-color="#81d4fa" style="background:#81d4fa"></div>
+        <div class="draw-color" data-color="#a5d6a7" style="background:#a5d6a7"></div>
+        <div class="draw-color" data-color="#ffffff" style="background:#fff;border:1px solid #666"></div>
+      </div>
+      <div class="draw-sizes" style="margin-bottom:6px">
+        <div class="draw-size" data-size="3" style="width:8px;height:8px"></div>
+        <div class="draw-size active" data-size="7" style="width:14px;height:14px"></div>
+        <div class="draw-size" data-size="14" style="width:22px;height:22px"></div>
+      </div>
+      <button class="draw-btn" id="draw-clear">🗑️ 清除畫布</button>
     </div>
   </div>
+  <button class="tool-toggle" id="tool-toggle">工具</button>
+</div>
 
-  <div class="section">
-    <h2>📖 單元摘要</h2>
-    <p>分數可以分成<strong>真分數</strong>（分子 < 分母）、<strong>假分數</strong>（分子 ≥ 分母）和<strong>帶分數</strong>（整數 + 真分數）。同分母的分數可以直接加減（分母不變，分子相加減）。假分數和帶分數之間可以互相轉換。</p>
+<header>
+  <h1>第 3 單元：分數與加減 <span class="badge">小三數學</span></h1>
+</header>
+<div class="mode-bar">
+  <button class="mode-btn active" onclick="setMode('student')">學生模式</button>
+  <button class="mode-btn" onclick="setMode('teacher')">教師模式</button>
+</div>
+<div class="container">
+  <a href="../index.html" class="back-btn">← 返回總覽</a>
+
+  <div class="objectives">
+    <span class="obj-chip">認識假分數與帶分數</span>
+    <span class="obj-chip">同分母分數比較大小</span>
+    <span class="obj-chip">同分母分數加減</span>
+    <span class="obj-chip">假分數與帶分數互換</span>
   </div>
 
+  <!-- 3-1 認識假分數 -->
   <div class="section">
-    <h2>🔢 3-1 認識假分數</h2>
-    <p>當分子<strong>大於或等於</strong>分母時，這個分數就叫做<strong>假分數</strong>。</p>
-    <h3>三種分數的比較</h3>
+    <h2>3-1 認識假分數與帶分數</h2>
+    <p>分數可以分成三種：<strong style="color:var(--yellow)">真分數</strong>、<strong style="color:var(--yellow)">假分數</strong>、<strong style="color:var(--yellow)">帶分數</strong>。</p>
     <div class="obs-grid">
       <div class="obs-card">
         <div class="obs-title">真分數</div>
-        <div class="obs-desc">分子 < 分母，值 < 1<br>例如：<span class="frac"><span class="num">2</span><span class="den">5</span></span>、<span class="frac"><span class="num">3</span><span class="den">7</span></span></div>
+        <div class="obs-desc">分子 &lt; 分母，值 &lt; 1<br>例如：$\dfrac{2}{5}$、$\dfrac{3}{7}$</div>
       </div>
       <div class="obs-card">
         <div class="obs-title">假分數</div>
-        <div class="obs-desc">分子 ≥ 分母，值 ≥ 1<br>例如：<span class="frac"><span class="num">5</span><span class="den">3</span></span>、<span class="frac"><span class="num">7</span><span class="den">4</span></span>、<span class="frac"><span class="num">5</span><span class="den">5</span></span></div>
+        <div class="obs-desc">分子 ≥ 分母，值 ≥ 1<br>例如：$\dfrac{5}{3}$、$\dfrac{7}{4}$、$\dfrac{5}{5}$</div>
       </div>
       <div class="obs-card">
         <div class="obs-title">帶分數</div>
-        <div class="obs-desc">整數 + 真分數，值 > 1<br>例如：<span class="mixed">2<span class="frac"><span class="num">3</span><span class="den">4</span></span></span>、<span class="mixed">1<span class="frac"><span class="num">1</span><span class="den">3</span></span></span></div>
+        <div class="obs-desc">整數 + 真分數，值 &gt; 1<br>例如：$2\dfrac{3}{4}$、$1\dfrac{1}{3}$</div>
       </div>
     </div>
-    <div class="note">📌 <strong>注意</strong>：分子 = 分母也是假分數！例如 <span class="frac"><span class="num">5</span><span class="den">5</span></span> = 1，仍然算假分數。</div>
+    <div class="note">📌 分子 = 分母也算假分數！例如 $\dfrac{5}{5} = 1$，仍然是假分數。</div>
   </div>
 
+  <!-- 3-2 大小比較 -->
   <div class="section">
-    <h2>⚖ 3-2 分數大小比較</h2>
-    <p><strong>同分母</strong>的分數，分母一樣，只要比分子就好。分子越大，分數越大。</p>
-    <div class="note">📌 例如：<span class="frac"><span class="num">2</span><span class="den">7</span></span> < <span class="frac"><span class="num">3</span><span class="den">7</span></span> < <span class="frac"><span class="num">5</span><span class="den">7</span></span>（分母都是 7，看分子大小）</div>
+    <h2>3-2 同分母分數大小比較</h2>
+    <p><strong>同分母</strong>的分數，分母一樣，只要比<strong>分子</strong>就好。分子越大，分數越大。</p>
+    <div class="math-display">$$\dfrac{2}{7} \;<\; \dfrac{3}{7} \;<\; \dfrac{5}{7}$$</div>
+    <div class="note">📌 分母都是 7，看分子 2 &lt; 3 &lt; 5 就好。</div>
   </div>
 
+  <!-- 3-3 同分母加減 -->
   <div class="section">
-    <h2>➕ 3-3 同分母分數加減</h2>
-    <p>同分母分數相加減時，<strong>分母不變</strong>，只把<strong>分子相加或相減</strong>。</p>
+    <h2>3-3 同分母分數加減</h2>
+    <p>同分母分數相加減時，<strong style="color:var(--yellow)">分母不變</strong>，只把<strong style="color:var(--yellow)">分子相加或相減</strong>。</p>
+    <div class="math-display">$$\dfrac{2}{7} + \dfrac{3}{7} = \dfrac{5}{7}$$</div>
     <h3>計算步驟</h3>
     <div class="steps">
-      <div class="step-card"><span class="step-num">1</span><div class="step-title">確認分母相同</div><div class="step-desc">兩個分數的分母要一樣才能直接加減</div></div>
-      <div class="step-card"><span class="step-num">2</span><div class="step-title">分子相加減</div><div class="step-desc">分母不動，只計算分子<br>例：<span class="frac"><span class="num">2</span><span class="den">7</span></span> + <span class="frac"><span class="num">3</span><span class="den">7</span></span> = <span class="frac"><span class="num">5</span><span class="den">7</span></span></div></div>
-      <div class="step-card"><span class="step-num">3</span><div class="step-title">化簡或轉換</div><div class="step-desc">結果是假分數時，可化為帶分數</div></div>
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">確認分母相同</div><div class="step-desc">兩個分數的分母要一樣才能直接加減</div></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-title">分子相加減</div><div class="step-desc">分母不動，只算分子</div></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-title">化簡或轉換</div><div class="step-desc">是假分數時，可化為帶分數</div></div>
     </div>
+  </div>
 
-    <h3>假分數與帶分數互換</h3>
+  <!-- 3-4 互換 -->
+  <div class="section">
+    <h2>3-4 假分數與帶分數互換</h2>
     <div class="obs-grid">
       <div class="obs-card">
         <div class="obs-title">假分數 → 帶分數</div>
-        <div class="obs-desc">分子 ÷ 分母 = 商...餘數<br>→ 商又 <span class="frac"><span class="num">餘數</span><span class="den">分母</span></span><br>例：<span class="frac"><span class="num">11</span><span class="den">4</span></span> → 11÷4=2...3 → <span class="mixed">2<span class="frac"><span class="num">3</span><span class="den">4</span></span></span></div>
+        <div class="obs-desc">分子 ÷ 分母 = 商…餘數<br>商當整數、餘數當新分子<br>例：$\dfrac{11}{4} = 2\dfrac{3}{4}$</div>
       </div>
       <div class="obs-card">
         <div class="obs-title">帶分數 → 假分數</div>
-        <div class="obs-desc">整數 × 分母 + 分子<br>→ <span class="frac"><span class="num">結果</span><span class="den">分母</span></span><br>例：<span class="mixed">2<span class="frac"><span class="num">3</span><span class="den">4</span></span></span> → (2×4+3)÷4 = <span class="frac"><span class="num">11</span><span class="den">4</span></span></div>
+        <div class="obs-desc">整數 × 分母 + 分子<br>結果當新分子，分母不變<br>例：$2\dfrac{1}{3} = \dfrac{7}{3}$</div>
       </div>
     </div>
   </div>
 
+  <!-- 解題步驟 Accordion -->
+  <div class="section">
+    <h2>💡 解題步驟（點開展開）</h2>
+    <div class="solve-steps">
+      <div class="solve-item">
+        <button class="solve-head" onclick="toggleSolve(this)">例題 1：$\dfrac{2}{7} + \dfrac{3}{7} = ?$（同分母加法）</button>
+        <div class="solve-body">
+          <div class="example-q">同分母分數相加：分母不變、分子相加</div>
+          <ol style="padding-left:24px">
+            <li>確認分母相同：兩個分數的分母都是 7 ✓</li>
+            <li>分子相加：$2 + 3 = 5$</li>
+            <li>分母不變：仍然是 7</li>
+          </ol>
+          <div class="example-a">答：$\dfrac{2}{7} + \dfrac{3}{7} = \dfrac{5}{7}$</div>
+        </div>
+      </div>
+
+      <div class="solve-item">
+        <button class="solve-head" onclick="toggleSolve(this)">例題 2：$\dfrac{11}{4}$ 化成帶分數？（假分數 → 帶分數）</button>
+        <div class="solve-body">
+          <div class="example-q">用「分子 ÷ 分母」找出整數部分與餘數</div>
+          <ol style="padding-left:24px">
+            <li>分子 ÷ 分母：$11 \div 4 = 2 \cdots 3$（商 2、餘 3）</li>
+            <li>商 2 當整數部分</li>
+            <li>餘數 3 當新的分子，分母 4 不變</li>
+          </ol>
+          <div class="example-a">答：$\dfrac{11}{4} = 2\dfrac{3}{4}$</div>
+        </div>
+      </div>
+
+      <div class="solve-item">
+        <button class="solve-head" onclick="toggleSolve(this)">例題 3：$2\dfrac{1}{3}$ 化成假分數？（帶分數 → 假分數）</button>
+        <div class="solve-body">
+          <div class="example-q">用「整數 × 分母 + 分子」算出新的分子</div>
+          <ol style="padding-left:24px">
+            <li>整數 × 分母：$2 \times 3 = 6$</li>
+            <li>加上分子：$6 + 1 = 7$</li>
+            <li>新分子 7，分母 3 不變</li>
+          </ol>
+          <div class="example-a">答：$2\dfrac{1}{3} = \dfrac{7}{3}$</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 互動計算題 -->
+  <div class="section">
+    <h2>🧮 互動計算題（馬上試試看）</h2>
+    <p style="color:var(--chalk-dim);font-size:.9em;margin-bottom:12px">輸入答案後按「確認」，會立刻檢查對錯。分數請用「分子/分母」表示（例：4/5）。</p>
+    <div class="calc-grid">
+      <div class="calc-item">
+        <div class="calc-q">1. $\dfrac{3}{5} + \dfrac{1}{5} = ?$</div>
+        <input class="calc-input" data-ans="4/5" data-alt="4/5,0.8" placeholder="?/?">
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+      <div class="calc-item">
+        <div class="calc-q">2. $\dfrac{7}{8} - \dfrac{3}{8} = ?$（接受 4/8 或 1/2）</div>
+        <input class="calc-input" data-ans="4/8" data-alt="4/8,1/2,0.5" placeholder="?/?">
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+      <div class="calc-item">
+        <div class="calc-q">3. $\dfrac{9}{4}$ 化成帶分數，整數部分是？</div>
+        <input class="calc-input" data-ans="2" data-alt="2" placeholder="?">
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+      <div class="calc-item">
+        <div class="calc-q">4. $3\dfrac{2}{5}$ 化成假分數是？</div>
+        <input class="calc-input" data-ans="17/5" data-alt="17/5,3.4" placeholder="?/?">
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 互動實驗：分數圓 -->
+  <div class="section">
+    <h2>🎮 互動實驗：分數圓</h2>
+    <p style="color:var(--chalk-dim);font-size:.9em;margin-bottom:14px">調整分子與分母，觀察圓被分成幾片、填了幾片，並判斷它是真分數還是假分數。</p>
+
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px">
+      <div style="flex:1;min-width:240px">
+        <label style="color:var(--green);font-weight:700">分子：<span id="ig-num-val" style="color:var(--yellow)">3</span></label>
+        <input type="range" id="ig-num" min="1" max="12" value="3" style="width:100%;accent-color:var(--yellow);margin-top:6px">
+      </div>
+      <div style="flex:1;min-width:240px">
+        <label style="color:var(--green);font-weight:700">分母：<span id="ig-den-val" style="color:var(--yellow)">4</span></label>
+        <input type="range" id="ig-den" min="2" max="12" value="4" style="width:100%;accent-color:var(--yellow);margin-top:6px">
+      </div>
+    </div>
+
+    <div style="background:#fff;border-radius:10px;padding:16px;display:flex;justify-content:center;align-items:center;min-height:300px">
+      <svg id="ig-svg" width="100%" viewBox="0 0 460 280" style="max-width:520px;font-family:inherit"></svg>
+    </div>
+
+    <div class="math-display" style="margin-top:14px">
+      <span id="ig-formula">$\dfrac{3}{4}$ 是真分數</span>
+    </div>
+
+    <p style="color:var(--chalk-dim);font-size:.85em;margin-top:8px">💡 小發現：當分子 ≥ 分母時，需要超過一個圓才畫得完，這就是<strong>假分數</strong>！</p>
+  </div>
+
+  <!-- 關鍵名詞 -->
   <div class="section">
     <h2>📚 關鍵名詞</h2>
     <table>
-      <tr><th>真分數</th><td>分子比分母小的分數，值小於 1（例如 2/5、3/7）</td></tr>
-      <tr><th>假分數</th><td>分子大於或等於分母的分數，值大於或等於 1（例如 5/3、5/5）</td></tr>
-      <tr><th>帶分數</th><td>整數加上真分數，值一定大於 1（例如 2又3/4）</td></tr>
-      <tr><th>同分母</th><td>兩個分數的分母相同，可以直接做加減</td></tr>
+      <tr><th>名詞</th><th>說明</th></tr>
+      <tr><td>真分數</td><td>分子比分母小的分數，值 &lt; 1（例：$\dfrac{2}{5}$、$\dfrac{3}{7}$）</td></tr>
+      <tr><td>假分數</td><td>分子 ≥ 分母的分數，值 ≥ 1（例：$\dfrac{5}{3}$、$\dfrac{5}{5}$）</td></tr>
+      <tr><td>帶分數</td><td>整數 + 真分數，值 &gt; 1（例：$2\dfrac{3}{4}$）</td></tr>
+      <tr><td>同分母</td><td>兩個分數的分母相同，可以直接做加減</td></tr>
     </table>
   </div>
 
+  <!-- 形成性評量 -->
   <div class="section">
     <h2>✅ 形成性評量</h2>
 
     <h3>選擇題</h3>
     <div class="quiz-item">
-      <div class="quiz-q">Q1. 下列哪個是假分數？</div>
+      <div class="quiz-q">1. 下列哪個是假分數？</div>
       <div class="quiz-opts">
-        <button onclick="checkQ(this,false)">A. 2/5</button>
-        <button onclick="checkQ(this,false)">B. 3/7</button>
-        <button onclick="checkQ(this,true)">C. 5/3</button>
-        <button onclick="checkQ(this,false)">D. 1/4</button>
+        <button onclick="checkQ(this,'wrong')">A. $\dfrac{2}{5}$</button>
+        <button onclick="checkQ(this,'wrong')">B. $\dfrac{3}{7}$</button>
+        <button onclick="checkQ(this,'correct')">C. $\dfrac{5}{3}$</button>
+        <button onclick="checkQ(this,'wrong')">D. $\dfrac{1}{4}$</button>
       </div>
     </div>
     <div class="quiz-item">
-      <div class="quiz-q">Q2. 2/7 + 3/7 = ?</div>
+      <div class="quiz-q">2. $\dfrac{2}{7} + \dfrac{3}{7} = ?$</div>
       <div class="quiz-opts">
-        <button onclick="checkQ(this,false)">A. 5/14</button>
-        <button onclick="checkQ(this,true)">B. 5/7</button>
-        <button onclick="checkQ(this,false)">C. 6/7</button>
-        <button onclick="checkQ(this,false)">D. 1</button>
+        <button onclick="checkQ(this,'wrong')">A. $\dfrac{5}{14}$</button>
+        <button onclick="checkQ(this,'correct')">B. $\dfrac{5}{7}$</button>
+        <button onclick="checkQ(this,'wrong')">C. $\dfrac{6}{7}$</button>
+        <button onclick="checkQ(this,'wrong')">D. $1$</button>
       </div>
     </div>
     <div class="quiz-item">
-      <div class="quiz-q">Q3. 11/4 化成帶分數是？</div>
+      <div class="quiz-q">3. $\dfrac{11}{4}$ 化成帶分數是？</div>
       <div class="quiz-opts">
-        <button onclick="checkQ(this,false)">A. 1又3/4</button>
-        <button onclick="checkQ(this,true)">B. 2又3/4</button>
-        <button onclick="checkQ(this,false)">C. 2又1/4</button>
-        <button onclick="checkQ(this,false)">D. 3又1/4</button>
+        <button onclick="checkQ(this,'wrong')">A. $1\dfrac{3}{4}$</button>
+        <button onclick="checkQ(this,'correct')">B. $2\dfrac{3}{4}$</button>
+        <button onclick="checkQ(this,'wrong')">C. $2\dfrac{1}{4}$</button>
+        <button onclick="checkQ(this,'wrong')">D. $3\dfrac{1}{4}$</button>
       </div>
     </div>
 
     <h3>是非題</h3>
     <div class="tf-item">
       <div class="tf-q">1. 假分數的分子一定比分母大。</div>
-      <div class="tf-btns"><button onclick="checkTF(this,false)">○</button><button onclick="checkTF(this,true)">✕</button></div>
+      <div class="tf-btns">
+        <button onclick="checkTF(this,'wrong')">○ 對</button>
+        <button onclick="checkTF(this,'correct')">✗ 錯</button>
+      </div>
     </div>
     <div class="tf-item">
       <div class="tf-q">2. 同分母分數相加時，分母也要相加。</div>
-      <div class="tf-btns"><button onclick="checkTF(this,false)">○</button><button onclick="checkTF(this,true)">✕</button></div>
+      <div class="tf-btns">
+        <button onclick="checkTF(this,'wrong')">○ 對</button>
+        <button onclick="checkTF(this,'correct')">✗ 錯</button>
+      </div>
     </div>
     <div class="tf-item">
       <div class="tf-q">3. 帶分數一定比 1 大。</div>
-      <div class="tf-btns"><button onclick="checkTF(this,true)">○</button><button onclick="checkTF(this,false)">✕</button></div>
+      <div class="tf-btns">
+        <button onclick="checkTF(this,'correct')">○ 對</button>
+        <button onclick="checkTF(this,'wrong')">✗ 錯</button>
+      </div>
     </div>
 
     <h3>填空題</h3>
     <div class="fill-item">
-      <div class="fill-q">1. 2又1/3 化成假分數是 <input class="fill-input" data-ans="7/3"> <button class="fill-btn" onclick="checkFill(this)">確認</button></div>
-      <div class="fill-feedback"></div>
+      <div class="fill-q">1. $2\dfrac{1}{3}$ 化成假分數是 ___（用 a/b 表示）</div>
+      <input class="fill-input" data-ans="7/3" placeholder="?/?">
+      <button class="fill-btn" onclick="checkFill(this)">確認</button>
+      <span class="fill-feedback"></span>
     </div>
     <div class="fill-item">
-      <div class="fill-q">2. 同分母分數加法，<input class="fill-input" data-ans="分母"> 不變，分子相加 <button class="fill-btn" onclick="checkFill(this)">確認</button></div>
-      <div class="fill-feedback"></div>
+      <div class="fill-q">2. 同分母分數加法，___ 不變，分子相加</div>
+      <input class="fill-input" data-ans="分母" placeholder="？">
+      <button class="fill-btn" onclick="checkFill(this)">確認</button>
+      <span class="fill-feedback"></span>
     </div>
   </div>
 
+  <!-- 簡報 carousel -->
   <div class="section">
     <h2>📊 授課簡報</h2>
     <p style="font-size:.85rem;color:var(--chalk-dim);margin-bottom:12px">NotebookLM 自動生成｜全 9 單元 15 頁</p>
@@ -299,6 +476,7 @@ ul.bullet li{margin-bottom:4px;font-size:.93rem}
     <div class="carousel-count" id="unit-slides-count">1 / 15</div>
   </div>
 
+  <!-- 資訊圖表 -->
   <div class="section">
     <h2>🖼️ 資訊圖表</h2>
     <p style="font-size:.85rem;color:var(--chalk-dim);margin-bottom:12px">點擊可全螢幕檢視</p>
@@ -307,88 +485,239 @@ ul.bullet li{margin-bottom:4px;font-size:.93rem}
 
   <div class="fullscreen-overlay" id="fs-overlay"><img src="" alt="全螢幕圖表"></div>
 
+  <!-- 教師模式 -->
   <div id="teacher-only">
     <div class="section">
-      <h2>👩‍🏫 教師備課提示</h2>
+      <h2>👩‍🏫 教師備課區</h2>
       <h3>教學策略</h3>
       <ul class="bullet">
-        <li><strong>披薩切片模型</strong>：用披薩切片讓學生理解分數概念，一整個 = 分母/分母</li>
-        <li><strong>數線教學</strong>：在數線上標出分數位置，幫助理解假分數大於 1</li>
-        <li><strong>動手操作</strong>：用色紙摺出分數，再做拼合（加法）與拿走（減法）</li>
+        <li><strong>披薩切片模型</strong>：用披薩切片讓學生理解分數，一整個 = 分母/分母</li>
+        <li><strong>數線教學</strong>：在數線上標出分數位置，幫助理解假分數 ≥ 1</li>
+        <li><strong>動手操作</strong>：用色紙摺出分數，再做拼合（加）與拿走（減）</li>
         <li><strong>互換練習</strong>：反覆練習假分數 ↔ 帶分數轉換，用除法驗證</li>
       </ul>
-      <h3>Bloom 三層次差異化</h3>
+      <h3>Bloom 認知層次</h3>
+      <table>
+        <tr><th>層次</th><th>學習表現</th></tr>
+        <tr><td style="color:var(--blue)">記憶理解</td><td>辨認真分數、假分數、帶分數</td></tr>
+        <tr><td style="color:var(--green)">應用</td><td>做同分母加減、假分數與帶分數互換（互動計算題 4 題）</td></tr>
+        <tr><td style="color:var(--orange)">分析</td><td>解釋為什麼 $\dfrac{5}{5}$ 也算假分數，理解假分數與帶分數本質相同</td></tr>
+      </table>
+      <h3>易錯點提醒</h3>
       <ul class="bullet">
-        <li><strong>記憶理解</strong>：辨認真分數、假分數、帶分數</li>
-        <li><strong>應用</strong>：做同分母分數加減並化簡</li>
-        <li><strong>分析</strong>：解釋為什麼 5/5 也算假分數</li>
-      </ul>
-      <h3>易錯點</h3>
-      <ul class="bullet">
-        <li>加法時分母也加了（如 2/7 + 3/7 誤算成 5/14）</li>
-        <li>假分數化帶分數時商和餘數搞混（如 11/4 寫成 3又1/4）</li>
+        <li style="color:var(--pink)">加法時分母也加了（$\dfrac{2}{7} + \dfrac{3}{7}$ 誤算成 $\dfrac{5}{14}$）</li>
+        <li style="color:var(--pink)">假分數化帶分數時商和餘數搞混（$\dfrac{11}{4}$ 寫成 $3\dfrac{1}{4}$）</li>
+        <li style="color:var(--pink)">忘記「分子 = 分母」也是假分數（如 $\dfrac{5}{5}$）</li>
+        <li style="color:var(--pink)">帶分數化假分數時忘記加分子，只算 整數 × 分母</li>
       </ul>
     </div>
   </div>
 </div>
 
-<div class="float-panel">
-  <button class="float-btn" onclick="adjFont(2)" title="放大字體">A+</button>
-  <div class="font-display">16px</div>
-  <button class="float-btn" onclick="adjFont(-2)" title="縮小字體">A-</button>
-</div>
-
 <script>
-function setMode(m){
-  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelector('.mode-btn[data-mode='+m+']').classList.add('active');
-  document.getElementById('teacher-only').style.display = m==='teacher'?'block':'none';
-}
-document.querySelector('.mode-btn[data-mode=student]').click();
+// 右側工具面板
+document.getElementById('tool-toggle').onclick=function(){document.getElementById('tool-content').classList.toggle('open');};
+var fsize=18;
+function setFsize(n){fsize=Math.min(28,Math.max(12,n));document.body.style.fontSize=fsize+'px';document.getElementById('font-val').textContent=fsize+'px';}
+document.getElementById('font-inc').onclick=function(){setFsize(fsize+2);};
+document.getElementById('font-dec').onclick=function(){setFsize(fsize-2);};
 
-function checkQ(btn,correct){
-  var opts=btn.parentNode.querySelectorAll('button');
-  opts.forEach(b=>b.disabled=true);
-  btn.classList.add(correct?'correct':'wrong');
-  if(!correct){
-    var qItem=btn.closest('.quiz-item');
-    var idx=Array.from(opts).indexOf(btn);
-    opts.forEach((b,i)=>{
-      if(b.getAttribute('onclick').indexOf('true')>-1)b.classList.add('correct');
-    });
-  }
+// 計時器
+var tSec=300,tRunning=false,tInterval=null;
+var tDisp=document.getElementById('timer-disp');
+var tStart=document.getElementById('timer-start');
+function tFmt(s){var m=Math.floor(s/60),sc=s%60;return(m<10?'0':'')+m+':'+(sc<10?'0':'')+sc;}
+function tTick(){if(tSec<=0){clearInterval(tInterval);tRunning=false;tDisp.textContent='00:00';tDisp.className='timer-disp ended';tStart.textContent='▶ 開始';tStart.classList.remove('on');return;}tSec--;tDisp.textContent=tFmt(tSec);}
+tStart.onclick=function(){if(tRunning){clearInterval(tInterval);tRunning=false;tDisp.classList.remove('running');this.textContent='▶ 開始';this.classList.remove('on');}else{tInterval=setInterval(tTick,1000);tRunning=true;tDisp.className='timer-disp running';this.textContent='⏸ 暫停';this.classList.add('on');}};
+document.getElementById('timer-reset').onclick=function(){clearInterval(tInterval);tRunning=false;tDisp.className='timer-disp';tStart.textContent='▶ 開始';tStart.classList.remove('on');tDisp.textContent=tFmt(tSec);};
+document.querySelectorAll('.timer-preset').forEach(function(btn){btn.onclick=function(){clearInterval(tInterval);tRunning=false;tSec=parseInt(this.dataset.sec);tDisp.className='timer-disp';tDisp.textContent=tFmt(tSec);tStart.textContent='▶ 開始';tStart.classList.remove('on');}});
+
+// 畫筆 canvas
+var canvas=document.getElementById('draw-canvas');
+var ctx=canvas.getContext('2d');
+var drawOn=false,drawing=false,dColor='#ffd54f',dSize=7;
+function resizeCanvas(){var data=ctx.getImageData(0,0,canvas.width||1,canvas.height||1);canvas.width=window.innerWidth;canvas.height=window.innerHeight;ctx.putImageData(data,0,0);ctx.lineCap='round';ctx.lineJoin='round';}
+resizeCanvas();window.addEventListener('resize',resizeCanvas);
+document.getElementById('draw-toggle').onclick=function(){drawOn=!drawOn;canvas.classList.toggle('active',drawOn);this.textContent=drawOn?'✅ 關閉畫筆':'🖌️ 開啟畫筆';this.classList.toggle('on',drawOn);};
+document.getElementById('draw-clear').onclick=function(){ctx.clearRect(0,0,canvas.width,canvas.height);};
+document.querySelectorAll('.draw-color').forEach(function(el){el.onclick=function(){document.querySelectorAll('.draw-color').forEach(function(e){e.classList.remove('active');});this.classList.add('active');dColor=this.dataset.color;}});
+document.querySelectorAll('.draw-size').forEach(function(el){el.onclick=function(){document.querySelectorAll('.draw-size').forEach(function(e){e.classList.remove('active');});this.classList.add('active');dSize=parseInt(this.dataset.size);}});
+function pos(e){var r=canvas.getBoundingClientRect();if(e.touches)return{x:e.touches[0].clientX-r.left,y:e.touches[0].clientY-r.top};return{x:e.clientX-r.left,y:e.clientY-r.top};}
+canvas.addEventListener('mousedown',function(e){drawing=true;var p=pos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.strokeStyle=dColor;ctx.lineWidth=dSize;});
+canvas.addEventListener('mousemove',function(e){if(!drawing)return;var p=pos(e);ctx.lineTo(p.x,p.y);ctx.stroke();});
+canvas.addEventListener('mouseup',function(){drawing=false;});
+canvas.addEventListener('mouseleave',function(){drawing=false;});
+canvas.addEventListener('touchstart',function(e){e.preventDefault();drawing=true;var p=pos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.strokeStyle=dColor;ctx.lineWidth=dSize;},{passive:false});
+canvas.addEventListener('touchmove',function(e){e.preventDefault();if(!drawing)return;var p=pos(e);ctx.lineTo(p.x,p.y);ctx.stroke();},{passive:false});
+canvas.addEventListener('touchend',function(){drawing=false;});
+
+function setMode(m){
+  document.querySelectorAll('.mode-btn').forEach(function(b,i){
+    b.classList.toggle('active', (m==='student'&&i===0)||(m==='teacher'&&i===1));
+  });
+  document.getElementById('teacher-only').style.display = m==='teacher'?'block':'none';
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
 }
-function checkTF(btn,correct){
-  var btns=btn.parentNode.querySelectorAll('button');
-  btns.forEach(b=>b.disabled=true);
-  btn.classList.add(correct?'correct':'wrong');
-  if(!correct)btns.forEach(b=>{if(b.getAttribute('onclick').indexOf('true')>-1)b.classList.add('correct');});
+function toggleSolve(btn){
+  btn.parentNode.classList.toggle('open');
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+}
+function checkQ(btn,result){
+  if(btn.classList.contains('correct')||btn.classList.contains('wrong')) return;
+  btn.classList.add(result);
+}
+function checkTF(btn,result){
+  if(btn.classList.contains('correct')||btn.classList.contains('wrong')) return;
+  btn.classList.add(result);
 }
 function checkFill(btn){
-  var item=btn.closest('.fill-item');
-  var input=item.querySelector('.fill-input');
-  var fb=item.querySelector('.fill-feedback');
-  var ans=input.dataset.ans;
-  var val=input.value.trim();
-  if(val===ans){fb.textContent='✓ 答對了！';fb.className='fill-feedback correct';}
-  else{fb.textContent='✗ 正確答案：'+ans;fb.className='fill-feedback wrong';}
+  var input = btn.previousElementSibling;
+  var fb = btn.nextElementSibling;
+  var ans = input.getAttribute('data-ans');
+  if(input.value.trim() === ans){
+    fb.textContent='✔ 正確！'; fb.style.color='var(--green)';
+    input.style.borderColor='var(--green)';
+  } else {
+    fb.textContent='✘ 再想想，答案是 '+ans; fb.style.color='var(--pink)';
+    input.style.borderColor='var(--pink)';
+  }
 }
-function carGo(id,dir){
-  var imgs=document.querySelectorAll('#'+id+' img');
-  var cur=Array.from(imgs).findIndex(function(i){return i.classList.contains('active');});
+
+// 把使用者輸入正規化成可比對的字串（含分數值容差）
+function parseFracVal(s){
+  s = s.trim().replace(/\s+/g,'');
+  if (s.indexOf('/') > -1) {
+    var parts = s.split('/');
+    if (parts.length === 2) {
+      var n = parseFloat(parts[0]), d = parseFloat(parts[1]);
+      if (!isNaN(n) && !isNaN(d) && d !== 0) return n/d;
+    }
+    return NaN;
+  }
+  var v = parseFloat(s);
+  return isNaN(v) ? NaN : v;
+}
+function checkCalc(btn){
+  var item = btn.closest('.calc-item');
+  var input = item.querySelector('.calc-input');
+  var fb = item.querySelector('.calc-feedback');
+  var raw = input.value.trim().replace(/\s+/g,'');
+  var ans = input.dataset.ans;
+  var alt = (input.dataset.alt || ans).split(',').map(function(x){return x.trim();});
+
+  // 1) 字串完全比對任一接受答案
+  var ok = alt.indexOf(raw) > -1;
+
+  // 2) 數值容差比對（處理 1/2 vs 0.5 vs 4/8）
+  if (!ok) {
+    var rawVal = parseFracVal(raw);
+    if (!isNaN(rawVal)) {
+      for (var i = 0; i < alt.length; i++) {
+        var altVal = parseFracVal(alt[i]);
+        if (!isNaN(altVal) && Math.abs(rawVal - altVal) < 0.001) { ok = true; break; }
+      }
+    }
+  }
+
+  fb.textContent = ok ? '✓ 答對了！' : '✗ 正確答案：' + ans;
+  fb.className = 'calc-feedback ' + (ok ? 'correct' : 'wrong');
+  input.style.borderColor = ok ? 'var(--green)' : 'var(--pink)';
+}
+
+function carGo(id, dir) {
+  var imgs = document.querySelectorAll('#'+id+' img');
+  var cur = Array.from(imgs).findIndex(function(i){return i.classList.contains('active')});
   imgs[cur].classList.remove('active');
-  var next=(cur+dir+imgs.length)%imgs.length;
+  var next = (cur + dir + imgs.length) % imgs.length;
   imgs[next].classList.add('active');
-  document.querySelector('#'+id+'-count').textContent=(next+1)+' / '+imgs.length;
+  document.querySelector('#'+id+'-count').textContent = (next+1)+' / '+imgs.length;
 }
 function showFS(src){var o=document.getElementById('fs-overlay');o.querySelector('img').src=src;o.classList.add('show');}
 document.getElementById('fs-overlay').onclick=function(){this.classList.remove('show');};
-var fs=16;
-function adjFont(d){
-  fs=Math.min(22,Math.max(12,fs+d));
-  document.body.style.fontSize=fs+'px';
-  document.querySelector('.font-display').textContent=fs+'px';
+
+// 互動分數圓 SVG
+function igRender(){
+  var N = parseInt(document.getElementById('ig-num').value, 10);
+  var D = parseInt(document.getElementById('ig-den').value, 10);
+  document.getElementById('ig-num-val').textContent = N;
+  document.getElementById('ig-den-val').textContent = D;
+
+  var svg = document.getElementById('ig-svg');
+  var R = 80;                 // 圓半徑
+  var cy = 140;
+  var gap = 30;               // 圓間距
+  // 計算需要幾個完整圓
+  var totalCircles = Math.ceil(N / D);
+  if (totalCircles < 1) totalCircles = 1;
+  // 最多顯示 3 個圓（避免畫面爆掉）
+  var showCircles = Math.min(totalCircles, 3);
+  var totalW = showCircles * (2*R) + (showCircles-1) * gap;
+  var startX = (460 - totalW) / 2 + R;
+
+  var html = '';
+  var remaining = N;
+  for (var c = 0; c < showCircles; c++) {
+    var cx = startX + c * (2*R + gap);
+    // 畫每片切片
+    var fillCount = Math.min(D, remaining);
+    for (var i = 0; i < D; i++) {
+      var a1 = (i / D) * 2 * Math.PI - Math.PI/2;
+      var a2 = ((i+1) / D) * 2 * Math.PI - Math.PI/2;
+      var x1 = cx + R * Math.cos(a1), y1 = cy + R * Math.sin(a1);
+      var x2 = cx + R * Math.cos(a2), y2 = cy + R * Math.sin(a2);
+      var large = ((a2 - a1) > Math.PI) ? 1 : 0;
+      var fill = (i < fillCount) ? '#ffd54f' : '#ffffff';
+      var op   = (i < fillCount) ? '0.85' : '1';
+      // 當分母 = 1 不會發生（min=2），但保險：D >= 2 一定畫得出扇形
+      html += '<path d="M ' + cx + ' ' + cy
+            + ' L ' + x1 + ' ' + y1
+            + ' A ' + R + ' ' + R + ' 0 ' + large + ' 1 ' + x2 + ' ' + y2
+            + ' Z" fill="' + fill + '" fill-opacity="' + op + '" stroke="#5d4530" stroke-width="1.5"/>';
+    }
+    // 圓邊框
+    html += '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="#1a2a1a" stroke-width="2.5"/>';
+    remaining -= D;
+    if (remaining < 0) remaining = 0;
+  }
+
+  // 若實際需要圓 > 顯示圓，用 +N 標示
+  if (totalCircles > showCircles) {
+    html += '<text x="440" y="' + cy + '" text-anchor="end" fill="#5d4530" font-size="14" font-weight="700">+' + (totalCircles - showCircles) + ' 個圓</text>';
+  }
+
+  // 上方標題：分類
+  var type, typeColor;
+  if (N < D) { type = '真分數（< 1）'; typeColor = '#1976d2'; }
+  else if (N === D) { type = '假分數（= 1）'; typeColor = '#d84315'; }
+  else { type = '假分數（> 1）'; typeColor = '#d84315'; }
+  html += '<text x="230" y="22" text-anchor="middle" fill="' + typeColor + '" font-size="16" font-weight="700">' + type + '</text>';
+
+  // 帶分數標示（若分子 >= 分母）
+  if (N >= D) {
+    var whole = Math.floor(N / D);
+    var rem = N - whole * D;
+    var mixed = rem === 0 ? whole + '' : whole + ' 又 ' + rem + '/' + D;
+    html += '<text x="230" y="260" text-anchor="middle" fill="#2e7d32" font-size="15" font-weight="700">= ' + mixed + '</text>';
+  }
+
+  svg.innerHTML = html;
+
+  // 公式顯示
+  var formulaEl = document.getElementById('ig-formula');
+  var formula = '$\\dfrac{' + N + '}{' + D + '}$';
+  if (N < D) formula += ' 是<strong>真分數</strong>';
+  else if (N === D) formula += ' = 1，是<strong>假分數</strong>';
+  else {
+    var w = Math.floor(N / D), r = N - w * D;
+    if (r === 0) formula += ' = ' + w + '，是<strong>假分數</strong>';
+    else formula += ' = $' + w + '\\dfrac{' + r + '}{' + D + '}$，是<strong>假分數</strong>';
+  }
+  formulaEl.innerHTML = formula;
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([formulaEl]);
 }
+document.getElementById('ig-num').addEventListener('input', igRender);
+document.getElementById('ig-den').addEventListener('input', igRender);
+igRender();
 </script>
 </body>
 </html>

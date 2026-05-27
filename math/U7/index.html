@@ -5,124 +5,128 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>第7單元：時間</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>
+  MathJax = {
+    tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
 :root {
   --board:#1a2a1a; --board-light:#243524; --chalk:#e8e4d8; --chalk-dim:#a8a498;
   --yellow:#ffd54f; --wood:#8d6e4a; --wood-dark:#5d4530; --wood-light:#a8875a;
-  --pink:#ff8a80; --blue:#81d4fa; --green:#a5d6a7; --orange:#ffb74d;
+  --pink:#ff8a80; --blue:#81d4fa; --green:#a5d6a7; --orange:#ffb74d; --purple:#ce93d8;
+  --formula:#ffeb3b;
 }
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-body {
-  font-family:'Noto Sans TC',sans-serif; background:var(--board);
-  color:var(--chalk); line-height:1.8; font-size:18px;
-}
-header {
-  position:sticky; top:0; z-index:100;
-  background:linear-gradient(180deg,var(--wood-light),var(--wood),var(--wood-dark));
-  border-bottom:4px solid var(--wood-dark);
-  text-align:center; padding:12px 16px;
-  box-shadow:0 4px 12px rgba(0,0,0,.5);
-}
+body { font-family:'Noto Sans TC',sans-serif; background:var(--board); color:var(--chalk); line-height:1.8; font-size:18px; }
+header { position:sticky; top:0; z-index:100; background:linear-gradient(180deg,var(--wood-light),var(--wood),var(--wood-dark)); border-bottom:4px solid var(--wood-dark); text-align:center; padding:12px 16px; box-shadow:0 4px 12px rgba(0,0,0,.5); }
 header h1 { font-size:1.6em; color:#fff; text-shadow:1px 1px 3px rgba(0,0,0,.6); }
-header .badge {
-  display:inline-block; background:var(--yellow); color:var(--wood-dark);
-  font-size:.5em; padding:2px 10px; border-radius:12px; margin-left:8px;
-  vertical-align:middle; font-weight:700;
-}
-.mode-bar {
-  display:flex; justify-content:center; gap:8px;
-  background:var(--board-light); padding:8px; border-bottom:2px solid var(--wood-dark);
-}
-.mode-btn {
-  padding:6px 20px; border:2px solid var(--chalk-dim); border-radius:20px;
-  background:transparent; color:var(--chalk-dim); cursor:pointer;
-  font-family:inherit; font-size:.9em; transition:.2s;
-}
+header .badge { display:inline-block; background:var(--yellow); color:var(--wood-dark); font-size:.5em; padding:2px 10px; border-radius:12px; margin-left:8px; vertical-align:middle; font-weight:700; }
+.mode-bar { display:flex; justify-content:center; gap:8px; background:var(--board-light); padding:8px; border-bottom:2px solid var(--wood-dark); }
+.mode-btn { padding:6px 20px; border:2px solid var(--chalk-dim); border-radius:20px; background:transparent; color:var(--chalk-dim); cursor:pointer; font-family:inherit; font-size:.9em; transition:.2s; }
 .mode-btn.active { background:var(--yellow); color:var(--wood-dark); border-color:var(--yellow); font-weight:700; }
 .mode-btn:hover { opacity:.85; }
 .container { max-width:960px; margin:0 auto; padding:20px 16px 80px; }
-.back-btn {
-  display:inline-block; margin-bottom:16px; padding:6px 16px;
-  background:var(--wood); color:#fff; border-radius:8px; text-decoration:none;
-  font-size:.9em; transition:.2s;
-}
+.back-btn { display:inline-block; margin-bottom:16px; padding:6px 16px; background:var(--wood); color:#fff; border-radius:8px; text-decoration:none; font-size:.9em; transition:.2s; }
 .back-btn:hover { background:var(--wood-light); }
-.section {
-  background:var(--board-light); border:1px solid var(--wood);
-  border-radius:12px; padding:24px; margin-bottom:24px;
-}
-h2 {
-  color:var(--yellow); font-size:1.3em; padding-bottom:6px;
-  border-bottom:2px dashed var(--yellow); margin-bottom:16px;
-}
+.section { background:var(--board-light); border:1px solid var(--wood); border-radius:12px; padding:24px; margin-bottom:24px; }
+h2 { color:var(--yellow); font-size:1.3em; padding-bottom:6px; border-bottom:2px dashed var(--yellow); margin-bottom:16px; }
 h3 { color:var(--green); font-size:1.1em; margin:14px 0 8px; }
 .objectives { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
-.obj-chip {
-  background:rgba(129,212,250,.15); color:var(--blue); border:1px solid var(--blue);
-  padding:4px 14px; border-radius:20px; font-size:.85em;
-}
+.obj-chip { background:rgba(129,212,250,.15); color:var(--blue); border:1px solid var(--blue); padding:4px 14px; border-radius:20px; font-size:.85em; }
 table { width:100%; border-collapse:collapse; margin:12px 0; }
 th { background:rgba(255,213,79,.2); color:var(--yellow); }
-th, td {
-  border:1px solid var(--wood); padding:8px 12px; text-align:center; font-size:.95em;
-}
+th, td { border:1px solid var(--wood); padding:8px 12px; text-align:center; font-size:.95em; }
 td { color:var(--chalk); }
 ul.bullet { list-style:disc; padding-left:24px; margin:8px 0; }
 ul.bullet li { margin-bottom:4px; }
-.note {
-  border-left:4px solid var(--blue); background:rgba(129,212,250,.08);
-  padding:10px 14px; margin:12px 0; border-radius:0 8px 8px 0; font-size:.95em;
-}
+.note { border-left:4px solid var(--blue); background:rgba(129,212,250,.08); padding:10px 14px; margin:12px 0; border-radius:0 8px 8px 0; font-size:.95em; }
+
+.math-display { background:rgba(0,0,0,.25); border-radius:8px; padding:14px; margin:10px 0; text-align:center; font-size:1.2rem; color:var(--formula); overflow-x:auto; border:1px solid rgba(255,235,59,.25); }
+
 .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin:12px 0; }
-.step-card {
-  background:rgba(255,213,79,.08); border:1px solid var(--wood);
-  border-radius:10px; padding:14px; text-align:center;
-}
+.step-card { background:rgba(255,213,79,.08); border:1px solid var(--wood); border-radius:10px; padding:14px; text-align:center; }
 .step-num { font-size:1.6em; color:var(--yellow); font-weight:900; }
 .step-title { color:var(--green); font-weight:700; margin:4px 0; }
 .step-desc { font-size:.9em; color:var(--chalk-dim); }
+
+.solve-steps { margin:10px 0; }
+.solve-item { background:rgba(255,213,79,.06); border:1px solid rgba(255,213,79,.3); border-radius:10px; margin-bottom:8px; overflow:hidden; }
+.solve-head { background:none; border:none; width:100%; text-align:left; padding:12px 16px; color:var(--yellow); font-weight:700; cursor:pointer; font-family:inherit; font-size:1em; display:flex; justify-content:space-between; align-items:center; }
+.solve-head::after { content:'▼'; transition:transform .2s; font-size:.85em; }
+.solve-item.open .solve-head::after { transform:rotate(180deg); }
+.solve-body { padding:0 16px; max-height:0; overflow:hidden; transition:max-height .35s, padding .35s; color:var(--chalk); }
+.solve-item.open .solve-body { max-height:600px; padding:8px 16px 16px; }
+.example-q { color:var(--blue); font-weight:600; margin-bottom:8px; }
+.example-a { color:var(--green); font-weight:600; margin-top:8px; }
+
 .obs-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin:12px 0; }
-.obs-card {
-  background:rgba(165,214,167,.08); border:1px solid var(--green);
-  border-radius:10px; padding:14px;
-}
+.obs-card { background:rgba(165,214,167,.08); border:1px solid var(--green); border-radius:10px; padding:14px; }
 .obs-title { color:var(--orange); font-weight:700; margin-bottom:4px; }
 .obs-desc { font-size:.9em; color:var(--chalk); }
-/* Quiz */
+
+.calc-grid { display:grid; gap:12px; margin:10px 0; }
+.calc-item { background:rgba(165,214,167,.08); border:1px solid rgba(165,214,167,.35); border-radius:10px; padding:14px; }
+.calc-q { color:var(--chalk); font-weight:500; margin-bottom:10px; }
+.calc-input { padding:6px 12px; border:2px solid var(--chalk-dim); border-radius:8px; background:rgba(0,0,0,.3); color:var(--formula); font-family:inherit; font-size:1.05em; width:100px; text-align:center; }
+.calc-unit { color:var(--chalk-dim); margin-left:4px; }
+.calc-btn { padding:6px 16px; border:2px solid var(--yellow); border-radius:8px; background:var(--yellow); color:var(--wood-dark); cursor:pointer; font-family:inherit; font-size:.9em; font-weight:700; margin-left:6px; }
+.calc-feedback { display:inline-block; margin-left:10px; font-size:.95em; font-weight:700; }
+.calc-feedback.correct { color:var(--green); }
+.calc-feedback.wrong { color:var(--pink); }
+
 .quiz-item, .tf-item, .fill-item { margin-bottom:16px; }
 .quiz-q, .tf-q, .fill-q { margin-bottom:8px; font-weight:500; }
 .quiz-opts { display:flex; flex-wrap:wrap; gap:8px; }
-.quiz-opts button, .tf-btns button, .fill-btn {
-  padding:6px 16px; border:2px solid var(--chalk-dim); border-radius:8px;
-  background:transparent; color:var(--chalk); cursor:pointer;
-  font-family:inherit; font-size:.9em; transition:.2s;
-}
+.quiz-opts button, .tf-btns button, .fill-btn { padding:6px 16px; border:2px solid var(--chalk-dim); border-radius:8px; background:transparent; color:var(--chalk); cursor:pointer; font-family:inherit; font-size:.9em; transition:.2s; }
 .quiz-opts button:hover, .tf-btns button:hover, .fill-btn:hover { border-color:var(--yellow); }
 .correct { background:rgba(165,214,167,.3)!important; border-color:var(--green)!important; color:var(--green)!important; }
 .wrong { background:rgba(255,138,128,.3)!important; border-color:var(--pink)!important; color:var(--pink)!important; }
 .tf-btns { display:flex; gap:8px; }
 .fill-item { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
 .fill-q { flex:1 1 100%; }
-.fill-input {
-  padding:6px 12px; border:2px solid var(--chalk-dim); border-radius:8px;
-  background:transparent; color:var(--yellow); font-family:inherit;
-  font-size:1em; width:120px; text-align:center;
-}
+.fill-input { padding:6px 12px; border:2px solid var(--chalk-dim); border-radius:8px; background:transparent; color:var(--yellow); font-family:inherit; font-size:1em; width:120px; text-align:center; }
 .fill-feedback { font-size:.9em; margin-left:4px; }
-/* Teacher */
+
 #teacher-only { display:none; }
-/* Float panel */
-.float-panel {
-  position:fixed; right:16px; bottom:16px; z-index:200;
-  display:flex; flex-direction:column; align-items:center; gap:6px;
-}
-.float-btn {
-  width:40px; height:40px; border-radius:50%; border:none;
-  background:var(--wood); color:#fff; font-size:1.2em; cursor:pointer;
-  display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,.4);
-}
+.float-panel { position:fixed; right:16px; bottom:16px; z-index:200; display:flex; flex-direction:column; align-items:center; gap:6px; }
+.float-btn { width:40px; height:40px; border-radius:50%; border:none; background:var(--wood); color:#fff; font-size:1.2em; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,.4); }
 .float-btn:hover { background:var(--wood-light); }
 .font-display { font-size:.75em; color:var(--chalk-dim); }
+.tool-panel{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:400;display:flex;align-items:stretch}
+.tool-toggle{background:var(--wood);color:#fff;border:none;width:28px;border-radius:10px 0 0 10px;cursor:pointer;font-size:.82em;writing-mode:vertical-rl;letter-spacing:3px;padding:14px 4px;box-shadow:-3px 0 12px rgba(0,0,0,.4);transition:background .2s;font-family:inherit}
+.tool-toggle:hover{background:var(--wood-light)}
+.tool-content{background:#162616;border:2px solid rgba(232,228,216,.18);border-right:none;border-radius:12px 0 0 12px;padding:14px 12px;display:none;flex-direction:column;gap:14px;width:164px;box-shadow:-4px 0 20px rgba(0,0,0,.5)}
+.tool-content.open{display:flex}
+.tool-lbl{font-size:.7em;color:var(--chalk-dim);letter-spacing:1px;border-bottom:1px solid rgba(232,228,216,.1);padding-bottom:4px;margin-bottom:2px}
+.font-ctrl{display:flex;align-items:center;gap:6px;justify-content:center}
+.font-btn{background:rgba(255,213,79,.15);border:1px solid rgba(255,213,79,.4);color:var(--yellow);border-radius:6px;width:32px;height:30px;font-size:1em;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.font-btn:hover{background:rgba(255,213,79,.3)}
+.font-val{font-size:.8em;color:var(--chalk-dim);min-width:38px;text-align:center}
+.timer-disp{font-family:'Courier New',monospace;font-size:1.9em;color:var(--yellow);text-align:center;letter-spacing:2px;margin:4px 0}
+.timer-disp.running{color:var(--green)}
+.timer-disp.ended{color:var(--pink);animation:blink .7s infinite}
+@keyframes blink{50%{opacity:.3}}
+.timer-presets{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.timer-preset{background:rgba(129,212,250,.1);border:1px solid rgba(129,212,250,.3);color:var(--blue);border-radius:6px;padding:3px 7px;font-size:.72em;cursor:pointer;font-family:inherit}
+.timer-preset:hover{background:rgba(129,212,250,.25)}
+.timer-btns{display:flex;gap:4px;justify-content:center}
+.timer-btn{background:rgba(255,213,79,.15);border:1px solid rgba(255,213,79,.3);color:var(--yellow);border-radius:6px;padding:4px 0;font-size:.82em;cursor:pointer;flex:1;font-family:inherit}
+.timer-btn:hover{background:rgba(255,213,79,.3)}
+.timer-btn.on{background:rgba(165,214,167,.2);border-color:var(--green);color:var(--green)}
+.draw-btn{background:rgba(232,228,216,.1);border:1px solid rgba(232,228,216,.2);color:var(--chalk);border-radius:6px;padding:5px 0;font-size:.78em;cursor:pointer;width:100%;text-align:center;font-family:inherit}
+.draw-btn:hover{background:rgba(232,228,216,.2)}
+.draw-btn.on{background:rgba(165,214,167,.2);border-color:var(--green);color:var(--green)}
+.draw-colors{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
+.draw-color{width:20px;height:20px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:transform .15s}
+.draw-color:hover,.draw-color.active{transform:scale(1.3);border-color:white}
+.draw-sizes{display:flex;gap:6px;justify-content:center;align-items:center}
+.draw-size{border-radius:50%;background:var(--chalk);cursor:pointer;transition:transform .15s;border:2px solid transparent}
+.draw-size.active{border-color:var(--yellow);transform:scale(1.2)}
+#draw-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:350;display:none;cursor:crosshair;touch-action:none}
+#draw-canvas.active{display:block}
 .carousel{position:relative;background:#000;border-radius:10px;overflow:hidden;margin-bottom:12px}
 .carousel img{width:100%;display:none;border-radius:10px}
 .carousel img.active{display:block}
@@ -136,6 +140,53 @@ ul.bullet li { margin-bottom:4px; }
 </style>
 </head>
 <body>
+<canvas id="draw-canvas"></canvas>
+
+<div class="tool-panel">
+  <div class="tool-content" id="tool-content">
+    <div>
+      <div class="tool-lbl">字　級</div>
+      <div class="font-ctrl" style="margin-top:6px">
+        <button class="font-btn" id="font-dec">A−</button>
+        <span class="font-val" id="font-val">18px</span>
+        <button class="font-btn" id="font-inc">A＋</button>
+      </div>
+    </div>
+    <div>
+      <div class="tool-lbl">計時器</div>
+      <div class="timer-disp" id="timer-disp">05:00</div>
+      <div class="timer-presets">
+        <button class="timer-preset" data-sec="60">1分</button>
+        <button class="timer-preset" data-sec="180">3分</button>
+        <button class="timer-preset" data-sec="300">5分</button>
+        <button class="timer-preset" data-sec="600">10分</button>
+      </div>
+      <div class="timer-btns" style="margin-top:6px">
+        <button class="timer-btn" id="timer-start">▶ 開始</button>
+        <button class="timer-btn" id="timer-reset">↺ 重置</button>
+      </div>
+    </div>
+    <div>
+      <div class="tool-lbl">畫　筆</div>
+      <button class="draw-btn" id="draw-toggle" style="margin:6px 0">🖌️ 開啟畫筆</button>
+      <div class="draw-colors" style="margin-bottom:6px">
+        <div class="draw-color active" data-color="#ffd54f" style="background:#ffd54f"></div>
+        <div class="draw-color" data-color="#ff8a80" style="background:#ff8a80"></div>
+        <div class="draw-color" data-color="#81d4fa" style="background:#81d4fa"></div>
+        <div class="draw-color" data-color="#a5d6a7" style="background:#a5d6a7"></div>
+        <div class="draw-color" data-color="#ffffff" style="background:#fff;border:1px solid #666"></div>
+      </div>
+      <div class="draw-sizes" style="margin-bottom:6px">
+        <div class="draw-size" data-size="3" style="width:8px;height:8px"></div>
+        <div class="draw-size active" data-size="7" style="width:14px;height:14px"></div>
+        <div class="draw-size" data-size="14" style="width:22px;height:22px"></div>
+      </div>
+      <button class="draw-btn" id="draw-clear">🗑️ 清除畫布</button>
+    </div>
+  </div>
+  <button class="tool-toggle" id="tool-toggle">工具</button>
+</div>
+
 <header>
   <h1>第 7 單元：時間 <span class="badge">小三數學</span></h1>
 </header>
@@ -144,7 +195,7 @@ ul.bullet li { margin-bottom:4px; }
   <button class="mode-btn" onclick="setMode('teacher')">教師模式</button>
 </div>
 <div class="container">
-  <a href="../index.html" class="back-btn">&#8592; 返回總覽</a>
+  <a href="../index.html" class="back-btn">← 返回總覽</a>
 
   <div class="objectives">
     <span class="obj-chip">認識 24 小時制</span>
@@ -159,12 +210,13 @@ ul.bullet li { margin-bottom:4px; }
     <p>從午夜 0 時開始，到隔天午夜結束，一整天剛好是 <strong style="color:var(--yellow)">24 小時</strong>。</p>
     <h3>12 小時制 vs 24 小時制</h3>
     <p>日常生活常用「上午／下午」的 12 小時制，但火車時刻表、醫院掛號常用 24 小時制。</p>
-    <div class="note">換算口訣：下午的時間 <strong>+12</strong> = 24 小時制。例如：下午 1 點 → 1+12 = <strong>13:00</strong></div>
+    <div class="note">換算口訣：下午的時間 <strong>+12</strong> = 24 小時制。例如：下午 3 點 → $3+12=15$ → <strong>15:00</strong></div>
     <table>
       <tr><th>12 小時制</th><th>24 小時制</th></tr>
       <tr><td>上午 6 點</td><td>06:00</td></tr>
       <tr><td>中午 12 點</td><td>12:00</td></tr>
       <tr><td>下午 1 點</td><td>13:00</td></tr>
+      <tr><td>下午 3 點</td><td>15:00</td></tr>
       <tr><td>下午 6 點</td><td>18:00</td></tr>
       <tr><td>晚上 9 點</td><td>21:00</td></tr>
       <tr><td>午夜 12 點</td><td>00:00（隔天）</td></tr>
@@ -173,9 +225,21 @@ ul.bullet li { margin-bottom:4px; }
 
   <!-- 7-2 -->
   <div class="section">
-    <h2>7-2 一小時是 60 分鐘</h2>
-    <p>分針走完一圈 = <strong style="color:var(--yellow)">60 分鐘 = 1 小時</strong></p>
-    <h3>時間加減注意 60 進位</h3>
+    <h2>7-2 時、分、秒的換算</h2>
+    <div class="math-display">$$1\ \text{小時} = 60\ \text{分} \qquad 1\ \text{分} = 60\ \text{秒}$$</div>
+    <h3>單位換算口訣</h3>
+    <ul class="bullet">
+      <li>時 → 分：<strong>×60</strong>，例如 $2\ \text{時} = 2 \times 60 = 120\ \text{分}$</li>
+      <li>分 → 秒：<strong>×60</strong>，例如 $3\ \text{分} = 3 \times 60 = 180\ \text{秒}$</li>
+      <li>秒 → 分：<strong>÷60</strong>，例如 $180\ \text{秒} = 180 \div 60 = 3\ \text{分}$</li>
+      <li>$2\ \text{分}\ 30\ \text{秒} = 2 \times 60 + 30 = 150\ \text{秒}$</li>
+    </ul>
+  </div>
+
+  <!-- 7-3 時間加減 -->
+  <div class="section">
+    <h2>7-3 時間加減（60 進位）</h2>
+    <p>時間加減和一般加減<strong style="color:var(--pink)">不一樣</strong>：滿 60 要進位，因為 1 時 = 60 分、1 分 = 60 秒。</p>
     <div class="steps">
       <div class="step-card">
         <div class="step-num">1</div>
@@ -190,23 +254,114 @@ ul.bullet li { margin-bottom:4px; }
       <div class="step-card">
         <div class="step-num">3</div>
         <div class="step-title">小時再加</div>
-        <div class="step-desc">2 時 + 1 時 + 1 時 = 4 時</div>
+        <div class="step-desc">把進位的 1 時加進去</div>
       </div>
     </div>
-    <div class="note">範例：2 時 40 分 + 1 時 30 分 = <strong>4 時 10 分</strong></div>
+    <div class="note">範例：$2\ \text{時}\ 40\ \text{分} + 1\ \text{時}\ 30\ \text{分} = 4\ \text{時}\ 10\ \text{分}$</div>
   </div>
 
-  <!-- 7-3 -->
+  <!-- 解題步驟 Accordion -->
   <div class="section">
-    <h2>7-3 一分鐘是 60 秒</h2>
-    <p>秒針走完一圈 = <strong style="color:var(--yellow)">60 秒 = 1 分鐘</strong></p>
-    <h3>時間單位換算</h3>
-    <ul class="bullet">
-      <li>3 分鐘 = 3 × 60 = <strong>180 秒</strong></li>
-      <li>120 秒 = 120 ÷ 60 = <strong>2 分鐘</strong></li>
-      <li>2 分 30 秒 = 2×60 + 30 = <strong>150 秒</strong></li>
-    </ul>
-    <div class="note">口訣：分→秒 <strong>×60</strong>；秒→分 <strong>÷60</strong></div>
+    <h2>💡 解題步驟（點開展開）</h2>
+    <div class="solve-steps">
+      <div class="solve-item">
+        <button class="solve-head" onclick="toggleSolve(this)">例題 1：12 小時制 → 24 小時制（下午 3 點）</button>
+        <div class="solve-body">
+          <div class="example-q">下午 3 點用 24 小時制怎麼表示？</div>
+          <ol style="padding-left:24px">
+            <li>判斷時段：「下午」要 <strong>+12</strong></li>
+            <li>計算：$3 + 12 = 15$</li>
+            <li>寫成 24 小時制格式：<strong>15:00</strong></li>
+          </ol>
+          <div class="example-a">答：下午 3 點 = 15:00</div>
+        </div>
+      </div>
+
+      <div class="solve-item">
+        <button class="solve-head" onclick="toggleSolve(this)">例題 2：時間換算（$2\ \text{分}\ 30\ \text{秒} = ?\ \text{秒}$）</button>
+        <div class="solve-body">
+          <div class="example-q">$2\ \text{分}\ 30\ \text{秒}$ 一共是多少秒？</div>
+          <ol style="padding-left:24px">
+            <li>先把分換成秒：$2 \times 60 = 120\ \text{秒}$</li>
+            <li>加上剩下的秒數：$120 + 30 = 150$</li>
+          </ol>
+          <div class="example-a">答：$2\ \text{分}\ 30\ \text{秒} = 150\ \text{秒}$</div>
+        </div>
+      </div>
+
+      <div class="solve-item">
+        <button class="solve-head" onclick="toggleSolve(this)">例題 3：時間加法 60 進位（$1\ \text{時}\ 45\ \text{分} + 30\ \text{分}$）</button>
+        <div class="solve-body">
+          <div class="example-q">$1\ \text{時}\ 45\ \text{分} + 30\ \text{分} = ?$</div>
+          <ol style="padding-left:24px">
+            <li>分鐘先加：$45 + 30 = 75\ \text{分}$</li>
+            <li>檢查是否滿 60：$75 = 60 + 15$，要進位</li>
+            <li>進位：$75\ \text{分} = 1\ \text{時}\ 15\ \text{分}$</li>
+            <li>把時加起來：$1\ \text{時} + 1\ \text{時}\ 15\ \text{分} = 2\ \text{時}\ 15\ \text{分}$</li>
+          </ol>
+          <div class="example-a">答：$1\ \text{時}\ 45\ \text{分} + 30\ \text{分} = 2\ \text{時}\ 15\ \text{分}$</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 互動計算題 -->
+  <div class="section">
+    <h2>🧮 互動計算題（馬上試試看）</h2>
+    <p style="color:var(--chalk-dim);font-size:.9em;margin-bottom:12px">輸入答案後按「確認」，會立刻檢查對錯。</p>
+    <div class="calc-grid">
+      <div class="calc-item">
+        <div class="calc-q">1. 下午 8 點用 24 小時制是幾點？</div>
+        <input class="calc-input" data-ans="20" placeholder="?"><span class="calc-unit">點</span>
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+      <div class="calc-item">
+        <div class="calc-q">2. 180 秒 = ? 分鐘</div>
+        <input class="calc-input" data-ans="3" placeholder="?"><span class="calc-unit">分</span>
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+      <div class="calc-item">
+        <div class="calc-q">3. $1\ \text{時}\ 30\ \text{分}$ = ? 分鐘</div>
+        <input class="calc-input" data-ans="90" placeholder="?"><span class="calc-unit">分</span>
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+      <div class="calc-item">
+        <div class="calc-q">4. $2\ \text{時}\ 50\ \text{分} + 20\ \text{分}$ = ? 分鐘（請輸入總分鐘數）</div>
+        <input class="calc-input" data-ans="190" placeholder="?"><span class="calc-unit">分</span>
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 互動實驗：時鐘 -->
+  <div class="section">
+    <h2>🎮 互動實驗：時鐘</h2>
+    <p style="color:var(--chalk-dim);font-size:.9em;margin-bottom:14px">調整下方滑桿改變小時與分鐘，觀察時針（短粗）與分針（長細）的位置，並對照 12 小時制與 24 小時制的寫法。</p>
+
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px">
+      <div style="flex:1;min-width:240px">
+        <label style="color:var(--green);font-weight:700">小時（24 小時制）：<span id="ck-hr-val" style="color:var(--yellow)">15</span></label>
+        <input type="range" id="ck-hr" min="0" max="23" value="15" style="width:100%;accent-color:var(--yellow);margin-top:6px">
+      </div>
+      <div style="flex:1;min-width:240px">
+        <label style="color:var(--green);font-weight:700">分鐘：<span id="ck-min-val" style="color:var(--yellow)">25</span></label>
+        <input type="range" id="ck-min" min="0" max="59" value="25" style="width:100%;accent-color:var(--yellow);margin-top:6px">
+      </div>
+    </div>
+
+    <div style="background:#fff;border-radius:10px;padding:16px;display:flex;justify-content:center;align-items:center;min-height:320px">
+      <svg id="ck-svg" width="100%" viewBox="0 0 320 320" style="max-width:340px;font-family:inherit"></svg>
+    </div>
+
+    <div class="math-display" style="margin-top:14px">
+      <span id="ck-readout">12 小時制：下午 3:25　／　24 小時制：15:25</span>
+    </div>
+
+    <p style="color:var(--chalk-dim);font-size:.85em;margin-top:8px">💡 小發現：下午的時間 = 24 小時制的時 − 12。中午 12 點與午夜 12 點寫法不同（12:00 vs 00:00）。</p>
   </div>
 
   <!-- 關鍵名詞 -->
@@ -216,14 +371,14 @@ ul.bullet li { margin-bottom:4px; }
       <tr><th>名詞</th><th>說明</th></tr>
       <tr><td>24 小時制</td><td>從 0:00 到 23:59，不分上午下午的計時方式</td></tr>
       <tr><td>12 小時制</td><td>用上午／下午區分，一天分成兩個 12 小時</td></tr>
-      <tr><td>秒</td><td>比分鐘更小的時間單位，1 分 = 60 秒</td></tr>
+      <tr><td>秒</td><td>比分鐘更小的時間單位，$1\ \text{分} = 60\ \text{秒}$</td></tr>
       <tr><td>時間量感</td><td>對時間長短的感覺，例如 1 分鐘大約多長</td></tr>
     </table>
   </div>
 
   <!-- 形成性評量 -->
   <div class="section">
-    <h2>形成性評量</h2>
+    <h2>✅ 形成性評量</h2>
 
     <h3>選擇題</h3>
     <div class="quiz-item">
@@ -245,7 +400,7 @@ ul.bullet li { margin-bottom:4px; }
       </div>
     </div>
     <div class="quiz-item">
-      <div class="quiz-q">3. 2 分 30 秒 = 幾秒？</div>
+      <div class="quiz-q">3. $2\ \text{分}\ 30\ \text{秒}$ = 幾秒？</div>
       <div class="quiz-opts">
         <button onclick="checkQ(this,'wrong')">A. 230</button>
         <button onclick="checkQ(this,'wrong')">B. 120</button>
@@ -292,6 +447,7 @@ ul.bullet li { margin-bottom:4px; }
     </div>
   </div>
 
+  <!-- 簡報 carousel -->
   <div class="section">
     <h2>📊 授課簡報</h2>
     <p style="font-size:.85rem;color:var(--chalk-dim);margin-bottom:12px">NotebookLM 自動生成｜全 9 單元 15 頁</p>
@@ -317,6 +473,7 @@ ul.bullet li { margin-bottom:4px; }
     <div class="carousel-count" id="unit-slides-count">1 / 15</div>
   </div>
 
+  <!-- 資訊圖表 -->
   <div class="section">
     <h2>🖼️ 資訊圖表</h2>
     <p style="font-size:.85rem;color:var(--chalk-dim);margin-bottom:12px">點擊可全螢幕檢視</p>
@@ -328,45 +485,79 @@ ul.bullet li { margin-bottom:4px; }
   <!-- 教師模式 -->
   <div id="teacher-only">
     <div class="section">
-      <h2>教師備課區</h2>
-
+      <h2>👩‍🏫 教師備課區</h2>
       <h3>教學策略</h3>
       <ul class="bullet">
         <li>用火車時刻表、課表讓學生練習 24 小時制轉換</li>
         <li>讓學生計時跑步或跳繩，建立「秒」的量感</li>
         <li>用時鐘模型操作分針、秒針的走動</li>
+        <li>用直式對齊的方式做時間加減，凸顯「滿 60 進位」</li>
       </ul>
-
       <h3>Bloom 認知層次</h3>
       <table>
         <tr><th>層次</th><th>學習表現</th></tr>
         <tr><td style="color:var(--blue)">記憶理解</td><td>說出 1 日=24 時、1 時=60 分、1 分=60 秒</td></tr>
-        <tr><td style="color:var(--green)">應用</td><td>能做 12→24 小時制轉換和時間加減</td></tr>
+        <tr><td style="color:var(--green)">應用</td><td>做 12→24 小時制轉換、時間單位換算、時間加減（互動計算題 4 題）</td></tr>
         <tr><td style="color:var(--orange)">分析</td><td>解釋為什麼時間加減不能用十進位</td></tr>
       </table>
-
       <h3>易錯點提醒</h3>
       <ul class="bullet">
         <li style="color:var(--pink)">12 小時制和 24 小時制搞混（尤其中午 12 點 vs 午夜 12 點）</li>
-        <li style="color:var(--pink)">時間加減忘記 60 進位，直接用十進位計算</li>
+        <li style="color:var(--pink)">時間加減忘記 60 進位，直接用十進位計算（例如把 75 分當作 75 分留著不進位）</li>
         <li style="color:var(--pink)">中午 12 點的歸屬：是上午還是下午？（24 小時制為 12:00）</li>
+        <li style="color:var(--pink)">$2\ \text{分}\ 30\ \text{秒}$ 寫成 230 秒（少了 ×60）</li>
       </ul>
     </div>
   </div>
 </div>
 
-<div class="float-panel">
-  <button class="float-btn" onclick="adjFont(2)">A+</button>
-  <span class="font-display">18px</span>
-  <button class="float-btn" onclick="adjFont(-2)">A-</button>
-</div>
-
 <script>
+// 右側工具面板
+document.getElementById('tool-toggle').onclick=function(){document.getElementById('tool-content').classList.toggle('open');};
+var fsize=18;
+function setFsize(n){fsize=Math.min(28,Math.max(12,n));document.body.style.fontSize=fsize+'px';document.getElementById('font-val').textContent=fsize+'px';}
+document.getElementById('font-inc').onclick=function(){setFsize(fsize+2);};
+document.getElementById('font-dec').onclick=function(){setFsize(fsize-2);};
+
+// 計時器
+var tSec=300,tRunning=false,tInterval=null;
+var tDisp=document.getElementById('timer-disp');
+var tStart=document.getElementById('timer-start');
+function tFmt(s){var m=Math.floor(s/60),sc=s%60;return(m<10?'0':'')+m+':'+(sc<10?'0':'')+sc;}
+function tTick(){if(tSec<=0){clearInterval(tInterval);tRunning=false;tDisp.textContent='00:00';tDisp.className='timer-disp ended';tStart.textContent='▶ 開始';tStart.classList.remove('on');return;}tSec--;tDisp.textContent=tFmt(tSec);}
+tStart.onclick=function(){if(tRunning){clearInterval(tInterval);tRunning=false;tDisp.classList.remove('running');this.textContent='▶ 開始';this.classList.remove('on');}else{tInterval=setInterval(tTick,1000);tRunning=true;tDisp.className='timer-disp running';this.textContent='⏸ 暫停';this.classList.add('on');}};
+document.getElementById('timer-reset').onclick=function(){clearInterval(tInterval);tRunning=false;tDisp.className='timer-disp';tStart.textContent='▶ 開始';tStart.classList.remove('on');tDisp.textContent=tFmt(tSec);};
+document.querySelectorAll('.timer-preset').forEach(function(btn){btn.onclick=function(){clearInterval(tInterval);tRunning=false;tSec=parseInt(this.dataset.sec);tDisp.className='timer-disp';tDisp.textContent=tFmt(tSec);tStart.textContent='▶ 開始';tStart.classList.remove('on');}});
+
+// 畫筆 canvas
+var canvas=document.getElementById('draw-canvas');
+var ctx=canvas.getContext('2d');
+var drawOn=false,drawing=false,dColor='#ffd54f',dSize=7;
+function resizeCanvas(){var data=ctx.getImageData(0,0,canvas.width||1,canvas.height||1);canvas.width=window.innerWidth;canvas.height=window.innerHeight;ctx.putImageData(data,0,0);ctx.lineCap='round';ctx.lineJoin='round';}
+resizeCanvas();window.addEventListener('resize',resizeCanvas);
+document.getElementById('draw-toggle').onclick=function(){drawOn=!drawOn;canvas.classList.toggle('active',drawOn);this.textContent=drawOn?'✅ 關閉畫筆':'🖌️ 開啟畫筆';this.classList.toggle('on',drawOn);};
+document.getElementById('draw-clear').onclick=function(){ctx.clearRect(0,0,canvas.width,canvas.height);};
+document.querySelectorAll('.draw-color').forEach(function(el){el.onclick=function(){document.querySelectorAll('.draw-color').forEach(function(e){e.classList.remove('active');});this.classList.add('active');dColor=this.dataset.color;}});
+document.querySelectorAll('.draw-size').forEach(function(el){el.onclick=function(){document.querySelectorAll('.draw-size').forEach(function(e){e.classList.remove('active');});this.classList.add('active');dSize=parseInt(this.dataset.size);}});
+function pos(e){var r=canvas.getBoundingClientRect();if(e.touches)return{x:e.touches[0].clientX-r.left,y:e.touches[0].clientY-r.top};return{x:e.clientX-r.left,y:e.clientY-r.top};}
+canvas.addEventListener('mousedown',function(e){drawing=true;var p=pos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.strokeStyle=dColor;ctx.lineWidth=dSize;});
+canvas.addEventListener('mousemove',function(e){if(!drawing)return;var p=pos(e);ctx.lineTo(p.x,p.y);ctx.stroke();});
+canvas.addEventListener('mouseup',function(){drawing=false;});
+canvas.addEventListener('mouseleave',function(){drawing=false;});
+canvas.addEventListener('touchstart',function(e){e.preventDefault();drawing=true;var p=pos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.strokeStyle=dColor;ctx.lineWidth=dSize;},{passive:false});
+canvas.addEventListener('touchmove',function(e){e.preventDefault();if(!drawing)return;var p=pos(e);ctx.lineTo(p.x,p.y);ctx.stroke();},{passive:false});
+canvas.addEventListener('touchend',function(){drawing=false;});
+
 function setMode(m){
   document.querySelectorAll('.mode-btn').forEach(function(b,i){
     b.classList.toggle('active', (m==='student'&&i===0)||(m==='teacher'&&i===1));
   });
   document.getElementById('teacher-only').style.display = m==='teacher'?'block':'none';
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+}
+function toggleSolve(btn){
+  btn.parentNode.classList.toggle('open');
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
 }
 function checkQ(btn,result){
   if(btn.classList.contains('correct')||btn.classList.contains('wrong')) return;
@@ -388,6 +579,21 @@ function checkFill(btn){
     input.style.borderColor='var(--pink)';
   }
 }
+function checkCalc(btn){
+  var item = btn.closest('.calc-item');
+  var input = item.querySelector('.calc-input');
+  var fb = item.querySelector('.calc-feedback');
+  var raw = input.value.trim();
+  var ans = input.dataset.ans;
+  var ok = (raw === ans);
+  if (!ok) {
+    var rawNum = parseFloat(raw), ansNum = parseFloat(ans);
+    if (!isNaN(rawNum) && !isNaN(ansNum) && Math.abs(rawNum - ansNum) < 0.01) ok = true;
+  }
+  fb.textContent = ok ? '✓ 答對了！' : '✗ 正確答案：' + ans;
+  fb.className = 'calc-feedback ' + (ok ? 'correct' : 'wrong');
+  input.style.borderColor = ok ? 'var(--green)' : 'var(--pink)';
+}
 function carGo(id, dir) {
   var imgs = document.querySelectorAll('#'+id+' img');
   var cur = Array.from(imgs).findIndex(function(i){return i.classList.contains('active')});
@@ -398,12 +604,72 @@ function carGo(id, dir) {
 }
 function showFS(src){var o=document.getElementById('fs-overlay');o.querySelector('img').src=src;o.classList.add('show');}
 document.getElementById('fs-overlay').onclick=function(){this.classList.remove('show');};
-var currentFont = 18;
-function adjFont(d){
-  currentFont = Math.min(28, Math.max(12, currentFont+d));
-  document.body.style.fontSize = currentFont+'px';
-  document.querySelector('.font-display').textContent = currentFont+'px';
+
+// 互動時鐘 SVG
+function ckRender(){
+  var H24 = parseInt(document.getElementById('ck-hr').value, 10);
+  var M = parseInt(document.getElementById('ck-min').value, 10);
+  document.getElementById('ck-hr-val').textContent = H24;
+  document.getElementById('ck-min-val').textContent = M;
+
+  var cx = 160, cy = 160, R = 140;
+  var svg = '';
+  // 錶面
+  svg += '<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'" fill="#fdf6e3" stroke="#5d4530" stroke-width="4"/>';
+  // 12 個時刻
+  for (var k = 1; k <= 12; k++) {
+    var ang = (k * 30 - 90) * Math.PI / 180;
+    var tx = cx + Math.cos(ang) * (R - 22);
+    var ty = cy + Math.sin(ang) * (R - 22);
+    svg += '<text x="'+tx+'" y="'+ty+'" text-anchor="middle" dominant-baseline="middle" fill="#1a2a1a" font-size="20" font-weight="900">'+k+'</text>';
+    // 刻度線
+    var t1x = cx + Math.cos(ang) * (R - 6);
+    var t1y = cy + Math.sin(ang) * (R - 6);
+    var t2x = cx + Math.cos(ang) * (R - 1);
+    var t2y = cy + Math.sin(ang) * (R - 1);
+    svg += '<line x1="'+t1x+'" y1="'+t1y+'" x2="'+t2x+'" y2="'+t2y+'" stroke="#5d4530" stroke-width="2"/>';
+  }
+  // 分鐘小刻度
+  for (var m = 0; m < 60; m++) {
+    if (m % 5 === 0) continue;
+    var ma = (m * 6 - 90) * Math.PI / 180;
+    var m1x = cx + Math.cos(ma) * (R - 4);
+    var m1y = cy + Math.sin(ma) * (R - 4);
+    var m2x = cx + Math.cos(ma) * (R - 1);
+    var m2y = cy + Math.sin(ma) * (R - 1);
+    svg += '<line x1="'+m1x+'" y1="'+m1y+'" x2="'+m2x+'" y2="'+m2y+'" stroke="#8d6e4a" stroke-width="1"/>';
+  }
+  // 計算指針角度（時針要考慮分鐘的小幅推進）
+  var H12 = H24 % 12;
+  var hourAng = ((H12 + M / 60) * 30 - 90) * Math.PI / 180;
+  var minAng = (M * 6 - 90) * Math.PI / 180;
+  // 時針（短粗）
+  var hx = cx + Math.cos(hourAng) * (R * 0.55);
+  var hy = cy + Math.sin(hourAng) * (R * 0.55);
+  svg += '<line x1="'+cx+'" y1="'+cy+'" x2="'+hx+'" y2="'+hy+'" stroke="#1a2a1a" stroke-width="7" stroke-linecap="round"/>';
+  // 分針（長細）
+  var mx = cx + Math.cos(minAng) * (R * 0.85);
+  var my = cy + Math.sin(minAng) * (R * 0.85);
+  svg += '<line x1="'+cx+'" y1="'+cy+'" x2="'+mx+'" y2="'+my+'" stroke="#c62828" stroke-width="3.5" stroke-linecap="round"/>';
+  // 中心點
+  svg += '<circle cx="'+cx+'" cy="'+cy+'" r="6" fill="#1a2a1a"/>';
+
+  document.getElementById('ck-svg').innerHTML = svg;
+
+  // 12/24 小時制顯示
+  var pad = function(n){ return (n<10?'0':'')+n; };
+  var label12;
+  if (H24 === 0) label12 = '凌晨 12:' + pad(M);
+  else if (H24 < 12) label12 = '上午 ' + H24 + ':' + pad(M);
+  else if (H24 === 12) label12 = '中午 12:' + pad(M);
+  else if (H24 < 18) label12 = '下午 ' + (H24 - 12) + ':' + pad(M);
+  else label12 = '晚上 ' + (H24 - 12) + ':' + pad(M);
+  var label24 = pad(H24) + ':' + pad(M);
+  document.getElementById('ck-readout').textContent = '12 小時制：' + label12 + '　／　24 小時制：' + label24;
 }
+document.getElementById('ck-hr').addEventListener('input', ckRender);
+document.getElementById('ck-min').addEventListener('input', ckRender);
+ckRender();
 </script>
 </body>
 </html>

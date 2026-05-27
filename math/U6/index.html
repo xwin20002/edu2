@@ -3,40 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>第 6 單元：一位小數</title>
+<title>第6單元：一位小數</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>
+  MathJax = {
+    tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
-:root{
-  --board:#1a2a1a;--board-light:#243524;--chalk:#e8e4d8;--chalk-dim:#a8a498;
-  --yellow:#ffd54f;--wood:#8d6e4a;--wood-dark:#5d4530;--wood-light:#a8875a;
-  --pink:#ff8a80;--blue:#81d4fa;--green:#a5d6a7;--orange:#ffb74d;
-  --font-size:18px;
+:root {
+  --board:#1a2a1a; --board-light:#243524; --chalk:#e8e4d8; --chalk-dim:#a8a498;
+  --yellow:#ffd54f; --wood:#8d6e4a; --wood-dark:#5d4530; --wood-light:#a8875a;
+  --pink:#ff8a80; --blue:#81d4fa; --green:#a5d6a7; --orange:#ffb74d; --purple:#ce93d8;
+  --formula:#ffeb3b;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--board);color:var(--chalk);font-family:'Noto Sans TC',sans-serif;font-size:var(--font-size);line-height:1.8;min-height:100vh;}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Noto Sans TC',sans-serif; background:var(--board); color:var(--chalk); line-height:1.8; font-size:18px; }
+header { position:sticky; top:0; z-index:100; background:linear-gradient(180deg,var(--wood-light),var(--wood),var(--wood-dark)); border-bottom:4px solid var(--wood-dark); text-align:center; padding:12px 16px; box-shadow:0 4px 12px rgba(0,0,0,.5); }
+header h1 { font-size:1.6em; color:#fff; text-shadow:1px 1px 3px rgba(0,0,0,.6); }
+header .badge { display:inline-block; background:var(--yellow); color:var(--wood-dark); font-size:.5em; padding:2px 10px; border-radius:12px; margin-left:8px; vertical-align:middle; font-weight:700; }
+.mode-bar { display:flex; justify-content:center; gap:8px; background:var(--board-light); padding:8px; border-bottom:2px solid var(--wood-dark); }
+.mode-btn { padding:6px 20px; border:2px solid var(--chalk-dim); border-radius:20px; background:transparent; color:var(--chalk-dim); cursor:pointer; font-family:inherit; font-size:.9em; transition:.2s; }
+.mode-btn.active { background:var(--yellow); color:var(--wood-dark); border-color:var(--yellow); font-weight:700; }
+.mode-btn:hover { opacity:.85; }
+.container { max-width:960px; margin:0 auto; padding:20px 16px 80px; }
+.back-btn { display:inline-block; margin-bottom:16px; padding:6px 16px; background:var(--wood); color:#fff; border-radius:8px; text-decoration:none; font-size:.9em; transition:.2s; }
+.back-btn:hover { background:var(--wood-light); }
+.section { background:var(--board-light); border:1px solid var(--wood); border-radius:12px; padding:24px; margin-bottom:24px; }
+h2 { color:var(--yellow); font-size:1.3em; padding-bottom:6px; border-bottom:2px dashed var(--yellow); margin-bottom:16px; }
+h3 { color:var(--green); font-size:1.1em; margin:14px 0 8px; }
+.objectives { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.obj-chip { background:rgba(129,212,250,.15); color:var(--blue); border:1px solid var(--blue); padding:4px 14px; border-radius:20px; font-size:.85em; }
+table { width:100%; border-collapse:collapse; margin:12px 0; }
+th { background:rgba(255,213,79,.2); color:var(--yellow); }
+th, td { border:1px solid var(--wood); padding:8px 12px; text-align:center; font-size:.95em; }
+td { color:var(--chalk); }
+ul.bullet { list-style:disc; padding-left:24px; margin:8px 0; }
+ul.bullet li { margin-bottom:4px; }
+.note { border-left:4px solid var(--blue); background:rgba(129,212,250,.08); padding:10px 14px; margin:12px 0; border-radius:0 8px 8px 0; font-size:.95em; }
 
-header{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,var(--wood-light),var(--wood),var(--wood-dark));padding:12px 24px;text-align:center;border-bottom:4px solid var(--wood-dark);box-shadow:0 4px 12px rgba(0,0,0,.5);}
-header h1{color:var(--chalk);font-size:1.6em;font-weight:900;text-shadow:2px 2px 4px rgba(0,0,0,.4);display:inline-flex;align-items:center;gap:10px;}
-.badge{background:var(--yellow);color:var(--wood-dark);font-size:.45em;padding:2px 10px;border-radius:20px;font-weight:700;vertical-align:middle;}
+.math-display { background:rgba(0,0,0,.25); border-radius:8px; padding:14px; margin:10px 0; text-align:center; font-size:1.2rem; color:var(--formula); overflow-x:auto; border:1px solid rgba(255,235,59,.25); }
 
-.mode-bar{display:flex;justify-content:center;gap:8px;padding:10px;background:var(--board-light);border-bottom:2px solid var(--wood-dark);}
-.mode-btn{padding:6px 20px;border:2px solid var(--chalk-dim);border-radius:20px;background:transparent;color:var(--chalk-dim);cursor:pointer;font-family:inherit;font-size:.9em;transition:.2s;}
-.mode-btn.active{background:var(--yellow);color:var(--wood-dark);border-color:var(--yellow);font-weight:700;}
-.mode-btn:hover{opacity:.85;}
+.solve-steps { margin:10px 0; }
+.solve-item { background:rgba(255,213,79,.06); border:1px solid rgba(255,213,79,.3); border-radius:10px; margin-bottom:8px; overflow:hidden; }
+.solve-head { background:none; border:none; width:100%; text-align:left; padding:12px 16px; color:var(--yellow); font-weight:700; cursor:pointer; font-family:inherit; font-size:1em; display:flex; justify-content:space-between; align-items:center; }
+.solve-head::after { content:'▼'; transition:transform .2s; font-size:.85em; }
+.solve-item.open .solve-head::after { transform:rotate(180deg); }
+.solve-body { padding:0 16px; max-height:0; overflow:hidden; transition:max-height .35s, padding .35s; color:var(--chalk); }
+.solve-item.open .solve-body { max-height:700px; padding:8px 16px 16px; }
+.example-q { color:var(--blue); font-weight:600; margin-bottom:8px; }
+.example-a { color:var(--green); font-weight:600; margin-top:8px; }
 
-.container{max-width:960px;margin:0 auto;padding:20px 16px 80px;}
-.back-btn{display:inline-block;margin-bottom:16px;padding:6px 16px;background:var(--wood);color:var(--chalk);border-radius:8px;text-decoration:none;font-size:.9em;border:1px solid var(--wood-light);}
-.back-btn:hover{background:var(--wood-light);}
+/* 互動計算題 */
+.calc-grid { display:grid; gap:12px; margin:10px 0; }
+.calc-item { background:rgba(165,214,167,.08); border:1px solid rgba(165,214,167,.35); border-radius:10px; padding:14px; }
+.calc-q { color:var(--chalk); font-weight:500; margin-bottom:10px; }
+.calc-input { padding:6px 12px; border:2px solid var(--chalk-dim); border-radius:8px; background:rgba(0,0,0,.3); color:var(--formula); font-family:inherit; font-size:1.05em; width:100px; text-align:center; }
+.calc-btn { padding:6px 16px; border:2px solid var(--yellow); border-radius:8px; background:var(--yellow); color:var(--wood-dark); cursor:pointer; font-family:inherit; font-size:.9em; font-weight:700; margin-left:6px; }
+.calc-feedback { display:inline-block; margin-left:10px; font-size:.95em; font-weight:700; }
+.calc-feedback.correct { color:var(--green); }
+.calc-feedback.wrong { color:var(--pink); }
 
-h2{color:var(--yellow);font-size:1.3em;margin:28px 0 12px;padding-bottom:6px;border-bottom:2px dashed var(--yellow);}
-h3{color:var(--green);font-size:1.1em;margin:18px 0 8px;}
-
-.objectives{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 20px;}
-.obj-chip{background:rgba(129,212,250,.15);color:var(--blue);border:1px solid var(--blue);padding:4px 14px;border-radius:20px;font-size:.85em;}
-
-.section{background:var(--board-light);border:1px solid #2e4a2e;border-radius:12px;padding:20px;margin-bottom:20px;}
-
-/* decimal anatomy */
+/* 名詞表色彩 */
 .decimal-anatomy{display:flex;justify-content:center;align-items:center;gap:4px;margin:16px 0;font-size:2em;font-weight:900;}
 .decimal-anatomy .part-int{color:var(--blue);border-bottom:3px solid var(--blue);padding:0 8px;}
 .decimal-anatomy .part-dot{color:var(--pink);font-size:1.2em;}
@@ -46,50 +76,56 @@ h3{color:var(--green);font-size:1.1em;margin:18px 0 8px;}
 .decimal-labels span:nth-child(2){color:var(--pink);}
 .decimal-labels span:last-child{color:var(--orange);}
 
-/* number line */
-.number-line-wrap{background:var(--board);border-radius:8px;padding:16px;margin:12px 0;text-align:center;}
-.number-line{display:flex;align-items:center;justify-content:center;gap:0;margin:8px 0;}
-.nl-tick{display:flex;flex-direction:column;align-items:center;width:42px;}
-.nl-tick .nl-mark{width:2px;height:16px;background:var(--chalk-dim);}
-.nl-tick .nl-label{font-size:.75em;color:var(--chalk-dim);margin-top:4px;}
-.nl-tick.highlight .nl-mark{background:var(--yellow);height:22px;}
-.nl-tick.highlight .nl-label{color:var(--yellow);font-weight:700;}
-.nl-line{height:2px;background:var(--chalk-dim);flex:1;min-width:0;}
-.nl-arrow{color:var(--green);font-size:.8em;margin-top:-24px;}
+/* Quiz */
+.quiz-item, .tf-item, .fill-item { margin-bottom:16px; }
+.quiz-q, .tf-q, .fill-q { margin-bottom:8px; font-weight:500; }
+.quiz-opts { display:flex; flex-wrap:wrap; gap:8px; }
+.quiz-opts button, .tf-btns button, .fill-btn { padding:6px 16px; border:2px solid var(--chalk-dim); border-radius:8px; background:transparent; color:var(--chalk); cursor:pointer; font-family:inherit; font-size:.9em; transition:.2s; }
+.quiz-opts button:hover, .tf-btns button:hover, .fill-btn:hover { border-color:var(--yellow); }
+.correct { background:rgba(165,214,167,.3)!important; border-color:var(--green)!important; color:var(--green)!important; }
+.wrong { background:rgba(255,138,128,.3)!important; border-color:var(--pink)!important; color:var(--pink)!important; }
+.tf-btns { display:flex; gap:8px; }
+.fill-item { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.fill-q { flex:1 1 100%; }
+.fill-input { padding:6px 12px; border:2px solid var(--chalk-dim); border-radius:8px; background:transparent; color:var(--yellow); font-family:inherit; font-size:1em; width:120px; text-align:center; }
+.fill-feedback { font-size:.9em; margin-left:4px; }
 
-ul.bullet{list-style:disc;padding-left:24px;margin:8px 0;}
-ul.bullet li{margin:4px 0;}
-.note{border-left:4px solid var(--blue);background:rgba(129,212,250,.08);padding:10px 14px;margin:10px 0;border-radius:0 8px 8px 0;font-size:.92em;color:var(--blue);}
+#teacher-only { display:none; }
 
-table{width:100%;border-collapse:collapse;margin:12px 0;}
-th{background:rgba(255,213,79,.2);color:var(--yellow);padding:8px 12px;text-align:left;border-bottom:2px solid var(--yellow);}
-td{padding:8px 12px;border-bottom:1px solid #2e4a2e;color:var(--chalk);}
+/* 右側工具面板 */
+.tool-panel{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:400;display:flex;align-items:stretch}
+.tool-toggle{background:var(--wood);color:#fff;border:none;width:28px;border-radius:10px 0 0 10px;cursor:pointer;font-size:.82em;writing-mode:vertical-rl;letter-spacing:3px;padding:14px 4px;box-shadow:-3px 0 12px rgba(0,0,0,.4);transition:background .2s;font-family:inherit}
+.tool-toggle:hover{background:var(--wood-light)}
+.tool-content{background:#162616;border:2px solid rgba(232,228,216,.18);border-right:none;border-radius:12px 0 0 12px;padding:14px 12px;display:none;flex-direction:column;gap:14px;width:164px;box-shadow:-4px 0 20px rgba(0,0,0,.5)}
+.tool-content.open{display:flex}
+.tool-lbl{font-size:.7em;color:var(--chalk-dim);letter-spacing:1px;border-bottom:1px solid rgba(232,228,216,.1);padding-bottom:4px;margin-bottom:2px}
+.font-ctrl{display:flex;align-items:center;gap:6px;justify-content:center}
+.font-btn{background:rgba(255,213,79,.15);border:1px solid rgba(255,213,79,.4);color:var(--yellow);border-radius:6px;width:32px;height:30px;font-size:1em;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.font-btn:hover{background:rgba(255,213,79,.3)}
+.font-val{font-size:.8em;color:var(--chalk-dim);min-width:38px;text-align:center}
+.timer-disp{font-family:'Courier New',monospace;font-size:1.9em;color:var(--yellow);text-align:center;letter-spacing:2px;margin:4px 0}
+.timer-disp.running{color:var(--green)}
+.timer-disp.ended{color:var(--pink);animation:blink .7s infinite}
+@keyframes blink{50%{opacity:.3}}
+.timer-presets{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.timer-preset{background:rgba(129,212,250,.1);border:1px solid rgba(129,212,250,.3);color:var(--blue);border-radius:6px;padding:3px 7px;font-size:.72em;cursor:pointer;font-family:inherit}
+.timer-preset:hover{background:rgba(129,212,250,.25)}
+.timer-btns{display:flex;gap:4px;justify-content:center}
+.timer-btn{background:rgba(255,213,79,.15);border:1px solid rgba(255,213,79,.3);color:var(--yellow);border-radius:6px;padding:4px 0;font-size:.82em;cursor:pointer;flex:1;font-family:inherit}
+.timer-btn:hover{background:rgba(255,213,79,.3)}
+.timer-btn.on{background:rgba(165,214,167,.2);border-color:var(--green);color:var(--green)}
+.draw-btn{background:rgba(232,228,216,.1);border:1px solid rgba(232,228,216,.2);color:var(--chalk);border-radius:6px;padding:5px 0;font-size:.78em;cursor:pointer;width:100%;text-align:center;font-family:inherit}
+.draw-btn:hover{background:rgba(232,228,216,.2)}
+.draw-btn.on{background:rgba(165,214,167,.2);border-color:var(--green);color:var(--green)}
+.draw-colors{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
+.draw-color{width:20px;height:20px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:transform .15s}
+.draw-color:hover,.draw-color.active{transform:scale(1.3);border-color:white}
+.draw-sizes{display:flex;gap:6px;justify-content:center;align-items:center}
+.draw-size{border-radius:50%;background:var(--chalk);cursor:pointer;transition:transform .15s;border:2px solid transparent}
+.draw-size.active{border-color:var(--yellow);transform:scale(1.2)}
+#draw-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:350;display:none;cursor:crosshair;touch-action:none}
+#draw-canvas.active{display:block}
 
-.quiz-item,.tf-item,.fill-item{background:var(--board);border:1px solid #2e4a2e;border-radius:10px;padding:14px;margin:10px 0;}
-.quiz-q,.tf-q,.fill-q{font-weight:700;margin-bottom:8px;}
-.quiz-opts{display:flex;flex-wrap:wrap;gap:8px;}
-.quiz-opts button{padding:6px 16px;border:2px solid var(--chalk-dim);border-radius:8px;background:transparent;color:var(--chalk);cursor:pointer;font-family:inherit;font-size:.92em;transition:.2s;}
-.quiz-opts button:hover{border-color:var(--yellow);}
-.quiz-opts button.correct,.tf-btns button.correct{background:rgba(165,214,167,.25);border-color:var(--green);color:var(--green);}
-.quiz-opts button.wrong,.tf-btns button.wrong{background:rgba(255,138,128,.2);border-color:var(--pink);color:var(--pink);}
-.tf-btns{display:flex;gap:8px;}
-.tf-btns button{padding:6px 20px;border:2px solid var(--chalk-dim);border-radius:8px;background:transparent;color:var(--chalk);cursor:pointer;font-family:inherit;font-size:.92em;transition:.2s;}
-.tf-btns button:hover{border-color:var(--yellow);}
-.fill-input{padding:6px 12px;border:2px solid var(--chalk-dim);border-radius:8px;background:var(--board-light);color:var(--chalk);font-family:inherit;font-size:1em;width:120px;margin-right:8px;}
-.fill-btn{padding:6px 16px;border:2px solid var(--orange);border-radius:8px;background:transparent;color:var(--orange);cursor:pointer;font-family:inherit;font-size:.92em;}
-.fill-btn:hover{background:rgba(255,183,77,.15);}
-.fill-feedback{margin-top:6px;font-size:.9em;min-height:1.4em;}
-.fill-feedback.correct{color:var(--green);}
-.fill-feedback.wrong{color:var(--pink);}
-
-#teacher-only{display:none;margin-top:20px;}
-
-.float-panel{position:fixed;right:16px;bottom:24px;z-index:200;display:flex;flex-direction:column;gap:6px;align-items:center;}
-.float-btn{width:40px;height:40px;border-radius:50%;border:2px solid var(--chalk-dim);background:var(--board-light);color:var(--chalk);font-size:1.2em;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;}
-.float-btn:hover{border-color:var(--yellow);color:var(--yellow);}
-.font-display{color:var(--chalk-dim);font-size:.75em;text-align:center;}
-
-/* carousel & fullscreen */
 .carousel{position:relative;background:#000;border-radius:10px;overflow:hidden;margin-bottom:12px}
 .carousel img{width:100%;display:none;border-radius:10px}
 .carousel img.active{display:block}
@@ -100,26 +136,63 @@ td{padding:8px 12px;border-bottom:1px solid #2e4a2e;color:var(--chalk);}
 .fullscreen-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.92);z-index:9999;cursor:pointer;justify-content:center;align-items:center}
 .fullscreen-overlay.show{display:flex}
 .fullscreen-overlay img{max-width:95%;max-height:95%;object-fit:contain}
-
-@media(max-width:600px){
-  header h1{font-size:1.2em;}
-  .decimal-anatomy{font-size:1.5em;}
-  .quiz-opts{flex-direction:column;}
-  .nl-tick{width:32px;}
-}
 </style>
 </head>
 <body>
+<canvas id="draw-canvas"></canvas>
+
+<div class="tool-panel">
+  <div class="tool-content" id="tool-content">
+    <div>
+      <div class="tool-lbl">字　級</div>
+      <div class="font-ctrl" style="margin-top:6px">
+        <button class="font-btn" id="font-dec">A−</button>
+        <span class="font-val" id="font-val">18px</span>
+        <button class="font-btn" id="font-inc">A＋</button>
+      </div>
+    </div>
+    <div>
+      <div class="tool-lbl">計時器</div>
+      <div class="timer-disp" id="timer-disp">05:00</div>
+      <div class="timer-presets">
+        <button class="timer-preset" data-sec="60">1分</button>
+        <button class="timer-preset" data-sec="180">3分</button>
+        <button class="timer-preset" data-sec="300">5分</button>
+        <button class="timer-preset" data-sec="600">10分</button>
+      </div>
+      <div class="timer-btns" style="margin-top:6px">
+        <button class="timer-btn" id="timer-start">▶ 開始</button>
+        <button class="timer-btn" id="timer-reset">↺ 重置</button>
+      </div>
+    </div>
+    <div>
+      <div class="tool-lbl">畫　筆</div>
+      <button class="draw-btn" id="draw-toggle" style="margin:6px 0">🖌️ 開啟畫筆</button>
+      <div class="draw-colors" style="margin-bottom:6px">
+        <div class="draw-color active" data-color="#ffd54f" style="background:#ffd54f"></div>
+        <div class="draw-color" data-color="#ff8a80" style="background:#ff8a80"></div>
+        <div class="draw-color" data-color="#81d4fa" style="background:#81d4fa"></div>
+        <div class="draw-color" data-color="#a5d6a7" style="background:#a5d6a7"></div>
+        <div class="draw-color" data-color="#ffffff" style="background:#fff;border:1px solid #666"></div>
+      </div>
+      <div class="draw-sizes" style="margin-bottom:6px">
+        <div class="draw-size" data-size="3" style="width:8px;height:8px"></div>
+        <div class="draw-size active" data-size="7" style="width:14px;height:14px"></div>
+        <div class="draw-size" data-size="14" style="width:22px;height:22px"></div>
+      </div>
+      <button class="draw-btn" id="draw-clear">🗑️ 清除畫布</button>
+    </div>
+  </div>
+  <button class="tool-toggle" id="tool-toggle">工具</button>
+</div>
 
 <header>
   <h1>🔢 第 6 單元：一位小數 <span class="badge">小三數學</span></h1>
 </header>
-
 <div class="mode-bar">
   <button class="mode-btn active" onclick="setMode('student')">🎒 學生模式</button>
   <button class="mode-btn" onclick="setMode('teacher')">🍎 教師模式</button>
 </div>
-
 <div class="container">
   <a href="../index.html" class="back-btn">⬅ 返回總覽</a>
 
@@ -145,56 +218,150 @@ td{padding:8px 12px;border-bottom:1px solid #2e4a2e;color:var(--chalk);}
       <span>小數部分</span>
     </div>
 
-    <ul class="bullet">
-      <li>把 1 平分成 <strong>10 等分</strong>，每一份就是 <strong>0.1</strong></li>
-      <li>0.1 = 1/10（十分之一）</li>
-      <li>1 ÷ 10 = 0.1</li>
-    </ul>
+    <p>把 1 平分成 <strong style="color:var(--yellow)">10 等分</strong>，每一份就是 <strong style="color:var(--yellow)">0.1</strong>。</p>
+    <div class="math-display">$$0.1 = \dfrac{1}{10} \qquad 1 \div 10 = 0.1$$</div>
     <div class="note">💡 生活中的小數：身高 125.6 cm、體重 26.3 kg、飲料 0.5 公升</div>
   </div>
 
-  <!-- 6-2 小數大小比較 -->
+  <!-- 6-2 大小比較 -->
   <div class="section">
     <h2>6-2 小數大小比較</h2>
-
-    <h3>比較規則</h3>
     <ul class="bullet">
       <li><strong>先比整數部分</strong>：整數部分大的就大</li>
       <li>整數部分相同，<strong>再比小數部分</strong></li>
       <li>在數線上，<strong>越右邊越大</strong></li>
     </ul>
-
-    <h3>數線示意</h3>
-    <div class="number-line-wrap">
-      <div class="number-line">
-        <div class="nl-tick"><div class="nl-mark"></div><div class="nl-label">3.0</div></div>
-        <div class="nl-tick"><div class="nl-mark"></div><div class="nl-label">3.1</div></div>
-        <div class="nl-tick"><div class="nl-mark"></div><div class="nl-label">3.2</div></div>
-        <div class="nl-tick"><div class="nl-mark"></div><div class="nl-label">3.3</div></div>
-        <div class="nl-tick"><div class="nl-mark"></div><div class="nl-label">3.4</div></div>
-        <div class="nl-tick highlight"><div class="nl-mark"></div><div class="nl-label">3.5</div></div>
-        <div class="nl-tick"><div class="nl-mark"></div><div class="nl-label">3.6</div></div>
-        <div class="nl-tick"><div class="nl-mark"></div><div class="nl-label">3.7</div></div>
-        <div class="nl-tick highlight"><div class="nl-mark"></div><div class="nl-label">3.8</div></div>
-        <div class="nl-tick"><div class="nl-mark"></div><div class="nl-label">3.9</div></div>
-        <div class="nl-tick"><div class="nl-mark"></div><div class="nl-label">4.0</div></div>
-      </div>
-      <div style="color:var(--green);font-size:.9em;margin-top:8px;">3.8 在 3.5 的右邊 → 3.8 &gt; 3.5 ✓</div>
-    </div>
-
-    <div class="note">💡 注意：4.2 &gt; 3.9 — 雖然小數部分 2 &lt; 9，但整數部分 4 &gt; 3，所以 4.2 比較大！</div>
+    <div class="math-display">$$3.8 > 3.5 \qquad 4.2 > 3.9$$</div>
+    <div class="note">💡 注意：$4.2 > 3.9$ — 雖然小數部分 $2 < 9$，但整數部分 $4 > 3$，所以 $4.2$ 比較大！</div>
   </div>
 
   <!-- 6-3 小數加減 -->
   <div class="section">
-    <h2>6-3 小數加減</h2>
+    <h2>6-3 小數加減（小數點對齊）</h2>
     <ul class="bullet">
       <li><strong>小數點要對齊</strong>，同位數相加減</li>
       <li>進位、借位的方式和整數相同</li>
       <li>整數 + 小數：把整數補上 .0 再算</li>
     </ul>
-    <div class="note">💡 例：4 + 1.6 = 4.0 + 1.6 = <strong>5.6</strong></div>
-    <div class="note">💡 例：5.6 − 2.8 → 小數點對齊，6 − 8 不夠借位 → 16 − 8 = 8，4 − 2 = 2 → <strong>2.8</strong></div>
+    <div class="math-display">$$2.4 + 1.3 = 3.7 \qquad 5.6 - 2.8 = 2.8$$</div>
+
+    <h3>直式對齊範例</h3>
+    <div class="math-display">
+$$\begin{array}{r}
+\phantom{+}2.4 \\
++\,1.3 \\
+\hline
+\phantom{+}3.7
+\end{array}
+\qquad\qquad
+\begin{array}{r}
+\phantom{-}5.6 \\
+-\,2.8 \\
+\hline
+\phantom{-}2.8
+\end{array}$$
+    </div>
+  </div>
+
+  <!-- 解題步驟 Accordion -->
+  <div class="section">
+    <h2>💡 解題步驟（點開展開）</h2>
+    <div class="solve-steps">
+      <div class="solve-item">
+        <button class="solve-head" onclick="toggleSolve(this)">例題 1：小數加法 $2.4 + 1.3 = ?$</button>
+        <div class="solve-body">
+          <div class="example-q">把兩個小數的小數點對齊後，再分別相加。</div>
+          <ol style="padding-left:24px">
+            <li>小數點對齊：$2.4$ 與 $1.3$ 的小數點上下對齊</li>
+            <li>整數加整數：$2 + 1 = 3$</li>
+            <li>小數加小數（十分位）：$0.4 + 0.3 = 0.7$</li>
+            <li>合起來：$3 + 0.7 = 3.7$</li>
+          </ol>
+          <div class="example-a">答：$2.4 + 1.3 = 3.7$</div>
+        </div>
+      </div>
+
+      <div class="solve-item">
+        <button class="solve-head" onclick="toggleSolve(this)">例題 2：小數減法（需借位）$5.6 - 2.8 = ?$</button>
+        <div class="solve-body">
+          <div class="example-q">十分位 $6 < 8$ 不夠減，要向個位借 1。</div>
+          <ol style="padding-left:24px">
+            <li>小數點對齊</li>
+            <li>十分位：$0.6 - 0.8$ 不夠減，向個位借 $1$（= $1.0$ = $10$ 個 $0.1$）</li>
+            <li>借位後十分位：$1.6 - 0.8 = 0.8$</li>
+            <li>個位剩下：$5 - 1 = 4$，再減 $2$：$4 - 2 = 2$</li>
+            <li>合起來：$2 + 0.8 = 2.8$</li>
+          </ol>
+          <div class="example-a">答：$5.6 - 2.8 = 2.8$</div>
+        </div>
+      </div>
+
+      <div class="solve-item">
+        <button class="solve-head" onclick="toggleSolve(this)">例題 3：大小比較 $3.8$ vs $3.5$</button>
+        <div class="solve-body">
+          <div class="example-q">比較兩個小數的大小，先看整數部分。</div>
+          <ol style="padding-left:24px">
+            <li>看整數部分：$3 = 3$，相同</li>
+            <li>整數相同就比小數部分（十分位）：$8 > 5$</li>
+            <li>所以 $3.8 > 3.5$</li>
+          </ol>
+          <div class="example-a">答：$3.8 > 3.5$</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 互動計算題 -->
+  <div class="section">
+    <h2>🧮 互動計算題（馬上試試看）</h2>
+    <p style="color:var(--chalk-dim);font-size:.9em;margin-bottom:12px">輸入答案（含小數點，例如 3.8）後按「確認」。</p>
+    <div class="calc-grid">
+      <div class="calc-item">
+        <div class="calc-q">1. $1.5 + 2.3 = ?$</div>
+        <input class="calc-input" data-ans="3.8" placeholder="?">
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+      <div class="calc-item">
+        <div class="calc-q">2. $4.7 - 1.9 = ?$</div>
+        <input class="calc-input" data-ans="2.8" placeholder="?">
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+      <div class="calc-item">
+        <div class="calc-q">3. $0.6 + 0.8 = ?$</div>
+        <input class="calc-input" data-ans="1.4" placeholder="?">
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+      <div class="calc-item">
+        <div class="calc-q">4. $3.2 + 4.6 = ?$</div>
+        <input class="calc-input" data-ans="7.8" placeholder="?">
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 互動數線 -->
+  <div class="section">
+    <h2>🎮 互動實驗：數線探險</h2>
+    <p style="color:var(--chalk-dim);font-size:.9em;margin-bottom:14px">拉動滑桿（每 0.1 一格），觀察游標在數線上的位置與對應的分數。</p>
+
+    <div style="margin-bottom:14px">
+      <label style="color:var(--green);font-weight:700">游標位置：<span id="nl-val" style="color:var(--yellow)">3.5</span></label>
+      <input type="range" id="nl-slider" min="0" max="99" value="35" style="width:100%;accent-color:var(--yellow);margin-top:6px">
+    </div>
+
+    <div style="background:#fff;border-radius:10px;padding:16px;display:flex;justify-content:center;align-items:center;min-height:160px">
+      <svg id="nl-svg" width="100%" viewBox="0 0 900 140" style="max-width:880px;font-family:inherit"></svg>
+    </div>
+
+    <div class="math-display" style="margin-top:14px">
+      <span id="nl-formula">$3.5 = \dfrac{35}{10}$</span>
+    </div>
+
+    <p style="color:var(--chalk-dim);font-size:.85em;margin-top:8px">💡 小發現：小數 $0.1$ = $\dfrac{1}{10}$，數線上每一小格就是 $0.1$。</p>
   </div>
 
   <!-- 關鍵名詞 -->
@@ -204,8 +371,8 @@ td{padding:8px 12px;border-bottom:1px solid #2e4a2e;color:var(--chalk);}
       <tr><th>名詞</th><th>說明</th></tr>
       <tr><td>小數</td><td>帶有小數點的數，用來表示不到 1 的量</td></tr>
       <tr><td>小數點</td><td>整數部分和小數部分中間的點</td></tr>
-      <tr><td>一位小數</td><td>小數點後面只有一位數字的小數（如 3.5）</td></tr>
-      <tr><td>0.1</td><td>把 1 平分成 10 份，每份就是 0.1（= 1/10）</td></tr>
+      <tr><td>一位小數</td><td>小數點後面只有一位數字的小數（如 $3.5$）</td></tr>
+      <tr><td>$0.1$</td><td>把 1 平分成 10 份，每份就是 $0.1$（$= \dfrac{1}{10}$）</td></tr>
     </table>
   </div>
 
@@ -215,53 +382,53 @@ td{padding:8px 12px;border-bottom:1px solid #2e4a2e;color:var(--chalk);}
 
     <h3>選擇題</h3>
     <div class="quiz-item">
-      <div class="quiz-q">1. 0.1 等於多少？</div>
+      <div class="quiz-q">1. $0.1$ 等於多少？</div>
       <div class="quiz-opts">
-        <button onclick="checkQ(this,false)">A. 1/2</button>
-        <button onclick="checkQ(this,false)">B. 1/5</button>
-        <button onclick="checkQ(this,true)">C. 1/10</button>
-        <button onclick="checkQ(this,false)">D. 1/100</button>
+        <button onclick="checkQ(this,'wrong')">A. $\dfrac{1}{2}$</button>
+        <button onclick="checkQ(this,'wrong')">B. $\dfrac{1}{5}$</button>
+        <button onclick="checkQ(this,'correct')">C. $\dfrac{1}{10}$</button>
+        <button onclick="checkQ(this,'wrong')">D. $\dfrac{1}{100}$</button>
       </div>
     </div>
     <div class="quiz-item">
-      <div class="quiz-q">2. 3.8 和 3.5 哪個比較大？</div>
+      <div class="quiz-q">2. $3.8$ 和 $3.5$ 哪個比較大？</div>
       <div class="quiz-opts">
-        <button onclick="checkQ(this,false)">A. 3.5</button>
-        <button onclick="checkQ(this,true)">B. 3.8</button>
-        <button onclick="checkQ(this,false)">C. 一樣大</button>
-        <button onclick="checkQ(this,false)">D. 無法比較</button>
+        <button onclick="checkQ(this,'wrong')">A. $3.5$</button>
+        <button onclick="checkQ(this,'correct')">B. $3.8$</button>
+        <button onclick="checkQ(this,'wrong')">C. 一樣大</button>
+        <button onclick="checkQ(this,'wrong')">D. 無法比較</button>
       </div>
     </div>
     <div class="quiz-item">
-      <div class="quiz-q">3. 2.4 + 1.3 = ?</div>
+      <div class="quiz-q">3. $2.4 + 1.3 = ?$</div>
       <div class="quiz-opts">
-        <button onclick="checkQ(this,false)">A. 3.5</button>
-        <button onclick="checkQ(this,true)">B. 3.7</button>
-        <button onclick="checkQ(this,false)">C. 3.6</button>
-        <button onclick="checkQ(this,false)">D. 4.7</button>
+        <button onclick="checkQ(this,'wrong')">A. $3.5$</button>
+        <button onclick="checkQ(this,'correct')">B. $3.7$</button>
+        <button onclick="checkQ(this,'wrong')">C. $3.6$</button>
+        <button onclick="checkQ(this,'wrong')">D. $4.7$</button>
       </div>
     </div>
 
     <h3>是非題</h3>
     <div class="tf-item">
-      <div class="tf-q">1. 0.1 + 0.9 = 0.10</div>
+      <div class="tf-q">1. $0.1 + 0.9 = 0.10$</div>
       <div class="tf-btns">
-        <button onclick="checkTF(this,false)">⭕ 對</button>
-        <button onclick="checkTF(this,true)">❌ 錯</button>
+        <button onclick="checkTF(this,'wrong')">⭕ 對</button>
+        <button onclick="checkTF(this,'correct')">❌ 錯</button>
       </div>
     </div>
     <div class="tf-item">
       <div class="tf-q">2. 小數加減時，小數點要對齊</div>
       <div class="tf-btns">
-        <button onclick="checkTF(this,true)">⭕ 對</button>
-        <button onclick="checkTF(this,false)">❌ 錯</button>
+        <button onclick="checkTF(this,'correct')">⭕ 對</button>
+        <button onclick="checkTF(this,'wrong')">❌ 錯</button>
       </div>
     </div>
     <div class="tf-item">
-      <div class="tf-q">3. 4.2 > 3.9 是因為小數部分 2 < 9</div>
+      <div class="tf-q">3. $4.2 > 3.9$ 是因為小數部分 $2 < 9$</div>
       <div class="tf-btns">
-        <button onclick="checkTF(this,false)">⭕ 對</button>
-        <button onclick="checkTF(this,true)">❌ 錯</button>
+        <button onclick="checkTF(this,'wrong')">⭕ 對</button>
+        <button onclick="checkTF(this,'correct')">❌ 錯</button>
       </div>
     </div>
 
@@ -270,13 +437,13 @@ td{padding:8px 12px;border-bottom:1px solid #2e4a2e;color:var(--chalk);}
       <div class="fill-q">1. 把 1 平分成 10 等分，每份是 ___</div>
       <input class="fill-input" data-ans="0.1" placeholder="？">
       <button class="fill-btn" onclick="checkFill(this)">確認</button>
-      <div class="fill-feedback"></div>
+      <span class="fill-feedback"></span>
     </div>
     <div class="fill-item">
-      <div class="fill-q">2. 5.6 − 2.8 = ___</div>
+      <div class="fill-q">2. $5.6 - 2.8 =$ ___</div>
       <input class="fill-input" data-ans="2.8" placeholder="？">
       <button class="fill-btn" onclick="checkFill(this)">確認</button>
-      <div class="fill-feedback"></div>
+      <span class="fill-feedback"></span>
     </div>
   </div>
 
@@ -323,78 +490,120 @@ td{padding:8px 12px;border-bottom:1px solid #2e4a2e;color:var(--chalk);}
       <h3>教學策略</h3>
       <ul class="bullet">
         <li>用身高、體重等生活數據引入小數概念</li>
-        <li>用十格條教具讓學生理解 0.1 的意義</li>
+        <li>用十格條教具讓學生理解 $0.1$ 的意義</li>
         <li>在黑板畫數線讓學生標出小數位置</li>
+        <li>強調小數點對齊的重要性（直式計算）</li>
       </ul>
 
       <h3>Bloom 認知層次</h3>
       <table>
         <tr><th>層次</th><th>學習目標</th></tr>
         <tr><td style="color:var(--blue)">記憶／理解</td><td>說出小數的組成（整數部分＋小數點＋小數部分）</td></tr>
-        <tr><td style="color:var(--green)">應用</td><td>在數線上標出指定小數位置</td></tr>
-        <tr><td style="color:var(--orange)">分析</td><td>解釋為什麼 4.2 > 3.9（整數部分優先比較）</td></tr>
+        <tr><td style="color:var(--green)">應用</td><td>在數線上標出指定小數位置、計算小數加減</td></tr>
+        <tr><td style="color:var(--orange)">分析</td><td>解釋為什麼 $4.2 > 3.9$（整數部分優先比較）</td></tr>
       </table>
 
       <h3>易錯點提醒</h3>
       <ul class="bullet">
         <li style="color:var(--pink)">小數點沒對齊就直接加減</li>
-        <li style="color:var(--pink)">0.1 + 0.9 = 0.10（忘記進位，正確答案是 1.0）</li>
+        <li style="color:var(--pink)">$0.1 + 0.9 = 0.10$（忘記進位，正確答案是 $1.0$）</li>
         <li style="color:var(--pink)">比大小只看小數部分，忽略整數部分</li>
+        <li style="color:var(--pink)">小數減法借位時忘記個位要扣 1</li>
       </ul>
     </div>
   </div>
 </div>
 
-<div class="float-panel">
-  <button class="float-btn" onclick="adjFont(2)" title="放大字體">A+</button>
-  <div class="font-display">18px</div>
-  <button class="float-btn" onclick="adjFont(-2)" title="縮小字體">A-</button>
-</div>
-
 <script>
+// 工具面板
+document.getElementById('tool-toggle').onclick=function(){document.getElementById('tool-content').classList.toggle('open');};
+var fsize=18;
+function setFsize(n){fsize=Math.min(28,Math.max(12,n));document.body.style.fontSize=fsize+'px';document.getElementById('font-val').textContent=fsize+'px';}
+document.getElementById('font-inc').onclick=function(){setFsize(fsize+2);};
+document.getElementById('font-dec').onclick=function(){setFsize(fsize-2);};
+
+// 計時器
+var tSec=300,tRunning=false,tInterval=null;
+var tDisp=document.getElementById('timer-disp');
+var tStart=document.getElementById('timer-start');
+function tFmt(s){var m=Math.floor(s/60),sc=s%60;return(m<10?'0':'')+m+':'+(sc<10?'0':'')+sc;}
+function tTick(){if(tSec<=0){clearInterval(tInterval);tRunning=false;tDisp.textContent='00:00';tDisp.className='timer-disp ended';tStart.textContent='▶ 開始';tStart.classList.remove('on');return;}tSec--;tDisp.textContent=tFmt(tSec);}
+tStart.onclick=function(){if(tRunning){clearInterval(tInterval);tRunning=false;tDisp.classList.remove('running');this.textContent='▶ 開始';this.classList.remove('on');}else{tInterval=setInterval(tTick,1000);tRunning=true;tDisp.className='timer-disp running';this.textContent='⏸ 暫停';this.classList.add('on');}};
+document.getElementById('timer-reset').onclick=function(){clearInterval(tInterval);tRunning=false;tDisp.className='timer-disp';tStart.textContent='▶ 開始';tStart.classList.remove('on');tDisp.textContent=tFmt(tSec);};
+document.querySelectorAll('.timer-preset').forEach(function(btn){btn.onclick=function(){clearInterval(tInterval);tRunning=false;tSec=parseInt(this.dataset.sec);tDisp.className='timer-disp';tDisp.textContent=tFmt(tSec);tStart.textContent='▶ 開始';tStart.classList.remove('on');}});
+
+// 畫筆
+var canvas=document.getElementById('draw-canvas');
+var ctx=canvas.getContext('2d');
+var drawOn=false,drawing=false,dColor='#ffd54f',dSize=7;
+function resizeCanvas(){var data=ctx.getImageData(0,0,canvas.width||1,canvas.height||1);canvas.width=window.innerWidth;canvas.height=window.innerHeight;ctx.putImageData(data,0,0);ctx.lineCap='round';ctx.lineJoin='round';}
+resizeCanvas();window.addEventListener('resize',resizeCanvas);
+document.getElementById('draw-toggle').onclick=function(){drawOn=!drawOn;canvas.classList.toggle('active',drawOn);this.textContent=drawOn?'✅ 關閉畫筆':'🖌️ 開啟畫筆';this.classList.toggle('on',drawOn);};
+document.getElementById('draw-clear').onclick=function(){ctx.clearRect(0,0,canvas.width,canvas.height);};
+document.querySelectorAll('.draw-color').forEach(function(el){el.onclick=function(){document.querySelectorAll('.draw-color').forEach(function(e){e.classList.remove('active');});this.classList.add('active');dColor=this.dataset.color;}});
+document.querySelectorAll('.draw-size').forEach(function(el){el.onclick=function(){document.querySelectorAll('.draw-size').forEach(function(e){e.classList.remove('active');});this.classList.add('active');dSize=parseInt(this.dataset.size);}});
+function pos(e){var r=canvas.getBoundingClientRect();if(e.touches)return{x:e.touches[0].clientX-r.left,y:e.touches[0].clientY-r.top};return{x:e.clientX-r.left,y:e.clientY-r.top};}
+canvas.addEventListener('mousedown',function(e){drawing=true;var p=pos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.strokeStyle=dColor;ctx.lineWidth=dSize;});
+canvas.addEventListener('mousemove',function(e){if(!drawing)return;var p=pos(e);ctx.lineTo(p.x,p.y);ctx.stroke();});
+canvas.addEventListener('mouseup',function(){drawing=false;});
+canvas.addEventListener('mouseleave',function(){drawing=false;});
+canvas.addEventListener('touchstart',function(e){e.preventDefault();drawing=true;var p=pos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.strokeStyle=dColor;ctx.lineWidth=dSize;},{passive:false});
+canvas.addEventListener('touchmove',function(e){e.preventDefault();if(!drawing)return;var p=pos(e);ctx.lineTo(p.x,p.y);ctx.stroke();},{passive:false});
+canvas.addEventListener('touchend',function(){drawing=false;});
+
+// Mode
 function setMode(m){
   document.querySelectorAll('.mode-btn').forEach(function(b,i){
-    b.classList.toggle('active',i===(m==='teacher'?1:0));
+    b.classList.toggle('active', (m==='student'&&i===0)||(m==='teacher'&&i===1));
   });
-  document.getElementById('teacher-only').style.display=m==='teacher'?'block':'none';
+  document.getElementById('teacher-only').style.display = m==='teacher'?'block':'none';
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
 }
-
-function checkQ(btn,correct){
-  var opts=btn.parentElement;
-  if(opts.querySelector('.correct')||opts.querySelector('.wrong'))return;
-  btn.classList.add(correct?'correct':'wrong');
-  if(!correct){
-    opts.querySelectorAll('button').forEach(function(b){
-      if(b!==btn&&b.onclick.toString().indexOf('true')!==-1) b.classList.add('correct');
-    });
-  }
+function toggleSolve(btn){
+  btn.parentNode.classList.toggle('open');
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
 }
-
-function checkTF(btn,correct){
-  var wrap=btn.parentElement;
-  if(wrap.querySelector('.correct')||wrap.querySelector('.wrong'))return;
-  btn.classList.add(correct?'correct':'wrong');
-  if(!correct){
-    wrap.querySelectorAll('button').forEach(function(b){
-      if(b!==btn) b.classList.add('correct');
-    });
-  }
+function checkQ(btn,result){
+  if(btn.classList.contains('correct')||btn.classList.contains('wrong')) return;
+  btn.classList.add(result);
 }
-
+function checkTF(btn,result){
+  if(btn.classList.contains('correct')||btn.classList.contains('wrong')) return;
+  btn.classList.add(result);
+}
 function checkFill(btn){
-  var item=btn.parentElement;
-  var input=item.querySelector('.fill-input');
-  var fb=item.querySelector('.fill-feedback');
-  var ans=input.getAttribute('data-ans');
-  var val=input.value.trim();
-  if(!val){fb.textContent='請輸入答案';fb.className='fill-feedback wrong';return;}
-  if(val===ans){
-    fb.textContent='✅ 正確！';fb.className='fill-feedback correct';
-  }else{
-    fb.textContent='❌ 再想想，正確答案是 '+ans;fb.className='fill-feedback wrong';
+  var input = btn.previousElementSibling;
+  var fb = btn.nextElementSibling;
+  var ans = input.getAttribute('data-ans');
+  var raw = input.value.trim();
+  var ok = (raw === ans);
+  if (!ok) {
+    var rn = parseFloat(raw), an = parseFloat(ans);
+    if (!isNaN(rn) && !isNaN(an) && Math.abs(rn - an) < 0.01) ok = true;
+  }
+  if(ok){
+    fb.textContent='✔ 正確！'; fb.style.color='var(--green)';
+    input.style.borderColor='var(--green)';
+  } else {
+    fb.textContent='✘ 再想想，答案是 '+ans; fb.style.color='var(--pink)';
+    input.style.borderColor='var(--pink)';
   }
 }
-
+function checkCalc(btn){
+  var item = btn.closest('.calc-item');
+  var input = item.querySelector('.calc-input');
+  var fb = item.querySelector('.calc-feedback');
+  var raw = input.value.trim();
+  var ans = input.dataset.ans;
+  var ok = (raw === ans);
+  if (!ok) {
+    var rawNum = parseFloat(raw), ansNum = parseFloat(ans);
+    if (!isNaN(rawNum) && !isNaN(ansNum) && Math.abs(rawNum - ansNum) < 0.01) ok = true;
+  }
+  fb.textContent = ok ? '✓ 答對了！' : '✗ 正確答案：' + ans;
+  fb.className = 'calc-feedback ' + (ok ? 'correct' : 'wrong');
+  input.style.borderColor = ok ? 'var(--green)' : 'var(--pink)';
+}
 function carGo(id, dir) {
   var imgs = document.querySelectorAll('#'+id+' img');
   var cur = Array.from(imgs).findIndex(function(i){return i.classList.contains('active')});
@@ -406,12 +615,49 @@ function carGo(id, dir) {
 function showFS(src){var o=document.getElementById('fs-overlay');o.querySelector('img').src=src;o.classList.add('show');}
 document.getElementById('fs-overlay').onclick=function(){this.classList.remove('show');};
 
-var currentFontSize=18;
-function adjFont(d){
-  currentFontSize=Math.min(28,Math.max(12,currentFontSize+d));
-  document.documentElement.style.setProperty('--font-size',currentFontSize+'px');
-  document.querySelector('.font-display').textContent=currentFontSize+'px';
+// 數線 SVG（0~9.9，每 0.1 一格，每 1 一大刻度）
+function nlRender(){
+  var raw = parseInt(document.getElementById('nl-slider').value, 10); // 0~99
+  var v = raw / 10; // 0.0 ~ 9.9
+  document.getElementById('nl-val').textContent = v.toFixed(1);
+
+  var W = 900, H = 140;
+  var padL = 30, padR = 30;
+  var axisY = 80;
+  var usable = W - padL - padR;
+  // 0 ~ 10 對應 padL ~ W-padR
+  function xOf(num){ return padL + (num / 10) * usable; }
+
+  var svg = '';
+  // 主軸
+  svg += '<line x1="'+padL+'" y1="'+axisY+'" x2="'+(W-padR)+'" y2="'+axisY+'" stroke="#1a2a1a" stroke-width="2.5"/>';
+  // 小刻度（0.1 一格）
+  for (var i = 0; i <= 100; i++){
+    var num = i / 10;
+    var x = xOf(num);
+    var isBig = (i % 10 === 0);
+    var tick = isBig ? 14 : 6;
+    var col = isBig ? '#1a2a1a' : '#888';
+    var sw = isBig ? 2 : 1;
+    svg += '<line x1="'+x+'" y1="'+(axisY-tick)+'" x2="'+x+'" y2="'+(axisY+tick)+'" stroke="'+col+'" stroke-width="'+sw+'"/>';
+    if (isBig){
+      svg += '<text x="'+x+'" y="'+(axisY+30)+'" text-anchor="middle" fill="#1a2a1a" font-size="14" font-weight="700">'+(i/10)+'</text>';
+    }
+  }
+  // 游標（紅色三角形）
+  var cx = xOf(v);
+  svg += '<polygon points="'+cx+','+(axisY-18)+' '+(cx-9)+','+(axisY-36)+' '+(cx+9)+','+(axisY-36)+'" fill="#ff5252" stroke="#5d4530" stroke-width="1.5"/>';
+  svg += '<text x="'+cx+'" y="'+(axisY-42)+'" text-anchor="middle" fill="#ff5252" font-size="16" font-weight="900">'+v.toFixed(1)+'</text>';
+
+  document.getElementById('nl-svg').innerHTML = svg;
+
+  var formula = '$' + v.toFixed(1) + ' = \\dfrac{' + raw + '}{10}$';
+  var fEl = document.getElementById('nl-formula');
+  fEl.innerHTML = formula;
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([fEl]);
 }
+document.getElementById('nl-slider').addEventListener('input', nlRender);
+nlRender();
 </script>
 </body>
 </html>

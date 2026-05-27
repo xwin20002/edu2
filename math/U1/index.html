@@ -2,109 +2,132 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>翰林版三下數學 第 1 單元｜除法</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第 1 單元：除法</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>
+  MathJax = {
+    tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
-:root{--board:#1a2a1a;--board-light:#243524;--chalk:#e8e4d8;--chalk-dim:#a8a498;
-  --yellow:#ffd54f;--wood:#8d6e4a;--wood-dark:#5d4530;--wood-light:#a8875a;
-  --pink:#ff8a80;--blue:#81d4fa;--green:#a5d6a7;--orange:#ffb74d}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--board);
-  color:var(--chalk);min-height:100vh;font-size:16px;line-height:1.7}
-header{background:linear-gradient(180deg,var(--wood-light) 0%,var(--wood) 40%,var(--wood-dark) 100%);
-  padding:22px 28px 18px;box-shadow:0 4px 16px rgba(0,0,0,.5);border-bottom:3px solid #3a2a1a;
-  position:sticky;top:0;z-index:100}
-header h1{font-size:1.8rem;font-weight:900;text-shadow:1px 1px 3px rgba(0,0,0,.5)}
-header .meta{font-size:.95rem;opacity:.85;margin-top:6px}
-.badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
-  border-radius:20px;padding:3px 12px;font-size:.88rem;margin-right:6px;margin-bottom:4px}
-.mode-bar{display:flex;gap:12px;padding:10px 28px;background:rgba(0,0,0,.3);
-  border-bottom:1px solid rgba(255,255,255,.1);font-size:.95rem}
-.mode-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
-  border-radius:20px;padding:4px 16px;font-size:.9rem;cursor:pointer;color:var(--chalk);
-  transition:all .2s;font-family:inherit}
-.mode-btn.active{background:var(--yellow);color:#1a1a1a;border-color:var(--yellow)}
-#teacher-only{display:none}
-.container{max-width:960px;margin:0 auto;padding:36px 20px 80px}
-h2{font-size:1.15rem;color:var(--yellow);margin-bottom:18px;padding-bottom:8px;
-  border-bottom:2px dashed var(--yellow)}
-h3{font-size:1rem;color:var(--green);margin:14px 0 8px}
-.section{background:var(--board-light);border-radius:14px;padding:24px;margin-bottom:24px;
-  border:1px solid rgba(232,228,216,.12)}
-.objectives{display:flex;flex-wrap:wrap;gap:8px}
-.obj-chip{background:rgba(129,212,250,.12);border:1px solid var(--blue);border-radius:20px;
-  padding:4px 14px;font-size:.85rem;color:var(--blue)}
-.back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 16px;
-  font-size:.82rem;color:var(--chalk-dim);text-decoration:none;transition:all .2s;margin-bottom:20px}
-.back-btn:hover{background:rgba(255,213,79,.15);color:var(--yellow);border-color:var(--yellow)}
-/* 名詞表 */
-table{width:100%;border-collapse:collapse;margin-top:6px}
-th,td{padding:9px 12px;text-align:left;border:1px solid rgba(232,228,216,.18);
-  font-size:.92rem;vertical-align:top}
-th{background:rgba(255,213,79,.12);color:var(--yellow);font-weight:700;width:32%}
-td{color:var(--chalk)}
-/* 步驟卡 */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
-.step-card{background:rgba(165,214,167,.08);border:1px solid rgba(165,214,167,.3);
-  border-radius:10px;padding:14px}
-.step-num{display:inline-block;background:var(--green);color:#1a1a1a;border-radius:50%;
-  width:26px;height:26px;text-align:center;line-height:26px;font-weight:700;font-size:.85rem;margin-bottom:6px}
-.step-title{font-size:1rem;font-weight:700;color:var(--green);margin-bottom:4px}
-.step-desc{font-size:.88rem;color:var(--chalk)}
-/* 觀察重點卡 */
-.obs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.obs-card{background:rgba(255,183,77,.08);border:1px solid rgba(255,183,77,.3);
-  border-radius:10px;padding:14px}
-.obs-title{color:var(--orange);font-weight:700;font-size:1rem;margin-bottom:6px}
-.obs-desc{font-size:.9rem}
-/* 評量 */
-.quiz-item{background:rgba(255,255,255,.05);border-radius:10px;padding:16px;margin-bottom:12px;
-  border:1px solid rgba(255,255,255,.1)}
-.quiz-q{font-size:.95rem;margin-bottom:10px;font-weight:600}
-.quiz-opts{display:flex;flex-direction:column;gap:7px}
-.quiz-opts button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);
-  border-radius:8px;padding:8px 14px;text-align:left;cursor:pointer;color:var(--chalk);
-  font-size:.88rem;transition:background .15s;font-family:inherit}
-.quiz-opts button:hover{background:rgba(255,213,79,.15);border-color:var(--yellow)}
-.quiz-opts button.correct{background:rgba(165,214,167,.25);border-color:var(--green);color:var(--green)}
-.quiz-opts button.wrong{background:rgba(255,138,128,.15);border-color:var(--pink);color:var(--pink)}
-/* T/F */
-.tf-item{background:rgba(255,255,255,.05);border-radius:10px;padding:14px;margin-bottom:10px;
-  border:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.tf-q{flex:1;font-size:.92rem;min-width:200px}
-.tf-btns{display:flex;gap:8px}
-.tf-btns button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);
-  border-radius:8px;padding:6px 16px;cursor:pointer;color:var(--chalk);font-family:inherit;transition:background .15s}
-.tf-btns button.correct{background:rgba(165,214,167,.3);border-color:var(--green);color:var(--green)}
-.tf-btns button.wrong{background:rgba(255,138,128,.2);border-color:var(--pink);color:var(--pink)}
-/* 填空 */
-.fill-item{background:rgba(255,255,255,.05);border-radius:10px;padding:14px;margin-bottom:10px;
-  border:1px solid rgba(255,255,255,.1)}
-.fill-q{font-size:.92rem;margin-bottom:8px}
-.fill-input{background:rgba(0,0,0,.3);border:1px solid rgba(255,213,79,.4);border-radius:6px;
-  padding:5px 10px;color:var(--yellow);font-size:.95rem;font-family:inherit;width:160px}
-.fill-btn{background:var(--yellow);color:#1a1a1a;border:none;border-radius:6px;padding:5px 14px;
-  margin-left:8px;cursor:pointer;font-weight:700;font-family:inherit}
-.fill-feedback{margin-top:6px;font-size:.85rem}
-.fill-feedback.correct{color:var(--green)}
-.fill-feedback.wrong{color:var(--pink)}
-/* 浮動工具 */
-.float-panel{position:fixed;right:0;top:50%;transform:translateY(-50%);
-  background:var(--board-light);border:1px solid rgba(255,255,255,.15);
-  border-right:none;border-radius:12px 0 0 12px;padding:12px 10px;z-index:200;
-  display:flex;flex-direction:column;gap:10px;box-shadow:-4px 0 20px rgba(0,0,0,.3)}
-.float-btn{width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.15);cursor:pointer;color:var(--chalk);
-  font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background .15s;font-family:inherit}
-.float-btn:hover{background:rgba(255,213,79,.2);border-color:var(--yellow)}
-.font-display{font-size:.72rem;color:var(--chalk-dim);text-align:center;line-height:1.2}
-ul.bullet{padding-left:1.4em;margin-top:6px}
-ul.bullet li{margin-bottom:4px;font-size:.93rem}
-.note{background:rgba(129,212,250,.08);border-left:3px solid var(--blue);padding:10px 14px;
-  border-radius:6px;font-size:.9rem;margin-top:10px}
-@media(max-width:768px){header h1{font-size:1.3rem}.float-panel{display:none}}
+:root {
+  --board:#1a2a1a; --board-light:#243524; --chalk:#e8e4d8; --chalk-dim:#a8a498;
+  --yellow:#ffd54f; --wood:#8d6e4a; --wood-dark:#5d4530; --wood-light:#a8875a;
+  --pink:#ff8a80; --blue:#81d4fa; --green:#a5d6a7; --orange:#ffb74d; --purple:#ce93d8;
+  --formula:#ffeb3b;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Noto Sans TC',sans-serif; background:var(--board); color:var(--chalk); line-height:1.8; font-size:18px; }
+header { position:sticky; top:0; z-index:100; background:linear-gradient(180deg,var(--wood-light),var(--wood),var(--wood-dark)); border-bottom:4px solid var(--wood-dark); text-align:center; padding:12px 16px; box-shadow:0 4px 12px rgba(0,0,0,.5); }
+header h1 { font-size:1.6em; color:#fff; text-shadow:1px 1px 3px rgba(0,0,0,.6); }
+header .badge { display:inline-block; background:var(--yellow); color:var(--wood-dark); font-size:.5em; padding:2px 10px; border-radius:12px; margin-left:8px; vertical-align:middle; font-weight:700; }
+.mode-bar { display:flex; justify-content:center; gap:8px; background:var(--board-light); padding:8px; border-bottom:2px solid var(--wood-dark); }
+.mode-btn { padding:6px 20px; border:2px solid var(--chalk-dim); border-radius:20px; background:transparent; color:var(--chalk-dim); cursor:pointer; font-family:inherit; font-size:.9em; transition:.2s; }
+.mode-btn.active { background:var(--yellow); color:var(--wood-dark); border-color:var(--yellow); font-weight:700; }
+.mode-btn:hover { opacity:.85; }
+.container { max-width:960px; margin:0 auto; padding:20px 16px 80px; }
+.back-btn { display:inline-block; margin-bottom:16px; padding:6px 16px; background:var(--wood); color:#fff; border-radius:8px; text-decoration:none; font-size:.9em; transition:.2s; }
+.back-btn:hover { background:var(--wood-light); }
+.section { background:var(--board-light); border:1px solid var(--wood); border-radius:12px; padding:24px; margin-bottom:24px; }
+h2 { color:var(--yellow); font-size:1.3em; padding-bottom:6px; border-bottom:2px dashed var(--yellow); margin-bottom:16px; }
+h3 { color:var(--green); font-size:1.1em; margin:14px 0 8px; }
+.objectives { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.obj-chip { background:rgba(129,212,250,.15); color:var(--blue); border:1px solid var(--blue); padding:4px 14px; border-radius:20px; font-size:.85em; }
+table { width:100%; border-collapse:collapse; margin:12px 0; }
+th { background:rgba(255,213,79,.2); color:var(--yellow); }
+th, td { border:1px solid var(--wood); padding:8px 12px; text-align:center; font-size:.95em; }
+td { color:var(--chalk); }
+ul.bullet { list-style:disc; padding-left:24px; margin:8px 0; }
+ul.bullet li { margin-bottom:4px; }
+.note { border-left:4px solid var(--blue); background:rgba(129,212,250,.08); padding:10px 14px; margin:12px 0; border-radius:0 8px 8px 0; font-size:.95em; }
+
+.math-display { background:rgba(0,0,0,.25); border-radius:8px; padding:14px; margin:10px 0; text-align:center; font-size:1.2rem; color:var(--formula); overflow-x:auto; border:1px solid rgba(255,235,59,.25); }
+
+.steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin:12px 0; }
+.step-card { background:rgba(255,213,79,.08); border:1px solid var(--wood); border-radius:10px; padding:14px; text-align:center; }
+.step-num { font-size:1.6em; color:var(--yellow); font-weight:900; }
+.step-title { color:var(--green); font-weight:700; margin:4px 0; }
+.step-desc { font-size:.9em; color:var(--chalk-dim); }
+
+.solve-steps { margin:10px 0; }
+.solve-item { background:rgba(255,213,79,.06); border:1px solid rgba(255,213,79,.3); border-radius:10px; margin-bottom:8px; overflow:hidden; }
+.solve-head { background:none; border:none; width:100%; text-align:left; padding:12px 16px; color:var(--yellow); font-weight:700; cursor:pointer; font-family:inherit; font-size:1em; display:flex; justify-content:space-between; align-items:center; }
+.solve-head::after { content:'▼'; transition:transform .2s; font-size:.85em; }
+.solve-item.open .solve-head::after { transform:rotate(180deg); }
+.solve-body { padding:0 16px; max-height:0; overflow:hidden; transition:max-height .35s, padding .35s; color:var(--chalk); }
+.solve-item.open .solve-body { max-height:800px; padding:8px 16px 16px; }
+.example-q { color:var(--blue); font-weight:600; margin-bottom:8px; }
+.example-a { color:var(--green); font-weight:600; margin-top:8px; }
+
+.obs-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin:12px 0; }
+.obs-card { background:rgba(165,214,167,.08); border:1px solid var(--green); border-radius:10px; padding:14px; }
+.obs-title { color:var(--orange); font-weight:700; margin-bottom:4px; }
+.obs-desc { font-size:.9em; color:var(--chalk); }
+
+/* 互動計算題 */
+.calc-grid { display:grid; gap:12px; margin:10px 0; }
+.calc-item { background:rgba(165,214,167,.08); border:1px solid rgba(165,214,167,.35); border-radius:10px; padding:14px; }
+.calc-q { color:var(--chalk); font-weight:500; margin-bottom:10px; }
+.calc-input { padding:6px 12px; border:2px solid var(--chalk-dim); border-radius:8px; background:rgba(0,0,0,.3); color:var(--formula); font-family:inherit; font-size:1.05em; width:100px; text-align:center; }
+.calc-unit { color:var(--chalk-dim); margin-left:4px; }
+.calc-btn { padding:6px 16px; border:2px solid var(--yellow); border-radius:8px; background:var(--yellow); color:var(--wood-dark); cursor:pointer; font-family:inherit; font-size:.9em; font-weight:700; margin-left:6px; }
+.calc-feedback { display:inline-block; margin-left:10px; font-size:.95em; font-weight:700; }
+.calc-feedback.correct { color:var(--green); }
+.calc-feedback.wrong { color:var(--pink); }
+
+/* Quiz */
+.quiz-item, .tf-item, .fill-item { margin-bottom:16px; }
+.quiz-q, .tf-q, .fill-q { margin-bottom:8px; font-weight:500; }
+.quiz-opts { display:flex; flex-wrap:wrap; gap:8px; }
+.quiz-opts button, .tf-btns button, .fill-btn { padding:6px 16px; border:2px solid var(--chalk-dim); border-radius:8px; background:transparent; color:var(--chalk); cursor:pointer; font-family:inherit; font-size:.9em; transition:.2s; }
+.quiz-opts button:hover, .tf-btns button:hover, .fill-btn:hover { border-color:var(--yellow); }
+.correct { background:rgba(165,214,167,.3)!important; border-color:var(--green)!important; color:var(--green)!important; }
+.wrong { background:rgba(255,138,128,.3)!important; border-color:var(--pink)!important; color:var(--pink)!important; }
+.tf-btns { display:flex; gap:8px; }
+.fill-item { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.fill-q { flex:1 1 100%; }
+.fill-input { padding:6px 12px; border:2px solid var(--chalk-dim); border-radius:8px; background:transparent; color:var(--yellow); font-family:inherit; font-size:1em; width:120px; text-align:center; }
+.fill-feedback { font-size:.9em; margin-left:4px; }
+
+#teacher-only { display:none; }
+
+/* 右側工具面板（字級 + 計時器 + 畫筆） */
+.tool-panel{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:400;display:flex;align-items:stretch}
+.tool-toggle{background:var(--wood);color:#fff;border:none;width:28px;border-radius:10px 0 0 10px;cursor:pointer;font-size:.82em;writing-mode:vertical-rl;letter-spacing:3px;padding:14px 4px;box-shadow:-3px 0 12px rgba(0,0,0,.4);transition:background .2s;font-family:inherit}
+.tool-toggle:hover{background:var(--wood-light)}
+.tool-content{background:#162616;border:2px solid rgba(232,228,216,.18);border-right:none;border-radius:12px 0 0 12px;padding:14px 12px;display:none;flex-direction:column;gap:14px;width:164px;box-shadow:-4px 0 20px rgba(0,0,0,.5)}
+.tool-content.open{display:flex}
+.tool-lbl{font-size:.7em;color:var(--chalk-dim);letter-spacing:1px;border-bottom:1px solid rgba(232,228,216,.1);padding-bottom:4px;margin-bottom:2px}
+.font-ctrl{display:flex;align-items:center;gap:6px;justify-content:center}
+.font-btn{background:rgba(255,213,79,.15);border:1px solid rgba(255,213,79,.4);color:var(--yellow);border-radius:6px;width:32px;height:30px;font-size:1em;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.font-btn:hover{background:rgba(255,213,79,.3)}
+.font-val{font-size:.8em;color:var(--chalk-dim);min-width:38px;text-align:center}
+.timer-disp{font-family:'Courier New',monospace;font-size:1.9em;color:var(--yellow);text-align:center;letter-spacing:2px;margin:4px 0}
+.timer-disp.running{color:var(--green)}
+.timer-disp.ended{color:var(--pink);animation:blink .7s infinite}
+@keyframes blink{50%{opacity:.3}}
+.timer-presets{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.timer-preset{background:rgba(129,212,250,.1);border:1px solid rgba(129,212,250,.3);color:var(--blue);border-radius:6px;padding:3px 7px;font-size:.72em;cursor:pointer;font-family:inherit}
+.timer-preset:hover{background:rgba(129,212,250,.25)}
+.timer-btns{display:flex;gap:4px;justify-content:center}
+.timer-btn{background:rgba(255,213,79,.15);border:1px solid rgba(255,213,79,.3);color:var(--yellow);border-radius:6px;padding:4px 0;font-size:.82em;cursor:pointer;flex:1;font-family:inherit}
+.timer-btn:hover{background:rgba(255,213,79,.3)}
+.timer-btn.on{background:rgba(165,214,167,.2);border-color:var(--green);color:var(--green)}
+.draw-btn{background:rgba(232,228,216,.1);border:1px solid rgba(232,228,216,.2);color:var(--chalk);border-radius:6px;padding:5px 0;font-size:.78em;cursor:pointer;width:100%;text-align:center;font-family:inherit}
+.draw-btn:hover{background:rgba(232,228,216,.2)}
+.draw-btn.on{background:rgba(165,214,167,.2);border-color:var(--green);color:var(--green)}
+.draw-colors{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
+.draw-color{width:20px;height:20px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:transform .15s}
+.draw-color:hover,.draw-color.active{transform:scale(1.3);border-color:white}
+.draw-sizes{display:flex;gap:6px;justify-content:center;align-items:center}
+.draw-size{border-radius:50%;background:var(--chalk);cursor:pointer;transition:transform .15s;border:2px solid transparent}
+.draw-size.active{border-color:var(--yellow);transform:scale(1.2)}
+#draw-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:350;display:none;cursor:crosshair;touch-action:none}
+#draw-canvas.active{display:block}
+
 .carousel{position:relative;background:#000;border-radius:10px;overflow:hidden;margin-bottom:12px}
 .carousel img{width:100%;display:none;border-radius:10px}
 .carousel img.active{display:block}
@@ -118,137 +141,299 @@ ul.bullet li{margin-bottom:4px;font-size:.93rem}
 </style>
 </head>
 <body>
-<header>
-  <h1>➗ 第 1 單元｜除法</h1>
-  <div class="meta">
-    <span class="badge">翰林版</span>
-    <span class="badge">三年級下學期</span>
-    <span class="badge">114學年度</span>
-    <span class="badge" style="background:rgba(165,214,167,.2);border-color:var(--green);color:var(--green)">直式計算・餘數・驗算</span>
-  </div>
-</header>
+<canvas id="draw-canvas"></canvas>
 
-<div class="mode-bar">
-  <button class="mode-btn" data-mode="student" onclick="setMode('student')">👨‍🎓 學生模式</button>
-  <button class="mode-btn" data-mode="teacher" onclick="setMode('teacher')">👩‍🏫 教師模式</button>
+<div class="tool-panel">
+  <div class="tool-content" id="tool-content">
+    <div>
+      <div class="tool-lbl">字　級</div>
+      <div class="font-ctrl" style="margin-top:6px">
+        <button class="font-btn" id="font-dec">A−</button>
+        <span class="font-val" id="font-val">18px</span>
+        <button class="font-btn" id="font-inc">A＋</button>
+      </div>
+    </div>
+    <div>
+      <div class="tool-lbl">計時器</div>
+      <div class="timer-disp" id="timer-disp">05:00</div>
+      <div class="timer-presets">
+        <button class="timer-preset" data-sec="60">1分</button>
+        <button class="timer-preset" data-sec="180">3分</button>
+        <button class="timer-preset" data-sec="300">5分</button>
+        <button class="timer-preset" data-sec="600">10分</button>
+      </div>
+      <div class="timer-btns" style="margin-top:6px">
+        <button class="timer-btn" id="timer-start">▶ 開始</button>
+        <button class="timer-btn" id="timer-reset">↺ 重置</button>
+      </div>
+    </div>
+    <div>
+      <div class="tool-lbl">畫　筆</div>
+      <button class="draw-btn" id="draw-toggle" style="margin:6px 0">🖌️ 開啟畫筆</button>
+      <div class="draw-colors" style="margin-bottom:6px">
+        <div class="draw-color active" data-color="#ffd54f" style="background:#ffd54f"></div>
+        <div class="draw-color" data-color="#ff8a80" style="background:#ff8a80"></div>
+        <div class="draw-color" data-color="#81d4fa" style="background:#81d4fa"></div>
+        <div class="draw-color" data-color="#a5d6a7" style="background:#a5d6a7"></div>
+        <div class="draw-color" data-color="#ffffff" style="background:#fff;border:1px solid #666"></div>
+      </div>
+      <div class="draw-sizes" style="margin-bottom:6px">
+        <div class="draw-size" data-size="3" style="width:8px;height:8px"></div>
+        <div class="draw-size active" data-size="7" style="width:14px;height:14px"></div>
+        <div class="draw-size" data-size="14" style="width:22px;height:22px"></div>
+      </div>
+      <button class="draw-btn" id="draw-clear">🗑️ 清除畫布</button>
+    </div>
+  </div>
+  <button class="tool-toggle" id="tool-toggle">工具</button>
 </div>
 
+<header>
+  <h1>➗ 第 1 單元：除法 <span class="badge">小三數學</span></h1>
+</header>
+<div class="mode-bar">
+  <button class="mode-btn active" onclick="setMode('student')">學生模式</button>
+  <button class="mode-btn" onclick="setMode('teacher')">教師模式</button>
+</div>
 <div class="container">
-  <a href="../index.html" class="back-btn">← 返回單元總覽</a>
+  <a href="../index.html" class="back-btn">← 返回總覽</a>
 
-  <div class="section">
-    <h2>🎯 學習目標</h2>
-    <div class="objectives">
-      <span class="obj-chip">學會二位數除以一位數的直式計算</span>
-      <span class="obj-chip">學會三位數除以一位數的直式計算</span>
-      <span class="obj-chip">理解餘數必須小於除數</span>
-      <span class="obj-chip">能用驗算檢查除法答案</span>
-    </div>
+  <div class="objectives">
+    <span class="obj-chip">學會二位數除以一位數的直式計算</span>
+    <span class="obj-chip">學會三位數除以一位數的直式計算</span>
+    <span class="obj-chip">理解餘數必須小於除數</span>
+    <span class="obj-chip">能用驗算檢查除法答案</span>
   </div>
 
-  <div class="section">
-    <h2>📖 單元摘要</h2>
-    <p>除法是把一個數<strong>平分</strong>的運算。我們用直式一步步算出「商」和「餘數」，並用<strong>除乘減驗</strong>四步驟來完成計算。學完二位數除以一位數後，會進一步挑戰三位數除以一位數，包括商中間有 0、商末尾有 0 等特殊情形。最後學會用<strong>驗算</strong>來確認答案正確。</p>
-  </div>
-
+  <!-- 1-1 -->
   <div class="section">
     <h2>📐 1-1 二位數除以一位數</h2>
-    <p>用直式計算，從<strong>十位</strong>開始除，依照「除、乘、減、驗」四步驟進行。</p>
+    <p>用直式計算，從<strong style="color:var(--yellow)">十位</strong>開始除，依照「除、乘、減、驗」四步驟進行。</p>
+    <div class="math-display">$$48 \div 4 = 12 \qquad 78 \div 3 = 26$$</div>
     <h3>直式四步驟</h3>
     <div class="steps">
-      <div class="step-card"><span class="step-num">1</span><div class="step-title">除</div><div class="step-desc">看被除數的最高位，夠不夠除</div></div>
-      <div class="step-card"><span class="step-num">2</span><div class="step-title">乘</div><div class="step-desc">商 × 除數，寫在被除數下方</div></div>
-      <div class="step-card"><span class="step-num">3</span><div class="step-title">減</div><div class="step-desc">被除數減去乘積，得到餘數</div></div>
-      <div class="step-card"><span class="step-num">4</span><div class="step-title">驗</div><div class="step-desc">檢查餘數是否小於除數</div></div>
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">除</div><div class="step-desc">看被除數的最高位，夠不夠除</div></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-title">乘</div><div class="step-desc">商 × 除數，寫在被除數下方</div></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-title">減</div><div class="step-desc">被除數減去乘積，得到餘數</div></div>
+      <div class="step-card"><div class="step-num">4</div><div class="step-title">驗</div><div class="step-desc">檢查餘數是否小於除數</div></div>
     </div>
-    <div class="note">📌 <strong>重要規則</strong>：餘數一定要比除數小！例如 85 ÷ 4 = 21...1，餘數 1 < 除數 4。</div>
+    <div class="note">📌 <strong>重要規則</strong>：餘數一定要比除數小！例如 $85 \div 4 = 21 \cdots 1$，餘數 $1 < $ 除數 $4$。</div>
   </div>
 
+  <!-- 1-2 -->
   <div class="section">
     <h2>📐 1-2 三位數除以一位數</h2>
-    <p>從<strong>百位</strong>開始除，一位一位往下算。要特別注意以下兩種特殊情形：</p>
+    <p>從<strong style="color:var(--yellow)">百位</strong>開始除，一位一位往下算。要特別注意以下兩種特殊情形：</p>
     <h3>特殊情形</h3>
     <div class="obs-grid">
       <div class="obs-card">
         <div class="obs-title">商中間有 0</div>
-        <div class="obs-desc">例如 612 ÷ 6 = <strong>102</strong>。百位 6÷6=1，十位 1÷6 不夠除，商寫 <strong>0</strong>，個位 12÷6=2。</div>
+        <div class="obs-desc">例如 $612 \div 6 = \mathbf{102}$。百位 $6 \div 6 = 1$，十位 $1 \div 6$ 不夠除，商寫 $\mathbf{0}$，個位 $12 \div 6 = 2$。</div>
       </div>
       <div class="obs-card">
         <div class="obs-title">商末尾有 0</div>
-        <div class="obs-desc">例如 840 ÷ 4 = <strong>210</strong>。百位 8÷4=2，十位 4÷4=1，個位 0÷4=0，商末尾寫 <strong>0</strong>。</div>
+        <div class="obs-desc">例如 $840 \div 4 = \mathbf{210}$。百位 $8 \div 4 = 2$，十位 $4 \div 4 = 1$，個位 $0 \div 4 = 0$，商末尾寫 $\mathbf{0}$。</div>
       </div>
     </div>
-    <div class="note">📌 <strong>驗算公式</strong>：商 × 除數 + 餘數 = 被除數。用這個公式可以反過來檢查答案對不對。</div>
+    <div class="note">📌 <strong>驗算公式</strong>：$\text{商} \times \text{除數} + \text{餘數} = \text{被除數}$。用這個公式可以反過來檢查答案對不對。</div>
   </div>
 
+  <!-- 解題步驟 Accordion -->
+  <div class="section">
+    <h2>💡 解題步驟（點開展開）</h2>
+    <div class="solve-steps">
+      <div class="solve-item">
+        <button class="solve-head" onclick="toggleSolve(this)">例題 1：二位數除一位數 $78 \div 3 = ?$</button>
+        <div class="solve-body">
+          <div class="example-q">被除數 $= 78$，除數 $= 3$</div>
+          <ol style="padding-left:24px">
+            <li>看十位：$7 \div 3 = 2$ 餘 $1$，商的十位寫 $2$</li>
+            <li>乘：$2 \times 3 = 6$，寫在 $7$ 下方</li>
+            <li>減：$7 - 6 = 1$，把個位 $8$ 拉下來得 $18$</li>
+            <li>個位：$18 \div 3 = 6$，商的個位寫 $6$</li>
+            <li>乘減：$6 \times 3 = 18$，$18 - 18 = 0$，整除！</li>
+          </ol>
+          <div class="example-a">答：$78 \div 3 = 26$</div>
+        </div>
+      </div>
+
+      <div class="solve-item">
+        <button class="solve-head" onclick="toggleSolve(this)">例題 2：商中間有 0 ─ $612 \div 6 = ?$</button>
+        <div class="solve-body">
+          <div class="example-q">被除數 $= 612$，除數 $= 6$</div>
+          <ol style="padding-left:24px">
+            <li>看百位：$6 \div 6 = 1$，商的百位寫 $1$</li>
+            <li>乘減：$1 \times 6 = 6$，$6 - 6 = 0$</li>
+            <li>看十位：把 $1$ 拉下來，$1 \div 6$ <strong style="color:var(--pink)">不夠除</strong>，商的十位寫 $\mathbf{0}$（千萬不能跳過！）</li>
+            <li>看個位：把 $2$ 拉下來變 $12$，$12 \div 6 = 2$，商的個位寫 $2$</li>
+            <li>乘減：$2 \times 6 = 12$，$12 - 12 = 0$，整除！</li>
+          </ol>
+          <div class="example-a">答：$612 \div 6 = 102$</div>
+        </div>
+      </div>
+
+      <div class="solve-item">
+        <button class="solve-head" onclick="toggleSolve(this)">例題 3：有餘數含驗算 ─ $85 \div 4 = ?$</button>
+        <div class="solve-body">
+          <div class="example-q">被除數 $= 85$，除數 $= 4$</div>
+          <ol style="padding-left:24px">
+            <li>看十位：$8 \div 4 = 2$，商的十位寫 $2$，$2 \times 4 = 8$，$8 - 8 = 0$</li>
+            <li>看個位：把 $5$ 拉下來，$5 \div 4 = 1$ 餘 $1$，商的個位寫 $1$</li>
+            <li>乘減：$1 \times 4 = 4$，$5 - 4 = 1$，餘數 $= 1$</li>
+            <li>確認：餘數 $1 < $ 除數 $4$ ✓</li>
+            <li><strong style="color:var(--green)">驗算</strong>：$21 \times 4 + 1 = 84 + 1 = 85$ ✓</li>
+          </ol>
+          <div class="example-a">答：$85 \div 4 = 21 \cdots 1$</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 互動計算題 -->
+  <div class="section">
+    <h2>🧮 互動計算題（馬上試試看）</h2>
+    <p style="color:var(--chalk-dim);font-size:.9em;margin-bottom:12px">輸入答案後按「確認」，會立刻檢查對錯。</p>
+    <div class="calc-grid">
+      <div class="calc-item">
+        <div class="calc-q">1. $96 \div 8 = ?$</div>
+        <input class="calc-input" data-ans="12" placeholder="商">
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+      <div class="calc-item">
+        <div class="calc-q">2. $525 \div 5 = ?$（提示：商中間有 0）</div>
+        <input class="calc-input" data-ans="105" placeholder="商">
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+      <div class="calc-item">
+        <div class="calc-q">3. $83 \div 6 = ?$（請輸入商和餘數，例：13,5）</div>
+        <input class="calc-input" data-ans="13,5" placeholder="商,餘" style="width:130px">
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+      <div class="calc-item">
+        <div class="calc-q">4. $140 \div 5 = ?$</div>
+        <input class="calc-input" data-ans="28" placeholder="商">
+        <button class="calc-btn" onclick="checkCalc(this)">確認</button>
+        <span class="calc-feedback"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 互動實驗 -->
+  <div class="section">
+    <h2>🎮 互動實驗：自己出題算算看</h2>
+    <p style="color:var(--chalk-dim);font-size:.9em;margin-bottom:14px">輸入被除數（1–99）和除數（2–9），按「算！」會顯示直式結果與分組視覺化。</p>
+
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;align-items:flex-end">
+      <div>
+        <label style="color:var(--green);font-weight:700;display:block;margin-bottom:4px">被除數 (1–99)</label>
+        <input type="number" id="div-a" min="1" max="99" value="48" style="width:100px;padding:8px;border-radius:8px;border:2px solid var(--chalk-dim);background:rgba(0,0,0,.3);color:var(--yellow);font-family:inherit;font-size:1.05em;text-align:center">
+      </div>
+      <div>
+        <label style="color:var(--green);font-weight:700;display:block;margin-bottom:4px">除數 (2–9)</label>
+        <input type="number" id="div-b" min="2" max="9" value="4" style="width:100px;padding:8px;border-radius:8px;border:2px solid var(--chalk-dim);background:rgba(0,0,0,.3);color:var(--yellow);font-family:inherit;font-size:1.05em;text-align:center">
+      </div>
+      <button onclick="runDiv()" style="padding:10px 24px;background:var(--yellow);color:var(--wood-dark);border:none;border-radius:8px;font-weight:700;cursor:pointer;font-family:inherit;font-size:1em">算！</button>
+    </div>
+
+    <div class="math-display" id="div-result" style="text-align:left;padding:18px">
+      <div style="text-align:center;font-size:1.3em">$48 \div 4 = 12$</div>
+      <div style="color:var(--chalk-dim);font-size:.9em;text-align:center;margin-top:6px">商 = 12，餘數 = 0</div>
+    </div>
+
+    <div style="background:#fff;border-radius:10px;padding:16px;display:flex;justify-content:center;align-items:center;min-height:240px;margin-top:12px">
+      <svg id="div-svg" width="100%" viewBox="0 0 480 220" style="max-width:540px;font-family:inherit"></svg>
+    </div>
+    <p style="color:var(--chalk-dim);font-size:.85em;margin-top:8px">💡 把被除數的點點平分成「除數」組，每組數量就是<strong>商</strong>，剩下的就是<strong>餘數</strong>。</p>
+  </div>
+
+  <!-- 關鍵名詞 -->
   <div class="section">
     <h2>📚 關鍵名詞</h2>
     <table>
-      <tr><th>被除數</th><td>被分的那個數，寫在除號裡面（例如 85 ÷ 4 中的 85）</td></tr>
-      <tr><th>除數</th><td>拿來分的數，寫在除號外面（例如 85 ÷ 4 中的 4）</td></tr>
-      <tr><th>商</th><td>除法的答案，寫在除號上方（例如 85 ÷ 4 = 21...1 中的 21）</td></tr>
-      <tr><th>餘數</th><td>分完剩下的數，必須比除數小（例如 85 ÷ 4 = 21...1 中的 1）</td></tr>
-      <tr><th>驗算</th><td>用「商 × 除數 + 餘數 = 被除數」來檢查答案是否正確</td></tr>
+      <tr><th style="width:24%">名詞</th><th>說明</th></tr>
+      <tr><td>被除數</td><td style="text-align:left">被分的那個數，寫在除號裡面（例如 $85 \div 4$ 中的 $85$）</td></tr>
+      <tr><td>除數</td><td style="text-align:left">拿來分的數，寫在除號外面（例如 $85 \div 4$ 中的 $4$）</td></tr>
+      <tr><td>商</td><td style="text-align:left">除法的答案，寫在除號上方（例如 $85 \div 4 = 21 \cdots 1$ 中的 $21$）</td></tr>
+      <tr><td>餘數</td><td style="text-align:left">分完剩下的數，必須比除數小（例如 $85 \div 4 = 21 \cdots 1$ 中的 $1$）</td></tr>
+      <tr><td>驗算</td><td style="text-align:left">用「$\text{商} \times \text{除數} + \text{餘數} = \text{被除數}$」來檢查答案是否正確</td></tr>
     </table>
   </div>
 
+  <!-- 形成性評量 -->
   <div class="section">
     <h2>✅ 形成性評量</h2>
 
     <h3>選擇題</h3>
     <div class="quiz-item">
-      <div class="quiz-q">Q1. 612 ÷ 6 = ?</div>
+      <div class="quiz-q">Q1. $612 \div 6 = ?$</div>
       <div class="quiz-opts">
-        <button onclick="checkQ(this,false)">A. 12</button>
-        <button onclick="checkQ(this,true)">B. 102</button>
-        <button onclick="checkQ(this,false)">C. 120</button>
-        <button onclick="checkQ(this,false)">D. 1002</button>
+        <button onclick="checkQ(this,'wrong')">A. 12</button>
+        <button onclick="checkQ(this,'correct')">B. 102</button>
+        <button onclick="checkQ(this,'wrong')">C. 120</button>
+        <button onclick="checkQ(this,'wrong')">D. 1002</button>
       </div>
     </div>
     <div class="quiz-item">
       <div class="quiz-q">Q2. 做除法時，餘數一定要怎樣？</div>
       <div class="quiz-opts">
-        <button onclick="checkQ(this,false)">A. 比被除數小</button>
-        <button onclick="checkQ(this,false)">B. 比商小</button>
-        <button onclick="checkQ(this,true)">C. 比除數小</button>
-        <button onclick="checkQ(this,false)">D. 等於 0</button>
+        <button onclick="checkQ(this,'wrong')">A. 比被除數小</button>
+        <button onclick="checkQ(this,'wrong')">B. 比商小</button>
+        <button onclick="checkQ(this,'correct')">C. 比除數小</button>
+        <button onclick="checkQ(this,'wrong')">D. 等於 0</button>
       </div>
     </div>
     <div class="quiz-item">
-      <div class="quiz-q">Q3. 85 ÷ 4 = 21...1，驗算方式是？</div>
+      <div class="quiz-q">Q3. $85 \div 4 = 21 \cdots 1$，驗算方式是？</div>
       <div class="quiz-opts">
-        <button onclick="checkQ(this,false)">A. 21 × 4 = 84</button>
-        <button onclick="checkQ(this,true)">B. 21 × 4 + 1 = 85</button>
-        <button onclick="checkQ(this,false)">C. 85 - 21 = 64</button>
-        <button onclick="checkQ(this,false)">D. 21 + 4 + 1 = 26</button>
+        <button onclick="checkQ(this,'wrong')">A. $21 \times 4 = 84$</button>
+        <button onclick="checkQ(this,'correct')">B. $21 \times 4 + 1 = 85$</button>
+        <button onclick="checkQ(this,'wrong')">C. $85 - 21 = 64$</button>
+        <button onclick="checkQ(this,'wrong')">D. $21 + 4 + 1 = 26$</button>
       </div>
     </div>
 
     <h3>是非題</h3>
     <div class="tf-item">
-      <div class="tf-q">1. 840 ÷ 4 = 21</div>
-      <div class="tf-btns"><button onclick="checkTF(this,false)">○</button><button onclick="checkTF(this,true)">✕</button></div>
+      <div class="tf-q">1. $840 \div 4 = 21$</div>
+      <div class="tf-btns">
+        <button onclick="checkTF(this,'wrong')">○ 對</button>
+        <button onclick="checkTF(this,'correct')">✗ 錯</button>
+      </div>
     </div>
     <div class="tf-item">
       <div class="tf-q">2. 除法驗算時，要把商乘以除數再加上餘數。</div>
-      <div class="tf-btns"><button onclick="checkTF(this,true)">○</button><button onclick="checkTF(this,false)">✕</button></div>
+      <div class="tf-btns">
+        <button onclick="checkTF(this,'correct')">○ 對</button>
+        <button onclick="checkTF(this,'wrong')">✗ 錯</button>
+      </div>
     </div>
     <div class="tf-item">
       <div class="tf-q">3. 餘數可以比除數大。</div>
-      <div class="tf-btns"><button onclick="checkTF(this,false)">○</button><button onclick="checkTF(this,true)">✕</button></div>
+      <div class="tf-btns">
+        <button onclick="checkTF(this,'wrong')">○ 對</button>
+        <button onclick="checkTF(this,'correct')">✗ 錯</button>
+      </div>
     </div>
 
     <h3>填空題</h3>
     <div class="fill-item">
-      <div class="fill-q">1. 做除法時，如果某一位不夠除，商的那一位要寫 <input class="fill-input" data-ans="0"> <button class="fill-btn" onclick="checkFill(this)">確認</button></div>
-      <div class="fill-feedback"></div>
+      <div class="fill-q">1. 做除法時，如果某一位不夠除，商的那一位要寫 ___</div>
+      <input class="fill-input" data-ans="0" placeholder="？">
+      <button class="fill-btn" onclick="checkFill(this)">確認</button>
+      <span class="fill-feedback"></span>
     </div>
     <div class="fill-item">
-      <div class="fill-q">2. 驗算除法的公式是：商 × <input class="fill-input" data-ans="除數"> + 餘數 = 被除數 <button class="fill-btn" onclick="checkFill(this)">確認</button></div>
-      <div class="fill-feedback"></div>
+      <div class="fill-q">2. 驗算除法的公式是：商 × ___ + 餘數 = 被除數</div>
+      <input class="fill-input" data-ans="除數" placeholder="？">
+      <button class="fill-btn" onclick="checkFill(this)">確認</button>
+      <span class="fill-feedback"></span>
     </div>
   </div>
 
+  <!-- 簡報 carousel -->
   <div class="section">
     <h2>📊 授課簡報</h2>
     <p style="font-size:.85rem;color:var(--chalk-dim);margin-bottom:12px">NotebookLM 自動生成｜全 9 單元 15 頁</p>
@@ -274,6 +459,7 @@ ul.bullet li{margin-bottom:4px;font-size:.93rem}
     <div class="carousel-count" id="unit-slides-count">1 / 15</div>
   </div>
 
+  <!-- 資訊圖表 -->
   <div class="section">
     <h2>🖼️ 資訊圖表</h2>
     <p style="font-size:.85rem;color:var(--chalk-dim);margin-bottom:12px">點擊可全螢幕檢視</p>
@@ -282,6 +468,7 @@ ul.bullet li{margin-bottom:4px;font-size:.93rem}
 
   <div class="fullscreen-overlay" id="fs-overlay"><img src="" alt="全螢幕圖表"></div>
 
+  <!-- 教師模式 -->
   <div id="teacher-only">
     <div class="section">
       <h2>👩‍🏫 教師備課提示</h2>
@@ -289,81 +476,177 @@ ul.bullet li{margin-bottom:4px;font-size:.93rem}
       <ul class="bullet">
         <li><strong>情境引入</strong>：用分糖果情境引入除法概念，讓學生動手分實物</li>
         <li><strong>直式練習</strong>：先從二位數除以一位數練起，熟練後再進入三位數</li>
-        <li><strong>錯誤示範</strong>：刻意展示忘記寫 0 的錯誤，讓學生找出問題</li>
+        <li><strong>錯誤示範</strong>：刻意展示忘記寫 $0$ 的錯誤，讓學生找出問題</li>
         <li><strong>驗算習慣</strong>：要求每題都做驗算，養成自我檢查的習慣</li>
       </ul>
       <h3>Bloom 三層次差異化</h3>
-      <ul class="bullet">
-        <li><strong>記憶理解</strong>：說出除法四步驟（除乘減驗）</li>
-        <li><strong>應用</strong>：完成三位數除以一位數的直式計算</li>
-        <li><strong>分析</strong>：判斷商中間何時需要補 0，並解釋原因</li>
-      </ul>
+      <table>
+        <tr><th>層次</th><th>學習表現</th></tr>
+        <tr><td style="color:var(--blue)">記憶理解</td><td>說出除法四步驟（除乘減驗）</td></tr>
+        <tr><td style="color:var(--green)">應用</td><td>完成三位數除以一位數的直式計算</td></tr>
+        <tr><td style="color:var(--orange)">分析</td><td>判斷商中間何時需要補 $0$，並解釋原因</td></tr>
+      </table>
       <h3>易錯點</h3>
       <ul class="bullet">
-        <li>商中間有 0 時忘記寫 0（如 612÷6 寫成 12 而非 102）</li>
-        <li>餘數比除數大卻沒發現（如 85÷4 餘數寫成 5）</li>
+        <li style="color:var(--pink)">商中間有 $0$ 時忘記寫 $0$（如 $612 \div 6$ 寫成 $12$ 而非 $102$）</li>
+        <li style="color:var(--pink)">餘數比除數大卻沒發現（如 $85 \div 4$ 餘數寫成 $5$）</li>
       </ul>
     </div>
   </div>
 </div>
 
-<div class="float-panel">
-  <button class="float-btn" onclick="adjFont(2)" title="放大字體">A+</button>
-  <div class="font-display">16px</div>
-  <button class="float-btn" onclick="adjFont(-2)" title="縮小字體">A-</button>
-</div>
-
 <script>
-function setMode(m){
-  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelector('.mode-btn[data-mode='+m+']').classList.add('active');
-  document.getElementById('teacher-only').style.display = m==='teacher'?'block':'none';
-}
-document.querySelector('.mode-btn[data-mode=student]').click();
+// 右側工具面板
+document.getElementById('tool-toggle').onclick=function(){document.getElementById('tool-content').classList.toggle('open');};
+var fsize=18;
+function setFsize(n){fsize=Math.min(28,Math.max(12,n));document.body.style.fontSize=fsize+'px';document.getElementById('font-val').textContent=fsize+'px';}
+document.getElementById('font-inc').onclick=function(){setFsize(fsize+2);};
+document.getElementById('font-dec').onclick=function(){setFsize(fsize-2);};
 
-function checkQ(btn,correct){
-  var opts=btn.parentNode.querySelectorAll('button');
-  opts.forEach(b=>b.disabled=true);
-  btn.classList.add(correct?'correct':'wrong');
-  if(!correct){
-    var qItem=btn.closest('.quiz-item');
-    var idx=Array.from(opts).indexOf(btn);
-    opts.forEach((b,i)=>{
-      if(b.getAttribute('onclick').indexOf('true')>-1)b.classList.add('correct');
-    });
-  }
+// 計時器
+var tSec=300,tRunning=false,tInterval=null;
+var tDisp=document.getElementById('timer-disp');
+var tStart=document.getElementById('timer-start');
+function tFmt(s){var m=Math.floor(s/60),sc=s%60;return(m<10?'0':'')+m+':'+(sc<10?'0':'')+sc;}
+function tTick(){if(tSec<=0){clearInterval(tInterval);tRunning=false;tDisp.textContent='00:00';tDisp.className='timer-disp ended';tStart.textContent='▶ 開始';tStart.classList.remove('on');return;}tSec--;tDisp.textContent=tFmt(tSec);}
+tStart.onclick=function(){if(tRunning){clearInterval(tInterval);tRunning=false;tDisp.classList.remove('running');this.textContent='▶ 開始';this.classList.remove('on');}else{tInterval=setInterval(tTick,1000);tRunning=true;tDisp.className='timer-disp running';this.textContent='⏸ 暫停';this.classList.add('on');}};
+document.getElementById('timer-reset').onclick=function(){clearInterval(tInterval);tRunning=false;tDisp.className='timer-disp';tStart.textContent='▶ 開始';tStart.classList.remove('on');tDisp.textContent=tFmt(tSec);};
+document.querySelectorAll('.timer-preset').forEach(function(btn){btn.onclick=function(){clearInterval(tInterval);tRunning=false;tSec=parseInt(this.dataset.sec);tDisp.className='timer-disp';tDisp.textContent=tFmt(tSec);tStart.textContent='▶ 開始';tStart.classList.remove('on');}});
+
+// 畫筆 canvas
+var canvas=document.getElementById('draw-canvas');
+var ctx=canvas.getContext('2d');
+var drawOn=false,drawing=false,dColor='#ffd54f',dSize=7;
+function resizeCanvas(){var data=ctx.getImageData(0,0,canvas.width||1,canvas.height||1);canvas.width=window.innerWidth;canvas.height=window.innerHeight;ctx.putImageData(data,0,0);ctx.lineCap='round';ctx.lineJoin='round';}
+resizeCanvas();window.addEventListener('resize',resizeCanvas);
+document.getElementById('draw-toggle').onclick=function(){drawOn=!drawOn;canvas.classList.toggle('active',drawOn);this.textContent=drawOn?'✅ 關閉畫筆':'🖌️ 開啟畫筆';this.classList.toggle('on',drawOn);};
+document.getElementById('draw-clear').onclick=function(){ctx.clearRect(0,0,canvas.width,canvas.height);};
+document.querySelectorAll('.draw-color').forEach(function(el){el.onclick=function(){document.querySelectorAll('.draw-color').forEach(function(e){e.classList.remove('active');});this.classList.add('active');dColor=this.dataset.color;}});
+document.querySelectorAll('.draw-size').forEach(function(el){el.onclick=function(){document.querySelectorAll('.draw-size').forEach(function(e){e.classList.remove('active');});this.classList.add('active');dSize=parseInt(this.dataset.size);}});
+function pos(e){var r=canvas.getBoundingClientRect();if(e.touches)return{x:e.touches[0].clientX-r.left,y:e.touches[0].clientY-r.top};return{x:e.clientX-r.left,y:e.clientY-r.top};}
+canvas.addEventListener('mousedown',function(e){drawing=true;var p=pos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.strokeStyle=dColor;ctx.lineWidth=dSize;});
+canvas.addEventListener('mousemove',function(e){if(!drawing)return;var p=pos(e);ctx.lineTo(p.x,p.y);ctx.stroke();});
+canvas.addEventListener('mouseup',function(){drawing=false;});
+canvas.addEventListener('mouseleave',function(){drawing=false;});
+canvas.addEventListener('touchstart',function(e){e.preventDefault();drawing=true;var p=pos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.strokeStyle=dColor;ctx.lineWidth=dSize;},{passive:false});
+canvas.addEventListener('touchmove',function(e){e.preventDefault();if(!drawing)return;var p=pos(e);ctx.lineTo(p.x,p.y);ctx.stroke();},{passive:false});
+canvas.addEventListener('touchend',function(){drawing=false;});
+
+function setMode(m){
+  document.querySelectorAll('.mode-btn').forEach(function(b,i){
+    b.classList.toggle('active', (m==='student'&&i===0)||(m==='teacher'&&i===1));
+  });
+  document.getElementById('teacher-only').style.display = m==='teacher'?'block':'none';
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
 }
-function checkTF(btn,correct){
-  var btns=btn.parentNode.querySelectorAll('button');
-  btns.forEach(b=>b.disabled=true);
-  btn.classList.add(correct?'correct':'wrong');
-  if(!correct)btns.forEach(b=>{if(b.getAttribute('onclick').indexOf('true')>-1)b.classList.add('correct');});
+function toggleSolve(btn){
+  btn.parentNode.classList.toggle('open');
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+}
+function checkQ(btn,result){
+  if(btn.classList.contains('correct')||btn.classList.contains('wrong')) return;
+  btn.classList.add(result);
+}
+function checkTF(btn,result){
+  if(btn.classList.contains('correct')||btn.classList.contains('wrong')) return;
+  btn.classList.add(result);
 }
 function checkFill(btn){
-  var item=btn.closest('.fill-item');
-  var input=item.querySelector('.fill-input');
-  var fb=item.querySelector('.fill-feedback');
-  var ans=input.dataset.ans;
-  var val=input.value.trim();
-  if(val===ans){fb.textContent='✓ 答對了！';fb.className='fill-feedback correct';}
-  else{fb.textContent='✗ 正確答案：'+ans;fb.className='fill-feedback wrong';}
+  var input = btn.previousElementSibling;
+  var fb = btn.nextElementSibling;
+  var ans = input.getAttribute('data-ans');
+  if(input.value.trim() === ans){
+    fb.textContent='✔ 正確！'; fb.style.color='var(--green)';
+    input.style.borderColor='var(--green)';
+  } else {
+    fb.textContent='✘ 再想想，答案是 '+ans; fb.style.color='var(--pink)';
+    input.style.borderColor='var(--pink)';
+  }
 }
-function carGo(id,dir){
-  var imgs=document.querySelectorAll('#'+id+' img');
-  var cur=Array.from(imgs).findIndex(function(i){return i.classList.contains('active');});
+function checkCalc(btn){
+  var item = btn.closest('.calc-item');
+  var input = item.querySelector('.calc-input');
+  var fb = item.querySelector('.calc-feedback');
+  var raw = input.value.trim().replace(/\s+/g,'');
+  var ans = input.dataset.ans;
+  var ok = (raw === ans);
+  if (!ok && ans.indexOf(',') < 0) {
+    var rawNum = parseFloat(raw), ansNum = parseFloat(ans);
+    if (!isNaN(rawNum) && !isNaN(ansNum) && Math.abs(rawNum - ansNum) < 0.01) ok = true;
+  }
+  fb.textContent = ok ? '✓ 答對了！' : '✗ 正確答案：' + ans;
+  fb.className = 'calc-feedback ' + (ok ? 'correct' : 'wrong');
+  input.style.borderColor = ok ? 'var(--green)' : 'var(--pink)';
+}
+function carGo(id, dir) {
+  var imgs = document.querySelectorAll('#'+id+' img');
+  var cur = Array.from(imgs).findIndex(function(i){return i.classList.contains('active')});
   imgs[cur].classList.remove('active');
-  var next=(cur+dir+imgs.length)%imgs.length;
+  var next = (cur + dir + imgs.length) % imgs.length;
   imgs[next].classList.add('active');
-  document.querySelector('#'+id+'-count').textContent=(next+1)+' / '+imgs.length;
+  document.querySelector('#'+id+'-count').textContent = (next+1)+' / '+imgs.length;
 }
 function showFS(src){var o=document.getElementById('fs-overlay');o.querySelector('img').src=src;o.classList.add('show');}
 document.getElementById('fs-overlay').onclick=function(){this.classList.remove('show');};
-var fs=16;
-function adjFont(d){
-  fs=Math.min(22,Math.max(12,fs+d));
-  document.body.style.fontSize=fs+'px';
-  document.querySelector('.font-display').textContent=fs+'px';
+
+// 互動實驗：除法
+function runDiv(){
+  var a = parseInt(document.getElementById('div-a').value, 10);
+  var b = parseInt(document.getElementById('div-b').value, 10);
+  if (isNaN(a) || a < 1 || a > 99) { alert('被除數請輸入 1–99'); return; }
+  if (isNaN(b) || b < 2 || b > 9) { alert('除數請輸入 2–9'); return; }
+  var q = Math.floor(a / b), r = a % b;
+  var resultBox = document.getElementById('div-result');
+  var line1 = r === 0
+    ? '$' + a + ' \\div ' + b + ' = ' + q + '$'
+    : '$' + a + ' \\div ' + b + ' = ' + q + ' \\cdots ' + r + '$';
+  var line2 = r === 0
+    ? '商 = ' + q + '，整除！驗算：' + q + ' × ' + b + ' = ' + a
+    : '商 = ' + q + '，餘數 = ' + r + '。驗算：' + q + ' × ' + b + ' + ' + r + ' = ' + a;
+  resultBox.innerHTML =
+    '<div style="text-align:center;font-size:1.3em">' + line1 + '</div>' +
+    '<div style="color:var(--chalk-dim);font-size:.9em;text-align:center;margin-top:6px">' + line2 + '</div>';
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([resultBox]);
+
+  // SVG：把 a 個點分成 b 組，每組 q 個（前 b 組），剩 r 個獨立排
+  var svg = document.getElementById('div-svg');
+  var W = 480, H = 220;
+  var colors = ['#ff8a80','#81d4fa','#a5d6a7','#ffb74d','#ce93d8','#ffd54f','#90caf9','#f48fb1','#80cbc4'];
+  var maxPerRow = Math.max(q, 1);
+  var groupW = Math.min((W - 40) / b, maxPerRow * 18 + 16);
+  var dotR = Math.max(3, Math.min(7, Math.floor((groupW - 16) / maxPerRow / 2.2)));
+  var spacing = (groupW - 16 - dotR * 2) / Math.max(maxPerRow - 1, 1);
+  var totalW = groupW * b;
+  var ox = (W - totalW) / 2;
+  var groupH = 80;
+  var oy = 25;
+  var s = '';
+  // 標題
+  s += '<text x="' + (W/2) + '" y="16" text-anchor="middle" fill="#5d4530" font-size="13" font-weight="700">分成 ' + b + ' 組，每組 ' + q + ' 個</text>';
+  for (var g = 0; g < b; g++) {
+    var gx = ox + g * groupW;
+    // 組外框
+    s += '<rect x="' + (gx + 4) + '" y="' + oy + '" width="' + (groupW - 8) + '" height="' + groupH + '" fill="none" stroke="' + colors[g % colors.length] + '" stroke-width="2" stroke-dasharray="4 3" rx="6"/>';
+    s += '<text x="' + (gx + groupW/2) + '" y="' + (oy + groupH + 14) + '" text-anchor="middle" fill="#5d4530" font-size="11">第 ' + (g+1) + ' 組</text>';
+    for (var i = 0; i < q; i++) {
+      var cx = gx + 8 + dotR + i * spacing;
+      var cy = oy + groupH / 2;
+      s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + dotR + '" fill="' + colors[g % colors.length] + '"/>';
+    }
+  }
+  // 餘數區
+  if (r > 0) {
+    var ry = oy + groupH + 30;
+    s += '<text x="' + ox + '" y="' + (ry + 14) + '" fill="#d32f2f" font-size="13" font-weight="700">餘數 ' + r + ' 個：</text>';
+    for (var k = 0; k < r; k++) {
+      s += '<circle cx="' + (ox + 80 + k * 16) + '" cy="' + (ry + 10) + '" r="5" fill="#d32f2f"/>';
+    }
+  } else {
+    s += '<text x="' + (W/2) + '" y="' + (oy + groupH + 36) + '" text-anchor="middle" fill="#2e7d32" font-size="13" font-weight="700">✓ 整除，沒有餘數</text>';
+  }
+  svg.innerHTML = s;
 }
+runDiv();
 </script>
 </body>
 </html>
