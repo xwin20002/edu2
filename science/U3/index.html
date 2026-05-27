@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>翰林版三下自然 第 3 單元｜天氣停看聽</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--board:#1a2a1a;--board-light:#243524;--chalk:#e8e4d8;--chalk-dim:#a8a498;
+  --yellow:#ffd54f;--wood:#8d6e4a;--wood-dark:#5d4530;--wood-light:#a8875a;
+  --pink:#ff8a80;--blue:#81d4fa;--green:#a5d6a7;--orange:#ffb74d;--cyan:#80deea}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--board);color:var(--chalk);min-height:100vh;font-size:16px;line-height:1.7}
+header{background:linear-gradient(180deg,var(--wood-light) 0%,var(--wood) 40%,var(--wood-dark) 100%);padding:22px 28px 18px;box-shadow:0 4px 16px rgba(0,0,0,.5);border-bottom:3px solid #3a2a1a;position:sticky;top:0;z-index:100}
+header h1{font-size:1.8rem;font-weight:900;text-shadow:1px 1px 3px rgba(0,0,0,.5)}
+header .meta{font-size:.95rem;opacity:.85;margin-top:6px}
+.badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 12px;font-size:.88rem;margin-right:6px;margin-bottom:4px}
+.mode-bar{display:flex;gap:12px;padding:10px 28px;background:rgba(0,0,0,.3);border-bottom:1px solid rgba(255,255,255,.1)}
+.mode-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 16px;font-size:.9rem;cursor:pointer;color:var(--chalk);font-family:inherit}
+.mode-btn.active{background:var(--yellow);color:#1a1a1a;border-color:var(--yellow)}
+#teacher-only{display:none}
+.container{max-width:960px;margin:0 auto;padding:36px 20px 80px}
+h2{font-size:1.15rem;color:var(--yellow);margin-bottom:18px;padding-bottom:8px;border-bottom:2px dashed var(--yellow)}
+h3{font-size:1rem;color:var(--green);margin:14px 0 8px}
+.section{background:var(--board-light);border-radius:14px;padding:24px;margin-bottom:24px;border:1px solid rgba(232,228,216,.12)}
+.objectives{display:flex;flex-wrap:wrap;gap:8px}
+.obj-chip{background:rgba(129,212,250,.12);border:1px solid var(--blue);border-radius:20px;padding:4px 14px;font-size:.85rem;color:var(--blue)}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 16px;font-size:.82rem;color:var(--chalk-dim);text-decoration:none;margin-bottom:20px}
+.back-btn:hover{background:rgba(255,213,79,.15);color:var(--yellow);border-color:var(--yellow)}
+table{width:100%;border-collapse:collapse;margin-top:6px}
+th,td{padding:9px 12px;text-align:left;border:1px solid rgba(232,228,216,.18);font-size:.92rem;vertical-align:top}
+th{background:rgba(255,213,79,.12);color:var(--yellow);font-weight:700}
+/* 觀測工具卡 */
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:10px}
+.tool-card{background:rgba(129,212,250,.08);border:2px solid rgba(129,212,250,.3);border-radius:12px;padding:16px}
+.tool-emoji{font-size:2.2rem;display:block;margin-bottom:6px}
+.tool-name{color:var(--blue);font-weight:700;font-size:1.05rem;margin-bottom:6px}
+.tool-desc{font-size:.9rem}
+.tool-unit{display:inline-block;background:rgba(255,213,79,.15);border:1px solid var(--yellow);color:var(--yellow);border-radius:6px;padding:2px 8px;font-size:.8rem;margin-top:6px}
+/* 雲種卡 */
+.cloud-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:8px}
+.cloud-card{background:rgba(232,228,216,.05);border:1px solid rgba(232,228,216,.2);border-radius:10px;padding:14px;text-align:center}
+.cloud-emoji{font-size:2.4rem}
+.cloud-name{color:var(--cyan);font-weight:700;margin-top:6px}
+.cloud-desc{font-size:.85rem;color:var(--chalk-dim);margin-top:4px}
+/* 天氣符號 */
+.weather-symbols{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;padding:14px;background:rgba(0,0,0,.2);border-radius:10px;margin-top:8px}
+.ws-item{text-align:center;min-width:80px}
+.ws-icon{font-size:2.4rem}
+.ws-label{font-size:.85rem;color:var(--chalk-dim);margin-top:4px}
+/* 氣溫時間軸 */
+.temp-chart{background:rgba(0,0,0,.25);border-radius:10px;padding:16px;margin-top:10px}
+.temp-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:.9rem}
+.temp-time{width:80px;color:var(--chalk-dim)}
+.temp-bar{flex:1;background:linear-gradient(90deg,var(--blue),var(--orange),var(--pink));height:14px;border-radius:7px;position:relative}
+.temp-mark{position:absolute;top:-3px;width:20px;height:20px;background:var(--yellow);border-radius:50%;border:2px solid #1a1a1a;color:#1a1a1a;font-size:.7rem;font-weight:700;text-align:center;line-height:18px}
+.temp-val{width:50px;text-align:right;color:var(--yellow);font-weight:700}
+/* 評量 */
+.quiz-item{background:rgba(255,255,255,.05);border-radius:10px;padding:16px;margin-bottom:12px;border:1px solid rgba(255,255,255,.1)}
+.quiz-q{font-size:.95rem;margin-bottom:10px;font-weight:600}
+.quiz-opts{display:flex;flex-direction:column;gap:7px}
+.quiz-opts button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:8px 14px;text-align:left;cursor:pointer;color:var(--chalk);font-size:.88rem;font-family:inherit}
+.quiz-opts button:hover{background:rgba(255,213,79,.15);border-color:var(--yellow)}
+.quiz-opts button.correct{background:rgba(165,214,167,.25);border-color:var(--green);color:var(--green)}
+.quiz-opts button.wrong{background:rgba(255,138,128,.15);border-color:var(--pink);color:var(--pink)}
+.tf-item{background:rgba(255,255,255,.05);border-radius:10px;padding:14px;margin-bottom:10px;border:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.tf-q{flex:1;font-size:.92rem;min-width:200px}
+.tf-btns{display:flex;gap:8px}
+.tf-btns button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:6px 16px;cursor:pointer;color:var(--chalk);font-family:inherit}
+.tf-btns button.correct{background:rgba(165,214,167,.3);border-color:var(--green);color:var(--green)}
+.tf-btns button.wrong{background:rgba(255,138,128,.2);border-color:var(--pink);color:var(--pink)}
+.fill-item{background:rgba(255,255,255,.05);border-radius:10px;padding:14px;margin-bottom:10px;border:1px solid rgba(255,255,255,.1)}
+.fill-q{font-size:.92rem;margin-bottom:8px}
+.fill-input{background:rgba(0,0,0,.3);border:1px solid rgba(255,213,79,.4);border-radius:6px;padding:5px 10px;color:var(--yellow);font-family:inherit;width:160px}
+.fill-btn{background:var(--yellow);color:#1a1a1a;border:none;border-radius:6px;padding:5px 14px;margin-left:8px;cursor:pointer;font-weight:700;font-family:inherit}
+.fill-feedback{margin-top:6px;font-size:.85rem}
+.fill-feedback.correct{color:var(--green)}
+.fill-feedback.wrong{color:var(--pink)}
+.float-panel{position:fixed;right:0;top:50%;transform:translateY(-50%);background:var(--board-light);border:1px solid rgba(255,255,255,.15);border-right:none;border-radius:12px 0 0 12px;padding:12px 10px;z-index:200;display:flex;flex-direction:column;gap:10px;box-shadow:-4px 0 20px rgba(0,0,0,.3)}
+.float-btn{width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);cursor:pointer;color:var(--chalk);font-size:1.1rem;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.font-display{font-size:.72rem;color:var(--chalk-dim);text-align:center}
+ul.bullet{padding-left:1.4em;margin-top:6px}
+ul.bullet li{margin-bottom:4px;font-size:.93rem}
+.note{background:rgba(129,212,250,.08);border-left:3px solid var(--blue);padding:10px 14px;border-radius:6px;font-size:.9rem;margin-top:10px}
+.life-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:8px}
+.life-card{background:rgba(165,214,167,.08);border:1px solid rgba(165,214,167,.3);border-radius:10px;padding:12px 14px;font-size:.9rem}
+.life-card strong{color:var(--green)}
+@media(max-width:768px){header h1{font-size:1.3rem}.float-panel{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <h1>⛅ 第 3 單元｜天氣停看聽</h1>
+  <div class="meta">
+    <span class="badge">翰林版</span>
+    <span class="badge">三年級下學期</span>
+    <span class="badge">114學年度</span>
+    <span class="badge" style="background:rgba(129,212,250,.2);border-color:var(--blue);color:var(--blue)">氣象觀測・天氣預報</span>
+  </div>
+</header>
+
+<div class="mode-bar">
+  <button class="mode-btn" data-mode="student" onclick="setMode('student')">👨‍🎓 學生模式</button>
+  <button class="mode-btn" data-mode="teacher" onclick="setMode('teacher')">👩‍🏫 教師模式</button>
+</div>
+
+<div class="container">
+  <a href="../index.html" class="back-btn">← 返回單元總覽</a>
+
+  <div class="section">
+    <h2>🎯 學習目標</h2>
+    <div class="objectives">
+      <span class="obj-chip">認識氣溫、雲、風、雨等天氣現象</span>
+      <span class="obj-chip">學會使用氣象觀測工具</span>
+      <span class="obj-chip">看懂天氣預報</span>
+      <span class="obj-chip">知道天氣對生活的影響</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📖 單元摘要</h2>
+    <p>天氣由 <strong>氣溫、雲、風、雨</strong> 等元素組成。我們可以用 <strong>溫度計、雨量筒、風向計</strong> 來觀測。中央氣象署每天發布<strong>天氣預報</strong>，幫助我們安排穿衣、活動與防颱準備。</p>
+  </div>
+
+  <div class="section">
+    <h2>🔭 3-1 觀測天氣</h2>
+
+    <h3>四大觀測工具</h3>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <span class="tool-emoji">🌡</span>
+        <div class="tool-name">溫度計</div>
+        <div class="tool-desc">測量空氣的溫度。要放在通風、不被陽光直射的位置。</div>
+        <span class="tool-unit">單位：°C（攝氏度）</span>
+      </div>
+      <div class="tool-card">
+        <span class="tool-emoji">☂</span>
+        <div class="tool-name">雨量筒</div>
+        <div class="tool-desc">測量一段時間內的雨量（雨水累積的高度）。可用透明寬口容器自製。</div>
+        <span class="tool-unit">單位：mm（毫米）</span>
+      </div>
+      <div class="tool-card">
+        <span class="tool-emoji">🧭</span>
+        <div class="tool-name">風向計</div>
+        <div class="tool-desc">指出風從哪一邊吹來。<strong>以風吹來的方向命名</strong>（北風＝從北方吹來）。</div>
+        <span class="tool-unit">單位：方向（東/西/南/北）</span>
+      </div>
+      <div class="tool-card">
+        <span class="tool-emoji">💨</span>
+        <div class="tool-name">風速計</div>
+        <div class="tool-desc">測量風的強度，可分為無風、微風、輕風、強風等等級。</div>
+        <span class="tool-unit">單位：m/s 或級</span>
+      </div>
+    </div>
+
+    <h3>一天的氣溫變化</h3>
+    <p>一天裡的氣溫不是固定的，<strong>清晨最低、中午過後最高（約 13~14 點）、傍晚下降</strong>。</p>
+    <div class="temp-chart">
+      <div class="temp-row"><div class="temp-time">06:00 清晨</div><div class="temp-bar"><div class="temp-mark" style="left:5%">低</div></div><div class="temp-val">18°C</div></div>
+      <div class="temp-row"><div class="temp-time">10:00 上午</div><div class="temp-bar"><div class="temp-mark" style="left:35%">中</div></div><div class="temp-val">24°C</div></div>
+      <div class="temp-row"><div class="temp-time">14:00 午後</div><div class="temp-bar"><div class="temp-mark" style="left:75%">高</div></div><div class="temp-val">30°C</div></div>
+      <div class="temp-row"><div class="temp-time">18:00 傍晚</div><div class="temp-bar"><div class="temp-mark" style="left:50%">中</div></div><div class="temp-val">26°C</div></div>
+      <div class="temp-row"><div class="temp-time">22:00 夜晚</div><div class="temp-bar"><div class="temp-mark" style="left:20%">低</div></div><div class="temp-val">21°C</div></div>
+    </div>
+
+    <h3>觀察雲的變化</h3>
+    <div class="cloud-grid">
+      <div class="cloud-card"><div class="cloud-emoji">☁</div><div class="cloud-name">積雲</div><div class="cloud-desc">像棉花球狀，晴天常見</div></div>
+      <div class="cloud-card"><div class="cloud-emoji">🌫</div><div class="cloud-name">層雲</div><div class="cloud-desc">一整片白，覆蓋天空</div></div>
+      <div class="cloud-card"><div class="cloud-emoji">🌥</div><div class="cloud-name">卷雲</div><div class="cloud-desc">細絲狀，出現在高空</div></div>
+      <div class="cloud-card"><div class="cloud-emoji">⛈</div><div class="cloud-name">積雨雲</div><div class="cloud-desc">高大塊狀，會帶來雷雨</div></div>
+    </div>
+    <div class="note">👀 <strong>觀察重點</strong>：雲量（多/少）、雲的厚薄、雲的高低，都能幫助我們判斷未來的天氣。</div>
+  </div>
+
+  <div class="section">
+    <h2>📰 3-2 天氣預報</h2>
+    <p>中央氣象署每天發布天氣預報，內容包括：<strong>天氣狀況、氣溫範圍、降雨機率、風向風速</strong>。</p>
+
+    <h3>常見天氣符號</h3>
+    <div class="weather-symbols">
+      <div class="ws-item"><div class="ws-icon">☀</div><div class="ws-label">晴</div></div>
+      <div class="ws-item"><div class="ws-icon">⛅</div><div class="ws-label">多雲</div></div>
+      <div class="ws-item"><div class="ws-icon">☁</div><div class="ws-label">陰</div></div>
+      <div class="ws-item"><div class="ws-icon">🌧</div><div class="ws-label">雨</div></div>
+      <div class="ws-item"><div class="ws-icon">⛈</div><div class="ws-label">雷雨</div></div>
+      <div class="ws-item"><div class="ws-icon">❄</div><div class="ws-label">下雪</div></div>
+    </div>
+
+    <h3>天氣預報怎麼用？</h3>
+    <ul class="bullet">
+      <li>看到「降雨機率 80%」→ 出門記得帶傘</li>
+      <li>看到「氣溫 12~16°C」→ 多加一件外套</li>
+      <li>看到「強風特報」→ 注意招牌、機車穩定</li>
+      <li>看到「颱風警報」→ 準備食物、檢查窗戶</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🌤 3-3 氣溫對生活的影響</h2>
+    <h3>熱天 vs 冷天的因應</h3>
+    <div class="life-grid">
+      <div class="life-card">🌞 <strong>熱天</strong>：吹電風扇、開冷氣、穿薄衣、吃冰、多喝水</div>
+      <div class="life-card">❄ <strong>冷天</strong>：穿外套、開暖氣、喝熱湯、戴圍巾手套</div>
+      <div class="life-card">☔ <strong>雨天</strong>：帶傘、穿雨衣、避開積水區、慢慢走</div>
+      <div class="life-card">💨 <strong>強風</strong>：固定物品、避免高處活動</div>
+    </div>
+    <h3>季節變化</h3>
+    <p>台灣四季的特徵：<strong>春暖、夏熱、秋涼、冬冷</strong>。氣溫變化會影響穿著、飲食、活動與健康。</p>
+  </div>
+
+  <div class="section">
+    <h2>📚 關鍵名詞</h2>
+    <table>
+      <tr><th style="width:25%">氣溫</th><td>空氣的溫度，單位 °C（攝氏度）</td></tr>
+      <tr><th>雲量</th><td>天空被雲覆蓋的多寡</td></tr>
+      <tr><th>雨量</th><td>雨水累積的深度，單位 mm（毫米）</td></tr>
+      <tr><th>風向</th><td>風吹來的方向（北風＝從北方吹來）</td></tr>
+      <tr><th>溫度計</th><td>測量氣溫的工具</td></tr>
+      <tr><th>雨量筒</th><td>測量雨量的工具</td></tr>
+      <tr><th>風向計</th><td>測量風吹來方向的工具</td></tr>
+      <tr><th>降雨機率</th><td>未來會下雨的可能性百分比</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>✅ 形成性評量</h2>
+    <h3>選擇題</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">Q1. 測量氣溫應該使用什麼工具？</div>
+      <div class="quiz-opts">
+        <button onclick="checkQ(this,false)">A. 雨量筒</button>
+        <button onclick="checkQ(this,true)">B. 溫度計</button>
+        <button onclick="checkQ(this,false)">C. 風向計</button>
+        <button onclick="checkQ(this,false)">D. 顯微鏡</button>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q2. 「北風」是指什麼？</div>
+      <div class="quiz-opts">
+        <button onclick="checkQ(this,true)">A. 從北方吹來的風</button>
+        <button onclick="checkQ(this,false)">B. 往北方吹去的風</button>
+        <button onclick="checkQ(this,false)">C. 只在北方才有的風</button>
+        <button onclick="checkQ(this,false)">D. 冬天才有的風</button>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q3. 一天當中氣溫最高大約是在什麼時段？</div>
+      <div class="quiz-opts">
+        <button onclick="checkQ(this,false)">A. 清晨 6 點</button>
+        <button onclick="checkQ(this,false)">B. 上午 9 點</button>
+        <button onclick="checkQ(this,true)">C. 午後 13~14 點</button>
+        <button onclick="checkQ(this,false)">D. 夜晚 22 點</button>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q4. 看到天氣預報「降雨機率 90%」，最適合的準備是？</div>
+      <div class="quiz-opts">
+        <button onclick="checkQ(this,false)">A. 穿短袖</button>
+        <button onclick="checkQ(this,true)">B. 帶雨傘出門</button>
+        <button onclick="checkQ(this,false)">C. 戴墨鏡</button>
+        <button onclick="checkQ(this,false)">D. 開冷氣</button>
+      </div>
+    </div>
+
+    <h3>是非題</h3>
+    <div class="tf-item">
+      <div class="tf-q">1. 溫度計應該放在通風、不被陽光直射的位置。</div>
+      <div class="tf-btns"><button onclick="checkTF(this,true)">○</button><button onclick="checkTF(this,false)">✕</button></div>
+    </div>
+    <div class="tf-item">
+      <div class="tf-q">2. 雨量的單位是「公分」。</div>
+      <div class="tf-btns"><button onclick="checkTF(this,false)">○</button><button onclick="checkTF(this,true)">✕</button></div>
+    </div>
+    <div class="tf-item">
+      <div class="tf-q">3. 積雨雲常會帶來雷雨。</div>
+      <div class="tf-btns"><button onclick="checkTF(this,true)">○</button><button onclick="checkTF(this,false)">✕</button></div>
+    </div>
+
+    <h3>填空題</h3>
+    <div class="fill-item">
+      <div class="fill-q">1. 測量雨量的工具叫 <input class="fill-input" data-ans="雨量筒"> <button class="fill-btn" onclick="checkFill(this)">確認</button></div>
+      <div class="fill-feedback"></div>
+    </div>
+    <div class="fill-item">
+      <div class="fill-q">2. 雨量的單位是 <input class="fill-input" data-ans="毫米"> <button class="fill-btn" onclick="checkFill(this)">確認</button></div>
+      <div class="fill-feedback"></div>
+    </div>
+    <div class="fill-item">
+      <div class="fill-q">3. 像棉花球一樣的雲叫做 <input class="fill-input" data-ans="積雲"> <button class="fill-btn" onclick="checkFill(this)">確認</button></div>
+      <div class="fill-feedback"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🎬 學生自學參考</h2>
+    <p style="font-size:.85rem;color:var(--chalk-dim);margin-bottom:12px">本單元無翰林官方專屬影片；提供均一教育平台「天氣與生活」單元作參考</p>
+    <a href="https://www.junyiacademy.org/ns-g3-07" target="_blank" rel="noopener" style="display:inline-block;background:var(--yellow);color:#1a1a1a;text-decoration:none;border-radius:20px;padding:10px 20px;font-weight:700">🔗 均一教育平台：天氣與生活 →</a>
+  </div>
+
+  <div id="teacher-only">
+    <div class="section">
+      <h2>👩‍🏫 教師備課提示</h2>
+      <h3>教學策略</h3>
+      <ul class="bullet">
+        <li><strong>實際觀測</strong>：帶學生連續一週同一時段測氣溫，做成折線圖</li>
+        <li><strong>自製雨量筒</strong>：用透明寶特瓶剪上半段倒置作漏斗，貼刻度</li>
+        <li><strong>連結時事</strong>：颱風季、寒流時請學生看氣象播報並摘要</li>
+        <li><strong>看雲日記</strong>：每天拍一張天空照片，連續記錄一個月</li>
+      </ul>
+      <h3>Bloom 三層次差異化</h3>
+      <ul class="bullet">
+        <li><strong>記憶理解</strong>：說出 4 種觀測工具與單位</li>
+        <li><strong>應用</strong>：看當日氣象預報，建議全家穿什麼出門</li>
+        <li><strong>分析</strong>：根據連續 5 天的氣溫數據，推測明天的氣溫範圍</li>
+      </ul>
+      <h3>易錯點</h3>
+      <ul class="bullet">
+        <li><strong>風向命名</strong>：「北風」是從北吹來，不是吹向北 — 學生最常搞錯</li>
+        <li><strong>雨量單位</strong>：是 mm 不是 cm</li>
+        <li>溫度計位置不對會量到太陽輻射熱而非空氣溫度</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="float-panel">
+  <button class="float-btn" onclick="adjFont(2)" title="放大字體">A+</button>
+  <div class="font-display">16px</div>
+  <button class="float-btn" onclick="adjFont(-2)" title="縮小字體">A-</button>
+</div>
+
+<script>
+function setMode(m){document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.mode-btn[data-mode='+m+']').classList.add('active');document.getElementById('teacher-only').style.display=m==='teacher'?'block':'none';}
+document.querySelector('.mode-btn[data-mode=student]').click();
+function checkQ(btn,correct){var opts=btn.parentNode.querySelectorAll('button');opts.forEach(b=>b.disabled=true);btn.classList.add(correct?'correct':'wrong');if(!correct)opts.forEach(b=>{if(b.getAttribute('onclick').indexOf('true')>-1)b.classList.add('correct');});}
+function checkTF(btn,correct){var btns=btn.parentNode.querySelectorAll('button');btns.forEach(b=>b.disabled=true);btn.classList.add(correct?'correct':'wrong');if(!correct)btns.forEach(b=>{if(b.getAttribute('onclick').indexOf('true')>-1)b.classList.add('correct');});}
+function checkFill(btn){var item=btn.closest('.fill-item'),input=item.querySelector('.fill-input'),fb=item.querySelector('.fill-feedback'),ans=input.dataset.ans,val=input.value.trim();if(val===ans){fb.textContent='✓ 答對了！';fb.className='fill-feedback correct';}else{fb.textContent='✗ 正確答案：'+ans;fb.className='fill-feedback wrong';}}
+var fs=16;function adjFont(d){fs=Math.min(22,Math.max(12,fs+d));document.body.style.fontSize=fs+'px';document.querySelector('.font-display').textContent=fs+'px';}
+</script>
+</body>
+</html>

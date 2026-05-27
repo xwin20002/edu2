@@ -3,92 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>國語教學駕駛艙｜翰林版三下 第7-10課</title>
+<title>教學駕駛艙｜翰林版三下</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 :root{--board:#1a2a1a;--board-light:#243524;--chalk:#e8e4d8;--chalk-dim:#a8a498;
-  --yellow:#ffd54f;--wood:#8d6e4a;--wood-dark:#5d4530;--wood-light:#a8875a}
+  --yellow:#ffd54f;--wood:#8d6e4a;--wood-dark:#5d4530;--wood-light:#a8875a;
+  --green:#a5d6a7;--blue:#81d4fa;--pink:#ff8a80;--orange:#ffb74d;--purple:#ce93d8}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--board);
   color:var(--chalk);min-height:100vh}
 header{background:linear-gradient(180deg,var(--wood-light) 0%,var(--wood) 40%,var(--wood-dark) 100%);
-  padding:22px 28px 18px;box-shadow:0 4px 16px rgba(0,0,0,.5);border-bottom:3px solid #3a2a1a}
-header h1{font-size:1.5rem;font-weight:900;text-shadow:1px 1px 3px rgba(0,0,0,.5)}
-header .meta{font-size:.82rem;opacity:.85;margin-top:6px}
+  padding:26px 28px 22px;box-shadow:0 4px 16px rgba(0,0,0,.5);border-bottom:3px solid #3a2a1a;text-align:center}
+header h1{font-size:1.8rem;font-weight:900;text-shadow:1px 1px 3px rgba(0,0,0,.5)}
+header .meta{font-size:.88rem;opacity:.85;margin-top:8px}
 .badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
-  border-radius:20px;padding:2px 10px;font-size:.72rem;margin-right:6px}
-.container{max-width:900px;margin:0 auto;padding:40px 20px 80px}
-h2{font-size:1.1rem;color:var(--yellow);margin-bottom:20px;padding-bottom:8px;
-  border-bottom:2px dashed var(--yellow)}
-.lessons{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.lesson-card{background:var(--board-light);border:2px solid rgba(232,228,216,.2);
-  border-radius:14px;padding:24px 22px;text-decoration:none;color:var(--chalk);display:block;
-  transition:all .25s;box-shadow:inset 0 0 20px rgba(0,0,0,.3)}
-.lesson-card:hover{border-color:var(--yellow);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.4)}
-.lesson-card .num{font-size:.75rem;color:var(--chalk-dim);margin-bottom:8px}
-.lesson-card .emoji{font-size:2.4rem;margin-bottom:10px;display:block}
-.lesson-card h3{font-size:1.25rem;font-weight:700;margin-bottom:8px}
-.lesson-card .theme{font-size:.82rem;color:var(--chalk-dim);margin-bottom:14px}
-.lesson-card .chars{display:flex;flex-wrap:wrap;gap:4px}
-.char-chip{background:rgba(255,213,79,.1);border:1px dashed var(--yellow);
-  border-radius:6px;padding:2px 8px;font-size:.78rem;color:var(--yellow)}
-.go-btn{display:inline-block;margin-top:16px;background:var(--yellow);color:#1a1a1a;
-  border-radius:20px;padding:6px 18px;font-size:.82rem;font-weight:700}
+  border-radius:20px;padding:3px 12px;font-size:.78rem;margin:0 4px}
+.container{max-width:1000px;margin:0 auto;padding:48px 20px 80px}
+h2{font-size:1.15rem;color:var(--yellow);margin-bottom:24px;padding-bottom:8px;
+  border-bottom:2px dashed var(--yellow);text-align:center}
+.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.subject-card{background:var(--board-light);border:2px solid rgba(232,228,216,.2);
+  border-radius:16px;padding:32px 24px;text-decoration:none;color:var(--chalk);display:block;
+  transition:all .25s;box-shadow:inset 0 0 24px rgba(0,0,0,.3);text-align:center;position:relative}
+.subject-card.active:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.5)}
+.subject-card.chinese.active{border-color:var(--yellow)}.subject-card.chinese.active:hover{border-color:var(--yellow)}
+.subject-card.science.active{border-color:var(--green)}.subject-card.science.active:hover{border-color:var(--green)}
+.subject-card.math.active{border-color:var(--blue)}.subject-card.math.active:hover{border-color:var(--blue)}
+.subject-card.english.active{border-color:var(--pink)}.subject-card.english.active:hover{border-color:var(--pink)}
+.subject-card.computer.active{border-color:var(--purple)}.subject-card.computer.active:hover{border-color:var(--purple)}
+.subject-card.coming{cursor:default;opacity:.55}
+.subject-card .emoji{font-size:3.4rem;margin-bottom:12px;display:block}
+.subject-card h3{font-size:1.6rem;font-weight:900;margin-bottom:8px}
+.subject-card.chinese.active h3{color:var(--yellow)}
+.subject-card.science.active h3{color:var(--green)}
+.subject-card.math.active h3{color:var(--blue)}
+.subject-card.english.active h3{color:var(--pink)}
+.subject-card.computer.active h3{color:var(--purple)}
+.subject-card .desc{font-size:.85rem;color:var(--chalk-dim);margin-bottom:14px;min-height:2.6em}
+.subject-card .go-btn{display:inline-block;background:rgba(255,255,255,.1);color:var(--chalk);
+  border-radius:20px;padding:6px 18px;font-size:.82rem;font-weight:700;border:1px solid rgba(255,255,255,.2)}
+.subject-card.active .go-btn{background:var(--yellow);color:#1a1a1a;border-color:var(--yellow)}
+.subject-card.science.active .go-btn{background:var(--green)}
+.subject-card .status-badge{position:absolute;top:14px;right:14px;background:rgba(255,138,128,.2);
+  border:1px solid var(--pink);color:var(--pink);border-radius:12px;padding:2px 10px;font-size:.7rem;font-weight:700}
+.subject-card.active .status-badge{display:none}
+footer{text-align:center;color:var(--chalk-dim);font-size:.78rem;padding:20px;border-top:1px solid rgba(255,255,255,.1);margin-top:40px}
+footer a{color:var(--yellow);text-decoration:none}
+@media(max-width:600px){header h1{font-size:1.4rem}.subject-card .emoji{font-size:2.6rem}.subject-card h3{font-size:1.3rem}}
 </style>
 </head>
 <body>
 <header>
-  <h1>📚 國語教學駕駛艙</h1>
+  <h1>📚 教學駕駛艙</h1>
   <div class="meta">
     <span class="badge">翰林版</span>
     <span class="badge">三年級下學期</span>
     <span class="badge">114學年度</span>
-    第 7–10 課
   </div>
 </header>
 <div class="container">
-  <h2>📖 選擇課程</h2>
-  <div class="lessons">
-      <a href="L7/index.html" class="lesson-card">
-        <div class="num">第 7 課</div>
-        <span class="emoji">🫙</span>
-        <h3>做泡菜</h3>
-        <div class="theme">飲食文化・誠實・環保惜食</div>
-        <div class="chars"><span class="char-chip">罐</span><span class="char-chip">醃</span><span class="char-chip">菌</span><span class="char-chip">漬</span><span class="char-chip">惑</span><span class="char-chip">酵</span></div>
-        <span class="go-btn">進入課程 →</span>
-      </a>
-      <a href="L8/index.html" class="lesson-card">
-        <div class="num">第 8 課</div>
-        <span class="emoji">🦺</span>
-        <h3>行人的守護者</h3>
-        <div class="theme">公民意識・志工服務・交通安全</div>
-        <div class="chars"><span class="char-chip">守</span><span class="char-chip">護</span><span class="char-chip">徐</span><span class="char-chip">展</span><span class="char-chip">現</span><span class="char-chip">潑</span></div>
-        <span class="go-btn">進入課程 →</span>
-      </a>
-      <a href="L9/index.html" class="lesson-card">
-        <div class="num">第 9 課</div>
-        <span class="emoji">👟</span>
-        <h3>就愛兩兩在一起</h3>
-        <div class="theme">觀察生活・語文趣味・詩意表達</div>
-        <div class="chars"><span class="char-chip">取</span><span class="char-chip">免</span><span class="char-chip">端</span><span class="char-chip">筷</span><span class="char-chip">套</span><span class="char-chip">替</span></div>
-        <span class="go-btn">進入課程 →</span>
-      </a>
-      <a href="L10/index.html" class="lesson-card">
-        <div class="num">第 10 課</div>
-        <span class="emoji">🌟</span>
-        <h3>飛行員和小王子</h3>
-        <div class="theme">想像力・純真童心・友誼・世界名著</div>
-        <div class="chars"><span class="char-chip">員</span><span class="char-chip">幕</span><span class="char-chip">無</span><span class="char-chip">繁</span><span class="char-chip">星</span><span class="char-chip">迫</span></div>
-        <span class="go-btn">進入課程 →</span>
-      </a>
-      <a href="L11-L12/index.html" class="lesson-card">
-        <div class="num">第 11-12 課</div>
-        <span class="emoji">🐉</span>
-        <h3>畫龍點睛・掉進一個兔子洞</h3>
-        <div class="theme">成語典故・詩歌想像・愛麗絲夢遊仙境</div>
-        <div class="chars"><span class="char-chip">畫龍點睛</span><span class="char-chip">目瞪口呆</span><span class="char-chip">兔</span><span class="char-chip">追</span><span class="char-chip">槌球賽</span><span class="char-chip">夏</span></div>
-        <span class="go-btn">進入課程 →</span>
-      </a></div>
+  <h2>🎒 選擇學科</h2>
+  <div class="subjects">
+
+    <a href="chinese.html" class="subject-card chinese active">
+      <span class="emoji">📖</span>
+      <h3>國文</h3>
+      <div class="desc">第 7~12 課<br>做泡菜・行人的守護者・小王子等</div>
+      <span class="go-btn">進入課程 →</span>
+    </a>
+
+    <div class="subject-card math coming">
+      <span class="status-badge">建置中</span>
+      <span class="emoji">🔢</span>
+      <h3>數學</h3>
+      <div class="desc">敬請期待</div>
+      <span class="go-btn">即將上線</span>
+    </div>
+
+    <a href="science/index.html" class="subject-card science active">
+      <span class="emoji">🔬</span>
+      <h3>自然</h3>
+      <div class="desc">全 4 單元<br>快樂小農夫・水・天氣・動物</div>
+      <span class="go-btn">進入課程 →</span>
+    </a>
+
+    <div class="subject-card english coming">
+      <span class="status-badge">建置中</span>
+      <span class="emoji">🌐</span>
+      <h3>英文</h3>
+      <div class="desc">敬請期待</div>
+      <span class="go-btn">即將上線</span>
+    </div>
+
+    <div class="subject-card computer coming">
+      <span class="status-badge">建置中</span>
+      <span class="emoji">💻</span>
+      <h3>電腦</h3>
+      <div class="desc">敬請期待</div>
+      <span class="go-btn">即將上線</span>
+    </div>
+
+  </div>
 </div>
+<footer>
+  教學駕駛艙｜翰林版三下 · <a href="https://github.com/xwin20002/edu3" target="_blank">GitHub</a>
+</footer>
 </body>
 </html>

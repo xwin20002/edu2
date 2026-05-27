@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>翰林版三下自然 第 2 單元｜千變萬化的水</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--board:#1a2a1a;--board-light:#243524;--chalk:#e8e4d8;--chalk-dim:#a8a498;
+  --yellow:#ffd54f;--wood:#8d6e4a;--wood-dark:#5d4530;--wood-light:#a8875a;
+  --pink:#ff8a80;--blue:#81d4fa;--green:#a5d6a7;--orange:#ffb74d;--cyan:#80deea}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--board);color:var(--chalk);min-height:100vh;font-size:16px;line-height:1.7}
+header{background:linear-gradient(180deg,var(--wood-light) 0%,var(--wood) 40%,var(--wood-dark) 100%);padding:22px 28px 18px;box-shadow:0 4px 16px rgba(0,0,0,.5);border-bottom:3px solid #3a2a1a;position:sticky;top:0;z-index:100}
+header h1{font-size:1.8rem;font-weight:900;text-shadow:1px 1px 3px rgba(0,0,0,.5)}
+header .meta{font-size:.95rem;opacity:.85;margin-top:6px}
+.badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 12px;font-size:.88rem;margin-right:6px;margin-bottom:4px}
+.mode-bar{display:flex;gap:12px;padding:10px 28px;background:rgba(0,0,0,.3);border-bottom:1px solid rgba(255,255,255,.1);font-size:.95rem}
+.mode-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 16px;font-size:.9rem;cursor:pointer;color:var(--chalk);transition:all .2s;font-family:inherit}
+.mode-btn.active{background:var(--yellow);color:#1a1a1a;border-color:var(--yellow)}
+#teacher-only{display:none}
+.container{max-width:960px;margin:0 auto;padding:36px 20px 80px}
+h2{font-size:1.15rem;color:var(--yellow);margin-bottom:18px;padding-bottom:8px;border-bottom:2px dashed var(--yellow)}
+h3{font-size:1rem;color:var(--green);margin:14px 0 8px}
+.section{background:var(--board-light);border-radius:14px;padding:24px;margin-bottom:24px;border:1px solid rgba(232,228,216,.12)}
+.objectives{display:flex;flex-wrap:wrap;gap:8px}
+.obj-chip{background:rgba(129,212,250,.12);border:1px solid var(--blue);border-radius:20px;padding:4px 14px;font-size:.85rem;color:var(--blue)}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 16px;font-size:.82rem;color:var(--chalk-dim);text-decoration:none;transition:all .2s;margin-bottom:20px}
+.back-btn:hover{background:rgba(255,213,79,.15);color:var(--yellow);border-color:var(--yellow)}
+table{width:100%;border-collapse:collapse;margin-top:6px}
+th,td{padding:9px 12px;text-align:left;border:1px solid rgba(232,228,216,.18);font-size:.92rem;vertical-align:top}
+th{background:rgba(255,213,79,.12);color:var(--yellow);font-weight:700}
+td{color:var(--chalk)}
+/* 三態卡 */
+.state-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:10px}
+.state-card{border-radius:12px;padding:18px;text-align:center;border:2px solid}
+.state-solid{background:rgba(129,212,250,.1);border-color:var(--blue)}
+.state-liquid{background:rgba(128,222,234,.1);border-color:var(--cyan)}
+.state-gas{background:rgba(232,228,216,.06);border-color:var(--chalk-dim)}
+.state-emoji{font-size:2.6rem;margin-bottom:8px}
+.state-name{font-size:1.15rem;font-weight:700;margin-bottom:6px}
+.state-solid .state-name{color:var(--blue)}
+.state-liquid .state-name{color:var(--cyan)}
+.state-gas .state-name{color:var(--chalk-dim)}
+.state-desc{font-size:.88rem;text-align:left;line-height:1.6}
+/* 變化箭頭 */
+.change-flow{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin:14px 0}
+.flow-box{background:rgba(255,213,79,.1);border:2px solid var(--yellow);border-radius:10px;padding:10px 16px;text-align:center;min-width:90px}
+.flow-name{color:var(--yellow);font-weight:700;font-size:.95rem}
+.flow-sub{font-size:.78rem;color:var(--chalk-dim);margin-top:2px}
+.arrow{font-size:1.4rem;color:var(--orange)}
+/* 實驗卡 */
+.exp-card{background:rgba(255,183,77,.08);border:1px solid rgba(255,183,77,.3);border-radius:10px;padding:16px;margin-top:10px}
+.exp-title{color:var(--orange);font-weight:700;font-size:1.05rem;margin-bottom:10px}
+.exp-result{background:rgba(0,0,0,.25);border-radius:8px;padding:12px;margin-top:10px;font-size:.9rem}
+/* 評量 */
+.quiz-item{background:rgba(255,255,255,.05);border-radius:10px;padding:16px;margin-bottom:12px;border:1px solid rgba(255,255,255,.1)}
+.quiz-q{font-size:.95rem;margin-bottom:10px;font-weight:600}
+.quiz-opts{display:flex;flex-direction:column;gap:7px}
+.quiz-opts button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:8px 14px;text-align:left;cursor:pointer;color:var(--chalk);font-size:.88rem;transition:background .15s;font-family:inherit}
+.quiz-opts button:hover{background:rgba(255,213,79,.15);border-color:var(--yellow)}
+.quiz-opts button.correct{background:rgba(165,214,167,.25);border-color:var(--green);color:var(--green)}
+.quiz-opts button.wrong{background:rgba(255,138,128,.15);border-color:var(--pink);color:var(--pink)}
+.tf-item{background:rgba(255,255,255,.05);border-radius:10px;padding:14px;margin-bottom:10px;border:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.tf-q{flex:1;font-size:.92rem;min-width:200px}
+.tf-btns{display:flex;gap:8px}
+.tf-btns button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:6px 16px;cursor:pointer;color:var(--chalk);font-family:inherit}
+.tf-btns button.correct{background:rgba(165,214,167,.3);border-color:var(--green);color:var(--green)}
+.tf-btns button.wrong{background:rgba(255,138,128,.2);border-color:var(--pink);color:var(--pink)}
+.fill-item{background:rgba(255,255,255,.05);border-radius:10px;padding:14px;margin-bottom:10px;border:1px solid rgba(255,255,255,.1)}
+.fill-q{font-size:.92rem;margin-bottom:8px}
+.fill-input{background:rgba(0,0,0,.3);border:1px solid rgba(255,213,79,.4);border-radius:6px;padding:5px 10px;color:var(--yellow);font-size:.95rem;font-family:inherit;width:160px}
+.fill-btn{background:var(--yellow);color:#1a1a1a;border:none;border-radius:6px;padding:5px 14px;margin-left:8px;cursor:pointer;font-weight:700;font-family:inherit}
+.fill-feedback{margin-top:6px;font-size:.85rem}
+.fill-feedback.correct{color:var(--green)}
+.fill-feedback.wrong{color:var(--pink)}
+.float-panel{position:fixed;right:0;top:50%;transform:translateY(-50%);background:var(--board-light);border:1px solid rgba(255,255,255,.15);border-right:none;border-radius:12px 0 0 12px;padding:12px 10px;z-index:200;display:flex;flex-direction:column;gap:10px;box-shadow:-4px 0 20px rgba(0,0,0,.3)}
+.float-btn{width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);cursor:pointer;color:var(--chalk);font-size:1.1rem;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.font-display{font-size:.72rem;color:var(--chalk-dim);text-align:center;line-height:1.2}
+ul.bullet{padding-left:1.4em;margin-top:6px}
+ul.bullet li{margin-bottom:4px;font-size:.93rem}
+.note{background:rgba(129,212,250,.08);border-left:3px solid var(--blue);padding:10px 14px;border-radius:6px;font-size:.9rem;margin-top:10px}
+.life-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:8px}
+.life-card{background:rgba(165,214,167,.08);border:1px solid rgba(165,214,167,.3);border-radius:10px;padding:12px 14px;font-size:.9rem}
+.life-card strong{color:var(--green)}
+@media(max-width:768px){header h1{font-size:1.3rem}.float-panel{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <h1>💧 第 2 單元｜千變萬化的水</h1>
+  <div class="meta">
+    <span class="badge">翰林版</span>
+    <span class="badge">三年級下學期</span>
+    <span class="badge">114學年度</span>
+    <span class="badge" style="background:rgba(128,222,234,.2);border-color:var(--cyan);color:var(--cyan)">毛細現象・水的三態</span>
+  </div>
+</header>
+
+<div class="mode-bar">
+  <button class="mode-btn" data-mode="student" onclick="setMode('student')">👨‍🎓 學生模式</button>
+  <button class="mode-btn" data-mode="teacher" onclick="setMode('teacher')">👩‍🏫 教師模式</button>
+</div>
+
+<div class="container">
+  <a href="../index.html" class="back-btn">← 返回單元總覽</a>
+
+  <div class="section">
+    <h2>🎯 學習目標</h2>
+    <div class="objectives">
+      <span class="obj-chip">認識毛細現象</span>
+      <span class="obj-chip">認識水的三態</span>
+      <span class="obj-chip">分辨融化・蒸發・凝結</span>
+      <span class="obj-chip">將水的特性連結到生活</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📖 單元摘要</h2>
+    <p>水會沿著物體<strong>細小的縫隙</strong>移動，這叫做「毛細現象」。水有三種狀態：固態（冰）、液態（水）、氣態（水蒸氣）。它們之間可以互相變化，包括<strong>融化、蒸發、凝結</strong>三種重要過程。</p>
+  </div>
+
+  <div class="section">
+    <h2>🧪 2-1 水的毛細現象</h2>
+    <p><strong>毛細現象</strong>：水會沿著物體的「縫隙」上升或橫向移動，<strong>隙縫愈小，水傳遞愈快</strong>。</p>
+
+    <div class="exp-card">
+      <div class="exp-title">🔬 實驗：哪種材料傳水最快？</div>
+      <p style="font-size:.92rem"><strong>器材</strong>：衛生紙條、A4 紙條、編織棉條、塑膠帶條、積木、水容器</p>
+      <p style="font-size:.92rem;margin-top:6px"><strong>步驟</strong>：把同樣寬度的紙條/棉條/塑膠帶一端浸入水中，另一端搭在積木上，觀察哪一種傳水最快、最高。</p>
+      <div class="exp-result">
+        <strong>結果排序</strong>：<br>
+        🥇 衛生紙（隙縫最小）→ 傳水最快、最高<br>
+        🥈 編織棉條、A4 紙 → 中等速度<br>
+        ❌ 塑膠帶（無隙縫）→ 水完全無法傳遞
+      </div>
+    </div>
+
+    <h3>生活中的毛細現象</h3>
+    <div class="life-grid">
+      <div class="life-card">🎨 <strong>藍染</strong>：染料沿布料纖維擴散</div>
+      <div class="life-card">🧻 <strong>毛巾吸水</strong>：水沿纖維迅速滲透</div>
+      <div class="life-card">🌱 <strong>植物根吸水</strong>：水從根沿著導管往上送</div>
+      <div class="life-card">🕯 <strong>蠟燭芯吸蠟</strong>：液態蠟沿棉芯上升</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🌡 2-2 水的三態</h2>
+    <div class="state-grid">
+      <div class="state-card state-solid">
+        <div class="state-emoji">🧊</div>
+        <div class="state-name">固態（冰）</div>
+        <div class="state-desc">• 有固定形狀<br>• 可以用手拿取<br>• 低溫下出現<br>• 例：冰塊、雪、霜</div>
+      </div>
+      <div class="state-card state-liquid">
+        <div class="state-emoji">💧</div>
+        <div class="state-name">液態（水）</div>
+        <div class="state-desc">• 沒有固定形狀<br>• 會流動<br>• 隨容器形狀改變<br>• 例：自來水、河水、雨</div>
+      </div>
+      <div class="state-card state-gas">
+        <div class="state-emoji">💨</div>
+        <div class="state-name">氣態（水蒸氣）</div>
+        <div class="state-desc">• 看不見、摸不到<br>• 瀰漫在空氣中<br>• 高溫時較多<br>• 例：燒開水冒的白煙（其實是凝結後的小水滴）</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔄 2-3 三態變化</h2>
+    <div class="change-flow">
+      <div class="flow-box"><div class="flow-name">固態</div><div class="flow-sub">冰</div></div>
+      <div style="text-align:center"><div class="arrow">→</div><div style="font-size:.78rem;color:var(--orange)">融化（受熱）</div></div>
+      <div class="flow-box"><div class="flow-name">液態</div><div class="flow-sub">水</div></div>
+      <div style="text-align:center"><div class="arrow">→</div><div style="font-size:.78rem;color:var(--orange)">蒸發（受熱）</div></div>
+      <div class="flow-box"><div class="flow-name">氣態</div><div class="flow-sub">水蒸氣</div></div>
+    </div>
+    <div class="change-flow">
+      <div class="flow-box"><div class="flow-name">氣態</div><div class="flow-sub">水蒸氣</div></div>
+      <div style="text-align:center"><div class="arrow">→</div><div style="font-size:.78rem;color:var(--cyan)">凝結（遇冷）</div></div>
+      <div class="flow-box"><div class="flow-name">液態</div><div class="flow-sub">水</div></div>
+    </div>
+
+    <table style="margin-top:14px">
+      <tr><th style="width:18%">變化名稱</th><th style="width:30%">過程</th><th>生活實例</th></tr>
+      <tr><td><strong style="color:var(--orange)">融化</strong></td><td>固態 → 液態（受熱）</td><td>冰塊在室溫下變成水、雪人融化</td></tr>
+      <tr><td><strong style="color:var(--orange)">蒸發</strong></td><td>液態 → 氣態（受熱）</td><td>衣服晾乾、地上水坑消失、煮開水</td></tr>
+      <tr><td><strong style="color:var(--cyan)">凝結</strong></td><td>氣態 → 液態（遇冷）</td><td>冰水杯外壁起水珠、起霧、浴室鏡子起霧</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>🧊 2-4 水溫對冰塊融化的影響</h2>
+    <div class="exp-card">
+      <div class="exp-title">🔬 實驗：哪種水會讓冰融最快？</div>
+      <p style="font-size:.92rem"><strong>方法</strong>：將大小相同的冰塊分別放入熱水、溫水、冷水中，觀察融化速度。</p>
+      <div class="exp-result">
+        <strong>結果</strong>：水溫愈高，冰融化愈快。<br>
+        <strong>原因</strong>：熱會從周圍水傳給冰，加速融化。
+      </div>
+    </div>
+    <div class="note">❄ <strong>有趣的事實</strong>：冰會浮在水面上，因為水結冰時體積會膨脹，密度比液態水小。</div>
+  </div>
+
+  <div class="section">
+    <h2>📚 關鍵名詞</h2>
+    <table>
+      <tr><th>毛細現象</th><td>水沿著物體細小隙縫上升或橫向移動的現象</td></tr>
+      <tr><th>融化</th><td>固態變成液態（受熱）</td></tr>
+      <tr><th>蒸發</th><td>液態變成氣態（受熱）</td></tr>
+      <tr><th>凝結</th><td>氣態變成液態（遇冷）</td></tr>
+      <tr><th>三態</th><td>固態、液態、氣態</td></tr>
+      <tr><th>水蒸氣</th><td>氣態的水，看不見、摸不到</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>✅ 形成性評量</h2>
+    <h3>選擇題</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">Q1. 下列哪種材料的毛細現象傳水最快？</div>
+      <div class="quiz-opts">
+        <button onclick="checkQ(this,true)">A. 衛生紙</button>
+        <button onclick="checkQ(this,false)">B. 塑膠帶</button>
+        <button onclick="checkQ(this,false)">C. 鋁箔紙</button>
+        <button onclick="checkQ(this,false)">D. 玻璃片</button>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q2. 衣服晾乾屬於哪一種變化？</div>
+      <div class="quiz-opts">
+        <button onclick="checkQ(this,false)">A. 融化</button>
+        <button onclick="checkQ(this,true)">B. 蒸發</button>
+        <button onclick="checkQ(this,false)">C. 凝結</button>
+        <button onclick="checkQ(this,false)">D. 凝固</button>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q3. 冰水杯外壁出現小水珠，是因為水蒸氣經過了什麼變化？</div>
+      <div class="quiz-opts">
+        <button onclick="checkQ(this,false)">A. 蒸發</button>
+        <button onclick="checkQ(this,false)">B. 融化</button>
+        <button onclick="checkQ(this,true)">C. 凝結</button>
+        <button onclick="checkQ(this,false)">D. 燃燒</button>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q4. 把同樣大小的冰塊分別放進熱水、溫水、冷水，哪一杯的冰塊融化最快？</div>
+      <div class="quiz-opts">
+        <button onclick="checkQ(this,true)">A. 熱水</button>
+        <button onclick="checkQ(this,false)">B. 溫水</button>
+        <button onclick="checkQ(this,false)">C. 冷水</button>
+        <button onclick="checkQ(this,false)">D. 三杯一樣快</button>
+      </div>
+    </div>
+
+    <h3>是非題</h3>
+    <div class="tf-item">
+      <div class="tf-q">1. 水蒸氣是看得見的白色霧氣。</div>
+      <div class="tf-btns"><button onclick="checkTF(this,false)">○</button><button onclick="checkTF(this,true)">✕</button></div>
+    </div>
+    <div class="tf-item">
+      <div class="tf-q">2. 塑膠帶沒有毛細現象。</div>
+      <div class="tf-btns"><button onclick="checkTF(this,true)">○</button><button onclick="checkTF(this,false)">✕</button></div>
+    </div>
+    <div class="tf-item">
+      <div class="tf-q">3. 冰會浮在水面上，是因為冰比水重。</div>
+      <div class="tf-btns"><button onclick="checkTF(this,false)">○</button><button onclick="checkTF(this,true)">✕</button></div>
+    </div>
+
+    <h3>填空題</h3>
+    <div class="fill-item">
+      <div class="fill-q">1. 固態變成液態叫做 <input class="fill-input" data-ans="融化"> <button class="fill-btn" onclick="checkFill(this)">確認</button></div>
+      <div class="fill-feedback"></div>
+    </div>
+    <div class="fill-item">
+      <div class="fill-q">2. 氣態變成液態叫做 <input class="fill-input" data-ans="凝結"> <button class="fill-btn" onclick="checkFill(this)">確認</button></div>
+      <div class="fill-feedback"></div>
+    </div>
+    <div class="fill-item">
+      <div class="fill-q">3. 植物的根能吸水，是利用 <input class="fill-input" data-ans="毛細現象"> 的原理。 <button class="fill-btn" onclick="checkFill(this)">確認</button></div>
+      <div class="fill-feedback"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🎬 學生自學影片</h2>
+    <p style="font-size:.85rem;color:var(--chalk-dim);margin-bottom:12px">翰林官方《作者帶你教》三下第 2 單元</p>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;border:1px solid rgba(255,255,255,.1)">
+      <iframe src="https://www.youtube.com/embed/fXdvwU6qKLU" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" title="千變萬化的水"></iframe>
+    </div>
+  </div>
+
+  <div id="teacher-only">
+    <div class="section">
+      <h2>👩‍🏫 教師備課提示</h2>
+      <h3>教學策略</h3>
+      <ul class="bullet">
+        <li><strong>實驗為主</strong>：毛細現象與冰塊融化實驗操作簡單，建議全班分組實作</li>
+        <li><strong>對照組</strong>：毛細實驗一定要加入「塑膠帶」作為對照組，凸顯「隙縫」的重要</li>
+        <li><strong>從生活出發</strong>：用浴室鏡子起霧、冰水杯外壁水珠等切入凝結</li>
+      </ul>
+      <h3>Bloom 三層次差異化</h3>
+      <ul class="bullet">
+        <li><strong>記憶理解</strong>：說出三態名稱與三種變化</li>
+        <li><strong>應用</strong>：說明生活中至少 3 個毛細現象的例子</li>
+        <li><strong>分析</strong>：推測「為什麼冰會浮在水面」並設計實驗驗證</li>
+      </ul>
+      <h3>易錯點</h3>
+      <ul class="bullet">
+        <li>學生常以為「白煙=水蒸氣」，要強調水蒸氣<strong>看不見</strong>，白煙是凝結後的小水滴</li>
+        <li>「蒸發」與「煮沸」不同 — 蒸發在常溫就會發生，不一定要燒開</li>
+        <li>「融化」與「溶化」混用 — 自然科指固→液用「融化」</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="float-panel">
+  <button class="float-btn" onclick="adjFont(2)" title="放大字體">A+</button>
+  <div class="font-display">16px</div>
+  <button class="float-btn" onclick="adjFont(-2)" title="縮小字體">A-</button>
+</div>
+
+<script>
+function setMode(m){
+  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.mode-btn[data-mode='+m+']').classList.add('active');
+  document.getElementById('teacher-only').style.display=m==='teacher'?'block':'none';
+}
+document.querySelector('.mode-btn[data-mode=student]').click();
+function checkQ(btn,correct){
+  var opts=btn.parentNode.querySelectorAll('button');
+  opts.forEach(b=>b.disabled=true);
+  btn.classList.add(correct?'correct':'wrong');
+  if(!correct)opts.forEach(b=>{if(b.getAttribute('onclick').indexOf('true')>-1)b.classList.add('correct');});
+}
+function checkTF(btn,correct){
+  var btns=btn.parentNode.querySelectorAll('button');
+  btns.forEach(b=>b.disabled=true);
+  btn.classList.add(correct?'correct':'wrong');
+  if(!correct)btns.forEach(b=>{if(b.getAttribute('onclick').indexOf('true')>-1)b.classList.add('correct');});
+}
+function checkFill(btn){
+  var item=btn.closest('.fill-item');
+  var input=item.querySelector('.fill-input');
+  var fb=item.querySelector('.fill-feedback');
+  var ans=input.dataset.ans,val=input.value.trim();
+  if(val===ans){fb.textContent='✓ 答對了！';fb.className='fill-feedback correct';}
+  else{fb.textContent='✗ 正確答案：'+ans;fb.className='fill-feedback wrong';}
+}
+var fs=16;
+function adjFont(d){
+  fs=Math.min(22,Math.max(12,fs+d));
+  document.body.style.fontSize=fs+'px';
+  document.querySelector('.font-display').textContent=fs+'px';
+}
+</script>
+</body>
+</html>

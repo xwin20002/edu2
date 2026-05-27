@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>翰林版三下自然 第 4 單元｜動物王國</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--board:#1a2a1a;--board-light:#243524;--chalk:#e8e4d8;--chalk-dim:#a8a498;
+  --yellow:#ffd54f;--wood:#8d6e4a;--wood-dark:#5d4530;--wood-light:#a8875a;
+  --pink:#ff8a80;--blue:#81d4fa;--green:#a5d6a7;--orange:#ffb74d;--purple:#ce93d8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--board);color:var(--chalk);min-height:100vh;font-size:16px;line-height:1.7}
+header{background:linear-gradient(180deg,var(--wood-light) 0%,var(--wood) 40%,var(--wood-dark) 100%);padding:22px 28px 18px;box-shadow:0 4px 16px rgba(0,0,0,.5);border-bottom:3px solid #3a2a1a;position:sticky;top:0;z-index:100}
+header h1{font-size:1.8rem;font-weight:900;text-shadow:1px 1px 3px rgba(0,0,0,.5)}
+header .meta{font-size:.95rem;opacity:.85;margin-top:6px}
+.badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 12px;font-size:.88rem;margin-right:6px;margin-bottom:4px}
+.mode-bar{display:flex;gap:12px;padding:10px 28px;background:rgba(0,0,0,.3);border-bottom:1px solid rgba(255,255,255,.1)}
+.mode-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 16px;font-size:.9rem;cursor:pointer;color:var(--chalk);font-family:inherit}
+.mode-btn.active{background:var(--yellow);color:#1a1a1a;border-color:var(--yellow)}
+#teacher-only{display:none}
+.container{max-width:960px;margin:0 auto;padding:36px 20px 80px}
+h2{font-size:1.15rem;color:var(--yellow);margin-bottom:18px;padding-bottom:8px;border-bottom:2px dashed var(--yellow)}
+h3{font-size:1rem;color:var(--green);margin:14px 0 8px}
+.section{background:var(--board-light);border-radius:14px;padding:24px;margin-bottom:24px;border:1px solid rgba(232,228,216,.12)}
+.objectives{display:flex;flex-wrap:wrap;gap:8px}
+.obj-chip{background:rgba(129,212,250,.12);border:1px solid var(--blue);border-radius:20px;padding:4px 14px;font-size:.85rem;color:var(--blue)}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 16px;font-size:.82rem;color:var(--chalk-dim);text-decoration:none;margin-bottom:20px}
+.back-btn:hover{background:rgba(255,213,79,.15);color:var(--yellow);border-color:var(--yellow)}
+table{width:100%;border-collapse:collapse;margin-top:6px}
+th,td{padding:9px 12px;text-align:left;border:1px solid rgba(232,228,216,.18);font-size:.92rem;vertical-align:top}
+th{background:rgba(255,213,79,.12);color:var(--yellow);font-weight:700}
+/* 運動方式卡 */
+.move-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:10px}
+.move-card{border-radius:12px;padding:16px;border:2px solid}
+.move-fly{background:rgba(129,212,250,.08);border-color:var(--blue)}
+.move-swim{background:rgba(128,222,234,.08);border-color:#80deea}
+.move-crawl{background:rgba(165,214,167,.08);border-color:var(--green)}
+.move-walk{background:rgba(255,183,77,.08);border-color:var(--orange)}
+.move-jump{background:rgba(206,147,216,.08);border-color:var(--purple)}
+.move-emoji{font-size:2rem;display:block;margin-bottom:6px}
+.move-name{font-weight:700;font-size:1.1rem;margin-bottom:6px}
+.move-fly .move-name{color:var(--blue)}
+.move-swim .move-name{color:#80deea}
+.move-crawl .move-name{color:var(--green)}
+.move-walk .move-name{color:var(--orange)}
+.move-jump .move-name{color:var(--purple)}
+.move-feature{font-size:.88rem;margin-top:6px}
+.move-animals{margin-top:8px;font-size:.85rem;color:var(--chalk-dim)}
+/* 動物分類測驗（拖曳替代：點擊歸類） */
+.classify-game{background:rgba(0,0,0,.25);border-radius:10px;padding:16px;margin-top:10px}
+.classify-pool{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;padding:10px;background:rgba(255,255,255,.04);border-radius:8px;min-height:46px}
+.animal-chip{background:rgba(255,213,79,.15);border:1px solid var(--yellow);color:var(--yellow);border-radius:20px;padding:6px 14px;cursor:pointer;font-family:inherit;transition:all .2s;font-size:.9rem}
+.animal-chip:hover{background:rgba(255,213,79,.3)}
+.animal-chip.placed{opacity:.4;cursor:default;text-decoration:line-through}
+.classify-bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.classify-bin{background:rgba(0,0,0,.2);border:2px dashed rgba(232,228,216,.3);border-radius:10px;padding:10px;min-height:90px}
+.bin-title{font-weight:700;color:var(--chalk);margin-bottom:6px;font-size:.9rem}
+.bin-content{display:flex;flex-wrap:wrap;gap:5px;min-height:40px}
+.bin-pick{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.2);color:var(--chalk);border-radius:6px;padding:3px 10px;font-size:.82rem;font-family:inherit;cursor:pointer;margin-right:4px;margin-bottom:4px;display:inline-block}
+.bin-pick:hover{background:rgba(255,213,79,.15)}
+.placed-chip{background:rgba(165,214,167,.2);color:var(--green);padding:4px 10px;border-radius:14px;font-size:.85rem;border:1px solid var(--green)}
+.placed-chip.wrong{background:rgba(255,138,128,.2);color:var(--pink);border-color:var(--pink)}
+.classify-check{margin-top:12px;text-align:center}
+.check-result{margin-top:8px;font-size:.95rem;font-weight:700}
+/* 構造對應 */
+.adapt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:8px}
+.adapt-card{background:rgba(165,214,167,.08);border:1px solid rgba(165,214,167,.3);border-radius:10px;padding:12px 14px}
+.adapt-env{color:var(--green);font-weight:700;margin-bottom:4px}
+.adapt-feat{font-size:.88rem}
+/* 評量 */
+.quiz-item{background:rgba(255,255,255,.05);border-radius:10px;padding:16px;margin-bottom:12px;border:1px solid rgba(255,255,255,.1)}
+.quiz-q{font-size:.95rem;margin-bottom:10px;font-weight:600}
+.quiz-opts{display:flex;flex-direction:column;gap:7px}
+.quiz-opts button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:8px 14px;text-align:left;cursor:pointer;color:var(--chalk);font-size:.88rem;font-family:inherit}
+.quiz-opts button:hover{background:rgba(255,213,79,.15);border-color:var(--yellow)}
+.quiz-opts button.correct{background:rgba(165,214,167,.25);border-color:var(--green);color:var(--green)}
+.quiz-opts button.wrong{background:rgba(255,138,128,.15);border-color:var(--pink);color:var(--pink)}
+.tf-item{background:rgba(255,255,255,.05);border-radius:10px;padding:14px;margin-bottom:10px;border:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.tf-q{flex:1;font-size:.92rem;min-width:200px}
+.tf-btns{display:flex;gap:8px}
+.tf-btns button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:6px 16px;cursor:pointer;color:var(--chalk);font-family:inherit}
+.tf-btns button.correct{background:rgba(165,214,167,.3);border-color:var(--green);color:var(--green)}
+.tf-btns button.wrong{background:rgba(255,138,128,.2);border-color:var(--pink);color:var(--pink)}
+.fill-item{background:rgba(255,255,255,.05);border-radius:10px;padding:14px;margin-bottom:10px;border:1px solid rgba(255,255,255,.1)}
+.fill-q{font-size:.92rem;margin-bottom:8px}
+.fill-input{background:rgba(0,0,0,.3);border:1px solid rgba(255,213,79,.4);border-radius:6px;padding:5px 10px;color:var(--yellow);font-family:inherit;width:160px}
+.fill-btn{background:var(--yellow);color:#1a1a1a;border:none;border-radius:6px;padding:5px 14px;margin-left:8px;cursor:pointer;font-weight:700;font-family:inherit}
+.fill-feedback{margin-top:6px;font-size:.85rem}
+.fill-feedback.correct{color:var(--green)}
+.fill-feedback.wrong{color:var(--pink)}
+.float-panel{position:fixed;right:0;top:50%;transform:translateY(-50%);background:var(--board-light);border:1px solid rgba(255,255,255,.15);border-right:none;border-radius:12px 0 0 12px;padding:12px 10px;z-index:200;display:flex;flex-direction:column;gap:10px;box-shadow:-4px 0 20px rgba(0,0,0,.3)}
+.float-btn{width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);cursor:pointer;color:var(--chalk);font-size:1.1rem;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.font-display{font-size:.72rem;color:var(--chalk-dim);text-align:center}
+ul.bullet{padding-left:1.4em;margin-top:6px}
+ul.bullet li{margin-bottom:4px;font-size:.93rem}
+.note{background:rgba(129,212,250,.08);border-left:3px solid var(--blue);padding:10px 14px;border-radius:6px;font-size:.9rem;margin-top:10px}
+@media(max-width:768px){header h1{font-size:1.3rem}.float-panel{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🐾 第 4 單元｜動物王國</h1>
+  <div class="meta">
+    <span class="badge">翰林版</span>
+    <span class="badge">三年級下學期</span>
+    <span class="badge">114學年度</span>
+    <span class="badge" style="background:rgba(206,147,216,.2);border-color:var(--purple);color:var(--purple)">動物構造・運動方式</span>
+  </div>
+</header>
+
+<div class="mode-bar">
+  <button class="mode-btn" data-mode="student" onclick="setMode('student')">👨‍🎓 學生模式</button>
+  <button class="mode-btn" data-mode="teacher" onclick="setMode('teacher')">👩‍🏫 教師模式</button>
+</div>
+
+<div class="container">
+  <a href="../index.html" class="back-btn">← 返回單元總覽</a>
+
+  <div class="section">
+    <h2>🎯 學習目標</h2>
+    <div class="objectives">
+      <span class="obj-chip">觀察動物的身體構造</span>
+      <span class="obj-chip">認識飛、游、爬、走、跳等運動方式</span>
+      <span class="obj-chip">依運動方式或構造分類動物</span>
+      <span class="obj-chip">了解動物構造與生活環境的關係</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📖 單元摘要</h2>
+    <p>動物的<strong>身體構造</strong>各不相同，幫助牠們<strong>適應不同的環境</strong>。鳥類有翅膀能飛、魚類有鰭能游、蛇靠腹肌爬行。透過觀察構造與運動方式，我們可以為動物分類，並了解牠們在自然界中的角色。</p>
+  </div>
+
+  <div class="section">
+    <h2>🦴 4-1 動物的身體構造</h2>
+    <p>觀察動物時，可以從這幾個部位入手：</p>
+    <ul class="bullet">
+      <li><strong>頭部</strong>：眼、耳、嘴、鼻、觸角等感覺器官</li>
+      <li><strong>身體</strong>：軀幹、皮膚、毛、鱗片或羽毛</li>
+      <li><strong>四肢</strong>：腿、翅膀、鰭，或無腳（如蛇）</li>
+      <li><strong>尾巴</strong>：平衡、推進、表達情緒</li>
+    </ul>
+    <div class="note">🔎 <strong>分類的線索</strong>：科學家會根據動物的「外觀構造」進行分類，例如有翅膀的、有鰭的、有蹼的。</div>
+  </div>
+
+  <div class="section">
+    <h2>🏃 4-2 動物的運動方式</h2>
+    <div class="move-grid">
+      <div class="move-card move-fly">
+        <span class="move-emoji">🦅</span>
+        <div class="move-name">飛行</div>
+        <div class="move-feature">構造：翅膀、輕的骨頭、流線型身體</div>
+        <div class="move-animals">範例：麻雀、鴿子、蝴蝶、蜻蜓、蜜蜂</div>
+      </div>
+      <div class="move-card move-swim">
+        <span class="move-emoji">🐟</span>
+        <div class="move-name">游泳</div>
+        <div class="move-feature">構造：鰭（5 種：背、胸、腹、臀、尾）或蹼，流線型身體</div>
+        <div class="move-animals">範例：魚、鯨魚、青蛙（後肢有蹼）、鴨子</div>
+      </div>
+      <div class="move-card move-crawl">
+        <span class="move-emoji">🐍</span>
+        <div class="move-name">爬行</div>
+        <div class="move-feature">構造：腹部肌肉發達、或短粗四肢</div>
+        <div class="move-animals">範例：蛇、蜥蜴、烏龜、毛毛蟲</div>
+      </div>
+      <div class="move-card move-walk">
+        <span class="move-emoji">🐕</span>
+        <div class="move-name">走路</div>
+        <div class="move-feature">構造：四肢或雙腳，腳掌結實</div>
+        <div class="move-animals">範例：狗、貓、牛、馬、人類</div>
+      </div>
+      <div class="move-card move-jump">
+        <span class="move-emoji">🐸</span>
+        <div class="move-name">跳躍</div>
+        <div class="move-feature">構造：強壯的後肢，肌肉發達</div>
+        <div class="move-animals">範例：青蛙、袋鼠、兔子、蚱蜢</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🌍 4-3 構造與生活環境的關係</h2>
+    <p>動物的身體構造，會因為<strong>生活環境</strong>而不同。這就是大自然的奇妙之處。</p>
+    <div class="adapt-grid">
+      <div class="adapt-card"><div class="adapt-env">💧 水中生活</div><div class="adapt-feat">鰭、蹼、流線型身體（魚、海豚、青蛙）</div></div>
+      <div class="adapt-card"><div class="adapt-env">☁ 空中飛行</div><div class="adapt-feat">翅膀、輕骨頭、羽毛（鳥類、昆蟲）</div></div>
+      <div class="adapt-card"><div class="adapt-env">🪨 地面爬行</div><div class="adapt-feat">腹肌發達 / 短粗四肢（蛇、烏龜）</div></div>
+      <div class="adapt-card"><div class="adapt-env">🌳 樹上生活</div><div class="adapt-feat">抓握能力強的爪子（松鼠、猴子）</div></div>
+      <div class="adapt-card"><div class="adapt-env">🏃 草原奔跑</div><div class="adapt-feat">長腿、肌肉發達（馬、羚羊）</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🎮 動物分類遊戲</h2>
+    <p style="font-size:.9rem;color:var(--chalk-dim)">點選動物名稱，再點選你認為的運動方式（每隻動物選一次）</p>
+    <div class="classify-game">
+      <div class="classify-pool" id="pool">
+        <button class="animal-chip" data-cat="fly">蝴蝶</button>
+        <button class="animal-chip" data-cat="fly">麻雀</button>
+        <button class="animal-chip" data-cat="swim">鯨魚</button>
+        <button class="animal-chip" data-cat="swim">鴨子</button>
+        <button class="animal-chip" data-cat="crawl">蛇</button>
+        <button class="animal-chip" data-cat="crawl">烏龜</button>
+        <button class="animal-chip" data-cat="walk">狗</button>
+        <button class="animal-chip" data-cat="walk">馬</button>
+        <button class="animal-chip" data-cat="jump">袋鼠</button>
+        <button class="animal-chip" data-cat="jump">兔子</button>
+      </div>
+      <div class="classify-bins">
+        <div class="classify-bin"><div class="bin-title">🦅 飛行</div><div class="bin-content" data-bin="fly"></div></div>
+        <div class="classify-bin"><div class="bin-title">🐟 游泳</div><div class="bin-content" data-bin="swim"></div></div>
+        <div class="classify-bin"><div class="bin-title">🐍 爬行</div><div class="bin-content" data-bin="crawl"></div></div>
+        <div class="classify-bin"><div class="bin-title">🐕 走路</div><div class="bin-content" data-bin="walk"></div></div>
+        <div class="classify-bin"><div class="bin-title">🐸 跳躍</div><div class="bin-content" data-bin="jump"></div></div>
+      </div>
+      <div class="classify-check">
+        <button class="fill-btn" onclick="checkClassify()" style="margin:0">📊 看結果</button>
+        <button class="fill-btn" onclick="resetClassify()" style="margin-left:8px;background:rgba(255,255,255,.1);color:var(--chalk)">🔄 重來</button>
+        <div class="check-result" id="cls-result"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 關鍵名詞</h2>
+    <table>
+      <tr><th style="width:22%">鰭</th><td>魚類游泳用的器官。共有 5 種：背鰭、胸鰭、腹鰭、臀鰭、尾鰭</td></tr>
+      <tr><th>蹼</th><td>腳趾間的薄膜，幫助划水。鴨子、青蛙都有蹼</td></tr>
+      <tr><th>翅膀</th><td>飛行用的器官。鳥類由前肢演化而成，昆蟲多有 2 對</td></tr>
+      <tr><th>流線型</th><td>前細後寬的形狀，可減少水或空氣的阻力</td></tr>
+      <tr><th>構造</th><td>身體的組成部分，每個部位都有不同功能</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>✅ 形成性評量</h2>
+    <h3>選擇題</h3>
+    <div class="quiz-item">
+      <div class="quiz-q">Q1. 魚類用什麼器官在水中游泳？</div>
+      <div class="quiz-opts">
+        <button onclick="checkQ(this,false)">A. 翅膀</button>
+        <button onclick="checkQ(this,true)">B. 鰭</button>
+        <button onclick="checkQ(this,false)">C. 腳</button>
+        <button onclick="checkQ(this,false)">D. 觸角</button>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q2. 鴨子腳趾間的薄膜叫做什麼？</div>
+      <div class="quiz-opts">
+        <button onclick="checkQ(this,false)">A. 翅</button>
+        <button onclick="checkQ(this,true)">B. 蹼</button>
+        <button onclick="checkQ(this,false)">C. 爪</button>
+        <button onclick="checkQ(this,false)">D. 鰓</button>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q3. 下列哪一種動物主要用「跳躍」移動？</div>
+      <div class="quiz-opts">
+        <button onclick="checkQ(this,false)">A. 烏龜</button>
+        <button onclick="checkQ(this,false)">B. 蛇</button>
+        <button onclick="checkQ(this,true)">C. 袋鼠</button>
+        <button onclick="checkQ(this,false)">D. 鯨魚</button>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <div class="quiz-q">Q4. 鳥類的身體為什麼是流線型？</div>
+      <div class="quiz-opts">
+        <button onclick="checkQ(this,false)">A. 比較好看</button>
+        <button onclick="checkQ(this,true)">B. 減少飛行時的空氣阻力</button>
+        <button onclick="checkQ(this,false)">C. 比較容易藏起來</button>
+        <button onclick="checkQ(this,false)">D. 可以裝下更多食物</button>
+      </div>
+    </div>
+
+    <h3>是非題</h3>
+    <div class="tf-item">
+      <div class="tf-q">1. 蛇沒有腳，是用腹部肌肉爬行。</div>
+      <div class="tf-btns"><button onclick="checkTF(this,true)">○</button><button onclick="checkTF(this,false)">✕</button></div>
+    </div>
+    <div class="tf-item">
+      <div class="tf-q">2. 青蛙的後腳有蹼，幫助牠游泳。</div>
+      <div class="tf-btns"><button onclick="checkTF(this,true)">○</button><button onclick="checkTF(this,false)">✕</button></div>
+    </div>
+    <div class="tf-item">
+      <div class="tf-q">3. 鯨魚是魚類，所以用鰓呼吸。</div>
+      <div class="tf-btns"><button onclick="checkTF(this,false)">○</button><button onclick="checkTF(this,true)">✕</button></div>
+    </div>
+
+    <h3>填空題</h3>
+    <div class="fill-item">
+      <div class="fill-q">1. 魚類游泳用的器官叫 <input class="fill-input" data-ans="鰭"> <button class="fill-btn" onclick="checkFill(this)">確認</button></div>
+      <div class="fill-feedback"></div>
+    </div>
+    <div class="fill-item">
+      <div class="fill-q">2. 鴨子腳趾間幫助划水的薄膜叫 <input class="fill-input" data-ans="蹼"> <button class="fill-btn" onclick="checkFill(this)">確認</button></div>
+      <div class="fill-feedback"></div>
+    </div>
+    <div class="fill-item">
+      <div class="fill-q">3. 前細後寬、可減少阻力的形狀叫做 <input class="fill-input" data-ans="流線型"> <button class="fill-btn" onclick="checkFill(this)">確認</button></div>
+      <div class="fill-feedback"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🎬 學生自學影片</h2>
+    <p style="font-size:.85rem;color:var(--chalk-dim);margin-bottom:12px">翰林官方《作者帶你教》三下第 4 單元</p>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;border:1px solid rgba(255,255,255,.1)">
+      <iframe src="https://www.youtube.com/embed/ipdlGX7uRPg" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" title="動物王國"></iframe>
+    </div>
+  </div>
+
+  <div id="teacher-only">
+    <div class="section">
+      <h2>👩‍🏫 教師備課提示</h2>
+      <h3>教學策略</h3>
+      <ul class="bullet">
+        <li><strong>實地觀察</strong>：帶學生到動物園或校園觀察動物的運動方式</li>
+        <li><strong>影片輔助</strong>：播放慢動作影片觀察鳥翅振動、魚鰭擺動</li>
+        <li><strong>分類遊戲</strong>：用動物卡讓學生實際操作分類</li>
+        <li><strong>跨領域</strong>：結合美勞做動物剪貼或捏塑</li>
+      </ul>
+      <h3>Bloom 三層次差異化</h3>
+      <ul class="bullet">
+        <li><strong>記憶理解</strong>：說出 5 種運動方式並各舉一個動物</li>
+        <li><strong>應用</strong>：依運動方式幫 10 種動物分類</li>
+        <li><strong>分析</strong>：解釋為什麼海豚是流線型、北極熊腳掌寬大</li>
+      </ul>
+      <h3>易錯點</h3>
+      <ul class="bullet">
+        <li><strong>鯨魚不是魚</strong>：是哺乳類，用肺呼吸（會浮出水面換氣）</li>
+        <li><strong>青蛙會多種運動</strong>：水裡游、陸上跳</li>
+        <li><strong>蝙蝠會飛但不是鳥</strong>：是哺乳類</li>
+        <li>學生常以為「會飛=鳥」、「在水裡=魚」，要強調分類依「身體構造」不僅是行為</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="float-panel">
+  <button class="float-btn" onclick="adjFont(2)" title="放大字體">A+</button>
+  <div class="font-display">16px</div>
+  <button class="float-btn" onclick="adjFont(-2)" title="縮小字體">A-</button>
+</div>
+
+<script>
+function setMode(m){document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.mode-btn[data-mode='+m+']').classList.add('active');document.getElementById('teacher-only').style.display=m==='teacher'?'block':'none';}
+document.querySelector('.mode-btn[data-mode=student]').click();
+function checkQ(btn,correct){var opts=btn.parentNode.querySelectorAll('button');opts.forEach(b=>b.disabled=true);btn.classList.add(correct?'correct':'wrong');if(!correct)opts.forEach(b=>{if(b.getAttribute('onclick').indexOf('true')>-1)b.classList.add('correct');});}
+function checkTF(btn,correct){var btns=btn.parentNode.querySelectorAll('button');btns.forEach(b=>b.disabled=true);btn.classList.add(correct?'correct':'wrong');if(!correct)btns.forEach(b=>{if(b.getAttribute('onclick').indexOf('true')>-1)b.classList.add('correct');});}
+function checkFill(btn){var item=btn.closest('.fill-item'),input=item.querySelector('.fill-input'),fb=item.querySelector('.fill-feedback'),ans=input.dataset.ans,val=input.value.trim();if(val===ans){fb.textContent='✓ 答對了！';fb.className='fill-feedback correct';}else{fb.textContent='✗ 正確答案：'+ans;fb.className='fill-feedback wrong';}}
+var fs=16;function adjFont(d){fs=Math.min(22,Math.max(12,fs+d));document.body.style.fontSize=fs+'px';document.querySelector('.font-display').textContent=fs+'px';}
+
+/* 動物分類遊戲 */
+var selectedAnimal=null;
+document.querySelectorAll('.animal-chip').forEach(function(c){
+  c.addEventListener('click',function(){
+    if(c.classList.contains('placed'))return;
+    document.querySelectorAll('.animal-chip').forEach(x=>x.style.outline='');
+    selectedAnimal=c;
+    c.style.outline='2px solid #ffd54f';
+  });
+});
+document.querySelectorAll('.classify-bin').forEach(function(bin){
+  bin.addEventListener('click',function(){
+    if(!selectedAnimal)return;
+    var binCat=bin.querySelector('.bin-content').dataset.bin;
+    var animalCat=selectedAnimal.dataset.cat;
+    var name=selectedAnimal.textContent;
+    var chip=document.createElement('span');
+    chip.className='placed-chip'+(binCat===animalCat?'':' wrong');
+    chip.textContent=name+(binCat===animalCat?' ✓':' ✗');
+    bin.querySelector('.bin-content').appendChild(chip);
+    selectedAnimal.classList.add('placed');
+    selectedAnimal.style.outline='';
+    selectedAnimal=null;
+  });
+});
+function checkClassify(){
+  var total=document.querySelectorAll('.animal-chip').length;
+  var correct=document.querySelectorAll('.placed-chip:not(.wrong)').length;
+  document.getElementById('cls-result').textContent='答對 '+correct+' / '+total+' 隻動物';
+  document.getElementById('cls-result').style.color=correct===total?'var(--green)':'var(--yellow)';
+}
+function resetClassify(){
+  document.querySelectorAll('.animal-chip').forEach(c=>{c.classList.remove('placed');c.style.outline='';});
+  document.querySelectorAll('.bin-content').forEach(b=>b.innerHTML='');
+  document.getElementById('cls-result').textContent='';
+  selectedAnimal=null;
+}
+</script>
+</body>
+</html>
