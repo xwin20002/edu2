@@ -105,6 +105,16 @@ ul.bullet li{margin-bottom:4px;font-size:.93rem}
 .note{background:rgba(129,212,250,.08);border-left:3px solid var(--blue);padding:10px 14px;
   border-radius:6px;font-size:.9rem;margin-top:10px}
 @media(max-width:768px){header h1{font-size:1.3rem}.float-panel{display:none}}
+.carousel{position:relative;background:#000;border-radius:10px;overflow:hidden;margin-bottom:12px}
+.carousel img{width:100%;display:none;border-radius:10px}
+.carousel img.active{display:block}
+.carousel-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.6);color:#fff;border:none;font-size:1.5rem;padding:8px 14px;cursor:pointer;border-radius:8px;z-index:10}
+.carousel-nav.prev{left:8px}
+.carousel-nav.next{right:8px}
+.carousel-count{text-align:center;font-size:.85rem;color:var(--chalk-dim);margin-top:6px}
+.fullscreen-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.92);z-index:9999;cursor:pointer;justify-content:center;align-items:center}
+.fullscreen-overlay.show{display:flex}
+.fullscreen-overlay img{max-width:95%;max-height:95%;object-fit:contain}
 </style>
 </head>
 <body>
@@ -239,6 +249,39 @@ ul.bullet li{margin-bottom:4px;font-size:.93rem}
     </div>
   </div>
 
+  <div class="section">
+    <h2>📊 授課簡報</h2>
+    <p style="font-size:.85rem;color:var(--chalk-dim);margin-bottom:12px">NotebookLM 自動生成｜全 9 單元 15 頁</p>
+    <div class="carousel" id="unit-slides">
+      <button class="carousel-nav prev" onclick="carGo('unit-slides',-1)">‹</button>
+      <img src="../assets/slide_01.jpg" class="active" loading="lazy" alt="簡報第1頁">
+      <img src="../assets/slide_02.jpg" loading="lazy" alt="簡報第2頁">
+      <img src="../assets/slide_03.jpg" loading="lazy" alt="簡報第3頁">
+      <img src="../assets/slide_04.jpg" loading="lazy" alt="簡報第4頁">
+      <img src="../assets/slide_05.jpg" loading="lazy" alt="簡報第5頁">
+      <img src="../assets/slide_06.jpg" loading="lazy" alt="簡報第6頁">
+      <img src="../assets/slide_07.jpg" loading="lazy" alt="簡報第7頁">
+      <img src="../assets/slide_08.jpg" loading="lazy" alt="簡報第8頁">
+      <img src="../assets/slide_09.jpg" loading="lazy" alt="簡報第9頁">
+      <img src="../assets/slide_10.jpg" loading="lazy" alt="簡報第10頁">
+      <img src="../assets/slide_11.jpg" loading="lazy" alt="簡報第11頁">
+      <img src="../assets/slide_12.jpg" loading="lazy" alt="簡報第12頁">
+      <img src="../assets/slide_13.jpg" loading="lazy" alt="簡報第13頁">
+      <img src="../assets/slide_14.jpg" loading="lazy" alt="簡報第14頁">
+      <img src="../assets/slide_15.jpg" loading="lazy" alt="簡報第15頁">
+      <button class="carousel-nav next" onclick="carGo('unit-slides',1)">›</button>
+    </div>
+    <div class="carousel-count" id="unit-slides-count">1 / 15</div>
+  </div>
+
+  <div class="section">
+    <h2>🖼️ 資訊圖表</h2>
+    <p style="font-size:.85rem;color:var(--chalk-dim);margin-bottom:12px">點擊可全螢幕檢視</p>
+    <img src="../assets/01_除法_容量.jpg" loading="lazy" alt="除法與容量資訊圖表" style="width:100%;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,.15)" onclick="showFS(this.src)">
+  </div>
+
+  <div class="fullscreen-overlay" id="fs-overlay"><img src="" alt="全螢幕圖表"></div>
+
   <div id="teacher-only">
     <div class="section">
       <h2>👩‍🏫 教師備課提示</h2>
@@ -305,6 +348,16 @@ function checkFill(btn){
   if(val===ans){fb.textContent='✓ 答對了！';fb.className='fill-feedback correct';}
   else{fb.textContent='✗ 正確答案：'+ans;fb.className='fill-feedback wrong';}
 }
+function carGo(id,dir){
+  var imgs=document.querySelectorAll('#'+id+' img');
+  var cur=Array.from(imgs).findIndex(function(i){return i.classList.contains('active');});
+  imgs[cur].classList.remove('active');
+  var next=(cur+dir+imgs.length)%imgs.length;
+  imgs[next].classList.add('active');
+  document.querySelector('#'+id+'-count').textContent=(next+1)+' / '+imgs.length;
+}
+function showFS(src){var o=document.getElementById('fs-overlay');o.querySelector('img').src=src;o.classList.add('show');}
+document.getElementById('fs-overlay').onclick=function(){this.classList.remove('show');};
 var fs=16;
 function adjFont(d){
   fs=Math.min(22,Math.max(12,fs+d));
