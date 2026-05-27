@@ -4,6 +4,9 @@ assets/*.pdf
 assets/*.mp4
 assets/*.mp3
 
+# 例外：自然科簡報 PDF（需 serve）
+!science/assets/*.pdf
+
 # OS
 .DS_Store
 Thumbs.db
