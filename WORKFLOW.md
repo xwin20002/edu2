@@ -117,6 +117,8 @@ Golden 的識別單位不是「所有科目共用一頁」，而是 **科目 × 
 
 每批教材先填 `data/intake/<publisher>-<subject>.json`，格式參考 `data/templates/intake.template.json`。
 
+開始下載前，先查 `data/source-registry/`；每個下載、轉檔或未下載候選都要記入 `data/source-acquisition-log.json`，規格見 `docs/source-acquisition.md`。原始檔仍放 ignored `source/`，但 provenance log 必須納入 Git。YouTube／教師網站預設是 Tier C 候選：先查版本、授權與教師 review，不能直接當課文事實或 NotebookLM source。
+
 最低欄位：
 
 - 學年度、出版社、年級、學期、科目。
@@ -128,6 +130,7 @@ Golden 的識別單位不是「所有科目共用一頁」，而是 **科目 × 
 ### Exit gate
 
 - 來源可追溯。
+- 每個本機檔案可由 provenance log 找回 URL、日期、hash、權利狀態與 review 結論。
 - 課名與順序已對照正式目錄。
 - 未知欄位保留 `null`，不得推測填寫。
 

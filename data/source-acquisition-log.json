@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Committed provenance only. Raw source files remain under ignored source/; every new download or candidate discovery gets a record here before content is used.",
+  "records": [
+    {
+      "id": "SRC-20260711-001",
+      "recordedAt": "2026-07-11",
+      "action": "downloaded",
+      "sourceId": "education-cloud-hanlin-114-wordbank",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&degree=2&press=%E7%BF%B0%E6%9E%97%E7%89%88&year=114_1",
+      "localPath": "source/official/education-cloud-hanlin-grade2-chinese-114.html",
+      "sha256": "a230f648596540280805223af28f101226d3c2177e86954d6f8972d8fe7aa390",
+      "contentRole": "公開詞彙索引",
+      "rightsStatus": "public-reference-not-textbook-license",
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "SRC-20260711-002",
+      "recordedAt": "2026-07-11",
+      "action": "downloaded-batch",
+      "sourceId": "education-cloud-hanlin-114-wordbank",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140101 through 0101021140112",
+      "localPath": "source/official/education-cloud/ch-01.html through ch-12.html",
+      "fileCount": 12,
+      "contentRole": "逐課公開生字、認讀字與語詞",
+      "derivedOutput": "data/content-intake/chinese-hanlin-114.json",
+      "rightsStatus": "public-reference-not-textbook-license",
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "SRC-20260711-003",
+      "recordedAt": "2026-07-11",
+      "action": "downloaded",
+      "sourceId": "mhps-114-grade2-chinese-plan",
+      "sourceUrl": "https://tten.tp.edu.tw/Login/Downment?grade=2&spid=a7a25e1a-795b-4118-b64f-58fafedcef60&subject=AddLanguage",
+      "localPath": "source/official/hanlin-grade2-chinese-114-spps-plan.pdf",
+      "sha256": "e0008394be62ff058ac1489328906c00e9db7ede9f2de2dee29b1b50fc60213f",
+      "contentRole": "公開學校課程計畫 PDF",
+      "rightsStatus": "public-reference-not-textbook-license",
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "SRC-20260711-004",
+      "recordedAt": "2026-07-11",
+      "action": "converted-local",
+      "sourceId": "mhps-114-grade2-chinese-plan",
+      "sourceUrl": "derived from SRC-20260711-003",
+      "localPath": "source/official/hanlin-grade2-chinese-114-spps-plan.md",
+      "sha256": "5209047c950db3fee7efffc14b0775498edde7d106d82182271b5efe61be285d",
+      "contentRole": "本機可搜尋的課程計畫轉換稿",
+      "rightsStatus": "public-reference-not-textbook-license",
+      "reviewStatus": "verified"
+    },
+    {
+      "id": "SRC-20260711-005",
+      "recordedAt": "2026-07-11",
+      "action": "discovered-no-download",
+      "sourceId": "gsyan-html5-fun-hanlin-grade2-114",
+      "sourceUrl": "https://glglace.blogspot.com/2025/08/114-html5-fun.html",
+      "contentRole": "114 翰林二上逐課互動活動候選",
+      "rightsStatus": "unknown-review-required",
+      "reviewStatus": "link-only; no download, embed, or content reuse"
+    }
+  ]
+}

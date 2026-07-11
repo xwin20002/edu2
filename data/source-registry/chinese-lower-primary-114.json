@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "profile": "chinese-lower-primary",
+  "project": "edu2",
+  "publisher": "hanlin",
+  "academicYear": "114",
+  "semester": 1,
+  "lastReviewed": "2026-07-11",
+  "sourceTiers": {
+    "A": "official curriculum, publisher, or Ministry source: may establish curriculum facts within the stated scope",
+    "B": "public school plan: may corroborate sequence, goals, and extension-reading direction; not a replacement for licensed textbook text",
+    "C": "teacher, creator, or YouTube candidate: discovery, pedagogical inspiration, or cross-check only until rights and accuracy are reviewed"
+  },
+  "sources": [
+    {
+      "id": "education-cloud-hanlin-114-wordbank",
+      "tier": "A",
+      "owner": "教育雲",
+      "kind": "official-public-word-bank",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&degree=2&press=%E7%BF%B0%E6%9E%97%E7%89%88&year=114_1",
+      "coverage": "翰林 114 國小二年級上學期國語；逐課生字、認讀字、語詞",
+      "allowedUse": "課名、課次、公開詞彙、字音／字卡與來源連結的事實核對",
+      "forbiddenUse": "由詞彙反推或重寫課文事件、人物、問題或教師手冊",
+      "reviewStatus": "verified",
+      "acquisitionLogIds": ["SRC-20260711-001", "SRC-20260711-002"]
+    },
+    {
+      "id": "mhps-114-grade2-chinese-plan",
+      "tier": "B",
+      "owner": "臺北市明湖國民小學",
+      "kind": "public-school-curriculum-plan",
+      "url": "https://tten.tp.edu.tw/Login/Downment?grade=2&spid=a7a25e1a-795b-4118-b64f-58fafedcef60&subject=AddLanguage",
+      "coverage": "114 學年度第一學期二年級國語課程架構、學習目標與延伸閱讀方向",
+      "allowedUse": "課次順序、單元主題、通用識字／朗讀／完整句表達方向的交叉核對",
+      "forbiddenUse": "視為出版社授權課文、逐課答案或可發布的教材本文",
+      "reviewStatus": "verified",
+      "acquisitionLogIds": ["SRC-20260711-003", "SRC-20260711-004"]
+    },
+    {
+      "id": "gsyan-html5-fun-hanlin-grade2-114",
+      "tier": "C",
+      "owner": "江明勳／雄老師 HTML5 FUN",
+      "kind": "teacher-interactive-resource",
+      "url": "https://glglace.blogspot.com/2025/08/114-html5-fun.html",
+      "coverage": "114 翰林二上國語 12 課；筆順、生詞部件、注音、句子重組、標點與造詞活動",
+      "allowedUse": "發現逐課活動種類、交叉比對公開詞彙、人工挑選後以外連方式提供教師參考",
+      "forbiddenUse": "未確認授權前下載、重製、嵌入、複製答案或當作課文事實來源",
+      "licenseStatus": "unknown-review-required",
+      "reviewStatus": "discovered-not-downloaded",
+      "lastChecked": "2026-07-11"
+    },
+    {
+      "id": "education-market-video-catalog",
+      "tier": "C",
+      "owner": "教育部教育大市集",
+      "kind": "official-resource-catalog",
+      "url": "https://market.cloud.edu.tw/",
+      "coverage": "教育部公開教學資源搜尋與影片目錄；不同出版社、版本、學年混合",
+      "allowedUse": "用精確的出版社、年級、學期與課名篩選可用公開資源，再逐筆檢查版本與授權",
+      "forbiddenUse": "僅因同年級或同課名相近就當成翰林 114 的內容來源",
+      "reviewStatus": "discovery-pool"
+    },
+    {
+      "id": "youtube-discovery-policy",
+      "tier": "C",
+      "owner": "YouTube creators and channels",
+      "kind": "video-discovery-policy",
+      "url": "https://www.youtube.com/",
+      "coverage": "低年段國語識字、注音、朗讀與主題延伸影片",
+      "allowedUse": "只作補充媒體候選；逐片記錄 channel、影片 URL、日期、版本吻合度、授權、兒少適切性與 QA",
+      "forbiddenUse": "把未核對的創作者影片當課文、把他人影片下載後重新上傳、或以單一影片覆蓋 12 課",
+      "reviewStatus": "query-template-ready"
+    }
+  ],
+  "videoDiscoveryQueries": [
+    "site:youtube.com 翰林 114 二上 國語 課名",
+    "site:youtube.com 國小二年級 注音 筆順 朗讀",
+    "site:market.cloud.edu.tw 翰林 二上 國語 課名"
+  ],
+  "promotionRule": "Only Tier A/B evidence may promote curriculum facts. Tier C needs a separate rights and teacher-review record before it becomes an external link; it never promotes textbook text by itself."
+}

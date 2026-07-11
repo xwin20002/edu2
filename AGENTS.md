@@ -91,24 +91,26 @@ edu2/
 <!-- CC-SESSION-HANDOFF:START -->
 ## 📌 Session 交接區
 
-- **Last session**: 2026-07-11 — 完成 edu2 Milestone B、reference layer 與網站工作流程分頁
+- **Last session**: 2026-07-11 — 國語回退至 Phase 2，建立 source intake、來源 registry 與下載 provenance contract
 - **Current state**:
   - GitHub repo 使用 `main`；不得重新 init 或改寫 history。
   - 翰林114公開目錄已上架：國語12課、數學10單元、生活6主題。
-  - 28 個單元頁由結構化資料產生，包含學生／教師模式、NotebookLM 簡報、評量、影片與課堂工具。
-  - NotebookLM 使用 `xwin20002@gmail.com`；YouTube unlisted 影片為 `oD0GIU4UKPc`。
+  - 28 個單元頁由結構化資料產生，包含學生／教師模式、評量與課堂工具；內容完整度仍分科、分單元驗證。
+  - NotebookLM 使用 `xwin20002@gmail.com`；YouTube unlisted 影片 `oD0GIU4UKPc` 是全冊 overview，**不得**再當逐課影片。
   - `docs/reference-baseline.md` 與 `data/templates/unit-content.template.json` 已建立；L01 是國語 golden example。
   - 國語直式／注音依 edu1 L8：`vertical-rl`、禁用 `direction`／`ruby`、手工 flex 聲調定位及 zh-TW 發音。
   - `workflow.html` 公開記錄 pipeline、reference layer 與不可破壞規格。
+  - 國語 12 課公開詞彙已由教育雲 intake（365 筆）；`data/source-registry/chinese-lower-primary-114.json` 與 `data/source-acquisition-log.json` 是後續探索／下載的必經紀錄。
+  - 逐課課文結構 brief、NotebookLM artifact 與專屬影片是 `pending`；缺少合法來源時不得推測或產製。
   - 出版社切換、版本隔離與比較框架已完成；康軒／南一保持 planned。
   - GitHub Pages production 已部署；本 session 關案前 validator 與 `git diff --check` 均通過。
 - **Next**:
-  - 人工複核 28 個單元的內容細節與課堂適切性。
-  - 將 L02-L12 的國語 `verticalSummary`、`vocabulary`、`characters` 依合法來源補齊。
-  - 視需求補做三科獨立 NotebookLM artifacts。
+  - 先取得 L01 合法 text-structure brief／教師核對稿，完成 source → NotebookLM → QA → media ID vertical slice。
+  - 將 L02-L12 的國語 text-structure brief、`verticalSummary`、`vocabulary`、`characters` 依合法來源補齊。
+  - 對每個教師／YouTube 候選完成版本、授權與兒少適切性 review，再決定是否 external link；視需求補做三科獨立 NotebookLM artifacts。
   - 依需求建立康軒／南一正式資料與 comparison mappings。
   - 將本 repo 的 `WORKFLOW.md`、schema、templates 與 validator 套用到 edu4。
 - **Open questions**:
-  - L02-L12 生字與注音的正式來源及人工校對尚未完成。
+  - L01-L12 課文結構的合法來源及人工校對尚未完成；公開詞彙 bank 不足以反推內容。
   - GitHub Actions 顯示 Node.js 20 deprecation annotation；目前部署成功，後續需隨官方 action major release 更新。
 <!-- CC-SESSION-HANDOFF:END -->

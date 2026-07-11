@@ -19,6 +19,7 @@
 - 教育雲 114 翰林二上國語：12 課 title 全數核對，逐課詞彙頁已下載到受控 `source/`，並萃取 **365 筆**公開生字／認讀字／語詞。
 - 公開學校 114 課程計畫：已轉換為 Markdown，核對學期、版本、課次順序與通用識字／閱讀理解／句型／口語表達方向。
 - 產出：`data/content-intake/chinese-hanlin-114.json`、`sources/notebooklm/chinese/L01–L12-*.md`。
+- 來源探索與下載足跡：`data/source-registry/chinese-lower-primary-114.json`、`data/source-acquisition-log.json`；規格見 `docs/source-acquisition.md`。Tier C 的教師網站／YouTube 候選只作發現與活動靈感，未核對授權不得下載、嵌入或當教材事實。
 
 這些資料足以支援詞彙、字卡、注音校對與來源連結；**不等於課文全文、故事事件、人物關係或習題**。
 
