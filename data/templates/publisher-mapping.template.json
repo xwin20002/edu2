@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "publisher": "hanlin",
+  "subject": null,
+  "academicYear": null,
+  "mappings": [
+    {
+      "publisherUnitId": null,
+      "canonicalTopicIds": [],
+      "comparison": {
+        "commonOutcome": [],
+        "publisherSpecific": [],
+        "teachingSequenceNote": null
+      },
+      "sourceRefs": [],
+      "reviewStatus": "unverified"
+    }
+  ]
+}

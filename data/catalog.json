@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "id": "grade2-semester1",
+    "label": "小二上教學駕駛艙",
+    "academicYear": 114,
+    "defaultPublisher": "hanlin",
+    "contentStatus": "verified-outline"
+  },
+  "publishers": [
+    {"id": "hanlin", "label": "翰林", "status": "baseline", "enabled": true},
+    {"id": "kanghsuan", "label": "康軒", "status": "planned", "enabled": true},
+    {"id": "nani", "label": "南一", "status": "planned", "enabled": true}
+  ],
+  "subjects": [
+    {"id": "chinese", "label": "國語", "emoji": "📖", "color": "yellow", "href": "chinese.html", "status": "ready", "description": "12課課程地圖、理解重點與原創課堂任務"},
+    {"id": "math", "label": "數學", "emoji": "📐", "color": "blue", "href": "math/index.html", "status": "ready", "description": "10單元概念地圖、操作活動與自我檢核"},
+    {"id": "life", "label": "生活", "emoji": "🌱", "color": "green", "href": "life/index.html", "status": "ready", "description": "6主題探究任務、實作活動與生活連結"}
+  ],
+  "comparisonDimensions": ["common-outcome", "publisher-specific", "teaching-sequence"],
+  "canonicalTopics": [],
+  "publisherMappings": []
+}

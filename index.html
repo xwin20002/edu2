@@ -1,112 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>教學駕駛艙｜翰林版三下</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-:root{--board:#1a2a1a;--board-light:#243524;--chalk:#e8e4d8;--chalk-dim:#a8a498;
-  --yellow:#ffd54f;--wood:#8d6e4a;--wood-dark:#5d4530;--wood-light:#a8875a;
-  --green:#a5d6a7;--blue:#81d4fa;--pink:#ff8a80;--orange:#ffb74d;--purple:#ce93d8}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--board);
-  color:var(--chalk);min-height:100vh}
-header{background:linear-gradient(180deg,var(--wood-light) 0%,var(--wood) 40%,var(--wood-dark) 100%);
-  padding:26px 28px 22px;box-shadow:0 4px 16px rgba(0,0,0,.5);border-bottom:3px solid #3a2a1a;text-align:center}
-header h1{font-size:1.8rem;font-weight:900;text-shadow:1px 1px 3px rgba(0,0,0,.5)}
-header .meta{font-size:.88rem;opacity:.85;margin-top:8px}
-.badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
-  border-radius:20px;padding:3px 12px;font-size:.78rem;margin:0 4px}
-.container{max-width:1000px;margin:0 auto;padding:48px 20px 80px}
-h2{font-size:1.15rem;color:var(--yellow);margin-bottom:24px;padding-bottom:8px;
-  border-bottom:2px dashed var(--yellow);text-align:center}
-.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
-.subject-card{background:var(--board-light);border:2px solid rgba(232,228,216,.2);
-  border-radius:16px;padding:32px 24px;text-decoration:none;color:var(--chalk);display:block;
-  transition:all .25s;box-shadow:inset 0 0 24px rgba(0,0,0,.3);text-align:center;position:relative}
-.subject-card.active:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.5)}
-.subject-card.chinese.active{border-color:var(--yellow)}.subject-card.chinese.active:hover{border-color:var(--yellow)}
-.subject-card.science.active{border-color:var(--green)}.subject-card.science.active:hover{border-color:var(--green)}
-.subject-card.math.active{border-color:var(--blue)}.subject-card.math.active:hover{border-color:var(--blue)}
-.subject-card.english.active{border-color:var(--pink)}.subject-card.english.active:hover{border-color:var(--pink)}
-.subject-card.computer.active{border-color:var(--purple)}.subject-card.computer.active:hover{border-color:var(--purple)}
-.subject-card.coming{cursor:default;opacity:.55}
-.subject-card .emoji{font-size:3.4rem;margin-bottom:12px;display:block}
-.subject-card h3{font-size:1.6rem;font-weight:900;margin-bottom:8px}
-.subject-card.chinese.active h3{color:var(--yellow)}
-.subject-card.science.active h3{color:var(--green)}
-.subject-card.math.active h3{color:var(--blue)}
-.subject-card.english.active h3{color:var(--pink)}
-.subject-card.computer.active h3{color:var(--purple)}
-.subject-card .desc{font-size:.85rem;color:var(--chalk-dim);margin-bottom:14px;min-height:2.6em}
-.subject-card .go-btn{display:inline-block;background:rgba(255,255,255,.1);color:var(--chalk);
-  border-radius:20px;padding:6px 18px;font-size:.82rem;font-weight:700;border:1px solid rgba(255,255,255,.2)}
-.subject-card.active .go-btn{background:var(--yellow);color:#1a1a1a;border-color:var(--yellow)}
-.subject-card.science.active .go-btn{background:var(--green)}
-.subject-card.math.active .go-btn{background:var(--blue)}
-.subject-card .status-badge{position:absolute;top:14px;right:14px;background:rgba(255,138,128,.2);
-  border:1px solid var(--pink);color:var(--pink);border-radius:12px;padding:2px 10px;font-size:.7rem;font-weight:700}
-.subject-card.active .status-badge{display:none}
-footer{text-align:center;color:var(--chalk-dim);font-size:.78rem;padding:20px;border-top:1px solid rgba(255,255,255,.1);margin-top:40px}
-footer a{color:var(--yellow);text-decoration:none}
-@media(max-width:600px){header h1{font-size:1.4rem}.subject-card .emoji{font-size:2.6rem}.subject-card h3{font-size:1.3rem}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="國小二年級上學期教學駕駛艙，支援出版社切換與學習重點比較。">
+  <title>小二上教學駕駛艙｜翰林版基準</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--board:#17291e;--board-2:#21382a;--chalk:#f2eee2;--muted:#b8b3a7;--yellow:#ffd45a;--blue:#86d8ff;--green:#a9dda9;--pink:#ff9e9a;--wood:#805c3d;--wood-light:#a27b55;--ink:#172018}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#294532 0,var(--board) 48%);color:var(--chalk);font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;min-height:100vh}
+    button,select{font:inherit}.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:20;background:#fff;color:#111;padding:10px 14px;border-radius:8px}
+    header{background:linear-gradient(180deg,var(--wood-light),var(--wood));border-bottom:4px solid #513822;box-shadow:0 5px 18px #0006;padding:24px 20px}
+    .header-inner{max-width:1080px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.brand h1{margin:0;font-size:clamp(1.55rem,4vw,2.2rem)}.brand p{margin:6px 0 0;opacity:.86}
+    .badges{display:flex;gap:8px;flex-wrap:wrap}.badge{background:#fff2;border:1px solid #fff5;border-radius:999px;padding:5px 11px;font-size:.78rem}
+    main{max-width:1080px;margin:auto;padding:34px 20px 70px}.control-panel{background:#f8f4e8;color:var(--ink);border-radius:18px;padding:20px;box-shadow:0 12px 28px #0004;display:grid;grid-template-columns:minmax(210px,1fr) 2fr;gap:22px;align-items:end}
+    .field label{display:block;font-weight:900;margin-bottom:7px}.field select{width:100%;border:2px solid #8b765f;border-radius:10px;background:white;padding:10px 12px}.mode-tabs{display:flex;gap:8px;flex-wrap:wrap}.mode-tabs button{border:2px solid #8b765f;border-radius:999px;background:#fff;padding:8px 14px;font-weight:700;cursor:pointer}.mode-tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:white}
+    .notice{margin:22px 0;background:#ffda6818;border:1px solid #ffda6866;border-left:5px solid var(--yellow);border-radius:10px;padding:14px 16px}.notice strong{color:var(--yellow)}
+    h2{font-size:1.25rem;color:var(--yellow);margin:30px 0 17px;border-bottom:2px dashed #ffd45a88;padding-bottom:9px}.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:18px}.card{background:linear-gradient(145deg,var(--board-2),#192b20);border:2px solid #fff2;border-radius:17px;padding:23px;min-height:225px;box-shadow:inset 0 0 24px #0004;position:relative}.card[data-color="yellow"]{--accent:var(--yellow)}.card[data-color="blue"]{--accent:var(--blue)}.card[data-color="green"]{--accent:var(--green)}.card h3{color:var(--accent);font-size:1.45rem;margin:8px 0}.emoji{font-size:2.65rem}.status{position:absolute;top:15px;right:15px;border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:3px 9px;font-size:.7rem}.card p{color:var(--muted);line-height:1.7;min-height:56px}.card a,.disabled-link{display:inline-flex;border-radius:999px;padding:7px 15px;font-size:.84rem;font-weight:900;text-decoration:none;background:var(--accent);color:#152019}.disabled-link{opacity:.6;cursor:not-allowed}
+    .compare{display:none}.compare.active{display:block}.compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px}.compare article{background:#ffffff0c;border:1px solid #ffffff24;border-radius:13px;padding:18px}.compare h3{margin:0 0 8px;color:var(--blue)}.compare p{color:var(--muted);line-height:1.65;margin:0}.legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.8rem;margin-top:14px}.dot::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:currentColor;margin-right:6px}.common{color:var(--green)}.specific{color:var(--yellow)}.sequence{color:var(--pink)}
+    footer{text-align:center;border-top:1px solid #fff2;color:var(--muted);padding:20px;font-size:.8rem}footer a{color:var(--yellow)}
+    @media(max-width:720px){.control-panel{grid-template-columns:1fr}.header-inner{justify-content:center;text-align:center}.badges{justify-content:center}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
 </head>
 <body>
-<header>
-  <h1>📚 教學駕駛艙</h1>
-  <div class="meta">
-    <span class="badge">翰林版</span>
-    <span class="badge">三年級下學期</span>
-    <span class="badge">114學年度</span>
-  </div>
-</header>
-<div class="container">
-  <h2>🎒 選擇學科</h2>
-  <div class="subjects">
-
-    <a href="chinese.html" class="subject-card chinese active">
-      <span class="emoji">📖</span>
-      <h3>國文</h3>
-      <div class="desc">第 7~12 課<br>做泡菜・行人的守護者・小王子等</div>
-      <span class="go-btn">進入課程 →</span>
-    </a>
-
-    <a href="math/index.html" class="subject-card math active">
-      <span class="emoji">📐</span>
-      <h3>數學</h3>
-      <div class="desc">全 9 單元<br>除法・分數・圓・小數・面積等</div>
-      <span class="go-btn">進入課程 →</span>
-    </a>
-
-    <a href="science/index.html" class="subject-card science active">
-      <span class="emoji">🔬</span>
-      <h3>自然</h3>
-      <div class="desc">全 4 單元<br>快樂小農夫・水・天氣・動物</div>
-      <span class="go-btn">進入課程 →</span>
-    </a>
-
-    <div class="subject-card english coming">
-      <span class="status-badge">建置中</span>
-      <span class="emoji">🌐</span>
-      <h3>英文</h3>
-      <div class="desc">敬請期待</div>
-      <span class="go-btn">即將上線</span>
+  <a class="skip" href="#content">跳到主要內容</a>
+  <header>
+    <div class="header-inner">
+      <div class="brand"><h1>🎒 小二上教學駕駛艙</h1><p>Grade 2 · Semester 1 teaching cockpit</p></div>
+      <div class="badges"><span class="badge" id="publisher-badge">翰林版基準</span><span class="badge">小學二年級上學期</span><span class="badge">多版本架構</span></div>
     </div>
+  </header>
+  <main id="content">
+    <section class="control-panel" aria-label="教材版本控制">
+      <div class="field"><label for="publisher-select">教材出版社</label><select id="publisher-select" aria-describedby="publisher-help"></select></div>
+      <div><div class="field"><label>檢視方式</label></div><div class="mode-tabs" role="group" aria-label="檢視方式"><button type="button" data-mode="course" aria-pressed="true">單一版本課程</button><button type="button" data-mode="compare" aria-pressed="false">版本差異比較</button></div></div>
+    </section>
+    <p class="notice" id="publisher-help"><strong>目前版本：</strong>翰林版 114 學年度公開課程目錄已上架，教學任務為本站原創；康軒、南一已保留切換與 comparison schema，完成查證前不混用內容。</p>
 
-    <div class="subject-card computer coming">
-      <span class="status-badge">建置中</span>
-      <span class="emoji">💻</span>
-      <h3>電腦</h3>
-      <div class="desc">敬請期待</div>
-      <span class="go-btn">即將上線</span>
-    </div>
+    <section id="course-view">
+      <h2>選擇學科</h2>
+      <div class="subjects" id="subject-list" aria-live="polite"></div>
+    </section>
 
-  </div>
-</div>
-<footer>
-  教學駕駛艙｜翰林版三下 · <a href="https://github.com/xwin20002/edu3" target="_blank">GitHub</a>
-</footer>
+    <section id="compare-view" class="compare" aria-labelledby="compare-title">
+      <h2 id="compare-title">版本差異比較</h2>
+      <div class="compare-grid">
+        <article><h3>共通學習重點</h3><p>用 publisher-neutral canonical topic 對齊不同版本共同教授的能力與概念，不強迫逐課一對一。</p></article>
+        <article><h3>版本特有內容</h3><p>記錄特定出版社才有的課文、例題、活動或補充素材，切換版本時不污染共通資料。</p></article>
+        <article><h3>教授順序差異</h3><p>比較相同能力主題在各版本出現的學期、單元與先後順序，避免把課次當成穩定識別碼。</p></article>
+      </div>
+      <div class="legend"><span class="dot common">共通重點</span><span class="dot specific">版本特有</span><span class="dot sequence">順序差異</span></div>
+    </section>
+  </main>
+  <footer>edu2 小二上教學駕駛艙 · <a href="https://github.com/xwin20002/edu2">GitHub</a> · 現階段不發布未校對教材</footer>
+  <script src="assets/js/publisher-context.js" defer></script>
 </body>
 </html>

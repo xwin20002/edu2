@@ -1,12 +1,32 @@
 # 原始大檔，不上傳 GitHub
-assets/*.png
-assets/*.pdf
-assets/*.mp4
-assets/*.mp3
+assets/**/*.png
+assets/**/*.pdf
+assets/**/*.mp4
+assets/**/*.mp3
+source/
+
+# 所有科目的大型影音與原始教材
+**/*.mov
+**/*.m4a
+**/*.wav
+**/*.key
+**/*.pages
 
 # 例外：自然科簡報 PDF（需 serve）
 !science/assets/*.pdf
 
+# Agent 與 Obsidian 本機設定（專案文件本身仍納入 Git）
+.claude/
+.codex/
+.obsidian/
+
 # OS
 .DS_Store
 Thumbs.db
+
+# 編輯器、暫存與 log
+*.swp
+*.tmp
+*.log
+~$*
+tmp/

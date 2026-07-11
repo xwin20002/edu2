@@ -1,57 +1,38 @@
-# CLAUDE.md — edu3 小三下國語教學駕駛艙
+# CLAUDE.md — edu2 小二上教學駕駛艙
 
-> **專案**：翰林版 三年級下學期 第7-10課
-> **GitHub Pages**：https://xwin20002.github.io/edu3/
-> **GitHub Repo**：https://github.com/xwin20002/edu3
-> **NotebookLM**：https://notebooklm.google.com/notebook/d16786fd-5290-444a-81e7-4a1d877c18ce
-> **本機路徑**：`/Users/xwin20000/Dropbox/AIwork/D_AI_Family/課程學習資料/小三國文下學期/L7-L10/`
+本專案的 authoritative project instructions 位於 [AGENTS.md](AGENTS.md)。開始工作前請完整讀取並遵循該檔案。
 
-## 專案結構
+## 專案路徑
 
-```
-L7-L10/
-├── index.html          # 四課總覽首頁
-├── L7/index.html       # 做泡菜
-├── L8/index.html       # 行人的守護者
-├── L9/index.html       # 就愛兩兩在一起
-├── L10/index.html      # 飛行員和小王子
-├── assets/
-│   ├── chars_L07~L10.jpg   # 生字卡（1920×1080）
-│   ├── text_L07~L10.jpg    # 直式課文（1080×1920）
-│   ├── theme_L07~L10.jpg   # 故事地圖（1920×1080）
-│   ├── slide_01~12.jpg     # 授課簡報頁（1920×1080）
-│   ├── 授課簡報.pdf         # 原始 PDF（本機，不在 GitHub）
-│   ├── *.png               # 原始高清圖（本機，不在 GitHub）
-│   └── 影片_學生自學.mp4    # 本機存檔（60MB，不在 GitHub）
-├── .github/workflows/deploy.yml  # GitHub Actions Pages 自動部署
-├── .gitignore          # 排除 PNG/PDF/MP4
-└── /tmp/rebuild_grade3_L7L10.py  # HTML 重建腳本（本機 /tmp/）
-```
+- Repository root：`/Users/xwin20000/Dropbox/AIwork/D_AI_Family/課程學習資料/小二上學期/edu2`
+- Obsidian 工作筆記：`/Users/xwin20000/Dropbox/AIwork/D_AI_Family/課程學習資料/小二上學期/edu2/工作筆記.md`
+- 路徑 mapping：`/Users/xwin20000/Dropbox/AIwork/D_AI_Family/課程學習資料/小二上學期/edu2/project_vault_paths.md`
+- Obsidian dashboard：`/Users/xwin20000/Library/CloudStorage/GoogleDrive-xwin20002@gmail.com/我的雲端硬碟/2ndbrain/edu2/工作筆記.md`
+- GitHub repo：`https://github.com/xwin20002/edu2`
+- GitHub Pages：`https://xwin20002.github.io/edu2/`
+- 開發分支：`feature/grade2-semester1-foundation`
 
-## 技術重點
+## 工作規則
 
-- **注音布局**：手工 flex（`char_html()` Python 函式），禁用 `<ruby>+vertical-rl`
-- **直式課文**：`writing-mode:vertical-rl; width:100%`（絕不加 `direction` 屬性）
-- **發音**：`SpeechSynthesisUtterance` lang=`zh-TW` rate=0.75，`addEventListener`（非 inline handler）
-- **YouTube 影片**：ID `KNPnxPmhzJQ`（unlisted），已嵌入 L7~L10 四課
-
-## 修改方式
-
-任何 CSS / 注音 / 內容變更：
-1. 編輯 `/tmp/rebuild_grade3_L7L10.py`
-2. `python3 /tmp/rebuild_grade3_L7L10.py`
-3. `cd` 到本機路徑，`git add . && git commit && git push`
+- 現有 `edu3 小三下` HTML 與 assets 僅供版型參考，不是小二上正式教材。
+- 教材版本、科目及課次未確認前，不得自行推定或發布內容。
+- 產生器與驗證腳本應保存在 repo 的 `scripts/`，不可只留在 `/tmp`。
+- 維持繁體中文介面，技術詞彙可搭配專業英文。
+- `cc開案` 先讀 `project_vault_paths.md`，再讀 repo root 的 `工作筆記.md`；只做 status/fetch，不自動 pull。
+- `cc關案` 更新 repo handoff 正本；重大狀態變更再同步外部 Obsidian dashboard，之後 commit/push 本次變更。
+- 外部 dashboard 是跨專案入口，不是 CC handoff source of truth。
+- 首套教材以翰林為 baseline；康軒／南一透過 `data/catalog.json` 與 `docs/content-model.md` 的 mapping 架構加入。
+- canonical topic 與共用 UI 不使用出版社課次作穩定識別碼；比較模式分成共通重點、版本特有與教授順序。
+- 未達 ready 的教材不可啟用首頁 `href`，也不可導向現存 edu3 reference 頁面。
+- 建置遵循 `WORKFLOW.md` 的 phase gates；教材 intake 與 mapping 使用 `data/templates/`，驗證執行 `node scripts/validate-foundation.mjs`。
+- 翰林三科資料維護於 `data/hanlin-114.json`；修改後執行 `node scripts/build-subject-pages.mjs`，不要直接修改 generated subject HTML。
+- 不重新 `git init`、不重建 remote、不中斷或覆寫既有 Git history。
 
 <!-- CC-SESSION-HANDOFF:START -->
 ## 📌 Session 交接區
 
-- **Last session**: 2026-05-26 — 完成小三下國語教學駕駛艙 L7-L10（翰林版 114學年度），部署至 GitHub Pages edu3
-- **Current state**:
-    - edu3 已上線：https://xwin20002.github.io/edu3/（L7~L10 四課全部可用）
-    - NotebookLM 14 個 artifacts 全部 completed（簡報/影片/生字卡/直式課文/故事地圖）
-    - YouTube 影片 KNPnxPmhzJQ 已嵌入四課 HTML（unlisted）
-    - 本機原始 PNG、PDF、MP4 存於 Dropbox L7-L10/assets/（不在 GitHub）
-    - rebuild 腳本位於 /tmp/rebuild_grade3_L7L10.py（需重建時使用）
-- **Next**: 視需求繼續其他年級/課次駕駛艙；或跑 5/26 daily2report
-- **Open questions**: 無
+- **Last session**: 2026-07-11 — CC 新案：`edu2 小二上教學駕駛艙`
+- **Current state**: repo/branch 與初始化已完成；publisher-aware 首頁、catalog 與比較架構已建立；正式小二上內容尚未匯入。
+- **Next**: 取得翰林小二上正式目錄，選定第一課／單元建立 canonical mapping 與 golden template。
+- **Open questions**: 出版社／學年度、優先科目與範圍、NotebookLM 或本機教材來源。
 <!-- CC-SESSION-HANDOFF:END -->

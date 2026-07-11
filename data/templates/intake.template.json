@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "academicYear": null,
+    "publisher": "hanlin",
+    "grade": 2,
+    "semester": 1,
+    "subject": null,
+    "reviewStatus": "unverified",
+    "reviewedBy": null,
+    "reviewedAt": null
+  },
+  "sources": [
+    {
+      "type": null,
+      "label": null,
+      "locator": null,
+      "publishDerivativeAllowed": null
+    }
+  ],
+  "units": [
+    {
+      "publisherUnitId": null,
+      "sequence": null,
+      "officialTitle": null,
+      "reviewStatus": "unverified"
+    }
+  ]
+}
