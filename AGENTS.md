@@ -101,11 +101,12 @@ edu2/
   - 國語直式／注音依 edu1 L8：`vertical-rl`、禁用 `direction`／`ruby`、手工 flex 聲調定位及 zh-TW 發音。
   - `workflow.html` 公開記錄 pipeline、reference layer 與不可破壞規格。
   - 國語 12 課公開詞彙已由教育雲 intake（365 筆）；`data/source-registry/chinese-lower-primary-114.json` 與 `data/source-acquisition-log.json` 是後續探索／下載的必經紀錄。
+  - 已完成 `docs/prior-portfolio-source-audit-2026-07-11.md`：edu1 提供來源索引與版本異動檢查模式；edu3 提供 artifact integration history，但兩者教材內容均不可搬用。
   - 逐課課文結構 brief、NotebookLM artifact 與專屬影片是 `pending`；缺少合法來源時不得推測或產製。
   - 出版社切換、版本隔離與比較框架已完成；康軒／南一保持 planned。
   - GitHub Pages production 已部署；本 session 關案前 validator 與 `git diff --check` 均通過。
 - **Next**:
-  - 先取得 L01 合法 text-structure brief／教師核對稿，完成 source → NotebookLM → QA → media ID vertical slice。
+  - 先取得 L01 合法 text-structure brief／教師核對稿，並逐課核對翰林聽e聽／官方 Wordwall 是否可作 external reference，完成 source → NotebookLM → QA → media ID vertical slice。
   - 將 L02-L12 的國語 text-structure brief、`verticalSummary`、`vocabulary`、`characters` 依合法來源補齊。
   - 對每個教師／YouTube 候選完成版本、授權與兒少適切性 review，再決定是否 external link；視需求補做三科獨立 NotebookLM artifacts。
   - 依需求建立康軒／南一正式資料與 comparison mappings。

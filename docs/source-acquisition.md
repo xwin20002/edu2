@@ -46,3 +46,5 @@ Do not download and re-upload third-party YouTube content. An edu2 generated vid
 ## Current Chinese finding
 
 `gsyan-html5-fun-hanlin-grade2-114` is a recent teacher resource that lists 12 lesson-aligned activities for 114 Hanlin grade 2 Chinese. It is intentionally logged as **link-only / rights-review-required**. It is useful for finding activity formats (stroke order, zhuyin, sentence ordering, punctuation and word formation), not for replacing textbook source data.
+
+The prior-portfolio audit is recorded in `docs/prior-portfolio-source-audit-2026-07-11.md`. Its practical rule is important: edu1 had real 112 → 114 lesson changes, while edu3 recorded completed artifacts without a committed source provenance ledger. Treat prior projects as workflow evidence, never as curriculum evidence.

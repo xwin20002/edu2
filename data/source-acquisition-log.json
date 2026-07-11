@@ -60,6 +60,56 @@
       "contentRole": "114 翰林二上逐課互動活動候選",
       "rightsStatus": "unknown-review-required",
       "reviewStatus": "link-only; no download, embed, or content reuse"
+    },
+    {
+      "id": "SRC-20260711-006",
+      "recordedAt": "2026-07-11",
+      "action": "discovered-no-download",
+      "sourceId": "hanlin-listening-e-listen",
+      "sourceUrl": "https://player.hle.com.tw/ech/index.html",
+      "contentRole": "翰林國語朗讀平台；待逐課選擇二上後記錄 exact unit evidence",
+      "rightsStatus": "publisher-content-link-only",
+      "reviewStatus": "not yet used as a unit source"
+    },
+    {
+      "id": "SRC-20260711-007",
+      "recordedAt": "2026-07-11",
+      "action": "discovered-no-download",
+      "sourceId": "hanlin-primary-wordwall",
+      "sourceUrl": "https://sites.google.com/hanlin.com.tw/e-wordwall/%E7%BF%B0%E6%9E%97%E5%9C%8B%E5%B0%8Fwordwall",
+      "contentRole": "翰林國小 Wordwall 資源入口；待逐課核對版本／條件",
+      "rightsStatus": "publisher-content-link-only",
+      "reviewStatus": "not yet used as a unit source"
+    },
+    {
+      "id": "SRC-20260711-008",
+      "recordedAt": "2026-07-11",
+      "action": "discovered-no-download",
+      "sourceId": "teachersay-wordwall-l01-my-feelings",
+      "sourceUrl": "https://wordwall.net/resource/96061148/%E5%9C%8B%E8%AA%9E/%E4%BA%8C%E4%B8%8A%E7%AC%AC%E4%B8%80%E8%AA%B2%E6%88%91%E7%9A%84%E5%BF%83%E6%83%85%E7%BF%B0%E6%9E%97%E7%89%88",
+      "contentRole": "L01 外部互動活動候選",
+      "rightsStatus": "third-party-link-only-review-required",
+      "reviewStatus": "no download, embed, or content reuse"
+    },
+    {
+      "id": "SRC-20260711-009",
+      "recordedAt": "2026-07-11",
+      "action": "historical-record-reviewed",
+      "sourceId": "edu1-raw-source-index-pattern",
+      "localEvidence": "/Users/xwin20000/Dropbox/AIwork/D_AI_Family/課程學習資料/小一國文下學期/RAW資料/資源索引.md",
+      "contentRole": "重用來源索引與版本異動檢查模式",
+      "rightsStatus": "workflow-reference-only",
+      "reviewStatus": "do not reuse grade-1 curriculum data"
+    },
+    {
+      "id": "SRC-20260711-010",
+      "recordedAt": "2026-07-11",
+      "action": "historical-record-reviewed",
+      "sourceId": "edu3-git-artifact-history",
+      "localEvidence": "/Users/xwin20000/Dropbox/AIwork/D_AI_Family/課程學習資料/小三國文下學期/L7-L10/CLAUDE.md and edu3-reference/main",
+      "contentRole": "重用 NotebookLM／YouTube artifact integration history",
+      "rightsStatus": "workflow-reference-only",
+      "reviewStatus": "source provenance absent; do not reuse grade-3 curriculum data"
     }
   ]
 }

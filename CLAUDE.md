@@ -34,7 +34,7 @@
 ## 📌 Session 交接區
 
 - **Last session**: 2026-07-11 — 國語回退至 Phase 2，建立 source intake、來源 registry 與下載 provenance contract。
-- **Current state**: production 的 28 個內頁仍可作架構／interaction reference；Milestone B 未完成。國語 12 課 title／公開詞彙 bank（365 筆）已核對，L01 是直式／注音 Golden。YouTube `oD0GIU4UKPc` 僅是全冊 overview，不得當逐課影片；逐課 text-structure、NotebookLM artifact、media 均 pending。
+- **Current state**: production 的 28 個內頁仍可作架構／interaction reference；Milestone B 未完成。國語 12 課 title／公開詞彙 bank（365 筆）已核對，L01 是直式／注音 Golden。`docs/prior-portfolio-source-audit-2026-07-11.md` 已從 edu1／edu3 找回來源索引、版本異動與 artifact integration 的 workflow evidence；舊教材內容不可搬用。YouTube `oD0GIU4UKPc` 僅是全冊 overview，不得當逐課影片；逐課 text-structure、NotebookLM artifact、media 均 pending。
 - **Next**: 取得 L01 合法 text-structure brief／教師核對稿，跑完一課 source → NotebookLM → QA → media ID；L02-L12 再依同一 schema 擴充。每次候選網站／YouTube 發現或下載都先更新 source registry／provenance log；再將可重用流程套用到 edu4。
 - **Open questions**: L01-L12 的課文結構合法來源與人工校對；Tier C 教師／YouTube 資源的授權、版本與兒少適切性；Actions Node.js 20 deprecation annotation 待官方 action 升級時處理。
 <!-- CC-SESSION-HANDOFF:END -->

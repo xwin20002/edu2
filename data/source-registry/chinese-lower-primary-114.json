@@ -37,6 +37,32 @@
       "acquisitionLogIds": ["SRC-20260711-003", "SRC-20260711-004"]
     },
     {
+      "id": "hanlin-listening-e-listen",
+      "tier": "A",
+      "owner": "翰林出版事業股份有限公司",
+      "kind": "publisher-audio-platform",
+      "url": "https://player.hle.com.tw/ech/index.html",
+      "coverage": "翰林國語課文朗讀入口；需在網站內人工選擇二上與對應課次",
+      "allowedUse": "核對朗讀是否存在、建立外連或教師使用紀錄；逐課進入後必須另記 exact URL／課次／可用狀態",
+      "forbiddenUse": "下載、重製或重新上傳出版社音檔；不得由朗讀入口推測未核對的課文結構",
+      "rightsStatus": "publisher-content-link-only",
+      "reviewStatus": "discovered-needs-unit-check",
+      "acquisitionLogIds": ["SRC-20260711-006"]
+    },
+    {
+      "id": "hanlin-primary-wordwall",
+      "tier": "A",
+      "owner": "翰林出版事業股份有限公司",
+      "kind": "publisher-interactive-resource-index",
+      "url": "https://sites.google.com/hanlin.com.tw/e-wordwall/%E7%BF%B0%E6%9E%97%E5%9C%8B%E5%B0%8Fwordwall",
+      "coverage": "翰林國小 Wordwall 資源入口；實際課次、學年與登入／使用條件需要逐筆檢查",
+      "allowedUse": "尋找與本課同版本的外部互動活動，並記錄外連與教師 review",
+      "forbiddenUse": "複製題庫、擷取內容、假定不同學年或同名活動等同於 114 二上",
+      "rightsStatus": "publisher-content-link-only",
+      "reviewStatus": "discovered-needs-unit-check",
+      "acquisitionLogIds": ["SRC-20260711-007"]
+    },
+    {
       "id": "gsyan-html5-fun-hanlin-grade2-114",
       "tier": "C",
       "owner": "江明勳／雄老師 HTML5 FUN",
@@ -48,6 +74,43 @@
       "licenseStatus": "unknown-review-required",
       "reviewStatus": "discovered-not-downloaded",
       "lastChecked": "2026-07-11"
+    },
+    {
+      "id": "teachersay-wordwall-l01-my-feelings",
+      "tier": "C",
+      "owner": "Teachersay (Wordwall user)",
+      "kind": "teacher-interactive-resource",
+      "url": "https://wordwall.net/resource/96061148/%E5%9C%8B%E8%AA%9E/%E4%BA%8C%E4%B8%8A%E7%AC%AC%E4%B8%80%E8%AA%B2%E6%88%91%E7%9A%84%E5%BF%83%E6%83%85%E7%BF%B0%E6%9E%97%E7%89%88",
+      "coverage": "標示為小二、國語、翰林的 L01「我的心情」互動活動",
+      "allowedUse": "教師手動檢查版本與題目後，以外連方式作候選活動；活動類型可作原創任務設計靈感",
+      "forbiddenUse": "下載、複製、嵌入、以作者標籤取代版本核對，或把活動答案作為課文事實",
+      "rightsStatus": "third-party-link-only-review-required",
+      "reviewStatus": "discovered-not-downloaded",
+      "acquisitionLogIds": ["SRC-20260711-008"]
+    },
+    {
+      "id": "edu1-raw-source-index-pattern",
+      "tier": "C",
+      "owner": "edu1 historical local record",
+      "kind": "portfolio-provenance-pattern",
+      "localEvidence": "/Users/xwin20000/Dropbox/AIwork/D_AI_Family/課程學習資料/小一國文下學期/RAW資料/資源索引.md",
+      "coverage": "小一 114 翰林國語下學期的來源索引：教育雲、翰林朗讀、官方 Wordwall、版本異動與考古題適用性",
+      "allowedUse": "重用來源分類、版本異動檢查與下載記錄方法",
+      "forbiddenUse": "搬移小一課文、字表、題目、NotebookLM 產物或將 112 資料視為 114 二上的教材",
+      "reviewStatus": "verified-as-workflow-reference",
+      "acquisitionLogIds": ["SRC-20260711-009"]
+    },
+    {
+      "id": "edu3-git-artifact-history",
+      "tier": "C",
+      "owner": "edu3 historical Git and local record",
+      "kind": "portfolio-artifact-history",
+      "localEvidence": "/Users/xwin20000/Dropbox/AIwork/D_AI_Family/課程學習資料/小三國文下學期/L7-L10/CLAUDE.md and edu3-reference/main",
+      "coverage": "NotebookLM artifacts、unlisted YouTube IDs、local raw asset location與頁面 integration commits",
+      "allowedUse": "重用 artifact retrieval／integration／QA chain與 handoff 欄位",
+      "forbiddenUse": "把小三教材、內容或影音當小二來源；Git history 沒有 source provenance 時不得假設原始教材的權利或版本",
+      "reviewStatus": "verified-artifact-history-source-provenance-missing",
+      "acquisitionLogIds": ["SRC-20260711-010"]
     },
     {
       "id": "education-market-video-catalog",

@@ -99,12 +99,12 @@ catch { errors.push("缺少數學／生活 Golden parity checklist"); }
 try {
   const registry = JSON.parse(await read("data/source-registry/chinese-lower-primary-114.json"));
   const sourceIds = new Set(registry.sources?.map(source => source.id));
-  for (const required of ["education-cloud-hanlin-114-wordbank", "mhps-114-grade2-chinese-plan", "gsyan-html5-fun-hanlin-grade2-114", "youtube-discovery-policy"]) {
+  for (const required of ["education-cloud-hanlin-114-wordbank", "mhps-114-grade2-chinese-plan", "hanlin-listening-e-listen", "hanlin-primary-wordwall", "gsyan-html5-fun-hanlin-grade2-114", "teachersay-wordwall-l01-my-feelings", "edu1-raw-source-index-pattern", "edu3-git-artifact-history", "youtube-discovery-policy"]) {
     if (!sourceIds.has(required)) errors.push(`國語 source registry 缺少 ${required}`);
   }
   if (registry.sources?.find(source => source.id === "gsyan-html5-fun-hanlin-grade2-114")?.licenseStatus !== "unknown-review-required") errors.push("Tier C 教師資源必須保留授權 review gate");
   const log = JSON.parse(await read("data/source-acquisition-log.json"));
-  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005"]) {
+  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005", "SRC-20260711-006", "SRC-20260711-007", "SRC-20260711-008", "SRC-20260711-009", "SRC-20260711-010"]) {
     if (!log.records?.some(record => record.id === id)) errors.push(`source acquisition log 缺少 ${id}`);
   }
 } catch (error) { errors.push(`source registry 或 acquisition log 無法解析：${error.message}`); }
