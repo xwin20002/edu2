@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "globalReference": {
+    "label": "edu1 國語完整教學駕駛艙",
+    "url": "https://xwin20002.github.io/edu1/L8/index.html",
+    "purpose": ["information-architecture", "student-teacher-mode", "classroom-tools", "responsive-layout"]
+  },
+  "samples": [
+    {
+      "id": "chinese-golden",
+      "subject": "chinese",
+      "gradeBand": "lower-primary",
+      "profile": "chinese-lower-primary",
+      "unitId": "ch-01",
+      "path": "chinese/L01/index.html",
+      "requirements": {
+        "zhuyinPolicy": "dense",
+        "verticalReading": "required",
+        "characterSpeech": "required"
+      },
+      "covers": ["vertical-summary", "vocabulary", "manual-flex-zhuyin", "tone-placement", "speech"]
+    },
+    {
+      "id": "math-golden",
+      "subject": "math",
+      "gradeBand": "lower-primary",
+      "profile": "math-lower-primary",
+      "unitId": "ma-01",
+      "path": "math/U01/index.html",
+      "requirements": {
+        "zhuyinPolicy": "not-applicable",
+        "visualRepresentation": "required",
+        "methodExplanation": "required"
+      },
+      "covers": ["concept-focus", "representation-flow", "formative-assessment", "classroom-tools"]
+    },
+    {
+      "id": "life-golden",
+      "subject": "life",
+      "gradeBand": "lower-primary",
+      "profile": "life-lower-primary",
+      "unitId": "li-01",
+      "path": "life/T01/index.html",
+      "requirements": {
+        "zhuyinPolicy": "not-applicable",
+        "observation": "required",
+        "inquiry": "required"
+      },
+      "covers": ["observation-flow", "inquiry-task", "reflection", "classroom-tools"]
+    }
+  ],
+  "futureProfiles": [
+    {
+      "profile": "chinese-middle-primary",
+      "targetGrades": [3, 4],
+      "zhuyinPolicy": "selective",
+      "note": "Only new characters, difficult words, and commonly misread characters receive zhuyin; do not reuse the dense lower-primary profile."
+    }
+  ],
+  "promotionRule": "Only rebuild all units after the affected golden sample passes validation and reference parity QA."
+}

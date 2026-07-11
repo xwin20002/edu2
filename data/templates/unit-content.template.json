@@ -1,6 +1,8 @@
 {
   "schemaVersion": 1,
   "subject": "chinese",
+  "presentationProfile": "chinese-lower-primary",
+  "zhuyinPolicy": "dense",
   "unit": {
     "id": null,
     "title": null,

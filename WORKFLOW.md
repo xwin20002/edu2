@@ -1,5 +1,7 @@
 # 多出版社教學駕駛艙建置流程
 
+共用 Codex／Claude skill：<https://github.com/xwin20002/Claude_code_mdskill/tree/main/skills/edu-teaching-cockpit>
+
 本流程以 `edu2` 為首個 reference implementation，可重用於 `edu4` 或其他年級。年級、學期、科目與出版社是資料，不應散落成寫死的前端邏輯。
 
 ## 兩個 Milestones
@@ -30,6 +32,51 @@
 4. 不以出版社課次作跨版本穩定 ID。
 5. 一課／一單元 pilot 通過 QA 後才批次擴充。
 6. 所有產製與驗證步驟必須保存在 repo，不依賴 `/tmp` 腳本。
+
+## 六階段交付模型
+
+這六階段不可混為同一個「建站」任務。每一階段都有獨立輸入、輸出與 exit gate；前一階段未通過，不得宣告下一階段或整體完成。
+
+1. **架構起始**：從 edu1／edu3 GitHub repo copy 已驗證的工程架構，包括資訊層級、共用元件、CSS、JS、generator、validator 與部署方式。只搬架構，不搬其他年級教材內容。
+2. **重新蒐集資料**：依目標年級、學期與出版社重新尋找正式或合法公開來源；課名、順序、學習目標、生字、注音及發布權限都要重新核對。
+3. **資料處理**：製作 source pack，使用指定帳號產出 NotebookLM 簡報、圖卡、字卡、測驗與影片；影片下載後由既有 CLI uploader 上傳 YouTube，並更新 artifact manifest。
+4. **資料換入架構**：將已核對資料填入 content schema，由 renderer／generator 批次建置各課；不得逐頁複製 HTML 或把教材寫死在共用元件。
+5. **技術驗證**：執行 validator、broken links、assets、responsive、雙模式、直式、注音、發音、評量、影片及 production smoke tests。
+6. **品質確認與舊版對比**：與 edu1／edu3 reference 做 quality parity comparison；資訊完整度、視覺層級、互動與課堂可用性必須達到一致水準，並留下差異紀錄與人工確認。
+
+### 完成定義
+
+- 架構完成不等於資料完成。
+- NotebookLM／YouTube 完成不等於資料已換入網站。
+- 技術驗證通過不等於品質達到舊版水準。
+- 只有第 6 階段通過，才可執行 `cc關案` 或宣告 Milestone B complete。
+
+## Golden Sample Promotion Model
+
+Golden Sample 是批次變更前的 executable quality baseline，registry 位於 `data/golden-samples.json`。
+
+Golden 的識別單位不是「所有科目共用一頁」，而是 **科目 × 年段 × 教材能力需求**。共用 shell 可以相同，但 subject renderer 與 presentation profile 必須分開。
+
+- **Global reference**：edu1 L8，定義資訊架構、雙模式、課堂工具與 responsive 水準。
+- **國語 Golden**：`chinese/L01/index.html`，定義直式導讀、詞彙、生字、注音、聲調與發音。
+- **數學 Golden**：`math/U01/index.html`，定義概念表徵、解題流程與形成性評量。
+- **生活 Golden**：`life/T01/index.html`，定義觀察、探究、紀錄、反思與實作流程。
+
+### 年段 profile
+
+- `chinese-lower-primary`（小一／小二）：`zhuyinPolicy=dense`。生字、注音、聲調定位與點讀是核心功能。
+- `chinese-middle-primary`（小三／小四）：`zhuyinPolicy=selective`。只為生字、難詞與易誤讀字提供注音，不直接沿用低年段密集注音。
+- `math-lower-primary`：以操作、圖像表徵、算式與方法說明為核心；不繼承國語直式／注音 contract。
+- `life-lower-primary`：以觀察、提問、探究、紀錄與反思為核心；不繼承國語直式／注音 contract。
+
+### 變更擴散規則
+
+1. 共用 CSS／JS／頁面 shell 變更：三科 Golden 全部通過後，才重建 28 頁。
+2. 科目 renderer 變更：該科 Golden 通過後，才重建該科全部單元。
+3. 單元內容變更：只驗證該單元，但不得破壞 Golden schema。
+4. Golden QA 包含 validator、visual QA、互動測試與 edu1／edu3 parity comparison。
+5. Golden 未通過時不得以「其他頁會一起正常」作推論。
+6. 跨年段專案只能沿用共用 shell；必須建立自己的 subject-grade Golden，不得把小二國語 Golden 當成小四國語完成標準。
 
 ## Phase 0 — 接管既有專案
 

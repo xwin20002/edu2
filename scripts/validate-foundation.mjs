@@ -46,6 +46,24 @@ try {
   errors.push(`data/hanlin-114.json 無法解析：${error.message}`);
 }
 
+try {
+  const golden = JSON.parse(await read("data/golden-samples.json"));
+  const expectedGolden = new Set(["chinese", "math", "life"]);
+  for (const sample of golden.samples || []) {
+    expectedGolden.delete(sample.subject);
+    try { await access(new URL(`../${sample.path}`, import.meta.url)); }
+    catch { errors.push(`Golden sample 不存在：${sample.path}`); }
+    if (!sample.gradeBand || !sample.profile || !sample.requirements) errors.push(`${sample.id}: 缺少 subject-grade profile`);
+  }
+  if (expectedGolden.size) errors.push(`缺少科目 Golden sample：${[...expectedGolden].join(", ")}`);
+  const chineseGolden = golden.samples?.find(sample => sample.subject === "chinese");
+  if (chineseGolden?.requirements?.zhuyinPolicy !== "dense") errors.push("小二國語 Golden 必須使用 dense zhuyin policy");
+  const middleChinese = golden.futureProfiles?.find(profile => profile.profile === "chinese-middle-primary");
+  if (middleChinese?.zhuyinPolicy !== "selective") errors.push("中年段國語 profile 必須使用 selective zhuyin policy");
+} catch (error) {
+  errors.push(`data/golden-samples.json 無法解析：${error.message}`);
+}
+
 const homepage = await read("index.html");
 const foundationPage = await read("foundation.html");
 const workflowPage = await read("workflow.html");
@@ -60,6 +78,13 @@ if (!foundationPage.includes("Milestone B")) errors.push("foundation.html 缺少
 if (!homepage.includes('href="workflow.html"')) errors.push("首頁缺少工作流程分頁入口");
 if (!workflowPage.includes("國語 Reference Rules")) errors.push("workflow.html 缺少國語 reference 規則");
 if (!workflowPage.includes("vertical-rl")) errors.push("workflow.html 缺少直式規格記錄");
+for (const stage of ["架構起始", "重新蒐集資料", "資料處理", "資料換入架構", "技術驗證", "品質確認與舊版對比"]) {
+  if (!workflowPage.includes(stage)) errors.push(`workflow.html 缺少六階段流程：${stage}`);
+}
+if (!workflowPage.includes("Golden Samples")) errors.push("workflow.html 缺少 Golden Samples 區塊");
+if (!workflowPage.includes("偏差警報與快速接回")) errors.push("workflow.html 缺少 early-warning／recovery 區塊");
+try { await access(new URL("../docs/retrospective-2026-07-11.md", import.meta.url)); }
+catch { errors.push("缺少本次建置 retrospective"); }
 
 for (const template of ["data/templates/intake.template.json", "data/templates/publisher-mapping.template.json", "data/templates/unit-content.template.json"]) {
   try {
