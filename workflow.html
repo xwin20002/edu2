@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>工作流程｜小二上教學駕駛艙</title>
+  <style>
+    :root{--bg:#132319;--panel:#20382a;--text:#f2eee2;--muted:#bbb6aa;--gold:#ffd54f;--blue:#81d4fa;--green:#a5d6a7;--wood:#805c3d}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#294532,var(--bg) 50%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.7}header{background:linear-gradient(#a27b55,var(--wood));border-bottom:4px solid #50351f;padding:24px 20px}.wrap{max-width:980px;margin:auto}.nav{display:flex;gap:8px;flex-wrap:wrap}.nav a{color:white;text-decoration:none;border:1px solid #fff6;border-radius:99px;padding:6px 13px;background:#0002}.nav a[aria-current="page"]{background:var(--gold);color:#172018;border-color:var(--gold);font-weight:900}h1{margin:16px 0 5px}.lead{margin:0;color:#f7f0e2}.status{display:inline-block;margin-top:12px;border:1px solid var(--green);color:var(--green);border-radius:99px;padding:4px 11px}main{max-width:980px;margin:auto;padding:28px 20px 70px}h2{color:var(--gold);border-bottom:2px dashed #ffd54f88;padding-bottom:7px;margin-top:35px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}.card{background:var(--panel);border:1px solid #ffffff24;border-radius:13px;padding:18px}.card h3{margin-top:0;color:var(--blue)}.pipeline{display:grid;gap:9px}.step{border-left:4px solid var(--green);background:#ffffff0b;border-radius:8px;padding:11px 14px}.layers{display:grid;grid-template-columns:1fr 1fr;gap:16px}.rule{border-left:4px solid var(--gold);padding:8px 13px;background:#ffd54f0d;margin:9px 0}.links a{color:var(--blue)}code{background:#0005;border-radius:5px;padding:2px 6px}footer{border-top:1px solid #ffffff20;color:var(--muted);padding:20px;text-align:center}@media(max-width:680px){.layers{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><nav class="nav" aria-label="網站分頁"><a href="index.html">教學成果</a><a href="workflow.html" aria-current="page">工作流程</a></nav><h1>🧭 教學駕駛艙工作流程</h1><p class="lead">記錄從資料、NotebookLM、YouTube 到教學內頁與部署的可重用流程。</p><span class="status">Production workflow verified</span></div></header>
+  <main>
+    <h2>目前完成狀態</h2>
+    <div class="pipeline"><div class="step">✅ Milestone A：repo 接管、資料模型、模板、validator 與工程入口</div><div class="step">✅ Milestone B：三科 28 個單元頁、NotebookLM artifacts、YouTube 與 production QA</div><div class="step">✅ Reference layer：edu1 L8、edu2 L01、edu3 作核准基準</div><div class="step">✅ Reusable renderer：未來換年級、冊別或出版社時只換內容資料</div></div>
+
+    <h2>標準 Pipeline</h2>
+    <div class="grid"><article class="card"><h3>1. 開案與接管</h3><p>先讀 repo handoff、Obsidian dashboard 與既有 SOP；不重新初始化 Git，不覆寫 history。</p></article><article class="card"><h3>2. 資料 intake</h3><p>核對出版社、學年度、課名、順序、來源與發布權限；未知內容保持 <code>null</code>。</p></article><article class="card"><h3>3. NotebookLM</h3><p>用指定帳號匯入已核對來源，產出簡報、資訊圖、字卡、測驗與影片，下載回 repo／本機。</p></article><article class="card"><h3>4. YouTube</h3><p>使用既有 CLI uploader，上傳為兒童內容與 <code>unlisted</code>，再將影片 ID 回填 manifest 與網站。</p></article><article class="card"><h3>5. 批次產製</h3><p>一個 golden unit 通過後，由 generator 產生全部內頁，不逐頁複製 HTML。</p></article><article class="card"><h3>6. QA 與部署</h3><p>執行 validator、桌機／手機 visual QA、互動測試、commit、push 與 production verification。</p></article></div>
+
+    <h2>架構分層</h2>
+    <div class="layers"><article class="card"><h3>穩定架構</h3><ul><li>頁面資訊層級與學生／教師模式</li><li>簡報、評量、影片與課堂工具</li><li>國語直式、注音與發音 renderer</li><li>generator、CSS、JS、validator</li></ul></article><article class="card"><h3>可替換內容</h3><ul><li>title、focus、mission、objectives、flow</li><li>verticalSummary、vocabulary、characters</li><li>出版社 mapping 與 source references</li><li>NotebookLM slides 與 YouTube ID</li></ul></article></div>
+
+    <h2>國語 Reference Rules</h2>
+    <div class="rule"><strong>直式：</strong>固定使用 <code>writing-mode: vertical-rl</code> 與 <code>text-orientation: mixed</code>，禁止加入 <code>direction</code>。</div><div class="rule"><strong>注音：</strong>不使用 <code>&lt;ruby&gt; + vertical-rl</code>；漢字與注音採手工 flex，聲調放在最後一個注音符號右側。</div><div class="rule"><strong>發音：</strong>使用 <code>SpeechSynthesisUtterance</code>，語言 <code>zh-TW</code>，速度 <code>0.75</code>。</div><div class="rule"><strong>內容：</strong>只放原創摘要或已取得發布授權的內容，不重製受版權保護的課文全文。</div>
+
+    <h2>工作文件與資料入口</h2>
+    <ul class="links"><li><a href="foundation.html">Milestone A / Foundation</a></li><li><a href="docs/reference-baseline.md">Reference baseline</a></li><li><a href="data/templates/unit-content.template.json">Unit content template</a></li><li><a href="WORKFLOW.md">完整建置流程</a></li><li><a href="docs/content-model.md">多出版社內容模型</a></li></ul>
+  </main>
+  <footer>edu2 workflow dashboard · 以 main branch production 為準</footer>
+</body>
+</html>

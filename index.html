@@ -15,6 +15,7 @@
     header{background:linear-gradient(180deg,var(--wood-light),var(--wood));border-bottom:4px solid #513822;box-shadow:0 5px 18px #0006;padding:24px 20px}
     .header-inner{max-width:1080px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.brand h1{margin:0;font-size:clamp(1.55rem,4vw,2.2rem)}.brand p{margin:6px 0 0;opacity:.86}
     .badges{display:flex;gap:8px;flex-wrap:wrap}.badge{background:#fff2;border:1px solid #fff5;border-radius:999px;padding:5px 11px;font-size:.78rem}
+    .site-nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.site-nav a{color:white;text-decoration:none;border:1px solid #fff6;border-radius:999px;padding:6px 13px;background:#0002;font-size:.84rem}.site-nav a[aria-current="page"]{background:var(--yellow);color:var(--ink);border-color:var(--yellow);font-weight:900}
     main{max-width:1080px;margin:auto;padding:34px 20px 70px}.control-panel{background:#f8f4e8;color:var(--ink);border-radius:18px;padding:20px;box-shadow:0 12px 28px #0004;display:grid;grid-template-columns:minmax(210px,1fr) 2fr;gap:22px;align-items:end}
     .field label{display:block;font-weight:900;margin-bottom:7px}.field select{width:100%;border:2px solid #8b765f;border-radius:10px;background:white;padding:10px 12px}.mode-tabs{display:flex;gap:8px;flex-wrap:wrap}.mode-tabs button{border:2px solid #8b765f;border-radius:999px;background:#fff;padding:8px 14px;font-weight:700;cursor:pointer}.mode-tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:white}
     .notice{margin:22px 0;background:#ffda6818;border:1px solid #ffda6866;border-left:5px solid var(--yellow);border-radius:10px;padding:14px 16px}.notice strong{color:var(--yellow)}
@@ -30,7 +31,7 @@
   <a class="skip" href="#content">跳到主要內容</a>
   <header>
     <div class="header-inner">
-      <div class="brand"><h1>🎒 小二上教學駕駛艙</h1><p>Grade 2 · Semester 1 teaching cockpit</p></div>
+      <div class="brand"><h1>🎒 小二上教學駕駛艙</h1><p>Grade 2 · Semester 1 teaching cockpit</p><nav class="site-nav" aria-label="網站分頁"><a href="index.html" aria-current="page">教學成果</a><a href="workflow.html">工作流程</a></nav></div>
       <div class="badges"><span class="badge" id="publisher-badge">翰林版基準</span><span class="badge">小學二年級上學期</span><span class="badge">多版本架構</span></div>
     </div>
   </header>

@@ -48,6 +48,7 @@ try {
 
 const homepage = await read("index.html");
 const foundationPage = await read("foundation.html");
+const workflowPage = await read("workflow.html");
 const legacyPatterns = [/三年級/,/三下/,/href=["'](?:chinese\.html|math\/|science\/|L\d)/];
 for (const pattern of legacyPatterns) {
   if (pattern.test(homepage)) errors.push(`首頁仍含舊教材內容：${pattern}`);
@@ -56,6 +57,9 @@ if (!homepage.includes("publisher-select")) errors.push("首頁缺少 publisher 
 if (!homepage.includes("compare-view")) errors.push("首頁缺少 comparison view");
 if (!foundationPage.includes("Milestone A")) errors.push("foundation.html 缺少 Milestone A 定義");
 if (!foundationPage.includes("Milestone B")) errors.push("foundation.html 缺少 Milestone B 邊界");
+if (!homepage.includes('href="workflow.html"')) errors.push("首頁缺少工作流程分頁入口");
+if (!workflowPage.includes("國語 Reference Rules")) errors.push("workflow.html 缺少國語 reference 規則");
+if (!workflowPage.includes("vertical-rl")) errors.push("workflow.html 缺少直式規格記錄");
 
 for (const template of ["data/templates/intake.template.json", "data/templates/publisher-mapping.template.json", "data/templates/unit-content.template.json"]) {
   try {
