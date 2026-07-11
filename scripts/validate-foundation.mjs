@@ -58,6 +58,10 @@ try {
   if (expectedGolden.size) errors.push(`缺少科目 Golden sample：${[...expectedGolden].join(", ")}`);
   const chineseGolden = golden.samples?.find(sample => sample.subject === "chinese");
   if (chineseGolden?.requirements?.zhuyinPolicy !== "dense") errors.push("小二國語 Golden 必須使用 dense zhuyin policy");
+  for (const subject of ["math", "life"]) {
+    const sample = golden.samples?.find(item => item.subject === subject);
+    if (!sample?.parity?.checklist || !sample?.parity?.status) errors.push(`${subject} Golden 缺少 parity checklist/status`);
+  }
   const middleChinese = golden.futureProfiles?.find(profile => profile.profile === "chinese-middle-primary");
   if (middleChinese?.zhuyinPolicy !== "selective") errors.push("中年段國語 profile 必須使用 selective zhuyin policy");
 } catch (error) {
@@ -90,6 +94,8 @@ try { await access(new URL("../docs/retrospective-2026-07-11.md", import.meta.ur
 catch { errors.push("缺少本次建置 retrospective"); }
 try { await access(new URL("../docs/reuse-map-2026-07-11.md", import.meta.url)); }
 catch { errors.push("缺少本次 resumed portfolio reuse map"); }
+try { await access(new URL("../docs/golden-parity-math-life-2026-07-11.md", import.meta.url)); }
+catch { errors.push("缺少數學／生活 Golden parity checklist"); }
 
 for (const template of ["data/templates/intake.template.json", "data/templates/publisher-mapping.template.json", "data/templates/unit-content.template.json"]) {
   try {

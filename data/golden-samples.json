@@ -32,6 +32,11 @@
         "visualRepresentation": "required",
         "methodExplanation": "required"
       },
+      "parity": {
+        "status": "blocked",
+        "checklist": "docs/golden-parity-math-life-2026-07-11.md",
+        "openGates": ["manipulable-representation", "unit-reasoning", "unit-assessment", "teacher-mode-manual-qa"]
+      },
       "covers": ["concept-focus", "representation-flow", "formative-assessment", "classroom-tools"]
     },
     {
@@ -45,6 +50,11 @@
         "zhuyinPolicy": "not-applicable",
         "observation": "required",
         "inquiry": "required"
+      },
+      "parity": {
+        "status": "blocked",
+        "checklist": "docs/golden-parity-math-life-2026-07-11.md",
+        "openGates": ["observation-evidence", "safety-notes", "reflection-record", "teacher-mode-manual-qa"]
       },
       "covers": ["observation-flow", "inquiry-task", "reflection", "classroom-tools"]
     }
