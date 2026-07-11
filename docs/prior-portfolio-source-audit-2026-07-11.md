@@ -8,6 +8,7 @@
 |---|---|---|---|
 | edu1 小一國語下 | `RAW資料/資源索引.md` (2026-05-24) | A working source-index pattern: local downloads, official word bank, publisher audio, publisher Wordwall, external activity candidates, version-change notes | That any 小一教材, 112 materials, questions, or artifacts apply to 小二上 |
 | edu1 小一國語下 | `L6-caterpillar/source_material.md` | The source pack separated official word-bank facts from a separately identified text source, and explicitly noted when the textbook was authoritative | That a public text from another volume is licensed or equivalent for edu2 |
+| Obsidian 創作庫 | `20260527_Win11-SOP驗證_L6毛毛蟲過河.md` | The same L6 workflow was preserved outside Git: official word-bank → separately identified legal text source → physical-textbook audit; it also records NotebookLM / YouTube recovery steps | That its Grade 1 source, text, artifacts or version apply to Grade 2 |
 | edu3 小三下 | `CLAUDE.md`, Git commits `8fc55f4` → `ad08874` | NotebookLM artifact creation, local raw assets, unlisted YouTube integration and page-level commits were recorded | The original source set. edu3 Git history has artifact evidence but no committed curriculum-source provenance ledger |
 
 ## Recoverable method
@@ -17,6 +18,7 @@
 3. **Use teacher/creator resources as Tier C.** The current 114 Hanlin Grade 2 site by 雄老師 HTML5 FUN and the L01 Wordwall activity are useful discovery signals, not textbook truth and not downloadable source material.
 4. **Record version drift.** edu1 documented a real 112 → 114 lesson move/removal. Therefore an older matching title is not sufficient; every edu2 item needs publisher, year, grade, semester and lesson match.
 5. **Do not repeat edu3's missing link.** An artifact ledger alone does not preserve where the curriculum facts came from. edu2 requires source registry + acquisition log before its NotebookLM unit artifact gate can pass.
+6. **Search the entire Obsidian knowledge path.** `2ndbrain/edu2/工作筆記.md` is only the project dashboard. Phase 0 must also search `2ndbrain/創作庫/` for cockpit, subject and SOP notes; the L6 record was missed when search was limited to target-grade labels.
 
 ## New edu2 candidates, by role
 

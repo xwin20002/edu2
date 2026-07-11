@@ -102,6 +102,7 @@ edu2/
   - `workflow.html` 公開記錄 pipeline、reference layer 與不可破壞規格。
   - 國語 12 課公開詞彙已由教育雲 intake（365 筆）；`data/source-registry/chinese-lower-primary-114.json` 與 `data/source-acquisition-log.json` 是後續探索／下載的必經紀錄。
   - 已完成 `docs/prior-portfolio-source-audit-2026-07-11.md`：edu1 提供來源索引與版本異動檢查模式；edu3 提供 artifact integration history，但兩者教材內容均不可搬用。
+  - Obsidian `創作庫/20260527_Win11-SOP驗證_L6毛毛蟲過河.md` 是必查 workflow evidence：前置搜尋不得只限 edu2 dashboard 或目標年級名稱。
   - 逐課課文結構 brief、NotebookLM artifact 與專屬影片是 `pending`；缺少合法來源時不得推測或產製。
   - 出版社切換、版本隔離與比較框架已完成；康軒／南一保持 planned。
   - GitHub Pages production 已部署；本 session 關案前 validator 與 `git diff --check` 均通過。

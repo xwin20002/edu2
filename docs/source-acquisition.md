@@ -19,7 +19,7 @@ Raw PDF、HTML、影音與付費教材放在 ignored `source/`，不可直接提
 
 ## Every acquisition
 
-1. Search the registry first. Prefer a listed Tier A source; use the query templates for a new candidate.
+1. Search the registry first **and search both the project dashboard plus `2ndbrain/創作庫/`**. Prefer a listed Tier A source; use the query templates for a new candidate. Do not limit Obsidian search to the target grade, because reusable source and artifact SOPs may be filed under an earlier cockpit.
 2. Before download, record the candidate's publisher/version/grade/semester match and rights status. A same-title result is not enough.
 3. Save the raw file under `source/<owner-or-type>/`; keep it out of Git.
 4. Run the recorder. It calculates a SHA-256 and appends a committed provenance record.

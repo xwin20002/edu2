@@ -101,6 +101,18 @@
       "acquisitionLogIds": ["SRC-20260711-009"]
     },
     {
+      "id": "obsidian-l6-chinese-source-layering-sop",
+      "tier": "C",
+      "owner": "2ndbrain 創作庫 historical record",
+      "kind": "obsidian-workflow-evidence",
+      "localEvidence": "/Users/xwin20000/Library/CloudStorage/GoogleDrive-xwin20002@gmail.com/我的雲端硬碟/2ndbrain/創作庫/20260527_Win11-SOP驗證_L6毛毛蟲過河.md",
+      "coverage": "小一 L6 的資料分層、NotebookLM artifact、YouTube integration 與不確定性記錄 SOP",
+      "allowedUse": "重用『官方詞彙→合法文本來源→實體課本／教師 audit』分層、artifact QA 及 Obsidian discovery 範圍",
+      "forbiddenUse": "搬移小一課文、字詞、評量、影片、NotebookLM source 或把 L6 的來源適用性自動套到 L01",
+      "reviewStatus": "verified-as-workflow-reference",
+      "acquisitionLogIds": ["SRC-20260711-011"]
+    },
+    {
       "id": "edu3-git-artifact-history",
       "tier": "C",
       "owner": "edu3 historical Git and local record",

@@ -110,6 +110,16 @@
       "contentRole": "重用 NotebookLM／YouTube artifact integration history",
       "rightsStatus": "workflow-reference-only",
       "reviewStatus": "source provenance absent; do not reuse grade-3 curriculum data"
+    },
+    {
+      "id": "SRC-20260711-011",
+      "recordedAt": "2026-07-11",
+      "action": "obsidian-record-reviewed",
+      "sourceId": "obsidian-l6-chinese-source-layering-sop",
+      "localEvidence": "/Users/xwin20000/Library/CloudStorage/GoogleDrive-xwin20002@gmail.com/我的雲端硬碟/2ndbrain/創作庫/20260527_Win11-SOP驗證_L6毛毛蟲過河.md",
+      "contentRole": "小一國語資料分層、artifact 與跨機器 SOP 的 workflow evidence",
+      "rightsStatus": "workflow-reference-only",
+      "reviewStatus": "do not reuse grade-1 curriculum data"
     }
   ]
 }

@@ -119,6 +119,8 @@ Golden 的識別單位不是「所有科目共用一頁」，而是 **科目 × 
 
 開始下載前，先查 `data/source-registry/`；每個下載、轉檔或未下載候選都要記入 `data/source-acquisition-log.json`，規格見 `docs/source-acquisition.md`。原始檔仍放 ignored `source/`，但 provenance log 必須納入 Git。YouTube／教師網站預設是 Tier C 候選：先查版本、授權與教師 review，不能直接當課文事實或 NotebookLM source。
 
+Obsidian preflight 不只讀 `edu2/工作筆記.md`：還要以 `駕駛艙`、科目、出版社與 `NotebookLM` 搜尋 vault 的 `創作庫/`。可重用的是來源分層、下載紀錄與 artifact SOP；其他年級的教材內容仍是 `forbidden-content`。
+
 最低欄位：
 
 - 學年度、出版社、年級、學期、科目。
