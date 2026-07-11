@@ -91,18 +91,24 @@ edu2/
 <!-- CC-SESSION-HANDOFF:START -->
 ## 📌 Session 交接區
 
-- **Last session**: 2026-07-11 — 完成翰林114小二上三科網站並部署 GitHub Pages
+- **Last session**: 2026-07-11 — 完成 edu2 Milestone B、reference layer 與網站工作流程分頁
 - **Current state**:
-  - GitHub repo 與 feature branch 已存在。
+  - GitHub repo 使用 `main`；不得重新 init 或改寫 history。
   - 翰林114公開目錄已上架：國語12課、數學10單元、生活6主題。
-  - 三科頁面由結構化資料產生，包含原創教學任務與自我檢核。
+  - 28 個單元頁由結構化資料產生，包含學生／教師模式、NotebookLM 簡報、評量、影片與課堂工具。
+  - NotebookLM 使用 `xwin20002@gmail.com`；YouTube unlisted 影片為 `oD0GIU4UKPc`。
+  - `docs/reference-baseline.md` 與 `data/templates/unit-content.template.json` 已建立；L01 是國語 golden example。
+  - 國語直式／注音依 edu1 L8：`vertical-rl`、禁用 `direction`／`ruby`、手工 flex 聲調定位及 zh-TW 發音。
+  - `workflow.html` 公開記錄 pipeline、reference layer 與不可破壞規格。
   - 出版社切換、版本隔離與比較框架已完成；康軒／南一保持 planned。
-  - GitHub Pages production 已部署並完成桌機、手機、互動與 console QA。
+  - GitHub Pages production 已部署；本 session 關案前 validator 與 `git diff --check` 均通過。
 - **Next**:
-  - 第二階段加入 NotebookLM 與合法影音素材。
+  - 人工複核 28 個單元的內容細節與課堂適切性。
+  - 將 L02-L12 的國語 `verticalSummary`、`vocabulary`、`characters` 依合法來源補齊。
+  - 視需求補做三科獨立 NotebookLM artifacts。
   - 依需求建立康軒／南一正式資料與 comparison mappings。
   - 將本 repo 的 `WORKFLOW.md`、schema、templates 與 validator 套用到 edu4。
 - **Open questions**:
-  - NotebookLM notebook 與後續素材來源尚待指定。
+  - L02-L12 生字與注音的正式來源及人工校對尚未完成。
   - GitHub Actions 顯示 Node.js 20 deprecation annotation；目前部署成功，後續需隨官方 action major release 更新。
 <!-- CC-SESSION-HANDOFF:END -->

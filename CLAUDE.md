@@ -10,7 +10,7 @@
 - Obsidian dashboard：`/Users/xwin20000/Library/CloudStorage/GoogleDrive-xwin20002@gmail.com/我的雲端硬碟/2ndbrain/edu2/工作筆記.md`
 - GitHub repo：`https://github.com/xwin20002/edu2`
 - GitHub Pages：`https://xwin20002.github.io/edu2/`
-- 開發分支：`feature/grade2-semester1-foundation`
+- 目前分支：`main`
 
 ## 工作規則
 
@@ -33,8 +33,8 @@
 <!-- CC-SESSION-HANDOFF:START -->
 ## 📌 Session 交接區
 
-- **Last session**: 2026-07-11 — 翰林114小二上三科網站完成並部署。
-- **Current state**: production 已上線；國語12課、數學10單元、生活6主題可用；康軒／南一 planned 且版本隔離正常。
-- **Next**: 加入 NotebookLM／合法素材，或把 `WORKFLOW.md` 流程套用到 edu4。
-- **Open questions**: 後續素材來源；Actions Node.js 20 deprecation annotation 待官方 action 升級時處理。
+- **Last session**: 2026-07-11 — 完成 Milestone B、edu1 L8 國語 reference renderer 與 workflow.html。
+- **Current state**: production 已上線；28 個單元頁、NotebookLM artifacts、YouTube unlisted 影片、雙模式、評量與課堂工具可用。L01 是國語直式／注音 golden example，validator 防止 direction、ruby 與聲調定位回歸。
+- **Next**: 人工複核 28 個單元；依合法來源補齊 L02-L12 的直式導讀、詞彙、生字注音；再將可重用流程套用到 edu4。
+- **Open questions**: L02-L12 生字注音正式來源與人工校對；Actions Node.js 20 deprecation annotation 待官方 action 升級時處理。
 <!-- CC-SESSION-HANDOFF:END -->
