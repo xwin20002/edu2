@@ -31,3 +31,5 @@
 ## Reference 與 renderer
 
 版面與互動基準見 `docs/reference-baseline.md`。共用 renderer 管理穩定架構，publisher content JSON 只管理內容；國語另支援 `verticalSummary`、`vocabulary`、`characters`，避免每冊重寫直式與注音實作。
+
+國語的 source-of-truth intake 位於 `data/content-intake/chinese-hanlin-114.json`。它將「公開可核對的課名／詞彙 bank」與「需要合法 text-structure brief 的課文理解層」分開；未通過 text-structure review 的 unit 不得產生或嵌入本課 NotebookLM／YouTube artifact。

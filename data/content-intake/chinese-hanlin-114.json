@@ -1,0 +1,723 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "academicYear": 114,
+    "publisher": "hanlin",
+    "grade": 2,
+    "semester": 1,
+    "subject": "chinese",
+    "reviewedAt": "2026-07-11",
+    "reviewStatus": "titles-and-public-word-banks-verified"
+  },
+  "sourcePolicy": {
+    "publicWebsite": "Only original teaching summaries, activities, and public word-bank references may be published.",
+    "notebookLM": "Upload only verified and legally usable source packs; do not infer or recreate textbook prose.",
+    "textbookText": "Requires licensed source or teacher-provided material and human review before use."
+  },
+  "sources": [
+    {
+      "id": "educloud-index",
+      "type": "official-public-word-bank-index",
+      "localPath": "source/official/education-cloud-hanlin-grade2-chinese-114.html",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&degree=2&press=%E7%BF%B0%E6%9E%97%E7%89%88&year=114_1",
+      "status": "fetched-and-parsed"
+    },
+    {
+      "id": "school-plan",
+      "type": "public-school-curriculum-plan",
+      "localPath": "source/official/hanlin-grade2-chinese-114-spps-plan.md",
+      "url": "https://web.spps.tp.edu.tw/uploads/1756199556141pTG3MWbx.pdf",
+      "status": "fetched-and-converted"
+    },
+    {
+      "id": "educloud-ch-01",
+      "type": "official-public-word-bank",
+      "localPath": "source/official/education-cloud/ch-01.html",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140101",
+      "status": "fetched-and-parsed"
+    },
+    {
+      "id": "educloud-ch-02",
+      "type": "official-public-word-bank",
+      "localPath": "source/official/education-cloud/ch-02.html",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140102",
+      "status": "fetched-and-parsed"
+    },
+    {
+      "id": "educloud-ch-03",
+      "type": "official-public-word-bank",
+      "localPath": "source/official/education-cloud/ch-03.html",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140103",
+      "status": "fetched-and-parsed"
+    },
+    {
+      "id": "educloud-ch-04",
+      "type": "official-public-word-bank",
+      "localPath": "source/official/education-cloud/ch-04.html",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140104",
+      "status": "fetched-and-parsed"
+    },
+    {
+      "id": "educloud-ch-05",
+      "type": "official-public-word-bank",
+      "localPath": "source/official/education-cloud/ch-05.html",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140105",
+      "status": "fetched-and-parsed"
+    },
+    {
+      "id": "educloud-ch-06",
+      "type": "official-public-word-bank",
+      "localPath": "source/official/education-cloud/ch-06.html",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140106",
+      "status": "fetched-and-parsed"
+    },
+    {
+      "id": "educloud-ch-07",
+      "type": "official-public-word-bank",
+      "localPath": "source/official/education-cloud/ch-07.html",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140107",
+      "status": "fetched-and-parsed"
+    },
+    {
+      "id": "educloud-ch-08",
+      "type": "official-public-word-bank",
+      "localPath": "source/official/education-cloud/ch-08.html",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140108",
+      "status": "fetched-and-parsed"
+    },
+    {
+      "id": "educloud-ch-09",
+      "type": "official-public-word-bank",
+      "localPath": "source/official/education-cloud/ch-09.html",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140109",
+      "status": "fetched-and-parsed"
+    },
+    {
+      "id": "educloud-ch-10",
+      "type": "official-public-word-bank",
+      "localPath": "source/official/education-cloud/ch-10.html",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140110",
+      "status": "fetched-and-parsed"
+    },
+    {
+      "id": "educloud-ch-11",
+      "type": "official-public-word-bank",
+      "localPath": "source/official/education-cloud/ch-11.html",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140111",
+      "status": "fetched-and-parsed"
+    },
+    {
+      "id": "educloud-ch-12",
+      "type": "official-public-word-bank",
+      "localPath": "source/official/education-cloud/ch-12.html",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140112",
+      "status": "fetched-and-parsed"
+    }
+  ],
+  "units": [
+    {
+      "publisherUnitId": "ch-01",
+      "sequence": 1,
+      "officialTitle": "我的心情",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140101",
+      "sourceTerms": {
+        "生字": [
+          "候",
+          "颳",
+          "冷",
+          "躲",
+          "閃",
+          "電",
+          "難",
+          "烏",
+          "雲",
+          "密",
+          "布",
+          "盆",
+          "充",
+          "滿",
+          "放",
+          "晴",
+          "現",
+          "虹"
+        ],
+        "認讀字": [
+          "傾",
+          "麗"
+        ],
+        "語詞": [
+          "時候",
+          "冷冷",
+          "閃電",
+          "難過",
+          "烏雲密布",
+          "傾盆大雨",
+          "充滿",
+          "放晴",
+          "出現",
+          "美麗",
+          "彩虹"
+        ]
+      },
+      "sourceTermCount": 31,
+      "titleStatus": "verified",
+      "wordBankStatus": "verified-public-source",
+      "textStructureStatus": "needs-licensed-text-or-teacher-review",
+      "originalTeachingLayerStatus": "needs-unit-review",
+      "notebookArtifactStatus": "not-started"
+    },
+    {
+      "publisherUnitId": "ch-02",
+      "sequence": 2,
+      "officialTitle": "彩色的天空",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140102",
+      "sourceTerms": {
+        "生字": [
+          "老",
+          "師",
+          "新",
+          "希",
+          "望",
+          "卻",
+          "始",
+          "緊",
+          "因",
+          "為",
+          "知",
+          "道",
+          "怎",
+          "消",
+          "失",
+          "習",
+          "最",
+          "掛"
+        ],
+        "認讀字": [
+          "轉",
+          "熟",
+          "辦",
+          "舞"
+        ],
+        "語詞": [
+          "老師",
+          "希望",
+          "開始",
+          "緊張",
+          "因為",
+          "不熟",
+          "知道",
+          "怎麼辦",
+          "消失",
+          "學習",
+          "最後",
+          "跳舞"
+        ]
+      },
+      "sourceTermCount": 34,
+      "titleStatus": "verified",
+      "wordBankStatus": "verified-public-source",
+      "textStructureStatus": "needs-licensed-text-or-teacher-review",
+      "originalTeachingLayerStatus": "needs-unit-review",
+      "notebookArtifactStatus": "not-started"
+    },
+    {
+      "publisherUnitId": "ch-03",
+      "sequence": 3,
+      "officialTitle": "國王做新衣",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140103",
+      "sourceTerms": {
+        "生字": [
+          "國",
+          "王",
+          "喜",
+          "歡",
+          "穿",
+          "只",
+          "件",
+          "點",
+          "改",
+          "領",
+          "越",
+          "設",
+          "計",
+          "發",
+          "方",
+          "法",
+          "分",
+          "享"
+        ],
+        "認讀字": [
+          "臣",
+          "袖",
+          "驚",
+          "讓"
+        ],
+        "語詞": [
+          "國王",
+          "喜歡",
+          "大臣",
+          "一點",
+          "袖子",
+          "驚喜",
+          "設計",
+          "發現",
+          "方法",
+          "分享"
+        ]
+      },
+      "sourceTermCount": 32,
+      "titleStatus": "verified",
+      "wordBankStatus": "verified-public-source",
+      "textStructureStatus": "needs-licensed-text-or-teacher-review",
+      "originalTeachingLayerStatus": "needs-unit-review",
+      "notebookArtifactStatus": "not-started"
+    },
+    {
+      "publisherUnitId": "ch-04",
+      "sequence": 4,
+      "officialTitle": "水草下的呱呱",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140104",
+      "sourceTerms": {
+        "生字": [
+          "呱",
+          "聞",
+          "聲",
+          "猜",
+          "蛙",
+          "別",
+          "靠",
+          "近",
+          "抓",
+          "如",
+          "果",
+          "乖",
+          "腦",
+          "袋",
+          "瓜",
+          "證",
+          "明",
+          "頂"
+        ],
+        "認讀字": [
+          "影",
+          "蝦",
+          "蟆",
+          "擔"
+        ],
+        "語詞": [
+          "呱呱",
+          "蝦蟆",
+          "青蛙",
+          "靠近",
+          "擔心",
+          "如果",
+          "腦袋瓜",
+          "證明",
+          "頂呱呱"
+        ]
+      },
+      "sourceTermCount": 31,
+      "titleStatus": "verified",
+      "wordBankStatus": "verified-public-source",
+      "textStructureStatus": "needs-licensed-text-or-teacher-review",
+      "originalTeachingLayerStatus": "needs-unit-review",
+      "notebookArtifactStatus": "not-started"
+    },
+    {
+      "publisherUnitId": "ch-05",
+      "sequence": 5,
+      "officialTitle": "沙灘上的畫",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140105",
+      "sourceTerms": {
+        "生字": [
+          "沙",
+          "灘",
+          "海",
+          "邊",
+          "退",
+          "遠",
+          "螃",
+          "蟹",
+          "愛",
+          "注",
+          "夕",
+          "腳",
+          "丫",
+          "橫",
+          "留",
+          "印",
+          "挖",
+          "麗"
+        ],
+        "認讀字": [],
+        "語詞": [
+          "沙灘",
+          "海邊",
+          "螃蟹",
+          "可愛",
+          "注意",
+          "夕陽",
+          "腳印",
+          "美麗"
+        ]
+      },
+      "sourceTermCount": 26,
+      "titleStatus": "verified",
+      "wordBankStatus": "verified-public-source",
+      "textStructureStatus": "needs-licensed-text-or-teacher-review",
+      "originalTeachingLayerStatus": "needs-unit-review",
+      "notebookArtifactStatus": "not-started"
+    },
+    {
+      "publisherUnitId": "ch-06",
+      "sequence": 6,
+      "officialTitle": "草叢裡的星星",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140106",
+      "sourceTerms": {
+        "生字": [
+          "月",
+          "奶",
+          "晚",
+          "飯",
+          "散",
+          "屋",
+          "竹",
+          "林",
+          "頭",
+          "溪",
+          "旁",
+          "暗",
+          "眼",
+          "睛",
+          "那",
+          "聚",
+          "成",
+          "顆"
+        ],
+        "認讀字": [
+          "叢",
+          "盡"
+        ],
+        "語詞": [
+          "草叢",
+          "奶奶",
+          "晚飯",
+          "散步",
+          "竹林",
+          "盡頭",
+          "眼睛"
+        ]
+      },
+      "sourceTermCount": 27,
+      "titleStatus": "verified",
+      "wordBankStatus": "verified-public-source",
+      "textStructureStatus": "needs-licensed-text-or-teacher-review",
+      "originalTeachingLayerStatus": "needs-unit-review",
+      "notebookArtifactStatus": "not-started"
+    },
+    {
+      "publisherUnitId": "ch-07",
+      "sequence": 7,
+      "officialTitle": "不一樣的美食",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140107",
+      "sourceTerms": {
+        "生字": [
+          "樣",
+          "食",
+          "郊",
+          "活",
+          "奇",
+          "筒",
+          "香",
+          "味",
+          "便",
+          "當",
+          "盒",
+          "客",
+          "清",
+          "節",
+          "保",
+          "平",
+          "安",
+          "南"
+        ],
+        "認讀字": [
+          "祖",
+          "艾",
+          "粄",
+          "捲"
+        ],
+        "語詞": [
+          "不一樣",
+          "美食",
+          "郊外",
+          "活動",
+          "好奇",
+          "竹筒",
+          "香味",
+          "祖先",
+          "便當盒",
+          "艾粄",
+          "客家人",
+          "清明節"
+        ]
+      },
+      "sourceTermCount": 34,
+      "titleStatus": "verified",
+      "wordBankStatus": "verified-public-source",
+      "textStructureStatus": "needs-licensed-text-or-teacher-review",
+      "originalTeachingLayerStatus": "needs-unit-review",
+      "notebookArtifactStatus": "not-started"
+    },
+    {
+      "publisherUnitId": "ch-08",
+      "sequence": 8,
+      "officialTitle": "美食分享日",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140108",
+      "sourceTerms": {
+        "生字": [
+          "介",
+          "圓",
+          "形",
+          "白",
+          "紙",
+          "米",
+          "變",
+          "軟",
+          "搶",
+          "材",
+          "蝦",
+          "線",
+          "各",
+          "種",
+          "菜",
+          "接",
+          "聽",
+          "更"
+        ],
+        "認讀字": [
+          "紹",
+          "舉"
+        ],
+        "語詞": [
+          "介紹",
+          "圓形",
+          "白紙",
+          "舉手",
+          "食材",
+          "蝦子",
+          "米線",
+          "各種",
+          "青菜"
+        ]
+      },
+      "sourceTermCount": 29,
+      "titleStatus": "verified",
+      "wordBankStatus": "verified-public-source",
+      "textStructureStatus": "needs-licensed-text-or-teacher-review",
+      "originalTeachingLayerStatus": "needs-unit-review",
+      "notebookArtifactStatus": "not-started"
+    },
+    {
+      "publisherUnitId": "ch-09",
+      "sequence": 9,
+      "officialTitle": "好味道",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140109",
+      "sourceTerms": {
+        "生字": [
+          "黃",
+          "沖",
+          "澡",
+          "蘿",
+          "蔔",
+          "哪",
+          "粒",
+          "熱",
+          "浴",
+          "蒸",
+          "胖",
+          "名",
+          "苔",
+          "蛋",
+          "蔬",
+          "通",
+          "細",
+          "淡"
+        ],
+        "認讀字": [
+          "黏",
+          "飄"
+        ],
+        "語詞": [
+          "米粒",
+          "浴室",
+          "點名",
+          "海苔",
+          "蔬菜",
+          "通通",
+          "細心",
+          "淡淡"
+        ]
+      },
+      "sourceTermCount": 28,
+      "titleStatus": "verified",
+      "wordBankStatus": "verified-public-source",
+      "textStructureStatus": "needs-licensed-text-or-teacher-review",
+      "originalTeachingLayerStatus": "needs-unit-review",
+      "notebookArtifactStatus": "not-started"
+    },
+    {
+      "publisherUnitId": "ch-10",
+      "sequence": 10,
+      "officialTitle": "加加減減",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140110",
+      "sourceTerms": {
+        "生字": [
+          "減",
+          "表",
+          "讀",
+          "認",
+          "識",
+          "謎",
+          "答",
+          "搖",
+          "百",
+          "嘴",
+          "哥",
+          "數",
+          "題",
+          "趕",
+          "突",
+          "異",
+          "口",
+          "對"
+        ],
+        "認讀字": [
+          "嘟"
+        ],
+        "語詞": [
+          "表弟",
+          "讀書",
+          "認識",
+          "字謎",
+          "回答",
+          "表哥",
+          "數學",
+          "趕緊",
+          "突然",
+          "異口同聲"
+        ]
+      },
+      "sourceTermCount": 29,
+      "titleStatus": "verified",
+      "wordBankStatus": "verified-public-source",
+      "textStructureStatus": "needs-licensed-text-or-teacher-review",
+      "originalTeachingLayerStatus": "needs-unit-review",
+      "notebookArtifactStatus": "not-started"
+    },
+    {
+      "publisherUnitId": "ch-11",
+      "sequence": 11,
+      "officialTitle": "奇怪的門",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140111",
+      "sourceTerms": {
+        "生字": [
+          "怪",
+          "門",
+          "扇",
+          "立",
+          "刻",
+          "閒",
+          "馬",
+          "闖",
+          "耳",
+          "主",
+          "播",
+          "報",
+          "力",
+          "竟",
+          "巴",
+          "東",
+          "西",
+          "底"
+        ],
+        "認讀字": [
+          "慌",
+          "仔",
+          "擠",
+          "妖"
+        ],
+        "語詞": [
+          "奇怪",
+          "立刻",
+          "發慌",
+          "仔細",
+          "耳朵",
+          "主播",
+          "播報",
+          "用力",
+          "竟然",
+          "嘴巴",
+          "問東問西",
+          "到底",
+          "妖怪"
+        ]
+      },
+      "sourceTermCount": 35,
+      "titleStatus": "verified",
+      "wordBankStatus": "verified-public-source",
+      "textStructureStatus": "needs-licensed-text-or-teacher-review",
+      "originalTeachingLayerStatus": "needs-unit-review",
+      "notebookArtifactStatus": "not-started"
+    },
+    {
+      "publisherUnitId": "ch-12",
+      "sequence": 12,
+      "officialTitle": "詠鵝",
+      "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140112",
+      "sourceTerms": {
+        "生字": [
+          "念",
+          "曲",
+          "項",
+          "浮",
+          "掌",
+          "撥",
+          "波",
+          "詩",
+          "作",
+          "首",
+          "指",
+          "伸",
+          "脖",
+          "身",
+          "體",
+          "隻",
+          "倒",
+          "肚"
+        ],
+        "認讀字": [
+          "詠",
+          "鵝",
+          "歲",
+          "翻"
+        ],
+        "語詞": [
+          "詩人",
+          "伸長",
+          "脖子",
+          "身體",
+          "翻跟頭",
+          "倒立",
+          "肚皮"
+        ]
+      },
+      "sourceTermCount": 29,
+      "titleStatus": "verified",
+      "wordBankStatus": "verified-public-source",
+      "textStructureStatus": "needs-licensed-text-or-teacher-review",
+      "originalTeachingLayerStatus": "needs-unit-review",
+      "notebookArtifactStatus": "not-started"
+    }
+  ]
+}

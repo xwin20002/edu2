@@ -118,6 +118,15 @@ if (!chineseExample.includes('<span class="zy-row">ㄥ<span class="zy-tone">ˊ</
 try {
   const manifest = JSON.parse(await read("data/artifact-manifest.json"));
   if (manifest.notebook?.account !== "xwin20002@gmail.com") errors.push("NotebookLM account 不是 xwin20002@gmail.com");
+  if (manifest.artifacts?.find(item => item.id === "overview-video")?.scope !== "all-subject-overview-not-unit") errors.push("overview video 必須標為全冊導覽，不得視為逐課影片");
+  if (manifest.unitArtifacts?.status !== "not-started") errors.push("unit artifact 狀態需由逐課產製流程更新");
+  try {
+    const intake = JSON.parse(await read("data/content-intake/chinese-hanlin-114.json"));
+    if (intake.units?.length !== 12) errors.push("國語 content intake 必須有 12 課");
+    for (const unit of intake.units || []) {
+      if (unit.titleStatus !== "verified" || unit.wordBankStatus !== "verified-public-source" || !unit.sourceTermCount) errors.push(`${unit.publisherUnitId}: 國語 source intake 不完整`);
+    }
+  } catch (error) { errors.push(`國語逐課 content intake 無法解析：${error.message}`); }
   for (const artifact of manifest.artifacts || []) {
     if (artifact.path) {
       try { await access(new URL(`../${artifact.path}`, import.meta.url)); }
