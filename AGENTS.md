@@ -8,11 +8,16 @@
 > **Obsidian Dashboard**：`/Users/xwin20000/Library/CloudStorage/GoogleDrive-xwin20002@gmail.com/我的雲端硬碟/2ndbrain/edu2/工作筆記.md`
 > **開發分支**：`feature/grade2-semester1-foundation`
 > **建案類型**：CC 新案／接管既有 repo（由 edu3 衍生）
-> **建置狀態**：開案中；教材版本、科目範圍與單元內容待確認
+> **建置狀態**：Foundation 已完成；完整教學內容與媒體產製中
+> **Milestone A**：Foundation ready
+> **Milestone B**：Complete Teaching Cockpit in progress
+> **NotebookLM**：`https://notebooklm.google.com/notebook/2a2e7a75-9fde-439f-b3d4-8aa811bf4a73?authuser=1`（`xwin20002@gmail.com`）
 
 ## 專案目標
 
 建立適合課堂投影、學生複習與家庭共學的小二上教學駕駛艙。沿用既有教學駕駛艙的互動架構，但所有課名、課文、生字、圖片、影音與教學提示必須依小二上正式教材重新建置。
+
+`foundation.html` 是內部工作流程與資料入口；`index.html` 與各科／逐課頁面才是一般使用者成果。不得以 Milestone A 完成取代 Milestone B，或把只有目錄卡片的網站宣告為完整教學駕駛艙。
 
 ## 目前工作區
 
@@ -86,17 +91,18 @@ edu2/
 <!-- CC-SESSION-HANDOFF:START -->
 ## 📌 Session 交接區
 
-- **Last session**: 2026-07-11 — CC 新案：建立 `edu2 小二上教學駕駛艙` 專案定位
+- **Last session**: 2026-07-11 — 完成翰林114小二上三科網站並部署 GitHub Pages
 - **Current state**:
   - GitHub repo 與 feature branch 已存在。
-  - 工作區仍保留 `edu3 小三下` 頁面及素材，作為版型與互動參考。
-  - 專案初始化文件與 CC／Obsidian 路徑已補齊；正式教材內容尚未匯入。
+  - 翰林114公開目錄已上架：國語12課、數學10單元、生活6主題。
+  - 三科頁面由結構化資料產生，包含原創教學任務與自我檢核。
+  - 出版社切換、版本隔離與比較框架已完成；康軒／南一保持 planned。
+  - GitHub Pages production 已部署並完成桌機、手機、互動與 console QA。
 - **Next**:
-  - 確認出版社／學年度版本。
-  - 確認第一階段科目（國語、數學、生活）及課次／單元範圍。
-  - 提供或指定第一批教材與 NotebookLM artifacts，建立 golden template。
+  - 第二階段加入 NotebookLM 與合法影音素材。
+  - 依需求建立康軒／南一正式資料與 comparison mappings。
+  - 將本 repo 的 `WORKFLOW.md`、schema、templates 與 validator 套用到 edu4。
 - **Open questions**:
-  - 出版社與學年度版本為何？
-  - 第一階段要先做哪一科、哪些課／單元？
-  - 是否已有 NotebookLM notebook、圖片、PDF、音訊或影片素材？
+  - NotebookLM notebook 與後續素材來源尚待指定。
+  - GitHub Actions 顯示 Node.js 20 deprecation annotation；目前部署成功，後續需隨官方 action major release 更新。
 <!-- CC-SESSION-HANDOFF:END -->

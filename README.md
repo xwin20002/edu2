@@ -4,6 +4,11 @@
 
 > 目前為 initialization / content migration 階段。Repo 內既有頁面承接自 `edu3`，僅作 UI 與互動功能 reference；尚不代表小二上教材已完成。
 
+## Milestone 狀態
+
+- **Milestone A - Foundation：已完成。** 建置說明與資料入口見 [foundation.html](foundation.html)。
+- **Milestone B - Complete Teaching Cockpit：進行中。** 這才是一般教師、學生與家長使用的最終成果；需完成 NotebookLM、YouTube、逐課內容與完整 QA 才能宣告專案完成。
+
 ## 專案連結
 
 - GitHub Pages：<https://xwin20002.github.io/edu2/>
@@ -32,6 +37,8 @@ Repo 的 `工作筆記.md` 是 CC handoff 正本。外部 Obsidian dashboard 只
 - 正式首頁已切換為小二上；舊三下內頁仍保留作 reference，但不在正式導覽中。
 - 翰林版 114 學年度公開課程目錄已完成：國語 12 課、數學 10 單元、生活 6 主題。
 - 教學任務為本站原創，不重製課文、題本或教師手冊。
+- Production 已於 2026-07-11 完成部署與 smoke test。
+- 上述 production 是 Foundation／公開目錄版本，不代表 Milestone B 已完成。
 
 ## 多出版社 foundation
 

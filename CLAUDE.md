@@ -26,13 +26,15 @@
 - 未達 ready 的教材不可啟用首頁 `href`，也不可導向現存 edu3 reference 頁面。
 - 建置遵循 `WORKFLOW.md` 的 phase gates；教材 intake 與 mapping 使用 `data/templates/`，驗證執行 `node scripts/validate-foundation.mjs`。
 - 翰林三科資料維護於 `data/hanlin-114.json`；修改後執行 `node scripts/build-subject-pages.mjs`，不要直接修改 generated subject HTML。
+- Milestone A 是 `foundation.html` 的工程／資料入口；Milestone B 才是 `index.html` 與逐課教學成品。Foundation ready 不得宣告整個專案 complete。
+- 正式 NotebookLM 必須使用 `xwin20002@gmail.com`；notebook ID 為 `2a2e7a75-9fde-439f-b3d4-8aa811bf4a73`。YouTube 也必須使用同一帳號所屬頻道並設為 unlisted。
 - 不重新 `git init`、不重建 remote、不中斷或覆寫既有 Git history。
 
 <!-- CC-SESSION-HANDOFF:START -->
 ## 📌 Session 交接區
 
-- **Last session**: 2026-07-11 — CC 新案：`edu2 小二上教學駕駛艙`
-- **Current state**: repo/branch 與初始化已完成；publisher-aware 首頁、catalog 與比較架構已建立；正式小二上內容尚未匯入。
-- **Next**: 取得翰林小二上正式目錄，選定第一課／單元建立 canonical mapping 與 golden template。
-- **Open questions**: 出版社／學年度、優先科目與範圍、NotebookLM 或本機教材來源。
+- **Last session**: 2026-07-11 — 翰林114小二上三科網站完成並部署。
+- **Current state**: production 已上線；國語12課、數學10單元、生活6主題可用；康軒／南一 planned 且版本隔離正常。
+- **Next**: 加入 NotebookLM／合法素材，或把 `WORKFLOW.md` 流程套用到 edu4。
+- **Open questions**: 後續素材來源；Actions Node.js 20 deprecation annotation 待官方 action 升級時處理。
 <!-- CC-SESSION-HANDOFF:END -->

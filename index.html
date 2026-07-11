@@ -20,6 +20,7 @@
     .notice{margin:22px 0;background:#ffda6818;border:1px solid #ffda6866;border-left:5px solid var(--yellow);border-radius:10px;padding:14px 16px}.notice strong{color:var(--yellow)}
     h2{font-size:1.25rem;color:var(--yellow);margin:30px 0 17px;border-bottom:2px dashed #ffd45a88;padding-bottom:9px}.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:18px}.card{background:linear-gradient(145deg,var(--board-2),#192b20);border:2px solid #fff2;border-radius:17px;padding:23px;min-height:225px;box-shadow:inset 0 0 24px #0004;position:relative}.card[data-color="yellow"]{--accent:var(--yellow)}.card[data-color="blue"]{--accent:var(--blue)}.card[data-color="green"]{--accent:var(--green)}.card h3{color:var(--accent);font-size:1.45rem;margin:8px 0}.emoji{font-size:2.65rem}.status{position:absolute;top:15px;right:15px;border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:3px 9px;font-size:.7rem}.card p{color:var(--muted);line-height:1.7;min-height:56px}.card a,.disabled-link{display:inline-flex;border-radius:999px;padding:7px 15px;font-size:.84rem;font-weight:900;text-decoration:none;background:var(--accent);color:#152019}.disabled-link{opacity:.6;cursor:not-allowed}
     .compare{display:none}.compare.active{display:block}.compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px}.compare article{background:#ffffff0c;border:1px solid #ffffff24;border-radius:13px;padding:18px}.compare h3{margin:0 0 8px;color:var(--blue)}.compare p{color:var(--muted);line-height:1.65;margin:0}.legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.8rem;margin-top:14px}.dot::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:currentColor;margin-right:6px}.common{color:var(--green)}.specific{color:var(--yellow)}.sequence{color:var(--pink)}
+    .resources{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:15px}.resource{background:#fff;color:var(--ink);border-radius:14px;padding:18px}.resource h3{margin:0 0 8px}.resource p{color:#596159;line-height:1.6}.resource a{display:inline-flex;background:var(--ink);color:#fff;border-radius:999px;padding:8px 14px;text-decoration:none;font-weight:700}.resource .pending{color:#765d12;font-weight:700}
     footer{text-align:center;border-top:1px solid #fff2;color:var(--muted);padding:20px;font-size:.8rem}footer a{color:var(--yellow)}
     @media(max-width:720px){.control-panel{grid-template-columns:1fr}.header-inner{justify-content:center;text-align:center}.badges{justify-content:center}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
@@ -53,6 +54,15 @@
         <article><h3>教授順序差異</h3><p>比較相同能力主題在各版本出現的學期、單元與先後順序，避免把課次當成穩定識別碼。</p></article>
       </div>
       <div class="legend"><span class="dot common">共通重點</span><span class="dot specific">版本特有</span><span class="dot sequence">順序差異</span></div>
+    </section>
+
+    <section aria-labelledby="resource-title">
+      <h2 id="resource-title">學習資源</h2>
+      <div class="resources">
+        <article class="resource"><h3>🧭 全冊學習簡報</h3><p>NotebookLM 依 4 份已核對來源製作，共 13 頁；已完成 render 與 overflow 檢查。</p><a href="assets/notebooklm/edu2_overview_slides.pptx">下載 PowerPoint</a></article>
+        <article class="resource"><h3>🧠 NotebookLM</h3><p>包含全冊總覽、國語、數學與生活來源，以及學習卡與測驗。</p><a href="https://notebooklm.google.com/notebook/2a2e7a75-9fde-439f-b3d4-8aa811bf4a73?authuser=1" target="_blank" rel="noreferrer">開啟 NotebookLM</a></article>
+        <article class="resource"><h3>🎬 學生自學影片</h3><p>5 分 58 秒影片已產出並完成本機存檔。</p><span class="pending">YouTube 不公開連結待帳號權限解除後補上</span></article>
+      </div>
     </section>
   </main>
   <footer>edu2 小二上教學駕駛艙 · <a href="https://github.com/xwin20002/edu2">GitHub</a> · 現階段不發布未校對教材</footer>

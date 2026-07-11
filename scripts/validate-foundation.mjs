@@ -31,20 +31,31 @@ try {
   const hanlin = JSON.parse(await read("data/hanlin-114.json"));
   const expected = {chinese: 12, math: 10, life: 6};
   for (const [id, count] of Object.entries(expected)) {
-    const actual = hanlin.subjects?.find(subject => subject.id === id)?.units?.length;
+    const subject = hanlin.subjects?.find(item => item.id === id);
+    const actual = subject?.units?.length;
     if (actual !== count) errors.push(`hanlin-114 ${id} 單元數錯誤：預期 ${count}，實際 ${actual}`);
+    for (const [index, unit] of (subject?.units || []).entries()) {
+      const prefix = id === "chinese" ? "L" : id === "math" ? "U" : "T";
+      const unitFolder = `${prefix}${String(index + 1).padStart(2, "0")}`;
+      const folder = id === "chinese" ? `chinese/${unitFolder}` : `${id}/${unitFolder}`;
+      try { await access(new URL(`../${folder}/index.html`, import.meta.url)); }
+      catch { errors.push(`${id} ${unit.id}: 單元頁不存在`); }
+    }
   }
 } catch (error) {
   errors.push(`data/hanlin-114.json 無法解析：${error.message}`);
 }
 
 const homepage = await read("index.html");
+const foundationPage = await read("foundation.html");
 const legacyPatterns = [/三年級/,/三下/,/href=["'](?:chinese\.html|math\/|science\/|L\d)/];
 for (const pattern of legacyPatterns) {
   if (pattern.test(homepage)) errors.push(`首頁仍含舊教材內容：${pattern}`);
 }
 if (!homepage.includes("publisher-select")) errors.push("首頁缺少 publisher selector");
 if (!homepage.includes("compare-view")) errors.push("首頁缺少 comparison view");
+if (!foundationPage.includes("Milestone A")) errors.push("foundation.html 缺少 Milestone A 定義");
+if (!foundationPage.includes("Milestone B")) errors.push("foundation.html 缺少 Milestone B 邊界");
 
 for (const template of ["data/templates/intake.template.json", "data/templates/publisher-mapping.template.json"]) {
   try {
@@ -52,6 +63,19 @@ for (const template of ["data/templates/intake.template.json", "data/templates/p
   } catch (error) {
     errors.push(`${template} 無法解析：${error.message}`);
   }
+}
+
+try {
+  const manifest = JSON.parse(await read("data/artifact-manifest.json"));
+  if (manifest.notebook?.account !== "xwin20002@gmail.com") errors.push("NotebookLM account 不是 xwin20002@gmail.com");
+  for (const artifact of manifest.artifacts || []) {
+    if (artifact.path) {
+      try { await access(new URL(`../${artifact.path}`, import.meta.url)); }
+      catch { errors.push(`${artifact.id}: artifact path 不存在 (${artifact.path})`); }
+    }
+  }
+} catch (error) {
+  errors.push(`data/artifact-manifest.json 無法解析：${error.message}`);
 }
 
 if (errors.length) {

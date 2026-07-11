@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>edu2 Foundation｜建置流程與資料入口</title>
+  <style>
+    :root{--bg:#101b14;--panel:#1d3023;--text:#f2eee2;--muted:#bcb7aa;--gold:#ffd45a;--green:#9ed5a1;--blue:#86d8ff}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.65}header,main,footer{max-width:980px;margin:auto;padding:24px}header{padding-top:45px}h1{margin:0;color:var(--gold)}.lead{color:var(--muted);font-size:1.05rem}.status{display:inline-block;border:1px solid var(--gold);color:var(--gold);border-radius:99px;padding:4px 12px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}.card{background:var(--panel);border:1px solid #ffffff20;border-radius:14px;padding:19px}.card h2,.card h3{margin-top:0}.done{color:var(--green)}.pending{color:var(--gold)}a{color:var(--blue)}code{background:#0005;border-radius:5px;padding:2px 6px}.pipeline{display:grid;gap:8px;margin:24px 0}.step{background:#ffffff0a;border-left:4px solid var(--blue);padding:10px 14px;border-radius:7px}.step.ready{border-color:var(--green)}.step.pending{border-color:var(--gold)}.warning{border:1px solid #ffd45a66;background:#ffd45a10;border-radius:12px;padding:15px}footer{color:var(--muted);border-top:1px solid #ffffff1c;margin-top:35px}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">← 一般使用者網站</a>
+    <h1>Milestone A · Foundation</h1>
+    <p class="lead">本頁是建置流程、資料入口與工程交接頁，不是教師／學生的最終教學成果。</p>
+    <span class="status">Foundation ready</span>
+  </header>
+  <main>
+    <section class="warning"><strong>完成定義：</strong>Foundation ready 只代表結構、資料模型與部署基礎可用。只有 Milestone B 的教材、NotebookLM artifacts、YouTube、逐課互動內容及 production QA 全部通過，專案才能標示 complete。</section>
+
+    <h2>Pipeline 狀態</h2>
+    <div class="pipeline">
+      <div class="step ready">✅ Repo、CC handoff、Obsidian mapping</div>
+      <div class="step ready">✅ Publisher-neutral schema 與翰林公開目錄</div>
+      <div class="step ready">✅ 建置腳本、templates、validator 與 GitHub Pages</div>
+      <div class="step pending">⏳ 合法完整教材與 NotebookLM sources</div>
+      <div class="step pending">⏳ NotebookLM 簡報、圖卡、資訊圖表與影片</div>
+      <div class="step pending">⏳ YouTube unlisted 上傳與逐課嵌入</div>
+      <div class="step pending">⏳ edu3 等級逐課互動內容與 production QA</div>
+    </div>
+
+    <div class="grid">
+      <article class="card"><h3>資料入口</h3><ul><li><a href="data/catalog.json">Publisher catalog</a></li><li><a href="data/hanlin-114.json">翰林114公開目錄</a></li><li><a href="data/templates/intake.template.json">教材 intake template</a></li><li><a href="data/templates/publisher-mapping.template.json">版本 mapping template</a></li></ul></article>
+      <article class="card"><h3>工作規格</h3><ul><li><a href="WORKFLOW.md">完整 workflow</a></li><li><a href="docs/content-model.md">多出版社內容模型</a></li><li><a href="README.md">專案說明</a></li></ul></article>
+      <article class="card"><h3>建置與驗證</h3><p><code>node scripts/build-subject-pages.mjs</code></p><p><code>node scripts/validate-foundation.mjs</code></p><p>Milestone B 另需 artifact manifest、影片清單、逐課 QA 與 production smoke test。</p></article>
+    </div>
+  </main>
+  <footer>edu2 engineering entry · 一般使用請回到 <a href="index.html">小二上教學駕駛艙</a></footer>
+</body>
+</html>

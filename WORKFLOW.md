@@ -2,6 +2,26 @@
 
 本流程以 `edu2` 為首個 reference implementation，可重用於 `edu4` 或其他年級。年級、學期、科目與出版社是資料，不應散落成寫死的前端邏輯。
 
+## 兩個 Milestones
+
+### Milestone A - Foundation
+
+工程與資料供應鏈的基礎：repo 接管、專案文件、publisher-neutral schema、教材 intake、mapping templates、建置腳本、validator、版本隔離與部署骨架。
+
+- 對應頁面：`foundation.html`
+- 主要使用者：建置者、維護者、AI agents。
+- 可以作為工作流程說明頁與資料入口。
+- **Foundation ready 不等於專案 complete。**
+
+### Milestone B - Complete Teaching Cockpit
+
+一般教師、學生與家長實際使用的成果：完整教材脈絡、NotebookLM artifacts、YouTube 自學影片、逐課／逐單元教學內容、互動活動、教師提示、課堂工具與 production QA。
+
+- 對應頁面：`index.html`、各科首頁與逐課／逐單元頁。
+- 主要使用者：教師、學生、家長。
+- 公開導覽不顯示工程 placeholder、資料表單或未完成版本。
+- 只有 Milestone B 全部 exit gates 通過，才可標記專案 complete。
+
 ## 核心原則
 
 1. 先建立 publisher-neutral foundation，再匯入教材。
@@ -109,6 +129,28 @@
 4. Review 後合併 `main`。
 5. GitHub Actions 部署 GitHub Pages。
 6. Production URL 做 smoke test。
+
+## Milestone B 完整產製鏈
+
+1. 取得合法教材、備課資料與可追溯 sources。
+2. 建立 NotebookLM notebook 並匯入 sources。
+3. 產出授課簡報、生字卡／故事地圖、資訊圖表與學生自學影片。
+4. 下載 artifacts，依命名規則整理、轉檔與壓縮。
+5. 將影片上傳指定 YouTube channel，預設 `unlisted`，記錄 video ID。
+6. 建立逐課／逐單元頁，嵌入 artifacts 與 YouTube。
+7. 加入教師提示、Bloom 分層、形成性評量與課堂工具。
+8. 驗證桌機、平板、手機、投影、音訊、互動、素材與 console。
+9. 部署 GitHub Pages 並做 production smoke test。
+
+NotebookLM source pack 由 `node scripts/build-notebooklm-sources.mjs` 產生，狀態正本為 `data/artifact-manifest.json`。來源 Markdown 可提交 Git；原始付費教材仍放在被忽略的 `source/`。
+
+### Milestone B exit gate
+
+- 每個正式課／單元都有完整頁面，不只是目錄卡片。
+- NotebookLM artifact manifest 完整，網站引用的檔案存在。
+- 所有影片均有可播放的 YouTube ID 與 visibility 紀錄。
+- 無 placeholder、舊年級教材、broken asset 或 console error。
+- 教師區、學生區、課堂工具與跨裝置 QA 均通過。
 
 ## edu4 套用方式
 

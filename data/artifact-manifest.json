@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "notebook": {
+    "id": "2a2e7a75-9fde-439f-b3d4-8aa811bf4a73",
+    "title": "edu2 小二上教學駕駛艙｜翰林版",
+    "url": "https://notebooklm.google.com/notebook/2a2e7a75-9fde-439f-b3d4-8aa811bf4a73?authuser=1",
+    "account": "xwin20002@gmail.com"
+  },
+  "sources": [
+    {"id": "overview", "path": "sources/notebooklm/00-overview.md", "status": "uploaded"},
+    {"id": "chinese", "path": "sources/notebooklm/chinese-hanlin-114.md", "status": "uploaded"},
+    {"id": "math", "path": "sources/notebooklm/math-hanlin-114.md", "status": "uploaded"},
+    {"id": "life", "path": "sources/notebooklm/life-hanlin-114.md", "status": "uploaded"}
+  ],
+  "artifacts": [
+    {"id": "overview-slides", "type": "slides", "title": "Grade 2 Learning Adventure", "status": "ready", "sourceCount": 4, "path": "assets/notebooklm/edu2_overview_slides.pptx", "qa": "accepted-rendered-13-slides-no-overflow"},
+    {"id": "overview-infographic", "type": "infographic", "title": "小二上學習探險地圖", "status": "downloaded-draft", "sourceCount": 4, "rawPath": "assets/notebooklm/edu2_overview_infographic.png", "webPath": "assets/notebooklm/edu2_overview_infographic.jpg", "qa": "rejected-text-errors"},
+    {"id": "overview-video", "type": "video", "title": "超級二年級學習大冒險", "status": "downloaded-local", "sourceCount": 4, "duration": "5:58", "localPath": "assets/notebooklm/edu2_overview_video.mp4", "youtubeStatus": "blocked-by-browser-policy"},
+    {"id": "course-flashcards", "type": "flashcards", "title": "課程字卡", "status": "ready-in-notebooklm", "sourceCount": 4},
+    {"id": "course-quiz", "type": "quiz", "title": "學科測驗", "status": "ready-in-notebooklm", "sourceCount": 4}
+  ],
+  "youtube": {"account": "xwin20002@gmail.com", "channel": null, "visibility": "unlisted", "status": "blocked-by-browser-policy", "videos": []},
+  "updatedAt": "2026-07-11T11:28:00+08:00"
+}
