@@ -88,6 +88,8 @@ if (!workflowPage.includes("scopeClass") || !workflowPage.includes("continuitySt
 if (!workflowPage.includes("知識成熟循環")) errors.push("workflow.html 缺少 knowledge maturation loop");
 try { await access(new URL("../docs/retrospective-2026-07-11.md", import.meta.url)); }
 catch { errors.push("缺少本次建置 retrospective"); }
+try { await access(new URL("../docs/reuse-map-2026-07-11.md", import.meta.url)); }
+catch { errors.push("缺少本次 resumed portfolio reuse map"); }
 
 for (const template of ["data/templates/intake.template.json", "data/templates/publisher-mapping.template.json", "data/templates/unit-content.template.json"]) {
   try {
