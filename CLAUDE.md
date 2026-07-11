@@ -33,8 +33,8 @@
 <!-- CC-SESSION-HANDOFF:START -->
 ## 📌 Session 交接區
 
-- **Last session**: 2026-07-11 — 國語公開學習層完成，加入教育雲詞彙、翰林逐課朗讀外連、發音互動與來源 gate。
-- **Current state**: production 的 28 個內頁仍可作架構／interaction reference；Milestone B 未完成。國語 12 課 title／公開詞彙 bank（365 筆）及翰林「聽 e 聽」逐課播放清單已核對；每頁提供分組詞彙、`zh-TW` 發音與 link-only 朗讀入口。L01 是直式／注音 Golden，但直式文字現在明標為原創朗讀練習，不是課文本文。舊有由課名或詞彙推測的 L02-L12 文意已移除。YouTube `oD0GIU4UKPc` 僅是全冊 overview，不得當逐課影片；逐課 text-structure、NotebookLM artifact、media 均 pending。
+- **Last session**: 2026-07-11 — CC 關案；國語公開學習層已部署，production commit `2262b73`。
+- **Current state**: production 的 28 個內頁仍可作架構／interaction reference；Milestone B 未完成。國語 12 課 title／公開詞彙 bank（365 筆）及翰林「聽 e 聽」逐課播放清單已核對；每頁提供分組詞彙、`zh-TW` 發音與 link-only 朗讀入口。L01 是直式／注音 Golden，但直式文字現在明標為原創朗讀練習，不是課文本文。舊有由課名或詞彙推測的 L02-L12 文意已移除。YouTube `oD0GIU4UKPc` 僅是全冊 overview，不得當逐課影片；逐課 text-structure、NotebookLM artifact、media 均 pending。最後技術 gate：validator、`git diff --check`、L01 production smoke test 均通過。
 - **Next**: 取得 L01 合法 text-structure brief／教師核對稿，跑完一課 source → NotebookLM → QA → media ID；L02-L12 再依同一 schema 擴充。每次候選網站／YouTube 發現或下載都先更新 source registry／provenance log；Obsidian 必須同時搜尋 project dashboard 與 `創作庫/` 的 cockpit/SOP notes；再將可重用流程套用到 edu4。
 - **Open questions**: L01-L12 的課文結構合法來源與人工校對；Tier C 教師／YouTube 資源的授權、版本與兒少適切性；Actions Node.js 20 deprecation annotation 待官方 action 升級時處理。
 <!-- CC-SESSION-HANDOFF:END -->

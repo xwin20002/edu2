@@ -91,7 +91,7 @@ edu2/
 <!-- CC-SESSION-HANDOFF:START -->
 ## 📌 Session 交接區
 
-- **Last session**: 2026-07-11 — 國語公開學習層完成，加入教育雲詞彙、翰林逐課朗讀外連、發音互動與來源 gate
+- **Last session**: 2026-07-11 — CC 關案；國語公開學習層已部署，production commit `2262b73`
 - **Current state**:
   - GitHub repo 使用 `main`；不得重新 init 或改寫 history。
   - 翰林114公開目錄已上架：國語12課、數學10單元、生活6主題。
@@ -106,7 +106,7 @@ edu2/
   - Obsidian `創作庫/20260527_Win11-SOP驗證_L6毛毛蟲過河.md` 是必查 workflow evidence：前置搜尋不得只限 edu2 dashboard 或目標年級名稱。
   - 逐課課文結構 brief、NotebookLM artifact 與專屬影片是 `pending`；公開詞彙／朗讀層不構成課文理解完成，缺少合法來源時不得推測或產製。
   - 出版社切換、版本隔離與比較框架已完成；康軒／南一保持 planned。
-  - GitHub Pages production 已部署；本 session 關案前 validator 與 `git diff --check` 均通過。
+  - GitHub Pages production 已部署並以 L01 smoke test 確認公開詞彙／朗讀入口；本 session 關案前 validator 與 `git diff --check` 均通過。
 - **Next**:
   - 先取得 L01 合法 text-structure brief／教師核對稿，並逐課核對翰林聽e聽／官方 Wordwall 是否可作 external reference，完成 source → NotebookLM → QA → media ID vertical slice。
   - 將 L02-L12 的國語 text-structure brief、`verticalSummary`、`vocabulary`、`characters` 依合法來源補齊。
