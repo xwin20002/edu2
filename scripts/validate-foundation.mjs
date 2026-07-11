@@ -72,9 +72,12 @@ for (const template of ["data/templates/intake.template.json", "data/templates/p
 const unitCss = await read("assets/css/unit.css");
 const chineseExample = await read("chinese/L01/index.html");
 if (!unitCss.includes("writing-mode:vertical-rl")) errors.push("國語直式導讀缺少 vertical-rl");
+if (!unitCss.includes("text-orientation:mixed")) errors.push("國語直式導讀缺少 mixed orientation");
 if (/(?:^|[;{])\s*direction\s*:/.test(unitCss)) errors.push("國語直式樣式不得加入 direction");
+if (!unitCss.includes("flex-direction:row-reverse")) errors.push("國語生字排列缺少 row-reverse");
 if (chineseExample.includes("<ruby")) errors.push("國語注音不得使用 ruby");
 if (!chineseExample.includes("zy-tone")) errors.push("國語注音範例缺少聲調定位");
+if (!chineseExample.includes('<span class="zy-row">ㄥ<span class="zy-tone">ˊ</span>')) errors.push("國語注音聲調未放在末符號右側");
 
 try {
   const manifest = JSON.parse(await read("data/artifact-manifest.json"));
