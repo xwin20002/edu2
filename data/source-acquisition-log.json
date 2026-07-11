@@ -120,6 +120,17 @@
       "contentRole": "小一國語資料分層、artifact 與跨機器 SOP 的 workflow evidence",
       "rightsStatus": "workflow-reference-only",
       "reviewStatus": "do not reuse grade-1 curriculum data"
+    },
+    {
+      "id": "SRC-20260711-012",
+      "recordedAt": "2026-07-11",
+      "action": "discovered-no-download",
+      "sourceId": "hanlin-listening-e-listen",
+      "sourceUrl": "https://player.hle.com.tw/ech/lesson.html?volume=%E4%BA%8C%E4%B8%8A",
+      "derivedOutput": "data/content-intake/chinese-hanlin-114.json officialListening.playlistUrl for L01 through L12",
+      "contentRole": "12 課課文朗讀／領讀播放清單的 publisher link-only entry；L01 額外核對有兩種音檔",
+      "rightsStatus": "publisher-content-link-only; no download, embed, reproduction, or upload",
+      "reviewStatus": "verified-course-list-and-l01-track-list"
     }
   ]
 }

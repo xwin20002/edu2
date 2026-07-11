@@ -42,12 +42,12 @@
       "owner": "翰林出版事業股份有限公司",
       "kind": "publisher-audio-platform",
       "url": "https://player.hle.com.tw/ech/index.html",
-      "coverage": "翰林國語課文朗讀入口；需在網站內人工選擇二上與對應課次",
-      "allowedUse": "核對朗讀是否存在、建立外連或教師使用紀錄；逐課進入後必須另記 exact URL／課次／可用狀態",
+      "coverage": "翰林國語二上 12 課課文朗讀入口；每課播放清單 URL 已由二上選課頁核對",
+      "allowedUse": "核對朗讀是否存在、建立外連或教師使用紀錄；逐課使用 exact URL、課次與 link-only 狀態",
       "forbiddenUse": "下載、重製或重新上傳出版社音檔；不得由朗讀入口推測未核對的課文結構",
       "rightsStatus": "publisher-content-link-only",
-      "reviewStatus": "discovered-needs-unit-check",
-      "acquisitionLogIds": ["SRC-20260711-006"]
+      "reviewStatus": "verified-12-unit-links-and-l01-track-list",
+      "acquisitionLogIds": ["SRC-20260711-006", "SRC-20260711-012"]
     },
     {
       "id": "hanlin-primary-wordwall",

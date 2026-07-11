@@ -104,7 +104,7 @@ try {
   }
   if (registry.sources?.find(source => source.id === "gsyan-html5-fun-hanlin-grade2-114")?.licenseStatus !== "unknown-review-required") errors.push("Tier C 教師資源必須保留授權 review gate");
   const log = JSON.parse(await read("data/source-acquisition-log.json"));
-  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005", "SRC-20260711-006", "SRC-20260711-007", "SRC-20260711-008", "SRC-20260711-009", "SRC-20260711-010", "SRC-20260711-011"]) {
+  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005", "SRC-20260711-006", "SRC-20260711-007", "SRC-20260711-008", "SRC-20260711-009", "SRC-20260711-010", "SRC-20260711-011", "SRC-20260711-012"]) {
     if (!log.records?.some(record => record.id === id)) errors.push(`source acquisition log 缺少 ${id}`);
   }
 } catch (error) { errors.push(`source registry 或 acquisition log 無法解析：${error.message}`); }
@@ -135,8 +135,11 @@ try {
   try {
     const intake = JSON.parse(await read("data/content-intake/chinese-hanlin-114.json"));
     if (intake.units?.length !== 12) errors.push("國語 content intake 必須有 12 課");
-    for (const unit of intake.units || []) {
+    for (const [index, unit] of (intake.units || []).entries()) {
       if (unit.titleStatus !== "verified" || unit.wordBankStatus !== "verified-public-source" || !unit.sourceTermCount) errors.push(`${unit.publisherUnitId}: 國語 source intake 不完整`);
+      if (unit.publicLearningLayerStatus !== "ready-wordbank-and-listening") errors.push(`${unit.publisherUnitId}: 公開詞彙／朗讀層尚未完成`);
+      const expectedListening = `https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L${index + 1}`;
+      if (unit.officialListening?.playlistUrl !== expectedListening || unit.officialListening?.status !== "verified-link-only") errors.push(`${unit.publisherUnitId}: 翰林朗讀外連未核對`);
     }
   } catch (error) { errors.push(`國語逐課 content intake 無法解析：${error.message}`); }
   for (const artifact of manifest.artifacts || []) {

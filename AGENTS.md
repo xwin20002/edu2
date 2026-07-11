@@ -91,7 +91,7 @@ edu2/
 <!-- CC-SESSION-HANDOFF:START -->
 ## 📌 Session 交接區
 
-- **Last session**: 2026-07-11 — 國語回退至 Phase 2，建立 source intake、來源 registry 與下載 provenance contract
+- **Last session**: 2026-07-11 — 國語公開學習層完成，加入教育雲詞彙、翰林逐課朗讀外連、發音互動與來源 gate
 - **Current state**:
   - GitHub repo 使用 `main`；不得重新 init 或改寫 history。
   - 翰林114公開目錄已上架：國語12課、數學10單元、生活6主題。
@@ -100,10 +100,11 @@ edu2/
   - `docs/reference-baseline.md` 與 `data/templates/unit-content.template.json` 已建立；L01 是國語 golden example。
   - 國語直式／注音依 edu1 L8：`vertical-rl`、禁用 `direction`／`ruby`、手工 flex 聲調定位及 zh-TW 發音。
   - `workflow.html` 公開記錄 pipeline、reference layer 與不可破壞規格。
-  - 國語 12 課公開詞彙已由教育雲 intake（365 筆）；`data/source-registry/chinese-lower-primary-114.json` 與 `data/source-acquisition-log.json` 是後續探索／下載的必經紀錄。
+  - 國語 12 課公開詞彙已由教育雲 intake（365 筆）並上頁；每課有 `zh-TW` 詞語發音與翰林「聽 e 聽」逐課朗讀外連。原始音檔只允許 link-only，不下載、嵌入、重製或重新上傳。
+  - 由課名或詞彙推測的 L02–L12 文意、事件與評量已移除；L01 直式文字明標為原創朗讀練習。`data/source-registry/chinese-lower-primary-114.json` 與 `data/source-acquisition-log.json` 是後續探索／下載的必經紀錄。
   - 已完成 `docs/prior-portfolio-source-audit-2026-07-11.md`：edu1 提供來源索引與版本異動檢查模式；edu3 提供 artifact integration history，但兩者教材內容均不可搬用。
   - Obsidian `創作庫/20260527_Win11-SOP驗證_L6毛毛蟲過河.md` 是必查 workflow evidence：前置搜尋不得只限 edu2 dashboard 或目標年級名稱。
-  - 逐課課文結構 brief、NotebookLM artifact 與專屬影片是 `pending`；缺少合法來源時不得推測或產製。
+  - 逐課課文結構 brief、NotebookLM artifact 與專屬影片是 `pending`；公開詞彙／朗讀層不構成課文理解完成，缺少合法來源時不得推測或產製。
   - 出版社切換、版本隔離與比較框架已完成；康軒／南一保持 planned。
   - GitHub Pages production 已部署；本 session 關案前 validator 與 `git diff --check` 均通過。
 - **Next**:

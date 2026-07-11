@@ -28,6 +28,7 @@ for (const [index, unit] of chinese.units.entries()) {
   if (!title || termCount === 0) throw new Error(`第 ${sequence} 課教育雲來源無法解析`);
   if (title !== unit.title) throw new Error(`第 ${sequence} 課標題不一致：目錄「${unit.title}」，教育雲「${title}」`);
   const sourceUrl = `https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=${textNameId}`;
+  const listeningUrl = `https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L${sequence}`;
   sources.push({ id: `educloud-ch-${String(sequence).padStart(2, "0")}`, type: "official-public-word-bank", localPath: path.relative(root, sourceFile), url: sourceUrl, status: "fetched-and-parsed" });
   units.push({
     publisherUnitId: unit.id,
@@ -38,6 +39,12 @@ for (const [index, unit] of chinese.units.entries()) {
     sourceTermCount: termCount,
     titleStatus: "verified",
     wordBankStatus: "verified-public-source",
+    officialListening: {
+      playlistUrl: listeningUrl,
+      status: "verified-link-only",
+      accessBoundary: "翰林聽 e 聽僅供購買相關書籍者作學習用途；本站只提供外連，不下載、嵌入、重製或重新上傳音檔。"
+    },
+    publicLearningLayerStatus: "ready-wordbank-and-listening",
     textStructureStatus: "needs-licensed-text-or-teacher-review",
     originalTeachingLayerStatus: "needs-unit-review",
     notebookArtifactStatus: "not-started"
@@ -63,6 +70,7 @@ const intake = {
   sources: [
     { id: "educloud-index", type: "official-public-word-bank-index", localPath: "source/official/education-cloud-hanlin-grade2-chinese-114.html", url: "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&degree=2&press=%E7%BF%B0%E6%9E%97%E7%89%88&year=114_1", status: "fetched-and-parsed" },
     { id: "school-plan", type: "public-school-curriculum-plan", localPath: "source/official/hanlin-grade2-chinese-114-spps-plan.md", url: "https://web.spps.tp.edu.tw/uploads/1756199556141pTG3MWbx.pdf", status: "fetched-and-converted" },
+    { id: "hanlin-listening-e-listen", type: "publisher-audio-platform-link", url: "https://player.hle.com.tw/ech/lesson.html?volume=%E4%BA%8C%E4%B8%8A", status: "12-unit-links-verified-link-only" },
     ...sources
   ],
   units

@@ -30,6 +30,12 @@
       "status": "fetched-and-converted"
     },
     {
+      "id": "hanlin-listening-e-listen",
+      "type": "publisher-audio-platform-link",
+      "url": "https://player.hle.com.tw/ech/lesson.html?volume=%E4%BA%8C%E4%B8%8A",
+      "status": "12-unit-links-verified-link-only"
+    },
+    {
       "id": "educloud-ch-01",
       "type": "official-public-word-bank",
       "localPath": "source/official/education-cloud/ch-01.html",
@@ -162,6 +168,12 @@
       "sourceTermCount": 31,
       "titleStatus": "verified",
       "wordBankStatus": "verified-public-source",
+      "officialListening": {
+        "playlistUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L1",
+        "status": "verified-link-only",
+        "accessBoundary": "翰林聽 e 聽僅供購買相關書籍者作學習用途；本站只提供外連，不下載、嵌入、重製或重新上傳音檔。"
+      },
+      "publicLearningLayerStatus": "ready-wordbank-and-listening",
       "textStructureStatus": "needs-licensed-text-or-teacher-review",
       "originalTeachingLayerStatus": "needs-unit-review",
       "notebookArtifactStatus": "not-started"
@@ -216,6 +228,12 @@
       "sourceTermCount": 34,
       "titleStatus": "verified",
       "wordBankStatus": "verified-public-source",
+      "officialListening": {
+        "playlistUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L2",
+        "status": "verified-link-only",
+        "accessBoundary": "翰林聽 e 聽僅供購買相關書籍者作學習用途；本站只提供外連，不下載、嵌入、重製或重新上傳音檔。"
+      },
+      "publicLearningLayerStatus": "ready-wordbank-and-listening",
       "textStructureStatus": "needs-licensed-text-or-teacher-review",
       "originalTeachingLayerStatus": "needs-unit-review",
       "notebookArtifactStatus": "not-started"
@@ -268,6 +286,12 @@
       "sourceTermCount": 32,
       "titleStatus": "verified",
       "wordBankStatus": "verified-public-source",
+      "officialListening": {
+        "playlistUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L3",
+        "status": "verified-link-only",
+        "accessBoundary": "翰林聽 e 聽僅供購買相關書籍者作學習用途；本站只提供外連，不下載、嵌入、重製或重新上傳音檔。"
+      },
+      "publicLearningLayerStatus": "ready-wordbank-and-listening",
       "textStructureStatus": "needs-licensed-text-or-teacher-review",
       "originalTeachingLayerStatus": "needs-unit-review",
       "notebookArtifactStatus": "not-started"
@@ -319,6 +343,12 @@
       "sourceTermCount": 31,
       "titleStatus": "verified",
       "wordBankStatus": "verified-public-source",
+      "officialListening": {
+        "playlistUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L4",
+        "status": "verified-link-only",
+        "accessBoundary": "翰林聽 e 聽僅供購買相關書籍者作學習用途；本站只提供外連，不下載、嵌入、重製或重新上傳音檔。"
+      },
+      "publicLearningLayerStatus": "ready-wordbank-and-listening",
       "textStructureStatus": "needs-licensed-text-or-teacher-review",
       "originalTeachingLayerStatus": "needs-unit-review",
       "notebookArtifactStatus": "not-started"
@@ -364,6 +394,12 @@
       "sourceTermCount": 26,
       "titleStatus": "verified",
       "wordBankStatus": "verified-public-source",
+      "officialListening": {
+        "playlistUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L5",
+        "status": "verified-link-only",
+        "accessBoundary": "翰林聽 e 聽僅供購買相關書籍者作學習用途；本站只提供外連，不下載、嵌入、重製或重新上傳音檔。"
+      },
+      "publicLearningLayerStatus": "ready-wordbank-and-listening",
       "textStructureStatus": "needs-licensed-text-or-teacher-review",
       "originalTeachingLayerStatus": "needs-unit-review",
       "notebookArtifactStatus": "not-started"
@@ -411,6 +447,12 @@
       "sourceTermCount": 27,
       "titleStatus": "verified",
       "wordBankStatus": "verified-public-source",
+      "officialListening": {
+        "playlistUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L6",
+        "status": "verified-link-only",
+        "accessBoundary": "翰林聽 e 聽僅供購買相關書籍者作學習用途；本站只提供外連，不下載、嵌入、重製或重新上傳音檔。"
+      },
+      "publicLearningLayerStatus": "ready-wordbank-and-listening",
       "textStructureStatus": "needs-licensed-text-or-teacher-review",
       "originalTeachingLayerStatus": "needs-unit-review",
       "notebookArtifactStatus": "not-started"
@@ -465,6 +507,12 @@
       "sourceTermCount": 34,
       "titleStatus": "verified",
       "wordBankStatus": "verified-public-source",
+      "officialListening": {
+        "playlistUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L7",
+        "status": "verified-link-only",
+        "accessBoundary": "翰林聽 e 聽僅供購買相關書籍者作學習用途；本站只提供外連，不下載、嵌入、重製或重新上傳音檔。"
+      },
+      "publicLearningLayerStatus": "ready-wordbank-and-listening",
       "textStructureStatus": "needs-licensed-text-or-teacher-review",
       "originalTeachingLayerStatus": "needs-unit-review",
       "notebookArtifactStatus": "not-started"
@@ -514,6 +562,12 @@
       "sourceTermCount": 29,
       "titleStatus": "verified",
       "wordBankStatus": "verified-public-source",
+      "officialListening": {
+        "playlistUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L8",
+        "status": "verified-link-only",
+        "accessBoundary": "翰林聽 e 聽僅供購買相關書籍者作學習用途；本站只提供外連，不下載、嵌入、重製或重新上傳音檔。"
+      },
+      "publicLearningLayerStatus": "ready-wordbank-and-listening",
       "textStructureStatus": "needs-licensed-text-or-teacher-review",
       "originalTeachingLayerStatus": "needs-unit-review",
       "notebookArtifactStatus": "not-started"
@@ -562,6 +616,12 @@
       "sourceTermCount": 28,
       "titleStatus": "verified",
       "wordBankStatus": "verified-public-source",
+      "officialListening": {
+        "playlistUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L9",
+        "status": "verified-link-only",
+        "accessBoundary": "翰林聽 e 聽僅供購買相關書籍者作學習用途；本站只提供外連，不下載、嵌入、重製或重新上傳音檔。"
+      },
+      "publicLearningLayerStatus": "ready-wordbank-and-listening",
       "textStructureStatus": "needs-licensed-text-or-teacher-review",
       "originalTeachingLayerStatus": "needs-unit-review",
       "notebookArtifactStatus": "not-started"
@@ -611,6 +671,12 @@
       "sourceTermCount": 29,
       "titleStatus": "verified",
       "wordBankStatus": "verified-public-source",
+      "officialListening": {
+        "playlistUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L10",
+        "status": "verified-link-only",
+        "accessBoundary": "翰林聽 e 聽僅供購買相關書籍者作學習用途；本站只提供外連，不下載、嵌入、重製或重新上傳音檔。"
+      },
+      "publicLearningLayerStatus": "ready-wordbank-and-listening",
       "textStructureStatus": "needs-licensed-text-or-teacher-review",
       "originalTeachingLayerStatus": "needs-unit-review",
       "notebookArtifactStatus": "not-started"
@@ -666,6 +732,12 @@
       "sourceTermCount": 35,
       "titleStatus": "verified",
       "wordBankStatus": "verified-public-source",
+      "officialListening": {
+        "playlistUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L11",
+        "status": "verified-link-only",
+        "accessBoundary": "翰林聽 e 聽僅供購買相關書籍者作學習用途；本站只提供外連，不下載、嵌入、重製或重新上傳音檔。"
+      },
+      "publicLearningLayerStatus": "ready-wordbank-and-listening",
       "textStructureStatus": "needs-licensed-text-or-teacher-review",
       "originalTeachingLayerStatus": "needs-unit-review",
       "notebookArtifactStatus": "not-started"
@@ -715,6 +787,12 @@
       "sourceTermCount": 29,
       "titleStatus": "verified",
       "wordBankStatus": "verified-public-source",
+      "officialListening": {
+        "playlistUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L12",
+        "status": "verified-link-only",
+        "accessBoundary": "翰林聽 e 聽僅供購買相關書籍者作學習用途；本站只提供外連，不下載、嵌入、重製或重新上傳音檔。"
+      },
+      "publicLearningLayerStatus": "ready-wordbank-and-listening",
       "textStructureStatus": "needs-licensed-text-or-teacher-review",
       "originalTeachingLayerStatus": "needs-unit-review",
       "notebookArtifactStatus": "not-started"
