@@ -78,6 +78,12 @@ try {
   errors.push(`data/artifact-manifest.json 無法解析：${error.message}`);
 }
 
+for (let index = 1; index <= 13; index += 1) {
+  const slide = `assets/notebooklm/slides/slide-${String(index).padStart(2, "0")}.jpg`;
+  try { await access(new URL(`../${slide}`, import.meta.url)); }
+  catch { errors.push(`NotebookLM web slide 不存在：${slide}`); }
+}
+
 if (errors.length) {
   console.error("Foundation validation: FAIL");
   errors.forEach(error => console.error(`- ${error}`));
