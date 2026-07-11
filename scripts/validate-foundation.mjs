@@ -83,7 +83,8 @@ for (const stage of ["架構起始", "重新蒐集資料", "資料處理", "資�
 }
 if (!workflowPage.includes("Golden Samples")) errors.push("workflow.html 缺少 Golden Samples 區塊");
 if (!workflowPage.includes("偏差警報與快速接回")) errors.push("workflow.html 缺少 early-warning／recovery 區塊");
-if (!workflowPage.includes("Phase 0 · Reuse Preflight")) errors.push("workflow.html 缺少 GitHub／Skills／Obsidian reuse preflight");
+if (!workflowPage.includes("Phase 0 · Reuse／Scope／Continuity Preflight")) errors.push("workflow.html 缺少 reuse／scope／continuity preflight");
+if (!workflowPage.includes("scopeClass") || !workflowPage.includes("continuityStatus")) errors.push("workflow.html 缺少 scope／continuity 狀態欄位");
 if (!workflowPage.includes("知識成熟循環")) errors.push("workflow.html 缺少 knowledge maturation loop");
 try { await access(new URL("../docs/retrospective-2026-07-11.md", import.meta.url)); }
 catch { errors.push("缺少本次建置 retrospective"); }
