@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "subject": "chinese",
+  "unit": {
+    "id": null,
+    "title": null,
+    "focus": null,
+    "mission": null,
+    "objectives": [],
+    "flow": [],
+    "verticalSummary": null,
+    "vocabulary": [
+      {"word": null, "meaning": null}
+    ],
+    "characters": [
+      {"char": null, "zhuyin": null}
+    ],
+    "sourceRefs": [],
+    "reviewStatus": "unverified"
+  }
+}

@@ -27,3 +27,7 @@
 ## 上架條件
 
 每一課／單元至少需要：出版社、學年度、年級學期、科目、正式名稱、來源紀錄、canonical topic mapping 與校對狀態。未符合條件時，首頁只能顯示「待教材目錄」，不可沿用 edu3 舊連結。
+
+## Reference 與 renderer
+
+版面與互動基準見 `docs/reference-baseline.md`。共用 renderer 管理穩定架構，publisher content JSON 只管理內容；國語另支援 `verticalSummary`、`vocabulary`、`characters`，避免每冊重寫直式與注音實作。

@@ -57,13 +57,20 @@ if (!homepage.includes("compare-view")) errors.push("首頁缺少 comparison vie
 if (!foundationPage.includes("Milestone A")) errors.push("foundation.html 缺少 Milestone A 定義");
 if (!foundationPage.includes("Milestone B")) errors.push("foundation.html 缺少 Milestone B 邊界");
 
-for (const template of ["data/templates/intake.template.json", "data/templates/publisher-mapping.template.json"]) {
+for (const template of ["data/templates/intake.template.json", "data/templates/publisher-mapping.template.json", "data/templates/unit-content.template.json"]) {
   try {
     JSON.parse(await read(template));
   } catch (error) {
     errors.push(`${template} 無法解析：${error.message}`);
   }
 }
+
+const unitCss = await read("assets/css/unit.css");
+const chineseExample = await read("chinese/L01/index.html");
+if (!unitCss.includes("writing-mode:vertical-rl")) errors.push("國語直式導讀缺少 vertical-rl");
+if (/(?:^|[;{])\s*direction\s*:/.test(unitCss)) errors.push("國語直式樣式不得加入 direction");
+if (chineseExample.includes("<ruby")) errors.push("國語注音不得使用 ruby");
+if (!chineseExample.includes("zy-tone")) errors.push("國語注音範例缺少聲調定位");
 
 try {
   const manifest = JSON.parse(await read("data/artifact-manifest.json"));

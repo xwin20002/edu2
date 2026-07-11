@@ -99,6 +99,8 @@
 
 ## Phase 4 — Golden template
 
+版面、互動與國語直式／注音的穩定規格，以 `docs/reference-baseline.md` 為準；單元內容格式使用 `data/templates/unit-content.template.json`。
+
 選一課／一單元完成：
 
 - 課程導覽、教學重點、教材素材與教師提示。
