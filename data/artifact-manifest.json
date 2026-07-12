@@ -2,26 +2,27 @@
   "schemaVersion": 1,
   "notebook": {
     "id": "2a2e7a75-9fde-439f-b3d4-8aa811bf4a73",
-    "title": "edu2 小二上教學駕駛艙｜翰林版",
+    "title": "edu2 小二上教學駕駛艙｜114 歷史工作區",
     "url": "https://notebooklm.google.com/notebook/2a2e7a75-9fde-439f-b3d4-8aa811bf4a73?authuser=1",
     "account": "xwin20002@gmail.com"
   },
   "sources": [
-    {"id": "overview", "path": "sources/notebooklm/00-overview.md", "status": "uploaded"},
-    {"id": "chinese", "path": "sources/notebooklm/chinese-hanlin-114.md", "status": "uploaded-v1-shallow-superseded"},
-    {"id": "chinese-intake", "path": "data/content-intake/chinese-hanlin-114.json", "status": "ready-for-review"},
-    {"id": "chinese-lesson-packs", "path": "sources/notebooklm/chinese", "status": "prepared-not-uploaded"},
-    {"id": "math", "path": "sources/notebooklm/math-hanlin-114.md", "status": "uploaded"},
-    {"id": "life", "path": "sources/notebooklm/life-hanlin-114.md", "status": "uploaded"}
+    {"id": "overview", "path": "sources/notebooklm/00-overview.md", "status": "historical-114"},
+    {"id": "chinese", "path": "sources/notebooklm/chinese-hanlin-114.md", "status": "historical-114-superseded"},
+    {"id": "chinese-intake", "path": "data/content-intake/chinese-hanlin-114.json", "status": "historical-114"},
+    {"id": "chinese-lesson-packs", "path": "sources/notebooklm/chinese", "status": "historical-114-not-uploaded"},
+    {"id": "math", "path": "sources/notebooklm/math-hanlin-114.md", "status": "historical-114"},
+    {"id": "life", "path": "sources/notebooklm/life-hanlin-114.md", "status": "historical-114"}
   ],
   "artifacts": [
-    {"id": "overview-slides", "type": "slides", "title": "Grade 2 Learning Adventure", "status": "ready", "sourceCount": 4, "path": "assets/notebooklm/edu2_overview_slides.pptx", "qa": "accepted-rendered-13-slides-no-overflow"},
-    {"id": "overview-infographic", "type": "infographic", "title": "小二上學習探險地圖", "status": "downloaded-draft", "sourceCount": 4, "rawPath": "assets/notebooklm/edu2_overview_infographic.png", "webPath": "assets/notebooklm/edu2_overview_infographic.jpg", "qa": "rejected-text-errors"},
-    {"id": "overview-video", "type": "video", "title": "超級二年級學習大冒險", "scope": "all-subject-overview-not-unit", "status": "published-unlisted", "sourceCount": 4, "duration": "5:58", "localPath": "assets/notebooklm/edu2_overview_video.mp4", "youtubeStatus": "unlisted", "youtubeId": "oD0GIU4UKPc", "youtubeUrl": "https://youtu.be/oD0GIU4UKPc", "madeForKids": true},
-    {"id": "course-flashcards", "type": "flashcards", "title": "課程字卡", "status": "ready-in-notebooklm", "sourceCount": 4},
-    {"id": "course-quiz", "type": "quiz", "title": "學科測驗", "status": "ready-in-notebooklm", "sourceCount": 4}
+    {"id": "overview-slides", "type": "slides", "title": "Grade 2 Learning Adventure", "status": "historical-114", "sourceCount": 4, "path": "assets/notebooklm/edu2_overview_slides.pptx", "qa": "accepted-rendered-13-slides-no-overflow"},
+    {"id": "overview-infographic", "type": "infographic", "title": "小二上學習探險地圖", "status": "historical-114-draft", "sourceCount": 4, "rawPath": "assets/notebooklm/edu2_overview_infographic.png", "webPath": "assets/notebooklm/edu2_overview_infographic.jpg", "qa": "rejected-text-errors"},
+    {"id": "overview-video", "type": "video", "title": "超級二年級學習大冒險", "scope": "historical-114-all-subject-overview-not-unit", "status": "historical-114-unlisted", "sourceCount": 4, "duration": "5:58", "localPath": "assets/notebooklm/edu2_overview_video.mp4", "youtubeStatus": "unlisted", "youtubeId": "oD0GIU4UKPc", "youtubeUrl": "https://youtu.be/oD0GIU4UKPc", "madeForKids": true},
+    {"id": "course-flashcards", "type": "flashcards", "title": "課程字卡", "status": "historical-114-notebooklm", "sourceCount": 4},
+    {"id": "course-quiz", "type": "quiz", "title": "學科測驗", "status": "historical-114-notebooklm", "sourceCount": 4}
   ],
-  "unitArtifacts": {"status": "not-started", "rule": "Do not label or embed the overview video as a unit artifact. Each unit requires its own verified source pack, NotebookLM artifact, QA record, and returned media ID."},
+  "unitArtifacts": {"status": "115-not-started", "rule": "Do not label or embed the historical overview video as a 115 unit artifact. Each 115 unit requires its own verified source pack, NotebookLM artifact, QA record, and returned media ID."},
   "youtube": {"account": "xwin20002@gmail.com", "channel": "xwin2000-mimi", "visibility": "unlisted", "status": "ready", "videos": [{"id": "oD0GIU4UKPc", "url": "https://youtu.be/oD0GIU4UKPc", "scope": "all-subject-overview-not-unit"}]},
-  "updatedAt": "2026-07-11T12:08:00+08:00"
+  "academicYearScope": "114 historical artifacts only; 115 artifacts pending official outlines and verified source packs.",
+  "updatedAt": "2026-07-12T00:00:00+08:00"
 }

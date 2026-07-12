@@ -21,18 +21,19 @@
     <h2>Pipeline 狀態</h2>
     <div class="pipeline">
       <div class="step ready">✅ Repo、CC handoff、Obsidian mapping</div>
-      <div class="step ready">✅ Publisher-neutral schema 與翰林公開目錄</div>
+      <div class="step ready">✅ Publisher-neutral schema 與 115 出版社選用 baseline</div>
+      <div class="step pending">⏳ 115 正式逐課／逐單元目錄與合法來源重新蒐集</div>
       <div class="step ready">✅ 建置腳本、templates、validator 與 GitHub Pages</div>
-      <div class="step ready">✅ 合法公開目錄與 NotebookLM sources</div>
-      <div class="step ready">✅ NotebookLM 簡報、資訊圖、字卡、測驗與影片</div>
-      <div class="step ready">✅ YouTube unlisted 上傳與網站嵌入</div>
-      <div class="step ready">✅ 28 個逐課／逐單元互動頁與 production QA</div>
+      <div class="step pending">⏳ 115 合法公開目錄與 NotebookLM source packs</div>
+      <div class="step pending">⏳ 115 NotebookLM 簡報、資訊圖、字卡、測驗與影片</div>
+      <div class="step pending">⏳ 115 YouTube unlisted 上傳與網站整合</div>
+      <div class="step pending">⏳ 115 逐課／逐單元互動頁與 production QA</div>
     </div>
 
     <div class="grid">
-      <article class="card"><h3>資料入口</h3><ul><li><a href="data/catalog.json">Publisher catalog</a></li><li><a href="data/hanlin-114.json">翰林114公開目錄</a></li><li><a href="data/templates/intake.template.json">教材 intake template</a></li><li><a href="data/templates/publisher-mapping.template.json">版本 mapping template</a></li></ul></article>
+      <article class="card"><h3>資料入口</h3><ul><li><a href="data/catalog.json">115 Publisher catalog</a></li><li><a href="data/academic-year-115.json">115 content manifest（尚無正式單元）</a></li><li><a href="data/source-registry/academic-year-115-version-baseline.json">115 version baseline</a></li><li><a href="docs/academic-year-115-migration-2026-07-12.md">115 migration record</a></li><li><a href="data/hanlin-114.json">114 historical outline</a></li><li><a href="data/templates/intake.template.json">教材 intake template</a></li><li><a href="data/templates/publisher-mapping.template.json">版本 mapping template</a></li></ul></article>
       <article class="card"><h3>工作規格</h3><ul><li><a href="workflow.html">網站工作流程分頁</a></li><li><a href="WORKFLOW.md">完整 workflow</a></li><li><a href="docs/reference-baseline.md">Reference baseline</a></li><li><a href="docs/content-model.md">多出版社內容模型</a></li><li><a href="README.md">專案說明</a></li></ul></article>
-      <article class="card"><h3>建置與驗證</h3><p><code>node scripts/build-subject-pages.mjs</code></p><p><code>node scripts/validate-foundation.mjs</code></p><p>Milestone B 另需 artifact manifest、影片清單、逐課 QA 與 production smoke test。</p></article>
+      <article class="card"><h3>建置與驗證</h3><p><code>node scripts/build-subject-pages.mjs</code> 只供已完成官方資料的學年使用；115 目前不可執行。</p><p><code>node scripts/validate-foundation.mjs</code></p><p>Milestone B 另需 artifact manifest、影片清單、逐課 QA 與 production smoke test。</p></article>
     </div>
   </main>
   <footer>edu2 engineering entry · 一般使用請回到 <a href="index.html">小二上教學駕駛艙</a></footer>

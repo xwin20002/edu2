@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "academicYear": 115,
+  "status": "awaiting-official-outlines",
+  "versionBaselineSource": "data/source-registry/academic-year-115-version-baseline.json",
+  "historicalDataPolicy": "114 data and artifacts remain historical reference only and must not be published as 115 curriculum.",
+  "subjects": [
+    {
+      "id": "chinese",
+      "publisher": "hanlin",
+      "status": "awaiting-official-outline",
+      "units": []
+    },
+    {
+      "id": "math",
+      "publisher": "kanghsuan",
+      "status": "awaiting-official-outline",
+      "units": []
+    },
+    {
+      "id": "life",
+      "publisher": "nani",
+      "status": "awaiting-official-outline",
+      "units": []
+    }
+  ]
+}

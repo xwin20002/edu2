@@ -131,6 +131,17 @@
       "contentRole": "12 課課文朗讀／領讀播放清單的 publisher link-only entry；L01 額外核對有兩種音檔",
       "rightsStatus": "publisher-content-link-only; no download, embed, reproduction, or upload",
       "reviewStatus": "verified-course-list-and-l01-track-list"
+    },
+    {
+      "id": "SRC-20260712-001",
+      "recordedAt": "2026-07-12",
+      "action": "discovered-no-download",
+      "sourceId": "tykjh-115-textbook-version-table",
+      "sourceUrl": "https://www.tykjh.ntpc.edu.tw/p/426-1000-59.php",
+      "derivedOutput": "data/source-registry/academic-year-115-version-baseline.json",
+      "contentRole": "115 學年度校方教科書版本基準：小二國語翰林、數學康軒、生活南一",
+      "rightsStatus": "public-school-announcement-reference",
+      "reviewStatus": "verified-version-baseline; not a unit-outline or textbook-content license"
     }
   ]
 }

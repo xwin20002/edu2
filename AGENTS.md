@@ -6,7 +6,7 @@
 > **本機路徑**：`/Users/xwin20000/Dropbox/AIwork/D_AI_Family/課程學習資料/小二上學期/edu2/`
 > **Obsidian 工作筆記**：`/Users/xwin20000/Dropbox/AIwork/D_AI_Family/課程學習資料/小二上學期/edu2/工作筆記.md`
 > **Obsidian Dashboard**：`/Users/xwin20000/Library/CloudStorage/GoogleDrive-xwin20002@gmail.com/我的雲端硬碟/2ndbrain/edu2/工作筆記.md`
-> **開發分支**：`feature/grade2-semester1-foundation`
+> **開發分支**：`main`
 > **建案類型**：CC 新案／接管既有 repo（由 edu3 衍生）
 > **建置狀態**：Foundation 已完成；完整教學內容與媒體產製中
 > **Milestone A**：Foundation ready
@@ -22,7 +22,7 @@
 ## 目前工作區
 
 - Git remote 已指向 `xwin20002/edu2`。
-- 工作分支為 `feature/grade2-semester1-foundation`。
+- 工作分支為 `main`。
 - 現有 HTML 與 assets 主要來自 `edu3`，只可作 UI / interaction reference，不是小二上正式教材。
 - 未確認教材版本前，不得把現有「翰林版三下」內容批次改名後直接發布。
 
@@ -80,40 +80,40 @@ edu2/
 ## 多出版社架構
 
 - `data/catalog.json` 是 publisher/subject registry；schema 說明見 `docs/content-model.md`。
-- 首套內容以翰林版為 baseline，康軒與南一維持 planned，直到正式目錄與來源完成校對。
+- 115 校訂組合為國語翰林、數學康軒、生活南一；各科仍須各自完成正式目錄與來源校對，不能以單一出版社資料跨科填入。
 - 共用能力使用 publisher-neutral canonical ID；出版社課次只存在 mapping，不作跨版本主鍵。
 - 比較頁分成「共通學習重點、版本特有內容、教授順序差異」，不可暗示逐課一一相等。
 - `href` 只有在內容達到 ready 後才能啟用；現存 edu3 頁面不得出現在正式小二導覽。
 - 實際建置順序與各階段 exit gate 以 `WORKFLOW.md` 為準；每次進入下一階段前執行 `node scripts/validate-foundation.mjs`。
-- 目前翰林 114 學年度 verified outline 位於 `data/hanlin-114.json`；三科頁由 `scripts/build-subject-pages.mjs` 產生，不直接手改 generated HTML。
+- `data/hanlin-114.json` 是 114 historical outline；115 source-of-truth 是 `data/academic-year-115.json`。後者未通過 official outline gate 前，所有 unit arrays 必須為空，且不得執行 legacy `scripts/build-subject-pages.mjs` 生成 115 頁面。
 - 公開網站只呈現課程名稱、學習重點與本站原創活動；不得重製受版權保護的課文、習題或教師手冊。
 
 <!-- CC-SESSION-HANDOFF:START -->
 ## 📌 Session 交接區
 
-- **Last session**: 2026-07-11 — CC 關案；國語公開學習層已部署，production commit `2262b73`
+- **Last session**: 2026-07-12 — 已確認 115 出版社基準，進入 content recollection migration。
 - **Current state**:
   - GitHub repo 使用 `main`；不得重新 init 或改寫 history。
-  - 翰林114公開目錄已上架：國語12課、數學10單元、生活6主題。
-  - 28 個單元頁由結構化資料產生，包含學生／教師模式、評量與課堂工具；內容完整度仍分科、分單元驗證。
+  - 115 publisher baseline 已確認：國語翰林、數學康軒、生活南一；`data/academic-year-115.json` 仍是空的待核對 manifest，三科入口停用。
+  - 114 翰林公開目錄、28 個單元頁與相關 artifacts 只保留作架構／interaction historical reference，不得被標示、連結或產生為 115 內容。
   - NotebookLM 使用 `xwin20002@gmail.com`；YouTube unlisted 影片 `oD0GIU4UKPc` 是全冊 overview，**不得**再當逐課影片。
   - `docs/reference-baseline.md` 與 `data/templates/unit-content.template.json` 已建立；L01 是國語 golden example。
   - 國語直式／注音依 edu1 L8：`vertical-rl`、禁用 `direction`／`ruby`、手工 flex 聲調定位及 zh-TW 發音。
   - `workflow.html` 公開記錄 pipeline、reference layer 與不可破壞規格。
-  - 國語 12 課公開詞彙已由教育雲 intake（365 筆）並上頁；每課有 `zh-TW` 詞語發音與翰林「聽 e 聽」逐課朗讀外連。原始音檔只允許 link-only，不下載、嵌入、重製或重新上傳。
+  - 國語 12 課公開詞彙、`zh-TW` 詞語發音與翰林「聽 e 聽」朗讀外連是 114 historical layer；原始音檔只允許 link-only，不下載、嵌入、重製或重新上傳。
   - 由課名或詞彙推測的 L02–L12 文意、事件與評量已移除；L01 直式文字明標為原創朗讀練習。`data/source-registry/chinese-lower-primary-114.json` 與 `data/source-acquisition-log.json` 是後續探索／下載的必經紀錄。
   - 已完成 `docs/prior-portfolio-source-audit-2026-07-11.md`：edu1 提供來源索引與版本異動檢查模式；edu3 提供 artifact integration history，但兩者教材內容均不可搬用。
   - Obsidian `創作庫/20260527_Win11-SOP驗證_L6毛毛蟲過河.md` 是必查 workflow evidence：前置搜尋不得只限 edu2 dashboard 或目標年級名稱。
   - 逐課課文結構 brief、NotebookLM artifact 與專屬影片是 `pending`；公開詞彙／朗讀層不構成課文理解完成，缺少合法來源時不得推測或產製。
-  - 出版社切換、版本隔離與比較框架已完成；康軒／南一保持 planned。
+  - 115 出版社隔離與比較框架已完成；新資料必須依國語翰林／數學康軒／生活南一各別重新蒐集。
   - GitHub Pages production 已部署並以 L01 smoke test 確認公開詞彙／朗讀入口；本 session 關案前 validator 與 `git diff --check` 均通過。
 - **Next**:
-  - 先取得 L01 合法 text-structure brief／教師核對稿，並逐課核對翰林聽e聽／官方 Wordwall 是否可作 external reference，完成 source → NotebookLM → QA → media ID vertical slice。
-  - 將 L02-L12 的國語 text-structure brief、`verticalSummary`、`vocabulary`、`characters` 依合法來源補齊。
+  - 先取得 115 翰林二上 official outline、L01 合法 text-structure brief／教師核對稿，完成 source → NotebookLM → QA → media ID vertical slice。
+  - 取得 115 康軒二上數學與 115 南一二上生活 official outline，分別建立 U01／T01 subject Golden，禁止用 114 翰林資料替代。
   - 對每個教師／YouTube 候選完成版本、授權與兒少適切性 review，再決定是否 external link；視需求補做三科獨立 NotebookLM artifacts。
-  - 依需求建立康軒／南一正式資料與 comparison mappings。
+  - 每次資料發現先更新 source registry／provenance log，再建立 115 formal data 與 comparison mappings。
   - 將本 repo 的 `WORKFLOW.md`、schema、templates 與 validator 套用到 edu4。
 - **Open questions**:
-  - L01-L12 課文結構的合法來源及人工校對尚未完成；公開詞彙 bank 不足以反推內容。
+  - 三科 115 official outline 與逐課／逐單元合法來源尚未完成；114 公開詞彙 bank 不足以反推 115 內容。
   - GitHub Actions 顯示 Node.js 20 deprecation annotation；目前部署成功，後續需隨官方 action major release 更新。
 <!-- CC-SESSION-HANDOFF:END -->

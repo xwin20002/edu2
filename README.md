@@ -13,7 +13,7 @@
 
 - GitHub Pages：<https://xwin20002.github.io/edu2/>
 - GitHub repo：<https://github.com/xwin20002/edu2>
-- 開發分支：`feature/grade2-semester1-foundation`
+- 開發分支：`main`
 - 技術參考 remote：`edu3-reference` → <https://github.com/xwin20002/edu3>
 
 ## 本機與 CC 路徑
@@ -35,19 +35,20 @@ Repo 的 `工作筆記.md` 是 CC handoff 正本。外部 Obsidian dashboard 只
 - `origin` 指向 `xwin20002/edu2`。
 - `edu3-reference` 保留作基底比較。
 - 正式首頁已切換為小二上；舊三下內頁仍保留作 reference，但不在正式導覽中。
-- 翰林版 114 學年度公開課程目錄已完成：國語 12 課、數學 10 單元、生活 6 主題。
+- 115 學年度 publisher baseline 已確認：國語翰林、數學康軒、生活南一；正式逐課／逐單元目錄仍在重新蒐集。
+- 既有 114 翰林三科 outline、頁面與 NotebookLM overview 為 historical reference，不會作為 115 內容上架。
 - 教學任務為本站原創，不重製課文、題本或教師手冊。
 - Production 已於 2026-07-11 完成部署與 smoke test。
 - 上述 production 是 Foundation／公開目錄版本，不代表 Milestone B 已完成。
 
 ## 多出版社 foundation
 
-- 預設版本：翰林。
-- 預留版本：康軒、南一。
+- 115 校訂組合：國語翰林、數學康軒、生活南一。
+- 其他出版社仍可於 schema 擴充，但不能取代已確認的 115 科目選用。
 - 首頁提供出版社切換及版本差異比較模式。
 - 結構化 registry：`data/catalog.json`。
 - 內容規則：[docs/content-model.md](docs/content-model.md)。
-- 翰林三科入口已啟用；康軒、南一在完成查證前維持 planned，不能誤開翰林內容。
+- 115 三科入口在取得正式目錄前維持停用；不得誤開 114 翰林內容或將其改名為 115。
 
 ## 建置流程
 

@@ -2,7 +2,9 @@
 
 ## 設計目標
 
-以翰林版作第一套教材基準，但共用 UI、互動工具與學習能力識別碼不得綁定出版社課次。康軒、南一等版本透過 mapping 加入，不複製整套前端。
+115 學年度採「科目別出版社 baseline」：國語翰林、數學康軒、生活南一。共用 UI、互動工具與學習能力識別碼不得綁定出版社課次；日後其他版本一律透過 mapping 加入，不複製整套前端。
+
+`data/academic-year-115.json` 是本學年空白但可驗證的 content manifest。正式目錄未經來源核對時，單元陣列必須維持空白，網站導覽也必須停在 `awaiting-catalog`。
 
 ## 三層資料
 
@@ -32,4 +34,4 @@
 
 版面與互動基準見 `docs/reference-baseline.md`。共用 renderer 管理穩定架構，publisher content JSON 只管理內容；國語另支援 `verticalSummary`、`vocabulary`、`characters`，避免每冊重寫直式與注音實作。
 
-國語的 source-of-truth intake 位於 `data/content-intake/chinese-hanlin-114.json`。它將「公開可核對的課名／詞彙 bank」與「需要合法 text-structure brief 的課文理解層」分開；未通過 text-structure review 的 unit 不得產生或嵌入本課 NotebookLM／YouTube artifact。
+`data/content-intake/chinese-hanlin-114.json` 是 114 歷史 intake，只可作來源欄位與 workflow 的 reference，不能當成 115 教材。115 國語同樣必須將「公開可核對的課名／詞彙 bank」與「需要合法 text-structure brief 的課文理解層」分開；未通過 text-structure review 的 unit 不得產生或嵌入本課 NotebookLM／YouTube artifact。

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "project": "edu2",
+  "academicYear": 115,
+  "scope": "國小二年級上學期版本選用基準",
+  "sources": [
+    {
+      "id": "tykjh-115-textbook-version-table",
+      "tier": "B",
+      "owner": "新北市立桃子腳國民中小學",
+      "kind": "public-school-textbook-version-table",
+      "url": "https://www.tykjh.ntpc.edu.tw/p/426-1000-59.php",
+      "effectiveYear": 115,
+      "coverage": "小二上：國語翰林、數學康軒、生活南一；版本表標示經 115/6/17 課發會通過",
+      "allowedUse": "建立 edu2 的出版社選用 baseline、版本隔離與後續來源查詢條件",
+      "forbiddenUse": "視為課本授權、推定逐課／逐單元目錄、重製課文或題本",
+      "reviewStatus": "verified-version-baseline"
+    }
+  ],
+  "subjectPublisherMap": {
+    "chinese": "hanlin",
+    "math": "kanghsuan",
+    "life": "nani"
+  },
+  "migrationPolicy": "114 content and artifacts remain historical references until each 115 subject has an official outline and source review."
+}

@@ -14,6 +14,8 @@ try {
 if (catalog) {
   const publisherIds = new Set(catalog.publishers?.map(item => item.id));
   if (!publisherIds.has(catalog.project?.defaultPublisher)) errors.push("defaultPublisher 不存在於 publishers");
+  if (catalog.project?.academicYear !== 115) errors.push("edu2 必須使用 115 學年度版本基準");
+  if (catalog.project?.defaultPublisher !== "school-baseline-115") errors.push("edu2 defaultPublisher 必須是 115 學年校訂組合");
   if (!catalog.publishers?.some(item => item.status === "baseline")) errors.push("缺少 baseline publisher");
   if ((catalog.publishers || []).length < 2) errors.push("未保留第二出版社切換位置");
   for (const subject of catalog.subjects || []) {
@@ -25,7 +27,33 @@ if (catalog) {
       catch { errors.push(`${subject.id}: href 目標不存在 (${subject.href})`); }
     }
   }
+  const expectedPublishers = {chinese: "hanlin", math: "kanghsuan", life: "nani"};
+  for (const [subjectId, publisher] of Object.entries(expectedPublishers)) {
+    const subject = catalog.subjects?.find(item => item.id === subjectId);
+    if (subject?.publisher !== publisher) errors.push(`${subjectId}: 115 出版社應為 ${publisher}`);
+    if (subject?.status !== "awaiting-catalog" || subject?.href !== null) errors.push(`${subjectId}: 115 正式目錄未核對前必須維持 awaiting-catalog 且停用 href`);
+  }
 }
+
+try {
+  const baseline = JSON.parse(await read("data/source-registry/academic-year-115-version-baseline.json"));
+  const expected = {chinese: "hanlin", math: "kanghsuan", life: "nani"};
+  if (baseline.academicYear !== 115) errors.push("115 version baseline 學年錯誤");
+  for (const [subject, publisher] of Object.entries(expected)) {
+    if (baseline.subjectPublisherMap?.[subject] !== publisher) errors.push(`115 version baseline 缺少 ${subject}→${publisher}`);
+  }
+} catch (error) { errors.push(`115 version baseline 無法解析：${error.message}`); }
+
+try {
+  const manifest115 = JSON.parse(await read("data/academic-year-115.json"));
+  const expected = {chinese: "hanlin", math: "kanghsuan", life: "nani"};
+  if (manifest115.academicYear !== 115 || manifest115.status !== "awaiting-official-outlines") errors.push("115 content manifest 狀態錯誤");
+  for (const [subjectId, publisher] of Object.entries(expected)) {
+    const subject = manifest115.subjects?.find(item => item.id === subjectId);
+    if (subject?.publisher !== publisher) errors.push(`115 content manifest 缺少 ${subjectId}→${publisher}`);
+    if (subject?.status !== "awaiting-official-outline" || (subject?.units || []).length !== 0) errors.push(`${subjectId}: 115 正式 outline 未核對前必須保持空單元 manifest`);
+  }
+} catch (error) { errors.push(`115 content manifest 無法解析：${error.message}`); }
 
 try {
   const hanlin = JSON.parse(await read("data/hanlin-114.json"));
@@ -104,7 +132,7 @@ try {
   }
   if (registry.sources?.find(source => source.id === "gsyan-html5-fun-hanlin-grade2-114")?.licenseStatus !== "unknown-review-required") errors.push("Tier C 教師資源必須保留授權 review gate");
   const log = JSON.parse(await read("data/source-acquisition-log.json"));
-  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005", "SRC-20260711-006", "SRC-20260711-007", "SRC-20260711-008", "SRC-20260711-009", "SRC-20260711-010", "SRC-20260711-011", "SRC-20260711-012"]) {
+  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005", "SRC-20260711-006", "SRC-20260711-007", "SRC-20260711-008", "SRC-20260711-009", "SRC-20260711-010", "SRC-20260711-011", "SRC-20260711-012", "SRC-20260712-001"]) {
     if (!log.records?.some(record => record.id === id)) errors.push(`source acquisition log 缺少 ${id}`);
   }
 } catch (error) { errors.push(`source registry 或 acquisition log 無法解析：${error.message}`); }
@@ -130,8 +158,9 @@ if (!chineseExample.includes('<span class="zy-row">ㄥ<span class="zy-tone">ˊ</
 try {
   const manifest = JSON.parse(await read("data/artifact-manifest.json"));
   if (manifest.notebook?.account !== "xwin20002@gmail.com") errors.push("NotebookLM account 不是 xwin20002@gmail.com");
-  if (manifest.artifacts?.find(item => item.id === "overview-video")?.scope !== "all-subject-overview-not-unit") errors.push("overview video 必須標為全冊導覽，不得視為逐課影片");
-  if (manifest.unitArtifacts?.status !== "not-started") errors.push("unit artifact 狀態需由逐課產製流程更新");
+  if (manifest.artifacts?.find(item => item.id === "overview-video")?.scope !== "historical-114-all-subject-overview-not-unit") errors.push("overview video 必須標為 114 歷史全冊導覽，不得視為 115 逐課影片");
+  if (manifest.unitArtifacts?.status !== "115-not-started") errors.push("115 unit artifact 狀態需維持未開始，直到逐課來源已核對");
+  if (!manifest.academicYearScope?.includes("114 historical")) errors.push("artifact manifest 必須標示 114 與 115 隔離範圍");
   try {
     const intake = JSON.parse(await read("data/content-intake/chinese-hanlin-114.json"));
     if (intake.units?.length !== 12) errors.push("國語 content intake 必須有 12 課");
