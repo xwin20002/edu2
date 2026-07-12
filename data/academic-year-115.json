@@ -1,15 +1,29 @@
 {
   "schemaVersion": 1,
   "academicYear": 115,
-  "status": "awaiting-official-outlines",
+  "status": "partial-official-outlines-verified-content-pending",
   "versionBaselineSource": "data/source-registry/academic-year-115-version-baseline.json",
   "historicalDataPolicy": "114 data and artifacts remain historical reference only and must not be published as 115 curriculum.",
   "subjects": [
     {
       "id": "chinese",
       "publisher": "hanlin",
-      "status": "awaiting-official-outline",
-      "units": []
+      "status": "official-outline-verified-content-pending",
+      "contentIntake": "data/content-intake/chinese-hanlin-115.json",
+      "units": [
+        {"id": "L01", "title": "我的心情"},
+        {"id": "L02", "title": "彩色的天空"},
+        {"id": "L03", "title": "國王做新衣"},
+        {"id": "L04", "title": "水草下的呱呱"},
+        {"id": "L05", "title": "沙灘上的畫"},
+        {"id": "L06", "title": "草叢裡的星星"},
+        {"id": "L07", "title": "不一樣的故事"},
+        {"id": "L08", "title": "美食分享日"},
+        {"id": "L09", "title": "好味道"},
+        {"id": "L10", "title": "加加減減"},
+        {"id": "L11", "title": "奇怪的門"},
+        {"id": "L12", "title": "詠鵝"}
+      ]
     },
     {
       "id": "math",
@@ -20,8 +34,16 @@
     {
       "id": "life",
       "publisher": "nani",
-      "status": "awaiting-official-outline",
-      "units": []
+      "status": "official-outline-verified-content-pending",
+      "contentIntake": "data/content-intake/life-nani-115.json",
+      "units": [
+        {"id": "T01", "title": "標誌與生活"},
+        {"id": "T02", "title": "吸住了"},
+        {"id": "T03", "title": "我愛泡泡"},
+        {"id": "T04", "title": "大樹"},
+        {"id": "T05", "title": "和風做朋友"},
+        {"id": "T06", "title": "冬天"}
+      ]
     }
   ]
 }

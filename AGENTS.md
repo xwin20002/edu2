@@ -91,10 +91,14 @@ edu2/
 <!-- CC-SESSION-HANDOFF:START -->
 ## 📌 Session 交接區
 
-- **Last session**: 2026-07-12 — 已確認 115 出版社基準，進入 content recollection migration。
+- **Last session**: 2026-07-12 — 115 source recollection gate 已固化，國語／生活完成 outline-only intake。
 - **Current state**:
   - GitHub repo 使用 `main`；不得重新 init 或改寫 history。
-  - 115 publisher baseline 已確認：國語翰林、數學康軒、生活南一；`data/academic-year-115.json` 仍是空的待核對 manifest，三科入口停用。
+  - 115 publisher baseline 已確認：國語翰林、數學康軒、生活南一；三科入口仍停用，不得把 historical 114 頁面導入正式 115 導覽。
+  - `docs/content-source-gates.md` 已成為 Phase 2 mandatory gate；`WORKFLOW.md`、`workflow.html`、`foundation.html` 與 `scripts/validate-foundation.mjs` 均要求依序通過 `publisher-baseline-verified` → `official-outline-verified` → `unit-brief-verified` → `publication-ready` → `artifact-ready`。
+  - 115 翰林二上國語 official outline 已由翰林 115 低年級教材簡介第 5 頁核對，並寫入 `data/content-intake/chinese-hanlin-115.json` 與 `data/academic-year-115.json`：4 主題、12 課、2 篇來閱讀；第 4 頁是一下一頁，先前誤讀的〈春天來了〉等資料已移除並在 validator 加入 regression gate。
+  - 115 南一二上生活 official outline 已寫入 `data/content-intake/life-nani-115.json`；康軒數學仍只有官方片段示例，尚未取得完整二上 exact outline。
+  - L01〈我的心情〉已有 `data/content-intake/chinese-hanlin-115-l01-brief.candidate.json`，但來源是 114 屏東公開課程計畫，只能當跨學年 workflow candidate；不得升格為 115 `unit-brief-verified`，也不得重製課文、注音、字詞或題目。
   - 114 翰林公開目錄、28 個單元頁與相關 artifacts 只保留作架構／interaction historical reference，不得被標示、連結或產生為 115 內容。
   - NotebookLM 使用 `xwin20002@gmail.com`；YouTube unlisted 影片 `oD0GIU4UKPc` 是全冊 overview，**不得**再當逐課影片。
   - `docs/reference-baseline.md` 與 `data/templates/unit-content.template.json` 已建立；L01 是國語 golden example。
@@ -105,15 +109,16 @@ edu2/
   - 已完成 `docs/prior-portfolio-source-audit-2026-07-11.md`：edu1 提供來源索引與版本異動檢查模式；edu3 提供 artifact integration history，但兩者教材內容均不可搬用。
   - Obsidian `創作庫/20260527_Win11-SOP驗證_L6毛毛蟲過河.md` 是必查 workflow evidence：前置搜尋不得只限 edu2 dashboard 或目標年級名稱。
   - 逐課課文結構 brief、NotebookLM artifact 與專屬影片是 `pending`；公開詞彙／朗讀層不構成課文理解完成，缺少合法來源時不得推測或產製。
-  - 115 出版社隔離與比較框架已完成；新資料必須依國語翰林／數學康軒／生活南一各別重新蒐集。
-  - GitHub Pages production 已部署並以 L01 smoke test 確認公開詞彙／朗讀入口；本 session 關案前 validator 與 `git diff --check` 均通過。
+  - 115 出版社隔離與比較框架已完成；新資料必須依國語翰林／數學康軒／生活南一各別重新蒐集，且每次來源候選都要記入 `data/source-acquisition-log.json`。
+  - GitHub Pages production 仍是既有 114 historical/public learning layer；本 session 未產生 115 NotebookLM、YouTube 或正式逐課頁。
 - **Next**:
-  - 先取得 115 翰林二上 official outline、L01 合法 text-structure brief／教師核對稿，完成 source → NotebookLM → QA → media ID vertical slice。
+  - 先取得 115 翰林二上國語 L01〈我的心情〉合法 text-structure brief／教師核對稿，完成 source → NotebookLM → QA → media ID vertical slice。
   - 取得 115 康軒二上數學與 115 南一二上生活 official outline，分別建立 U01／T01 subject Golden，禁止用 114 翰林資料替代。
   - 對每個教師／YouTube 候選完成版本、授權與兒少適切性 review，再決定是否 external link；視需求補做三科獨立 NotebookLM artifacts。
   - 每次資料發現先更新 source registry／provenance log，再建立 115 formal data 與 comparison mappings。
   - 將本 repo 的 `WORKFLOW.md`、schema、templates 與 validator 套用到 edu4。
 - **Open questions**:
-  - 三科 115 official outline 與逐課／逐單元合法來源尚未完成；114 公開詞彙 bank 不足以反推 115 內容。
+  - 115 國語與生活僅完成 official outline，逐課／逐單元合法 brief 尚未完成；114 公開詞彙 bank 與跨學年學校計畫不足以反推 115 內容。
+  - 115 康軒二上數學完整 official outline 尚未找到。
   - GitHub Actions 顯示 Node.js 20 deprecation annotation；目前部署成功，後續需隨官方 action major release 更新。
 <!-- CC-SESSION-HANDOFF:END -->

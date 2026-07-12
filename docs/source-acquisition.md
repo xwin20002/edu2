@@ -37,6 +37,10 @@ node scripts/record-source-acquisition.mjs \
 5. For a candidate that is *not* downloaded (especially a YouTube creator), add `action: discovered-no-download` manually to the log, with `rightsStatus: unknown-review-required` until reviewed.
 6. Only after the unit's source review passes may the data enter a NotebookLM pack. A source link, screen capture, or search result never authorizes reconstructing copyrighted textbook prose.
 
+## Promotion gate
+
+Every record must be evaluated with [Content Source Gates](content-source-gates.md). Verify the internal cover／curriculum page—not just the URL, filename, or search snippet—for the academic year and version; a mismatch is logged as a rejection and contributes no content. A publisher baseline or a promotional PDF can establish only the metadata explicitly visible in that source; it cannot authorize inferred lessons, public pages, NotebookLM artifacts, or YouTube videos. Record the lifecycle status in the subject intake and `工作筆記.md`.
+
 ## Video / creator review checklist
 
 Before linking a third-party video to a lesson, record the channel, exact URL, retrieval date, publisher/version match, audience suitability, rights/embedding status, teacher review, and intended role. The role must be one of `supplement`, `activity-inspiration`, or `external-reference`—never `lesson-fact` unless Tier A/B evidence independently confirms it.

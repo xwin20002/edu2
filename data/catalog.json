@@ -16,9 +16,9 @@
     {"id": "nani", "label": "南一", "status": "planned", "enabled": true}
   ],
   "subjects": [
-    {"id": "chinese", "label": "國語", "emoji": "📖", "color": "yellow", "publisher": "hanlin", "href": null, "status": "awaiting-catalog", "description": "115 翰林版已確認；等待正式目錄與逐課來源重新蒐集"},
+    {"id": "chinese", "label": "國語", "emoji": "📖", "color": "yellow", "publisher": "hanlin", "href": null, "status": "outline-verified-content-pending", "description": "115 翰林版二上 12 課與四主題已由官方教材簡介核對；課文結構、注音、詞彙、活動與 QA 仍在蒐集，尚未開放"},
     {"id": "math", "label": "數學", "emoji": "📐", "color": "blue", "publisher": "kanghsuan", "href": null, "status": "awaiting-catalog", "description": "115 康軒版已確認；等待正式目錄、單元與教學來源重新蒐集"},
-    {"id": "life", "label": "生活", "emoji": "🌱", "color": "green", "publisher": "nani", "href": null, "status": "awaiting-catalog", "description": "115 南一版已確認；等待正式目錄、主題與教學來源重新蒐集"}
+    {"id": "life", "label": "生活", "emoji": "🌱", "color": "green", "publisher": "nani", "href": null, "status": "outline-verified-content-pending", "description": "115 南一版 6 主題已由官方教材簡介核對；教學內容、活動與 QA 仍在蒐集，尚未開放"}
   ],
   "comparisonDimensions": ["common-outcome", "publisher-specific", "teaching-sequence"],
   "canonicalTopics": [],

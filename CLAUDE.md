@@ -33,8 +33,8 @@
 <!-- CC-SESSION-HANDOFF:START -->
 ## 📌 Session 交接區
 
-- **Last session**: 2026-07-12 — 115 publisher baseline migration in progress.
-- **Current state**: 桃子腳 115 公開版本表確認小二國語翰林、數學康軒、生活南一。首頁與 catalog 已停用三科 115 導覽；`data/academic-year-115.json` 只含空的待核對 manifest。114 翰林 outlines、28 個內頁、NotebookLM overview 與 YouTube `oD0GIU4UKPc` 全部是 historical reference，不得改名為 115；既有 L01 仍只作直式／注音 renderer Golden。
-- **Next**: 各科先取得 115 official outline；國語再做 L01 合法 brief → NotebookLM → QA → media ID vertical slice，數學／生活分別做 U01／T01 subject Golden。每次發現或下載先記錄 source registry／provenance log。
-- **Open questions**: 三科 115 official outline 與逐課合法來源；Tier C 資源的授權、版本與兒少適切性；Actions Node.js 20 deprecation annotation。
+- **Last session**: 2026-07-12 — 115 source recollection gates and outline-only intake recorded.
+- **Current state**: 桃子腳 115 公開版本表確認小二國語翰林、數學康軒、生活南一。首頁與 catalog 已停用三科 115 導覽；`docs/content-source-gates.md` 已要求 exact 年級／學期／出版社／內文年度核對後才可 promotion。翰林國語 115 低年級教材簡介第 5 頁已核對二上 4 主題、12 課、2 篇來閱讀並寫入 `data/content-intake/chinese-hanlin-115.json`；先前誤讀的一下第 4 頁資料已排除。南一生活已完成 outline-only intake；康軒數學完整二上 outline 仍待取得。L01〈我的心情〉僅有 114 跨學年課程計畫 candidate，不可升格為 115 unit brief。
+- **Next**: 先取得 115 翰林二上國語 L01 合法 text-structure brief／教師核對稿，再做 source pack → NotebookLM → QA → media ID vertical slice。數學補 115 康軒二上 official outline，生活補 T01 unit brief；每次發現或下載先記錄 source registry／provenance log。
+- **Open questions**: 115 國語逐課合法 brief、康軒二上數學完整 outline、南一生活 T01 brief；Tier C 資源的授權、版本與兒少適切性；Actions Node.js 20 deprecation annotation。
 <!-- CC-SESSION-HANDOFF:END -->

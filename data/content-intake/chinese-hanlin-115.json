@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "subject": "chinese",
+  "publisher": "hanlin",
+  "academicYear": 115,
+  "semester": 1,
+  "sourceStatus": "official-outline-verified-content-pending",
+  "source": {
+    "id": "hanlin-115-low-primary-promo",
+    "url": "https://website.hle.com.tw/market/el/%E8%A1%8C%E9%8A%B7%E7%B6%B2%E7%AB%99/115/1%E4%BD%8E%E5%B9%B4%E7%B4%9A/%E6%95%99%E6%9D%90/%E6%95%99%E6%9D%90%E7%89%B9%E8%89%B2/%E4%BD%8E%E7%B0%A1.pdf",
+    "localPath": "source/official/hanlin-115-low-primary-promo.pdf",
+    "sha256": "457c47acefc1aa468fd6d6b72d37aaf1e6998b06ca976a1acab2de0353d13df2",
+    "evidencePages": [1, 5],
+    "rightsStatus": "publisher-public-promo-reference; no textbook reproduction"
+  },
+  "themes": [
+    {"publisherThemeId": "01", "title": "心情萬花筒", "lessonIds": ["L01", "L02", "L03"], "titleStatus": "verified-publisher-outline"},
+    {"publisherThemeId": "02", "title": "觀察樂趣多", "lessonIds": ["L04", "L05", "L06"], "titleStatus": "verified-publisher-outline"},
+    {"publisherThemeId": "03", "title": "美食點點名", "lessonIds": ["L07", "L08", "L09"], "titleStatus": "verified-publisher-outline"},
+    {"publisherThemeId": "04", "title": "語文真有趣", "lessonIds": ["L10", "L11", "L12"], "titleStatus": "verified-publisher-outline"}
+  ],
+  "units": [
+    {"publisherUnitId": "L01", "title": "我的心情", "author": "游珮芸", "genre": "詩歌", "themeId": "01", "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "L02", "title": "彩色的天空", "author": "王宗仁", "genre": "記敘文", "themeId": "01", "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "L03", "title": "國王做新衣", "author": "林茂興", "genre": "記敘文", "themeId": "01", "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "L04", "title": "水草下的呱呱", "author": "林哲璋", "genre": "詩歌", "themeId": "02", "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "L05", "title": "沙灘上的畫", "genre": "記敘文", "themeId": "02", "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "L06", "title": "草叢裡的星星", "author": "陳靜婷", "genre": "應用文（日記）", "themeId": "02", "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "L07", "title": "不一樣的故事", "author": "王洛夫", "genre": "記敘文", "themeId": "03", "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "L08", "title": "美食分享日", "author": "王洛夫", "genre": "記敘文", "themeId": "03", "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "L09", "title": "好味道", "author": "周姚萍", "genre": "詩歌", "themeId": "03", "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "L10", "title": "加加減減", "genre": "記敘文", "themeId": "04", "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "L11", "title": "奇怪的門", "author": "林世仁", "genre": "詩歌", "themeId": "04", "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "L12", "title": "詠鵝", "author": "康逸藍", "genre": "記敘文", "themeId": "04", "titleStatus": "verified-publisher-outline"}
+  ],
+  "readingItems": [
+    {"publisherItemId": "R01", "title": "小蜻蜓低低飛", "genre": "記敘文", "afterThemeId": "02", "titleStatus": "verified-publisher-outline"},
+    {"publisherItemId": "R02", "title": "不簡單的字", "author": "岑澎維", "genre": "記敘文", "afterThemeId": "04", "titleStatus": "verified-publisher-outline"}
+  ],
+  "publicationRule": "Themes, lesson titles, authors and genres are verified outline metadata only. No textbook prose, zhuyin, vocabulary, character list, exercises, publisher audio, images, inferred activities, NotebookLM pack or media ID may be added without a unit-level lawful brief and review.",
+  "readingItemRule": "Reading-item metadata is outline-only. It is not a unit brief and does not authorize page publication or artifact creation.",
+  "rejectionHistory": [{"recordedAt": "2026-07-12", "reason": "The first extraction read the preceding one-down page as two-up. All one-down titles, including 春天來了, were removed before publication; page 5 two-up table is the verified source."}]
+}

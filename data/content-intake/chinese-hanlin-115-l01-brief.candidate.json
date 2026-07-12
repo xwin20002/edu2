@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "status": "cross-year-candidate-not-promoted",
+  "target": {
+    "academicYear": 115,
+    "grade": 2,
+    "semester": 1,
+    "publisher": "hanlin",
+    "lessonId": "L01",
+    "title": "我的心情",
+    "genre": "詩歌"
+  },
+  "evidence": {
+    "sourceId": "ptc-114-hanlin-grade2-chinese-plan",
+    "sourceYear": 114,
+    "matchBasis": "相同出版社、年級、學期、主題、課名，且 115 官方教材簡介的二上課次表也列出 L01〈我的心情〉。",
+    "limitation": "來源不是 115；不得把它升格為 115 unit-brief-verified，也不得使用或重製課文正文。"
+  },
+  "instructionalSignals": {
+    "focus": "辨識自己的情緒變化，並以合宜語句表達或記錄感受。",
+    "learningActions": ["朗讀與認讀語句、語詞", "以完整句回應課程問題", "使用句型表達並記錄心情"],
+    "textStructure": null,
+    "vocabulary": null,
+    "zhuyin": null,
+    "characters": null
+  },
+  "originalShortSummary": "心情會隨事情改變，可以說出感受，並用句子記下來。",
+  "promotionRequirement": "取得 115 同版的合法 text-structure brief，或由教師依合法課本核對後，才可建立原創 Golden content 與 NotebookLM source pack。",
+  "publicationRule": "This candidate is private workflow evidence only. It must not enable the public lesson page or appear as textbook text."
+}

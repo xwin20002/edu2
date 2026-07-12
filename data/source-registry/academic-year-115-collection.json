@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "project": "edu2",
+  "academicYear": 115,
+  "semester": 1,
+  "lastReviewed": "2026-07-12",
+  "purpose": "115 小二上三科資料收集 registry。未通過 outline gate 的來源只能作發現紀錄，不得建立課次、內容、NotebookLM source pack 或媒體。",
+  "subjectBaselines": {
+    "chinese": "hanlin",
+    "math": "kanghsuan",
+    "life": "nani"
+  },
+  "sources": [
+    {
+      "id": "hanlin-115-low-primary-promo",
+      "tier": "A",
+      "owner": "翰林出版事業股份有限公司",
+      "kind": "publisher-public-textbook-introduction-pdf",
+      "url": "https://website.hle.com.tw/market/el/%E8%A1%8C%E9%8A%B7%E7%B6%B2%E7%AB%99/115/1%E4%BD%8E%E5%B9%B4%E7%B4%9A/%E6%95%99%E6%9D%90/%E6%95%99%E6%9D%90%E7%89%B9%E8%89%B2/%E4%BD%8E%E7%B0%A1.pdf",
+      "coverage": "封面標示『115 翰林國小教材簡介本 低年級』；第 5 頁列出二上國語四主題、12 課課名、作者、文體與兩篇來閱讀。第 4 頁是一下資料，不可作二上內容。",
+      "allowedUse": "核對 115 翰林二上國語的主題順序、12 課課名、兩篇來閱讀、作者與直接列出的文體；建立 outline-only intake。",
+      "forbiddenUse": "重製課文、注音、生字、語詞、習題、教師手冊、音檔、圖像，或由課名／文體推測教學內容與媒體。",
+      "rightsStatus": "publisher-public-promo-reference; no textbook reproduction",
+      "reviewStatus": "verified-cover-and-page-5-grade2-semester1-chinese-outline; page-4-grade1-semester2-rejected",
+      "acquisitionLogIds": ["SRC-20260712-009"]
+    },
+    {
+      "id": "tlsps-grade2-curriculum-plan-candidate",
+      "tier": "B",
+      "owner": "臺北市老松國民小學",
+      "kind": "public-school-curriculum-plan-pdf",
+      "url": "https://web.tlsps.tp.edu.tw/uploads/1759797121952SDKPvoWx.pdf",
+      "coverage": "網址／搜尋索引標為 115 候選，但下載後的 PDF 內文多處標示『114學年度老松國民小學課程教學計畫』；雖含相同課名，不可作 115 課次、週次、目標或 L01 brief 的依據。",
+      "allowedUse": "保留為 version-mismatch rejection evidence，驗證資料收集的 exact-year gate。",
+      "forbiddenUse": "抽取或引用其國語課名、時數、週次、學習表現、目標或活動，亦不可作 115 L01 Golden source。",
+      "rightsStatus": "public-school-plan-reference; rejected-for-115-content-use",
+      "reviewStatus": "rejected-document-internal-year-mismatch",
+      "acquisitionLogIds": ["SRC-20260712-010"]
+    },
+    {
+      "id": "ptc-114-hanlin-grade2-chinese-plan",
+      "tier": "B",
+      "owner": "屏東縣課程計畫平台／公開學校課程計畫",
+      "kind": "public-school-curriculum-plan-pdf",
+      "url": "https://www.cp.ptc.edu.tw/storage/134665/134665_114_B-01_2A.pdf?1774950745=",
+      "coverage": "114 學年度、二年級、第一學期、翰林國語的 L01〈我的心情〉課程計畫；列出情緒表達、句型記錄心情等教學目標與學習活動，但不提供可重製的課文正文。",
+      "allowedUse": "作為與 115 官方課次表交叉相符的 L01 workflow candidate；只產出不含課文的暫存教學訊號與 original short summary。",
+      "forbiddenUse": "不得以 114 計畫取代 115 unit brief、不得宣稱完成 115 課文結構、不得重製課文、注音、字詞或題目。",
+      "rightsStatus": "public-school-plan-reference; cross-year-candidate-not-promoted",
+      "reviewStatus": "verified-114-grade2-semester1-hanlin-l01; requires-115-edition-or-teacher-crosscheck",
+      "acquisitionLogIds": ["SRC-20260712-011"]
+    },
+    {
+      "id": "education-cloud-115-textword",
+      "tier": "A",
+      "owner": "教育雲教育百科",
+      "kind": "official-public-word-bank",
+      "url": "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&year=115_1",
+      "coverage": "115 學年度上學期篩選入口；本次查閱尚未回傳二年級可選出版社、出版社課次或詞彙表。",
+      "allowedUse": "持續輪詢正式上架狀態；資料出現後才可建立國語課名與公開詞彙 intake。",
+      "forbiddenUse": "把可選學年度視為已上架教材，或以 114 word bank 補成 115 課次。",
+      "reviewStatus": "checked-no-115-grade2-records-yet",
+      "acquisitionLogIds": ["SRC-20260712-002"]
+    },
+    {
+      "id": "kanghsuan-primary-curriculum-plan",
+      "tier": "A",
+      "owner": "康軒文教事業",
+      "kind": "publisher-public-curriculum-plan-index",
+      "url": "https://www.knsh.com.tw/service/plan",
+      "coverage": "康軒公開國小課程計畫入口，連至公開 Google Drive 資料夾。115 二上數學版本／單元檔案尚未由本次查閱確認。",
+      "allowedUse": "取得 115 康軒二上數學正式課程計畫後，核對單元順序、目標與通用教學方向。",
+      "forbiddenUse": "把非 115、非二上或未核對版本的檔案作為 U01 內容來源。",
+      "reviewStatus": "official-index-found-awaiting-exact-115-file",
+      "acquisitionLogIds": ["SRC-20260712-003"]
+    },
+    {
+      "id": "kanghsuan-primary-math-digitalmaster",
+      "tier": "A",
+      "owner": "康軒文教事業",
+      "kind": "publisher-math-resource-index",
+      "url": "https://digitalmaster.knsh.com.tw/e/math/index.html",
+      "coverage": "康軒國小數學影音、電子書、媒體盒與教學資源入口；實際二上、115、權限與外連條件仍待逐筆核對。",
+      "allowedUse": "在正式單元已核對後，尋找並人工審核同版本外連資源。",
+      "forbiddenUse": "以總入口或上學期影音頻道推斷二上單元，或下載、重製、重新上傳出版社內容。",
+      "rightsStatus": "publisher-content-link-only-until-reviewed",
+      "reviewStatus": "official-index-found-awaiting-unit-match",
+      "acquisitionLogIds": ["SRC-20260712-004"]
+    },
+    {
+      "id": "kanghsuan-115-low-primary-promo",
+      "tier": "A",
+      "owner": "康軒文教事業",
+      "kind": "publisher-public-textbook-introduction-pdf",
+      "url": "https://945cloud.knsh.com.tw/show/E/expo/pic/textbook_levels_low/115%E5%BA%B7%E8%BB%92%E7%89%88%E5%9C%8B%E5%B0%8F%E6%95%99%E6%9D%90%E7%B0%A1%E4%BB%8B%E2%94%80%E4%BD%8E%E5%B9%B4%E7%B4%9A.pdf",
+      "coverage": "封面標示『康軒國小教材簡介 115』。數學頁提供二上素材與二位數直式加減範例，但未列出完整二上單元順序。",
+      "allowedUse": "確認 115 低年級康軒教材與部分數學概念的公開存在；作為取得 exact outline 前的官方候選。",
+      "forbiddenUse": "由片段範例反推完整單元、課次或逐頁教學內容。",
+      "rightsStatus": "publisher-public-promo-reference; no textbook reproduction",
+      "reviewStatus": "verified-cover-and-partial-math-evidence-outline-still-pending",
+      "acquisitionLogIds": ["SRC-20260712-008"]
+    },
+    {
+      "id": "cyc-115-public-curriculum-platform",
+      "tier": "B",
+      "owner": "嘉義縣課程計畫及資源整合平台",
+      "kind": "public-school-curriculum-plan-platform",
+      "url": "https://course.cyc.edu.tw/course/pub/cou_ps.php?q_year=115",
+      "coverage": "115 學年度國小課程計畫公開入口。已確認平台與學校頁可選 115；本次掃描尚未取得符合 edu2 三科版本組合的二年級公開課程檔。",
+      "allowedUse": "當 Tier A exact outline 出現後，用同版本學校計畫交叉核對順序、通用目標與公開延伸方向。",
+      "forbiddenUse": "未有同版本檔案時，以 114 或不同出版社計畫替代 115 課次。",
+      "reviewStatus": "platform-available-no-matching-grade2-plan-found",
+      "acquisitionLogIds": ["SRC-20260712-005"]
+    },
+    {
+      "id": "nani-primary-source-discovery",
+      "tier": "A",
+      "owner": "南一書局企業股份有限公司",
+      "kind": "publisher-primary-source-discovery",
+      "url": "https://www.nani.com.tw/",
+      "coverage": "南一官方入口；本次公開頁未提供可核對的 115 二上生活課程目錄。",
+      "allowedUse": "追蹤官方低年級教材、教師資源或課程計畫入口；取得 exact 115 二上生活檔案後再建立 T01 intake。",
+      "forbiddenUse": "以非官方賣場、輔材商品名稱或其他出版社生活課程推定南一 115 單元。",
+      "reviewStatus": "superseded-by-nani-115-low-primary-promo",
+      "acquisitionLogIds": ["SRC-20260712-006"]
+    },
+    {
+      "id": "nani-115-low-primary-promo",
+      "tier": "A",
+      "owner": "南一書局企業股份有限公司",
+      "kind": "publisher-public-textbook-introduction-pdf",
+      "url": "https://naniexpo.nani.com.tw/uploads/pdf/20260312_201419_4ea29e252cdd.pdf",
+      "coverage": "封面標示『115 南一 教材簡介本 低年級』；第 12 頁列出二上生活 6 主題與 16 個子題。",
+      "allowedUse": "核對 115 南一二上生活的主題順序、主題名稱與子題名稱；建立 outline-only intake。",
+      "forbiddenUse": "重製課本頁、課文、習題、音檔、圖像或從宣傳表格推測完整教學活動。",
+      "rightsStatus": "publisher-public-promo-reference; no textbook reproduction",
+      "reviewStatus": "verified-cover-and-life-outline",
+      "acquisitionLogIds": ["SRC-20260712-007"]
+    }
+  ],
+  "promotionRule": "Only an exact 115, Grade 2, Semester 1, subject-and-publisher-matched Tier A/B record may populate data/academic-year-115.json. Exact outline evidence may populate only its directly listed metadata; content remains blocked until a unit brief is independently verified."
+}

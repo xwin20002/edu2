@@ -31,7 +31,8 @@ if (catalog) {
   for (const [subjectId, publisher] of Object.entries(expectedPublishers)) {
     const subject = catalog.subjects?.find(item => item.id === subjectId);
     if (subject?.publisher !== publisher) errors.push(`${subjectId}: 115 出版社應為 ${publisher}`);
-    if (subject?.status !== "awaiting-catalog" || subject?.href !== null) errors.push(`${subjectId}: 115 正式目錄未核對前必須維持 awaiting-catalog 且停用 href`);
+    const allowedStatus = subjectId === "math" ? "awaiting-catalog" : "outline-verified-content-pending";
+    if (subject?.status !== allowedStatus || subject?.href !== null) errors.push(`${subjectId}: 115 資料狀態或停用 href 不符合 source gate`);
   }
 }
 
@@ -47,13 +48,41 @@ try {
 try {
   const manifest115 = JSON.parse(await read("data/academic-year-115.json"));
   const expected = {chinese: "hanlin", math: "kanghsuan", life: "nani"};
-  if (manifest115.academicYear !== 115 || manifest115.status !== "awaiting-official-outlines") errors.push("115 content manifest 狀態錯誤");
+  if (manifest115.academicYear !== 115 || manifest115.status !== "partial-official-outlines-verified-content-pending") errors.push("115 content manifest 狀態錯誤");
   for (const [subjectId, publisher] of Object.entries(expected)) {
     const subject = manifest115.subjects?.find(item => item.id === subjectId);
     if (subject?.publisher !== publisher) errors.push(`115 content manifest 缺少 ${subjectId}→${publisher}`);
-    if (subject?.status !== "awaiting-official-outline" || (subject?.units || []).length !== 0) errors.push(`${subjectId}: 115 正式 outline 未核對前必須保持空單元 manifest`);
+    if (subjectId === "math" && (subject?.status !== "awaiting-official-outline" || (subject?.units || []).length !== 0)) errors.push("math: 115 正式 outline 未核對前必須保持空單元 manifest");
   }
+  const chinese = manifest115.subjects?.find(item => item.id === "chinese");
+  if (chinese?.status !== "official-outline-verified-content-pending" || chinese?.contentIntake !== "data/content-intake/chinese-hanlin-115.json" || chinese?.units?.length !== 12) errors.push("chinese: 115 翰林官方 outline intake 狀態錯誤");
+  try {
+    const chineseIntake = JSON.parse(await read("data/content-intake/chinese-hanlin-115.json"));
+    if (chineseIntake.publisher !== "hanlin" || chineseIntake.academicYear !== 115 || chineseIntake.units?.length !== 12 || chineseIntake.themes?.length !== 4 || chineseIntake.readingItems?.length !== 2) errors.push("國語 115 intake 版本、課次、主題或來閱讀數錯誤");
+    if (!chineseIntake.units?.every(unit => unit.titleStatus === "verified-publisher-outline")) errors.push("國語 115 intake 含未核對的課名");
+    if (chineseIntake.units?.some(unit => !["詩歌", "記敘文", "應用文（日記）"].includes(unit.genre))) errors.push("國語 115 intake 含非官方表列文體");
+    if (chineseIntake.units?.find(unit => unit.publisherUnitId === "L01")?.title !== "我的心情") errors.push("國語 115 L01 必須是二上〈我的心情〉，不得誤用一下〈春天來了〉");
+    if (!chineseIntake.readingItems?.every(item => item.titleStatus === "verified-publisher-outline" && ["詩歌", "記敘文"].includes(item.genre))) errors.push("國語 115 intake 含未核對的來閱讀 metadata");
+  } catch (error) { errors.push(`國語 115 intake 無法解析：${error.message}`); }
+  const life = manifest115.subjects?.find(item => item.id === "life");
+  if (life?.status !== "official-outline-verified-content-pending" || life?.contentIntake !== "data/content-intake/life-nani-115.json" || life?.units?.length !== 6) errors.push("life: 115 南一官方 outline intake 狀態錯誤");
+  try {
+    const lifeIntake = JSON.parse(await read("data/content-intake/life-nani-115.json"));
+    if (lifeIntake.publisher !== "nani" || lifeIntake.academicYear !== 115 || lifeIntake.units?.length !== 6) errors.push("生活 115 intake 版本或主題數錯誤");
+    if (!lifeIntake.units?.every(unit => unit.titleStatus === "verified-publisher-outline")) errors.push("生活 115 intake 含未核對的主題");
+  } catch (error) { errors.push(`生活 115 intake 無法解析：${error.message}`); }
 } catch (error) { errors.push(`115 content manifest 無法解析：${error.message}`); }
+
+try {
+  const collection = JSON.parse(await read("data/source-registry/academic-year-115-collection.json"));
+  const expected = {chinese: "hanlin", math: "kanghsuan", life: "nani"};
+  for (const [subject, publisher] of Object.entries(expected)) {
+    if (collection.subjectBaselines?.[subject] !== publisher) errors.push(`115 collection registry 缺少 ${subject}→${publisher}`);
+  }
+  for (const id of ["hanlin-115-low-primary-promo", "tlsps-grade2-curriculum-plan-candidate", "ptc-114-hanlin-grade2-chinese-plan", "education-cloud-115-textword", "kanghsuan-primary-curriculum-plan", "kanghsuan-primary-math-digitalmaster", "kanghsuan-115-low-primary-promo", "cyc-115-public-curriculum-platform", "nani-primary-source-discovery", "nani-115-low-primary-promo"]) {
+    if (!collection.sources?.some(source => source.id === id)) errors.push(`115 collection registry 缺少 ${id}`);
+  }
+} catch (error) { errors.push(`115 source collection registry 無法解析：${error.message}`); }
 
 try {
   const hanlin = JSON.parse(await read("data/hanlin-114.json"));
@@ -99,6 +128,7 @@ try {
 const homepage = await read("index.html");
 const foundationPage = await read("foundation.html");
 const workflowPage = await read("workflow.html");
+const sourceGates = await read("docs/content-source-gates.md");
 const legacyPatterns = [/三年級/,/三下/,/href=["'](?:chinese\.html|math\/|science\/|L\d)/];
 for (const pattern of legacyPatterns) {
   if (pattern.test(homepage)) errors.push(`首頁仍含舊教材內容：${pattern}`);
@@ -118,6 +148,14 @@ if (!workflowPage.includes("偏差警報與快速接回")) errors.push("workflow
 if (!workflowPage.includes("Phase 0 · Reuse／Scope／Continuity Preflight")) errors.push("workflow.html 缺少 reuse／scope／continuity preflight");
 if (!workflowPage.includes("scopeClass") || !workflowPage.includes("continuityStatus")) errors.push("workflow.html 缺少 scope／continuity 狀態欄位");
 if (!workflowPage.includes("知識成熟循環")) errors.push("workflow.html 缺少 knowledge maturation loop");
+if (!workflowPage.includes("資料收集安全關卡")) errors.push("workflow.html 缺少資料收集安全關卡");
+for (const gate of ["publisher-baseline-verified", "official-outline-verified", "unit-brief-verified", "publication-ready", "artifact-ready"]) {
+  if (!sourceGates.includes(gate)) errors.push(`Content Source Gates 缺少 ${gate}`);
+}
+if (!sourceGates.includes("內文年度核對")) errors.push("Content Source Gates 缺少內文年度核對");
+if (!workflowPage.includes("檔名／URL 寫 115 不算")) errors.push("workflow.html 缺少內文年度 rejection 規則");
+if (!workflowPage.includes('href="docs/content-source-gates.md"')) errors.push("workflow.html 缺少 Content Source Gates 入口");
+if (!foundationPage.includes("資料收集安全關卡")) errors.push("foundation.html 缺少資料收集安全關卡入口");
 try { await access(new URL("../docs/retrospective-2026-07-11.md", import.meta.url)); }
 catch { errors.push("缺少本次建置 retrospective"); }
 try { await access(new URL("../docs/reuse-map-2026-07-11.md", import.meta.url)); }
@@ -132,10 +170,16 @@ try {
   }
   if (registry.sources?.find(source => source.id === "gsyan-html5-fun-hanlin-grade2-114")?.licenseStatus !== "unknown-review-required") errors.push("Tier C 教師資源必須保留授權 review gate");
   const log = JSON.parse(await read("data/source-acquisition-log.json"));
-  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005", "SRC-20260711-006", "SRC-20260711-007", "SRC-20260711-008", "SRC-20260711-009", "SRC-20260711-010", "SRC-20260711-011", "SRC-20260711-012", "SRC-20260712-001"]) {
+  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005", "SRC-20260711-006", "SRC-20260711-007", "SRC-20260711-008", "SRC-20260711-009", "SRC-20260711-010", "SRC-20260711-011", "SRC-20260711-012", "SRC-20260712-001", "SRC-20260712-002", "SRC-20260712-003", "SRC-20260712-004", "SRC-20260712-005", "SRC-20260712-006", "SRC-20260712-007", "SRC-20260712-008", "SRC-20260712-009", "SRC-20260712-010", "SRC-20260712-011"]) {
     if (!log.records?.some(record => record.id === id)) errors.push(`source acquisition log 缺少 ${id}`);
   }
 } catch (error) { errors.push(`source registry 或 acquisition log 無法解析：${error.message}`); }
+
+try {
+  const candidate = JSON.parse(await read("data/content-intake/chinese-hanlin-115-l01-brief.candidate.json"));
+  if (candidate.status !== "cross-year-candidate-not-promoted" || candidate.target?.title !== "我的心情") errors.push("L01 cross-year candidate 狀態或課次錯誤");
+  if (candidate.evidence?.sourceYear !== 114 || candidate.instructionalSignals?.textStructure !== null) errors.push("L01 cross-year candidate 不得冒充 115 課文結構");
+} catch (error) { errors.push(`L01 cross-year candidate 無法解析：${error.message}`); }
 
 for (const template of ["data/templates/intake.template.json", "data/templates/publisher-mapping.template.json", "data/templates/unit-content.template.json"]) {
   try {

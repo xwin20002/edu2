@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "subject": "life",
+  "publisher": "nani",
+  "academicYear": 115,
+  "semester": 1,
+  "sourceStatus": "official-outline-verified-content-pending",
+  "source": {
+    "id": "nani-115-low-primary-promo",
+    "url": "https://naniexpo.nani.com.tw/uploads/pdf/20260312_201419_4ea29e252cdd.pdf",
+    "localPath": "source/official/nani-115-low-primary-promo.pdf",
+    "sha256": "a36111d2a531a5e4bf88feeec3db0b5a59ce49862b9807f2f8551705c5c786de",
+    "evidencePages": [1, 12],
+    "rightsStatus": "publisher-public-promo-reference; no textbook reproduction"
+  },
+  "units": [
+    {"publisherUnitId": "T01", "title": "標誌與生活", "subtopics": ["生活中的標誌", "標誌的妙用"], "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "T02", "title": "吸住了", "subtopics": ["什麼吸得住", "吸住了真有用"], "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "T03", "title": "我愛泡泡", "subtopics": ["泡泡怎麼來", "大家來吹泡泡", "美麗的泡泡"], "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "T04", "title": "大樹", "subtopics": ["認識樹朋友", "親近樹朋友", "愛護樹朋友"], "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "T05", "title": "和風做朋友", "subtopics": ["風兒在哪裡", "風兒真奇妙", "和風一起玩"], "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "T06", "title": "冬天", "subtopics": ["冷冷的天氣", "預防天冷好方法", "冬天送溫暖"], "titleStatus": "verified-publisher-outline"}
+  ],
+  "publicationRule": "Topic titles and subtopics are verified outline metadata only. Do not publish textbook prose, pages, exercises, publisher audio, or inferred activities."
+}
