@@ -196,5 +196,49 @@ chinese.units.forEach((unit, index) => {
   };
 });
 
+// L03「國王做新衣」original adaptation: the verified vocabulary (國王/大臣/設計/驚喜/發現/分享)
+// strongly matches Hans Christian Andersen's "The Emperor's New Clothes" (published 1837,
+// long in the public domain worldwide). This is our OWN original retelling in our own words —
+// grounded in the well-known public-domain tale, NOT a reproduction of Hanlin's textbook prose,
+// wording, or ending. It must never be presented as the actual textbook content.
+const l03 = chinese.units[2];
+l03.originalAdaptation = {
+  title: "原創改編閱讀：國王的新衣",
+  attributionNote: "本篇故事為 edu2 原創改寫，取材自 1837 年安徒生發表、現已進入公共領域的童話《國王的新衣》之通行情節與主題；文字全部由本站原創撰寫，不是翰林課本原文，用詞與結局也不代表課本內容，仍請搭配合法課本使用。",
+  paragraphs: [
+    "從前有一位國王，特別喜歡穿新衣服。有一天，兩個陌生人來到王宮，說他們有特別的方法，可以做出一種奇特的布：只有聰明誠實的人才看得見，不誠實的人什麼都看不到。國王聽了很好奇，馬上請他們開始設計這件新衣。",
+    "兩個人假裝認真地剪裁、縫製，說這件衣服的袖子又長又飄逸，領口還繡著金線，看起來越看越特別。大臣們來看的時候，其實什麼都看不見，但是誰也不敢說出來，怕別人覺得自己不夠聰明。國王試穿之後，也跟著小小地改了幾個地方，開心地走到大街上。",
+    "大家看著國王，也都說：「好漂亮啊！」這時候，一個小朋友大聲說：「國王，你根本沒有穿衣服呀！」全場突然安靜下來，大家你看我、我看你，不知道該怎麼辦。",
+    "國王低頭看了看自己，愣了一下，接著笑了出來：「哈哈，這真是個驚喜！謝謝你讓我發現真相。」他不但沒有生氣，還把這段有趣的經過分享給大家聽，大家也跟著笑了起來。"
+  ],
+  comprehension: [
+    {
+      q: "故事裡，兩個陌生人說的布，誰才看得見？",
+      options: [
+        { text: "誠實聰明的人", correct: true },
+        { text: "只有國王一個人", correct: false },
+        { text: "沒有人看得見", correct: false },
+        { text: "所有人都看得見", correct: false }
+      ]
+    },
+    {
+      q: "大臣們其實都看得見那塊特別的布。",
+      options: [
+        { text: "對", correct: false },
+        { text: "錯", correct: true }
+      ]
+    },
+    {
+      q: "小朋友說出真相以後，國王的反應是？",
+      options: [
+        { text: "生氣責備小朋友", correct: false },
+        { text: "笑著感謝，並把經過分享給大家", correct: true },
+        { text: "假裝沒聽到", correct: false },
+        { text: "難過地哭了起來", correct: false }
+      ]
+    }
+  ]
+};
+
 await writeFile(target, `${JSON.stringify(course, null, 2)}\n`);
 console.log("normalized 12 Chinese units to the verified public learning layer");
