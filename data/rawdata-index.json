@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "project": "edu2",
+  "updated": "2026-07-12",
+  "root": "source/RAWdata",
+  "note": "The source/ directory is git-ignored. This index records the intended RAWdata taxonomy; provenance remains authoritative in data/source-acquisition-log.json.",
+  "taxonomy": {
+    "pattern": "source/RAWdata/<subject>/<publisher>/<academicYear>/<purpose>/",
+    "subjects": ["chinese", "math", "life"],
+    "purposes": ["official-outline", "official-candidates", "education-cloud", "school-plan", "cross-year-candidates", "rejected"]
+  },
+  "collections": [
+    {
+      "id": "chinese-hanlin-115-official-outline",
+      "subject": "chinese",
+      "publisher": "hanlin",
+      "academicYear": 115,
+      "purpose": "official-outline",
+      "path": "source/RAWdata/chinese/hanlin/115/official-outline/",
+      "sourceIds": ["hanlin-115-low-primary-promo"],
+      "status": "official-outline-verified-content-pending",
+      "allowedUse": "115 Hanlin grade 2 semester 1 Chinese outline metadata only."
+    },
+    {
+      "id": "chinese-hanlin-115-cross-year-candidates",
+      "subject": "chinese",
+      "publisher": "hanlin",
+      "academicYear": 115,
+      "purpose": "cross-year-candidates",
+      "path": "source/RAWdata/chinese/hanlin/115/cross-year-candidates/",
+      "sourceIds": ["ptc-114-hanlin-grade2-chinese-plan"],
+      "status": "user-approved-114-fallback-candidate",
+      "allowedUse": "May support clearly labeled original 114-fallback / 115-candidate teaching content; not official 115 unit content."
+    },
+    {
+      "id": "chinese-hanlin-115-education-cloud-candidates",
+      "subject": "chinese",
+      "publisher": "hanlin",
+      "academicYear": 115,
+      "purpose": "education-cloud-candidates",
+      "path": "source/RAWdata/chinese/hanlin/115/education-cloud-candidates/",
+      "sourceIds": ["education-cloud-115-textword"],
+      "status": "checked-no-grade2-hanlin-records-yet",
+      "allowedUse": "Negative evidence and future polling snapshot; not usable as 115 vocabulary intake."
+    },
+    {
+      "id": "chinese-hanlin-115-rejected",
+      "subject": "chinese",
+      "publisher": "hanlin",
+      "academicYear": 115,
+      "purpose": "rejected",
+      "path": "source/RAWdata/chinese/hanlin/115/rejected/",
+      "sourceIds": ["tlsps-grade2-curriculum-plan-candidate"],
+      "status": "rejected-version-mismatch",
+      "allowedUse": "Negative evidence for exact-year checks only."
+    },
+    {
+      "id": "chinese-hanlin-114-historical-wordbank",
+      "subject": "chinese",
+      "publisher": "hanlin",
+      "academicYear": 114,
+      "purpose": "education-cloud",
+      "path": "source/RAWdata/chinese/hanlin/114/education-cloud/",
+      "sourceIds": ["education-cloud-hanlin-114-wordbank"],
+      "status": "historical-public-learning-layer",
+      "allowedUse": "Historical 114 public word-bank reference; do not publish as 115 curriculum."
+    },
+    {
+      "id": "chinese-hanlin-114-school-plan",
+      "subject": "chinese",
+      "publisher": "hanlin",
+      "academicYear": 114,
+      "purpose": "school-plan",
+      "path": "source/RAWdata/chinese/hanlin/114/school-plan/",
+      "sourceIds": ["mhps-114-grade2-chinese-plan"],
+      "status": "historical-reference",
+      "allowedUse": "Historical school-plan reference only."
+    },
+    {
+      "id": "math-kanghsuan-115-official-candidates",
+      "subject": "math",
+      "publisher": "kanghsuan",
+      "academicYear": 115,
+      "purpose": "official-candidates",
+      "path": "source/RAWdata/math/kanghsuan/115/official-candidates/",
+      "sourceIds": ["kanghsuan-115-low-primary-promo"],
+      "status": "partial-official-evidence-outline-pending",
+      "allowedUse": "Partial official evidence only; not a complete grade 2 semester 1 outline."
+    },
+    {
+      "id": "life-nani-115-official-outline",
+      "subject": "life",
+      "publisher": "nani",
+      "academicYear": 115,
+      "purpose": "official-outline",
+      "path": "source/RAWdata/life/nani/115/official-outline/",
+      "sourceIds": ["nani-115-low-primary-promo"],
+      "status": "official-outline-verified-content-pending",
+      "allowedUse": "115 Nani grade 2 semester 1 Life outline metadata only."
+    }
+  ]
+}
