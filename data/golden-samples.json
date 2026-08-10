@@ -59,10 +59,11 @@
         "inquiry": "required"
       },
       "parity": {
-        "status": "technical-passed-awaiting-human-parity",
+        "status": "publication-ready-human-confirmed",
         "checklist": "docs/life-t01-source-and-qa-2026-08-10.md",
         "technicalConfirmedOn": "2026-08-10",
-        "openGates": ["human-parity"]
+        "humanConfirmedOn": "2026-08-10",
+        "openGates": []
       },
       "covers": ["observation-flow", "inquiry-task", "reflection", "classroom-tools"]
     }

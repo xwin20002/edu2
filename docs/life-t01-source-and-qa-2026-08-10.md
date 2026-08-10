@@ -43,4 +43,5 @@ T01 頁面必須同時具備：
 - Responsive：390×844 與 820×1180 無水平 overflow；mobile observation record 為單欄。
 - Shared-shell regression：修正 desktop sticky header 覆蓋 mode button；L01、U01、T01 的 teacher mode 均可操作，L01 保留 18 張生字卡／0 ruby，U01 位值拆解器仍正確。
 - Console：三科 Golden 0 error / warning。
-- Human parity：pending；未通過前不合併 `main`。
+- Human parity：PASS；2026-08-10 使用者確認 OK。
+- Promotion decision：`publication-ready-human-confirmed`；可合併 `main` 並進入 production smoke。NotebookLM／YouTube 仍是獨立 artifact gate，不因本次通過而冒稱完成。

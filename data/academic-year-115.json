@@ -34,10 +34,10 @@
     {
       "id": "life",
       "publisher": "nani",
-      "status": "official-outline-verified-t01-unit-brief-candidate",
+      "status": "official-outline-verified-t01-publication-ready",
       "contentIntake": "data/content-intake/life-nani-115.json",
       "units": [
-        {"id": "T01", "title": "標誌與生活", "unitBrief": "data/content-intake/life-nani-115-t01-brief.json", "status": "candidate-awaiting-human-parity"},
+        {"id": "T01", "title": "標誌與生活", "unitBrief": "data/content-intake/life-nani-115-t01-brief.json", "status": "publication-ready-human-confirmed"},
         {"id": "T02", "title": "吸住了"},
         {"id": "T03", "title": "我愛泡泡"},
         {"id": "T04", "title": "大樹"},

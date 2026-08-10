@@ -65,7 +65,7 @@ try {
     if (!chineseIntake.readingItems?.every(item => item.titleStatus === "verified-publisher-outline" && ["詩歌", "記敘文"].includes(item.genre))) errors.push("國語 115 intake 含未核對的來閱讀 metadata");
   } catch (error) { errors.push(`國語 115 intake 無法解析：${error.message}`); }
   const life = manifest115.subjects?.find(item => item.id === "life");
-  if (life?.status !== "official-outline-verified-t01-unit-brief-candidate" || life?.contentIntake !== "data/content-intake/life-nani-115.json" || life?.units?.length !== 6) errors.push("life: 115 南一 outline / T01 unit brief 狀態錯誤");
+  if (life?.status !== "official-outline-verified-t01-publication-ready" || life?.contentIntake !== "data/content-intake/life-nani-115.json" || life?.units?.length !== 6) errors.push("life: 115 南一 outline / T01 publication-ready 狀態錯誤");
   try {
     const lifeIntake = JSON.parse(await read("data/content-intake/life-nani-115.json"));
     if (lifeIntake.publisher !== "nani" || lifeIntake.academicYear !== 115 || lifeIntake.units?.length !== 6) errors.push("生活 115 intake 版本或主題數錯誤");

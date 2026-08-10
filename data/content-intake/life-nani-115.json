@@ -4,7 +4,7 @@
   "publisher": "nani",
   "academicYear": 115,
   "semester": 1,
-  "sourceStatus": "official-outline-verified-t01-unit-brief-candidate",
+  "sourceStatus": "official-outline-verified-t01-publication-ready",
   "source": {
     "id": "nani-115-low-primary-promo",
     "url": "https://naniexpo.nani.com.tw/uploads/pdf/20260312_201419_4ea29e252cdd.pdf",
@@ -14,7 +14,7 @@
     "rightsStatus": "publisher-public-promo-reference; no textbook reproduction"
   },
   "units": [
-    {"publisherUnitId": "T01", "title": "標誌與生活", "subtopics": ["生活中的標誌", "標誌的妙用"], "titleStatus": "verified-publisher-outline", "unitBrief": "data/content-intake/life-nani-115-t01-brief.json", "contentStatus": "candidate-awaiting-human-parity"},
+    {"publisherUnitId": "T01", "title": "標誌與生活", "subtopics": ["生活中的標誌", "標誌的妙用"], "titleStatus": "verified-publisher-outline", "unitBrief": "data/content-intake/life-nani-115-t01-brief.json", "contentStatus": "publication-ready-human-confirmed"},
     {"publisherUnitId": "T02", "title": "吸住了", "subtopics": ["什麼吸得住", "吸住了真有用"], "titleStatus": "verified-publisher-outline"},
     {"publisherUnitId": "T03", "title": "我愛泡泡", "subtopics": ["泡泡怎麼來", "大家來吹泡泡", "美麗的泡泡"], "titleStatus": "verified-publisher-outline"},
     {"publisherUnitId": "T04", "title": "大樹", "subtopics": ["認識樹朋友", "親近樹朋友", "愛護樹朋友"], "titleStatus": "verified-publisher-outline"},
