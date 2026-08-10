@@ -19,9 +19,10 @@
         "characterSpeech": "required"
       },
       "parity": {
-        "status": "technical-passed-fallback-awaiting-human",
+        "status": "technical-passed-fallback-human-confirmed",
         "checklist": "docs/golden-wave-qa-2026-08-10.md",
-        "openGates": ["115-unit-brief", "human-parity"]
+        "humanConfirmedOn": "2026-08-10",
+        "openGates": ["115-unit-brief"]
       },
       "covers": ["vertical-summary", "vocabulary", "manual-flex-zhuyin", "tone-placement", "speech"]
     },
@@ -38,9 +39,10 @@
         "methodExplanation": "required"
       },
       "parity": {
-        "status": "historical-renderer-candidate-awaiting-human",
+        "status": "historical-renderer-human-confirmed",
         "checklist": "docs/golden-wave-qa-2026-08-10.md",
-        "openGates": ["115-target-unit-brief", "human-parity"]
+        "humanConfirmedOn": "2026-08-10",
+        "openGates": ["115-target-unit-brief"]
       },
       "covers": ["concept-focus", "representation-flow", "formative-assessment", "classroom-tools"]
     },
