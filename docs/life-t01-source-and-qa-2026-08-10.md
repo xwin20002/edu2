@@ -45,3 +45,5 @@ T01 頁面必須同時具備：
 - Console：三科 Golden 0 error / warning。
 - Human parity：PASS；2026-08-10 使用者確認 OK。
 - Promotion decision：`publication-ready-human-confirmed`；可合併 `main` 並進入 production smoke。NotebookLM／YouTube 仍是獨立 artifact gate，不因本次通過而冒稱完成。
+- Production：content commit `9a54678832cebc32ed1dc1f60b87764ea4ba843c`；GitHub Pages run `31401060547` terminal `success`。
+- Live smoke：首頁、L01、U01、T01、workflow 均 HTTP 200，negative path 404；T01 cache-busting response 已含南一 115 目標標示、3 個觀察欄、4 步探究、3 條安全規則與證據反思。
