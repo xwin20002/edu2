@@ -277,6 +277,17 @@
       "contentRole": "115 教育雲二年級翰林國語詞彙查詢 snapshot；頁面回傳 115 上學期但未提供二年級出版社／課次資料，內容區顯示尚未收錄",
       "rightsStatus": "official-public-word-bank-index-snapshot; no textbook reproduction",
       "reviewStatus": "checked-no-115-grade2-hanlin-records-yet; no derived vocabulary content"
+    },
+    {
+      "id": "SRC-20260810-001",
+      "recordedAt": "2026-08-10",
+      "action": "discovered-and-reviewed-cross-year-unit-brief",
+      "sourceId": "dongyuan-114-nani-grade2-life-plan",
+      "sourceUrl": "https://tten.tp.edu.tw/Login/Downment?grade=2&spid=34e77ca2-f290-4b10-8700-89ec75155e60&subject=LifeCourse",
+      "contentRole": "114 東園國小南一版二上生活 T01「標誌與生活」公開課程計畫；與 115 南一官方 outline 交叉核對，用於建立原創 observation/safety/record/reflection vertical slice",
+      "rightsStatus": "public-school-plan-reference; original-activities-only; no textbook reproduction",
+      "reviewStatus": "verified-source-year-114; accepted-user-window-113-115; grade2-semester1-publisher-title match; cross-checked-with-115-outline",
+      "derivedOutput": "data/content-intake/life-nani-115-t01-brief.json"
     }
   ]
 }

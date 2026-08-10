@@ -65,12 +65,20 @@ try {
     if (!chineseIntake.readingItems?.every(item => item.titleStatus === "verified-publisher-outline" && ["詩歌", "記敘文"].includes(item.genre))) errors.push("國語 115 intake 含未核對的來閱讀 metadata");
   } catch (error) { errors.push(`國語 115 intake 無法解析：${error.message}`); }
   const life = manifest115.subjects?.find(item => item.id === "life");
-  if (life?.status !== "official-outline-verified-content-pending" || life?.contentIntake !== "data/content-intake/life-nani-115.json" || life?.units?.length !== 6) errors.push("life: 115 南一官方 outline intake 狀態錯誤");
+  if (life?.status !== "official-outline-verified-t01-unit-brief-candidate" || life?.contentIntake !== "data/content-intake/life-nani-115.json" || life?.units?.length !== 6) errors.push("life: 115 南一 outline / T01 unit brief 狀態錯誤");
   try {
     const lifeIntake = JSON.parse(await read("data/content-intake/life-nani-115.json"));
     if (lifeIntake.publisher !== "nani" || lifeIntake.academicYear !== 115 || lifeIntake.units?.length !== 6) errors.push("生活 115 intake 版本或主題數錯誤");
     if (!lifeIntake.units?.every(unit => unit.titleStatus === "verified-publisher-outline")) errors.push("生活 115 intake 含未核對的主題");
+    if (lifeIntake.units?.[0]?.unitBrief !== "data/content-intake/life-nani-115-t01-brief.json") errors.push("生活 T01 intake 缺少 unit brief 關聯");
   } catch (error) { errors.push(`生活 115 intake 無法解析：${error.message}`); }
+  try {
+    const lifeBrief = JSON.parse(await read("data/content-intake/life-nani-115-t01-brief.json"));
+    if (lifeBrief.sourceStatus !== "unit-brief-verified-cross-year-user-accepted" || lifeBrief.targetAcademicYear !== 115 || lifeBrief.sourceAcademicYear !== 114) errors.push("生活 T01 cross-year brief 學年或狀態錯誤");
+    if (lifeBrief.unit?.title !== "標誌與生活" || lifeBrief.unit?.publisherLabel !== "南一115目標") errors.push("生活 T01 brief 主題或出版社標示錯誤");
+    const ext = lifeBrief.unit?.lifeExtension;
+    if (ext?.observationPrompts?.length < 3 || ext?.inquiryFlow?.length < 4 || ext?.safetyNotes?.length < 3 || !ext?.reflectionPrompt || ext?.formativeChecks?.length < 2) errors.push("生活 T01 Golden 缺少 observation/inquiry/safety/reflection/assessment contract");
+  } catch (error) { errors.push(`生活 T01 unit brief 無法解析：${error.message}`); }
 } catch (error) { errors.push(`115 content manifest 無法解析：${error.message}`); }
 
 try {
@@ -79,7 +87,7 @@ try {
   for (const [subject, publisher] of Object.entries(expected)) {
     if (collection.subjectBaselines?.[subject] !== publisher) errors.push(`115 collection registry 缺少 ${subject}→${publisher}`);
   }
-  for (const id of ["hanlin-115-low-primary-promo", "tlsps-grade2-curriculum-plan-candidate", "ptc-114-hanlin-grade2-chinese-plan", "education-cloud-115-textword", "kanghsuan-primary-curriculum-plan", "kanghsuan-primary-math-digitalmaster", "kanghsuan-115-low-primary-promo", "cyc-115-public-curriculum-platform", "nani-primary-source-discovery", "nani-115-low-primary-promo"]) {
+  for (const id of ["hanlin-115-low-primary-promo", "tlsps-grade2-curriculum-plan-candidate", "ptc-114-hanlin-grade2-chinese-plan", "education-cloud-115-textword", "kanghsuan-primary-curriculum-plan", "kanghsuan-primary-math-digitalmaster", "kanghsuan-115-low-primary-promo", "cyc-115-public-curriculum-platform", "nani-primary-source-discovery", "nani-115-low-primary-promo", "dongyuan-114-nani-grade2-life-plan"]) {
     if (!collection.sources?.some(source => source.id === id)) errors.push(`115 collection registry 缺少 ${id}`);
   }
 } catch (error) { errors.push(`115 source collection registry 無法解析：${error.message}`); }
@@ -156,7 +164,11 @@ if (!foundationPage.includes("Milestone B")) errors.push("foundation.html 缺少
 if (!homepage.includes('href="workflow.html"')) errors.push("首頁缺少工作流程分頁入口");
 if (!mathGoldenPage.includes("base-ten-builder") || !mathGoldenPage.includes("位值拆解器")) errors.push("數學 U01 頁缺少可操作位值表徵");
 if (mathGoldenPage.includes("康軒115目標")) errors.push("數學 U01 歷史頁誤標為康軒 115 目標內容");
-if (lifeGoldenPage.includes("南一115目標")) errors.push("生活 T01 歷史頁誤標為南一 115 目標內容");
+if (!lifeGoldenPage.includes("南一115目標") || !lifeGoldenPage.includes("標誌偵探觀察紀錄")) errors.push("生活 T01 缺少南一 115 目標或觀察紀錄 Golden");
+if (lifeGoldenPage.includes("動物好朋友") || lifeGoldenPage.includes("翰林114歷史參考")) errors.push("生活 T01 仍混入舊歷史主題或標示");
+for (const marker of ["observation-record", "life-inquiry", "life-safety", "life-reflection", "life-teacher-check"]) {
+  if (!lifeGoldenPage.includes(marker)) errors.push(`生活 T01 頁缺少 ${marker}`);
+}
 if (!workflowPage.includes("國語 Reference Rules")) errors.push("workflow.html 缺少國語 reference 規則");
 if (!workflowPage.includes("vertical-rl")) errors.push("workflow.html 缺少直式規格記錄");
 for (const stage of ["架構起始", "重新蒐集資料", "資料處理", "資料換入架構", "技術驗證", "品質確認與舊版對比"]) {
@@ -195,7 +207,7 @@ try {
   const log = JSON.parse(await read("data/source-acquisition-log.json"));
   const serializedLog = JSON.stringify(log);
   if (serializedLog.includes("source/official/")) errors.push("source acquisition log 仍含舊 source/official 路徑");
-  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005", "SRC-20260711-006", "SRC-20260711-007", "SRC-20260711-008", "SRC-20260711-009", "SRC-20260711-010", "SRC-20260711-011", "SRC-20260711-012", "SRC-20260712-001", "SRC-20260712-002", "SRC-20260712-003", "SRC-20260712-004", "SRC-20260712-005", "SRC-20260712-006", "SRC-20260712-007", "SRC-20260712-008", "SRC-20260712-009", "SRC-20260712-010", "SRC-20260712-011", "SRC-20260712-012"]) {
+  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005", "SRC-20260711-006", "SRC-20260711-007", "SRC-20260711-008", "SRC-20260711-009", "SRC-20260711-010", "SRC-20260711-011", "SRC-20260711-012", "SRC-20260712-001", "SRC-20260712-002", "SRC-20260712-003", "SRC-20260712-004", "SRC-20260712-005", "SRC-20260712-006", "SRC-20260712-007", "SRC-20260712-008", "SRC-20260712-009", "SRC-20260712-010", "SRC-20260712-011", "SRC-20260712-012", "SRC-20260810-001"]) {
     if (!log.records?.some(record => record.id === id)) errors.push(`source acquisition log 缺少 ${id}`);
   }
 } catch (error) { errors.push(`source registry 或 acquisition log 無法解析：${error.message}`); }

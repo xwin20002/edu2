@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "subject": "life",
+  "publisher": "nani",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [113, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "T01",
+  "title": "標誌與生活",
+  "sourceStatus": "unit-brief-verified-cross-year-user-accepted",
+  "sourceRefs": [
+    "nani-115-low-primary-promo",
+    "dongyuan-114-nani-grade2-life-plan"
+  ],
+  "sourceBoundary": "115 南一官方簡介核對主題與子題；114 東園國小同出版社、年級、學期與同主題課程計畫提供學習表現、內容、教學重點與評量訊號。使用者已核准 113–115 學年資料可作本批依據。本檔只保留可追溯教學 brief 與本站原創活動，不重製課本、習作、教師手冊、圖像或音檔。",
+  "unit": {
+    "id": "li-115-nani-01",
+    "publisherUnitId": "T01",
+    "title": "標誌與生活",
+    "publisherLabel": "南一115目標",
+    "layerLabel": "113–115 來源窗·unit brief verified",
+    "focus": "觀察生活中的標誌、聲音與手勢，理解它們如何傳遞訊息並幫助大家安全行動。",
+    "mission": "完成「標誌偵探紀錄」：先寫下看得到的圖形、顏色、文字與位置，再提出可能意思，最後找證據核對。",
+    "objectives": [
+      "說出標誌的可見特徵，並分清「我看到的」與「我推測的」。",
+      "根據位置、圖形、顏色或文字，解釋標誌可能傳遞的訊息。",
+      "比較兩個標誌的相同與不同，說明它們如何幫助生活。",
+      "面對生活或交通標誌時，選擇安全、尊重他人的行動。"
+    ],
+    "flow": [
+      "安全找標誌 👀",
+      "記錄可見線索 📝",
+      "提出意思推測 💡",
+      "找位置或成人核對 🔎",
+      "說出合宜行動 ✅"
+    ],
+    "sourceLayer": {
+      "status": "unit-brief-verified-cross-year-user-accepted",
+      "evidence": "115 南一官方主題大綱＋114 東園國小南一版二上同主題課程計畫（使用者允許 113–115 學年來源）。",
+      "boundary": "教學任務、紀錄表與題目均為 edu2 原創；不重製南一課本、習作、圖像或教師手冊。"
+    },
+    "lifeExtension": {
+      "observationPrompts": [
+        {"label": "我看到的", "prompt": "只記錄圖形、顏色、文字、圖案與位置，不先寫意思。"},
+        {"label": "我推測的", "prompt": "它可能想告訴我們什麼？這是推測，還需要核對。"},
+        {"label": "我的核對證據", "prompt": "位置、周圍情境、標誌上的文字，或老師／成人的說明。"}
+      ],
+      "inquiryFlow": [
+        "在教室、校園或街景照片中選一個標誌，先確認觀察位置安全。",
+        "先寫可見線索，再單獨寫意思推測，不把兩者混在一起。",
+        "找第二個標誌比較：哪些設計相同？哪些不同？",
+        "根據位置、文字或成人說明核對，最後說出看到它時應採取的行動。"
+      ],
+      "safetyNotes": [
+        "只在安全位置停留觀察；過馬路一律依號誌、行人設施與師長指引。",
+        "不為了看清楚或拍照進入車道、停車區或其他危險位置。",
+        "不明白標誌意思時，先停下來詢問老師或信任的成人，不用身體去測試危險情境。"
+      ],
+      "reflectionPrompt": "我觀察的標誌是＿＿＿＿；可見證據是＿＿＿＿；我核對後知道它表示＿＿＿＿；下次我會＿＿＿＿。",
+      "teacherChecklist": [
+        "學生先描述可見線索，沒有把推測當成事實。",
+        "學生能指出至少一項核對意思的證據。",
+        "學生提出的行動符合安全與團體規範。"
+      ],
+      "formativeChecks": [
+        {
+          "q": "哪一句是「可見觀察」，不是意思推測？",
+          "options": [
+            {"text": "這個標誌是紅色圓形，中間有一條白線。", "correct": true},
+            {"text": "這一定表示任何人都不能進入。", "correct": false},
+            {"text": "這個標誌很可怕。", "correct": false},
+            {"text": "我猜它可能要我們快跑。", "correct": false}
+          ]
+        },
+        {
+          "q": "在車道旁看到不懂的標誌，怎麼做最安全？",
+          "options": [
+            {"text": "站在安全處，記錄線索後詢問師長。", "correct": true},
+            {"text": "走到車道中間看得更清楚。", "correct": false},
+            {"text": "直接照自己的猜測行動。", "correct": false},
+            {"text": "把標誌移到旁邊再觀察。", "correct": false}
+          ]
+        }
+      ]
+    },
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

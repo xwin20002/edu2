@@ -1,4 +1,4 @@
-(()=>{"use strict";
+(()=>{"use strict";if(document.body.dataset.unitJsReady==="1")return;document.body.dataset.unitJsReady="1";
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 const modeBtn=$("#mode-btn"),modeLabel=$("#mode-label");document.body.classList.add("student-mode");modeBtn?.addEventListener("click",()=>{const student=document.body.classList.toggle("student-mode");modeLabel.textContent=student?"🧑‍🎓 學生模式":"👩‍🏫 教師模式";modeBtn.textContent=student?"✏️ 切換教師模式":"🧑‍🎓 切換學生模式";});
 let fsize=16;const setFont=n=>{fsize=Math.max(12,Math.min(28,n));document.documentElement.style.setProperty("--fsize",fsize);$("#font-val").textContent=`${fsize}px`;};$("#font-inc")?.addEventListener("click",()=>setFont(fsize+2));$("#font-dec")?.addEventListener("click",()=>setFont(fsize-2));
