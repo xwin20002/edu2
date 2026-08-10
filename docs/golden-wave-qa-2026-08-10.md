@@ -33,3 +33,11 @@ Desktop、390×844 mobile、820×1180 tablet 均無水平 overflow；三頁 brow
 - 國語與數學已完成使用者 human parity，可將當前 historical/fallback renderer baseline 合併部署；但因 115 unit brief 仍未過 gate，不標記 115 publication-ready。
 - 生活不得升級，下一個最小測試是先取得南一 115「標誌與生活」合法 unit brief，再建立 observation／safety／record／reflection vertical slice。
 - 未追蹤的兩份 `SANITIZED_*.md` 不屬本批專案內容，不納入 stage 或 commit。
+
+## Production evidence
+
+- Deployed commit：`e88c1e624bdef2c1590bcabfa8f4a1e8ed92b1cf`，驗證時 `main = origin/main`。
+- GitHub Pages run：`31398534989`，terminal status `success`。
+- HTTP smoke：首頁、國語 L01、數學 U01、生活 T01、workflow 均 200；不存在路徑為 404。
+- Production browser smoke：L01 為 18 個 manual-flex 注音字卡且無 `ruby`；U01 輸入 182 正確輸出「1 個百、8 個十、2 個一」；三頁台與 workflow 的 console 皆 0 error / 0 warning。
+- CI maintenance note：Actions 顯示 Node 20 action runtime 將被強制使用 Node 24，屬後續 workflow dependency 升級項，不是本次部署失敗。
