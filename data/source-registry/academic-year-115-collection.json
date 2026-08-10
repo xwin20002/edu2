@@ -44,10 +44,10 @@
       "kind": "public-school-curriculum-plan-pdf",
       "url": "https://www.cp.ptc.edu.tw/storage/134665/134665_114_B-01_2A.pdf?1774950745=",
       "coverage": "114 學年度、二年級、第一學期、翰林國語的 L01〈我的心情〉課程計畫；列出情緒表達、句型記錄心情等教學目標與學習活動，但不提供可重製的課文正文。",
-      "allowedUse": "作為與 115 官方課次表交叉相符的 L01 workflow candidate；只產出不含課文的暫存教學訊號與 original short summary。",
-      "forbiddenUse": "不得以 114 計畫取代 115 unit brief、不得宣稱完成 115 課文結構、不得重製課文、注音、字詞或題目。",
+      "allowedUse": "作為與 115 官方課次表交叉相符的 L01 fallback evidence；使用者已接受 114 資訊作為過渡依據，可產出明確標示為 114-fallback / 115-candidate 的原創教學訊號與 short summary。",
+      "forbiddenUse": "不得以 114 計畫取代 115 official unit brief、不得宣稱完成 115 official 課文結構、不得重製課文、注音、字詞或題目。",
       "rightsStatus": "public-school-plan-reference; cross-year-candidate-not-promoted",
-      "reviewStatus": "verified-114-grade2-semester1-hanlin-l01; requires-115-edition-or-teacher-crosscheck",
+      "reviewStatus": "verified-114-grade2-semester1-hanlin-l01; user-accepted-114-fallback-on-2026-07-12; requires-115-edition-or-teacher-crosscheck for official 115 promotion",
       "acquisitionLogIds": ["SRC-20260712-011"]
     },
     {
@@ -56,11 +56,12 @@
       "owner": "教育雲教育百科",
       "kind": "official-public-word-bank",
       "url": "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&year=115_1",
+      "localPath": "source/RAWdata/chinese/hanlin/115/education-cloud-candidates/education-cloud-hanlin-grade2-chinese-115-query.html",
       "coverage": "115 學年度上學期篩選入口；本次查閱尚未回傳二年級可選出版社、出版社課次或詞彙表。",
       "allowedUse": "持續輪詢正式上架狀態；資料出現後才可建立國語課名與公開詞彙 intake。",
       "forbiddenUse": "把可選學年度視為已上架教材，或以 114 word bank 補成 115 課次。",
-      "reviewStatus": "checked-no-115-grade2-records-yet",
-      "acquisitionLogIds": ["SRC-20260712-002"]
+      "reviewStatus": "checked-no-115-grade2-records-yet; snapshot-saved-under-RAWdata",
+      "acquisitionLogIds": ["SRC-20260712-002", "SRC-20260712-012"]
     },
     {
       "id": "kanghsuan-primary-curriculum-plan",

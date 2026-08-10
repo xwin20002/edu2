@@ -85,6 +85,14 @@ try {
 } catch (error) { errors.push(`115 source collection registry 無法解析：${error.message}`); }
 
 try {
+  const rawdata = JSON.parse(await read("data/rawdata-index.json"));
+  if (rawdata.root !== "source/RAWdata") errors.push("RAWdata index root 必須是 source/RAWdata");
+  for (const id of ["chinese-hanlin-115-official-outline", "chinese-hanlin-115-education-cloud-candidates", "chinese-hanlin-115-cross-year-candidates", "chinese-hanlin-115-rejected", "chinese-hanlin-114-historical-wordbank", "math-kanghsuan-115-official-candidates", "life-nani-115-official-outline"]) {
+    if (!rawdata.collections?.some(collection => collection.id === id)) errors.push(`RAWdata index 缺少 ${id}`);
+  }
+} catch (error) { errors.push(`RAWdata index 無法解析：${error.message}`); }
+
+try {
   const hanlin = JSON.parse(await read("data/hanlin-114.json"));
   const expected = {chinese: 12, math: 10, life: 6};
   for (const [id, count] of Object.entries(expected)) {
@@ -99,6 +107,11 @@ try {
       catch { errors.push(`${id} ${unit.id}: 單元頁不存在`); }
     }
   }
+  const mathSubject = hanlin.subjects?.find(item => item.id === "math");
+  const lifeSubject = hanlin.subjects?.find(item => item.id === "life");
+  if (!mathSubject?.publisherLabel?.includes("114歷史參考") || mathSubject.publisherLabel.includes("康軒115")) errors.push("114 歷史數學頁不得標示為康軒 115 內容");
+  if (!lifeSubject?.publisherLabel?.includes("114歷史參考") || lifeSubject.publisherLabel.includes("南一115")) errors.push("114 歷史生活頁不得標示為南一 115 內容");
+  if (!mathSubject?.units?.[0]?.mathExtension?.manipulative) errors.push("數學 U01 Golden candidate 缺少可操作位值表徵");
 } catch (error) {
   errors.push(`data/hanlin-114.json 無法解析：${error.message}`);
 }
@@ -129,6 +142,9 @@ const homepage = await read("index.html");
 const foundationPage = await read("foundation.html");
 const workflowPage = await read("workflow.html");
 const sourceGates = await read("docs/content-source-gates.md");
+const sourceAcquisition = await read("docs/source-acquisition.md");
+const mathGoldenPage = await read("math/U01/index.html");
+const lifeGoldenPage = await read("life/T01/index.html");
 const legacyPatterns = [/三年級/,/三下/,/href=["'](?:chinese\.html|math\/|science\/|L\d)/];
 for (const pattern of legacyPatterns) {
   if (pattern.test(homepage)) errors.push(`首頁仍含舊教材內容：${pattern}`);
@@ -138,6 +154,9 @@ if (!homepage.includes("compare-view")) errors.push("首頁缺少 comparison vie
 if (!foundationPage.includes("Milestone A")) errors.push("foundation.html 缺少 Milestone A 定義");
 if (!foundationPage.includes("Milestone B")) errors.push("foundation.html 缺少 Milestone B 邊界");
 if (!homepage.includes('href="workflow.html"')) errors.push("首頁缺少工作流程分頁入口");
+if (!mathGoldenPage.includes("base-ten-builder") || !mathGoldenPage.includes("位值拆解器")) errors.push("數學 U01 頁缺少可操作位值表徵");
+if (mathGoldenPage.includes("康軒115目標")) errors.push("數學 U01 歷史頁誤標為康軒 115 目標內容");
+if (lifeGoldenPage.includes("南一115目標")) errors.push("生活 T01 歷史頁誤標為南一 115 目標內容");
 if (!workflowPage.includes("國語 Reference Rules")) errors.push("workflow.html 缺少國語 reference 規則");
 if (!workflowPage.includes("vertical-rl")) errors.push("workflow.html 缺少直式規格記錄");
 for (const stage of ["架構起始", "重新蒐集資料", "資料處理", "資料換入架構", "技術驗證", "品質確認與舊版對比"]) {
@@ -149,13 +168,17 @@ if (!workflowPage.includes("Phase 0 · Reuse／Scope／Continuity Preflight")) e
 if (!workflowPage.includes("scopeClass") || !workflowPage.includes("continuityStatus")) errors.push("workflow.html 缺少 scope／continuity 狀態欄位");
 if (!workflowPage.includes("知識成熟循環")) errors.push("workflow.html 缺少 knowledge maturation loop");
 if (!workflowPage.includes("資料收集安全關卡")) errors.push("workflow.html 缺少資料收集安全關卡");
-for (const gate of ["publisher-baseline-verified", "official-outline-verified", "unit-brief-verified", "publication-ready", "artifact-ready"]) {
+for (const gate of ["publisher-baseline-verified", "official-outline-verified", "unit-brief-verified", "fallback-brief-approved", "publication-ready", "artifact-ready"]) {
   if (!sourceGates.includes(gate)) errors.push(`Content Source Gates 缺少 ${gate}`);
 }
 if (!sourceGates.includes("內文年度核對")) errors.push("Content Source Gates 缺少內文年度核對");
 if (!workflowPage.includes("檔名／URL 寫 115 不算")) errors.push("workflow.html 缺少內文年度 rejection 規則");
 if (!workflowPage.includes('href="docs/content-source-gates.md"')) errors.push("workflow.html 缺少 Content Source Gates 入口");
 if (!foundationPage.includes("資料收集安全關卡")) errors.push("foundation.html 缺少資料收集安全關卡入口");
+if (!foundationPage.includes("data/rawdata-index.json")) errors.push("foundation.html 缺少 RAWdata index 入口");
+if (!foundationPage.includes("docs/chinese-115-source-sweep-2026-07-12.md")) errors.push("foundation.html 缺少 115 國語 source sweep 入口");
+if (!workflowPage.includes("docs/chinese-115-source-sweep-2026-07-12.md")) errors.push("workflow.html 缺少 115 國語 source sweep 入口");
+if (!sourceAcquisition.includes("source/RAWdata/<subject>/<publisher>/<academicYear>/<purpose>/")) errors.push("source acquisition 缺少 RAWdata 分類規則");
 try { await access(new URL("../docs/retrospective-2026-07-11.md", import.meta.url)); }
 catch { errors.push("缺少本次建置 retrospective"); }
 try { await access(new URL("../docs/reuse-map-2026-07-11.md", import.meta.url)); }
@@ -170,15 +193,18 @@ try {
   }
   if (registry.sources?.find(source => source.id === "gsyan-html5-fun-hanlin-grade2-114")?.licenseStatus !== "unknown-review-required") errors.push("Tier C 教師資源必須保留授權 review gate");
   const log = JSON.parse(await read("data/source-acquisition-log.json"));
-  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005", "SRC-20260711-006", "SRC-20260711-007", "SRC-20260711-008", "SRC-20260711-009", "SRC-20260711-010", "SRC-20260711-011", "SRC-20260711-012", "SRC-20260712-001", "SRC-20260712-002", "SRC-20260712-003", "SRC-20260712-004", "SRC-20260712-005", "SRC-20260712-006", "SRC-20260712-007", "SRC-20260712-008", "SRC-20260712-009", "SRC-20260712-010", "SRC-20260712-011"]) {
+  const serializedLog = JSON.stringify(log);
+  if (serializedLog.includes("source/official/")) errors.push("source acquisition log 仍含舊 source/official 路徑");
+  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005", "SRC-20260711-006", "SRC-20260711-007", "SRC-20260711-008", "SRC-20260711-009", "SRC-20260711-010", "SRC-20260711-011", "SRC-20260711-012", "SRC-20260712-001", "SRC-20260712-002", "SRC-20260712-003", "SRC-20260712-004", "SRC-20260712-005", "SRC-20260712-006", "SRC-20260712-007", "SRC-20260712-008", "SRC-20260712-009", "SRC-20260712-010", "SRC-20260712-011", "SRC-20260712-012"]) {
     if (!log.records?.some(record => record.id === id)) errors.push(`source acquisition log 缺少 ${id}`);
   }
 } catch (error) { errors.push(`source registry 或 acquisition log 無法解析：${error.message}`); }
 
 try {
   const candidate = JSON.parse(await read("data/content-intake/chinese-hanlin-115-l01-brief.candidate.json"));
-  if (candidate.status !== "cross-year-candidate-not-promoted" || candidate.target?.title !== "我的心情") errors.push("L01 cross-year candidate 狀態或課次錯誤");
+  if (candidate.status !== "user-approved-114-fallback-candidate" || candidate.target?.title !== "我的心情") errors.push("L01 114 fallback candidate 狀態或課次錯誤");
   if (candidate.evidence?.sourceYear !== 114 || candidate.instructionalSignals?.textStructure !== null) errors.push("L01 cross-year candidate 不得冒充 115 課文結構");
+  if (!candidate.evidence?.userFallbackDecision || !candidate.publicationRule?.includes("must not be labeled as official 115")) errors.push("L01 114 fallback candidate 缺少使用者決策或 official 115 禁止標示規則");
 } catch (error) { errors.push(`L01 cross-year candidate 無法解析：${error.message}`); }
 
 for (const template of ["data/templates/intake.template.json", "data/templates/publisher-mapping.template.json", "data/templates/unit-content.template.json"]) {

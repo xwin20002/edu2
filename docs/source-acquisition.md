@@ -7,7 +7,7 @@
 - `data/source-registry/<subject>-<grade-band>-<year>.json`：可重用來源名單、分級、適用範圍與禁止用途。
 - `data/source-acquisition-log.json`：每次下載、轉檔或只發現未下載的候選來源。
 
-Raw PDF、HTML、影音與付費教材放在 ignored `source/`，不可直接提交 Git；但其 URL、取得日期、相對路徑、hash、權利狀態、用途與 review 結論必須提交到 provenance log。
+Raw PDF、HTML、影音與付費教材放在 ignored `source/RAWdata/`，不可直接提交 Git；但其 URL、取得日期、相對路徑、hash、權利狀態、用途與 review 結論必須提交到 provenance log。目錄分類規則見 [RAWdata Taxonomy](rawdata-taxonomy.md)，目前分類總覽見 `data/rawdata-index.json`。
 
 ## Required source tiers
 
@@ -21,14 +21,14 @@ Raw PDF、HTML、影音與付費教材放在 ignored `source/`，不可直接提
 
 1. Search the registry first **and search both the project dashboard plus `2ndbrain/創作庫/`**. Prefer a listed Tier A source; use the query templates for a new candidate. Do not limit Obsidian search to the target grade, because reusable source and artifact SOPs may be filed under an earlier cockpit.
 2. Before download, record the candidate's publisher/version/grade/semester match and rights status. A same-title result is not enough.
-3. Save the raw file under `source/<owner-or-type>/`; keep it out of Git.
+3. Save the raw file under `source/RAWdata/<subject>/<publisher>/<academicYear>/<purpose>/`; keep it out of Git.
 4. Run the recorder. It calculates a SHA-256 and appends a committed provenance record.
 
 ```bash
 node scripts/record-source-acquisition.mjs \
   --source-id education-cloud-hanlin-114-wordbank \
   --url 'https://example.invalid/source' \
-  --file source/official/example.html \
+  --file source/RAWdata/_inbox/example.html \
   --role '公開詞彙表' \
   --rights 'public-reference-not-textbook-license' \
   --review verified

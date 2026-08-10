@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "cross-year-candidate-not-promoted",
+  "status": "user-approved-114-fallback-candidate",
   "target": {
     "academicYear": 115,
     "grade": 2,
@@ -14,7 +14,12 @@
     "sourceId": "ptc-114-hanlin-grade2-chinese-plan",
     "sourceYear": 114,
     "matchBasis": "相同出版社、年級、學期、主題、課名，且 115 官方教材簡介的二上課次表也列出 L01〈我的心情〉。",
-    "limitation": "來源不是 115；不得把它升格為 115 unit-brief-verified，也不得使用或重製課文正文。"
+    "limitation": "來源不是 115；不得把它升格為 115 official unit-brief-verified，也不得使用或重製課文正文。",
+    "userFallbackDecision": {
+      "recordedAt": "2026-07-12",
+      "decision": "User accepts using 114 information as a fallback basis for building original teaching content.",
+      "scope": "May support a clearly labeled 114-fallback / 115-candidate Chinese L01 teaching layer; does not make the content official 115 curriculum."
+    }
   },
   "instructionalSignals": {
     "focus": "辨識自己的情緒變化，並以合宜語句表達或記錄感受。",
@@ -25,6 +30,6 @@
     "characters": null
   },
   "originalShortSummary": "心情會隨事情改變，可以說出感受，並用句子記下來。",
-  "promotionRequirement": "取得 115 同版的合法 text-structure brief，或由教師依合法課本核對後，才可建立原創 Golden content 與 NotebookLM source pack。",
-  "publicationRule": "This candidate is private workflow evidence only. It must not enable the public lesson page or appear as textbook text."
+  "promotionRequirement": "若要升格為 115 official，仍需取得 115 同版合法 text-structure brief，或由教師依合法課本核對。若採 114 fallback，頁面、source pack 與 artifact 必須明標為 114-fallback / 115-candidate。",
+  "publicationRule": "This candidate may support original fallback teaching content after review. It must not appear as textbook prose, and it must not be labeled as official 115 content."
 }

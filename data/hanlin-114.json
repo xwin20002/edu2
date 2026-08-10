@@ -32,6 +32,8 @@
       "label": "國語",
       "emoji": "📖",
       "accent": "#ffd45a",
+      "publisherLabel": "翰林版",
+      "layerLabel": "114 fallback / 115 candidate",
       "path": "chinese.html",
       "intro": "從心情、自然、美食與想像故事中，練習識字、朗讀、理解與表達。課文全文請搭配合法課本使用。",
       "units": [
@@ -40,6 +42,11 @@
           "title": "我的心情",
           "focus": "辨識本課已核對詞彙，練習中文朗讀並以完整句表達。",
           "mission": "從已核對詞彙選兩個，先朗讀，再各用自己的話造一句完整句。",
+          "sourceLayer": {
+            "status": "114 fallback / 115 candidate",
+            "evidence": "114 教育雲公開詞彙、翰林聽 e 聽外連、115 官方目錄課名。",
+            "boundary": "本頁可作課堂投影與詞彙朗讀練習；課文全文、段落理解與評量仍須由合法 115 教材或教師核對稿補齊。"
+          },
           "verticalSummary": "選一個已核對詞彙，依「詞語、自己的例句」練習直式朗讀；本區是原創朗讀練習，不是課文本文。",
           "vocabulary": [
             {
@@ -150,6 +157,104 @@
           "title": "彩色的天空",
           "focus": "辨識本課已核對詞彙，練習中文朗讀並以完整句表達。",
           "mission": "從已核對詞彙選兩個，先朗讀，再各用自己的話造一句完整句。",
+          "sourceLayer": {
+            "status": "114 fallback / 115 candidate",
+            "evidence": "114 教育雲公開詞彙、翰林聽 e 聽外連、115 官方目錄課名。",
+            "boundary": "本頁可作課堂投影與詞彙朗讀練習；課文全文、段落理解與評量仍須由合法 115 教材或教師核對稿補齊。"
+          },
+          "verticalSummary": "選一個已核對詞彙，依「詞語、自己的例句」練習直式朗讀；本區是原創朗讀練習，不是課文本文。",
+          "vocabulary": [
+            {
+              "word": "希望",
+              "meaning": "已核對公開詞彙；請到教育雲查看釋義。"
+            },
+            {
+              "word": "緊張",
+              "meaning": "已核對公開詞彙；請到教育雲查看釋義。"
+            },
+            {
+              "word": "學習",
+              "meaning": "已核對公開詞彙；請到教育雲查看釋義。"
+            },
+            {
+              "word": "怎麼辦",
+              "meaning": "已核對公開詞彙；請到教育雲查看釋義。"
+            }
+          ],
+          "characters": [
+            {
+              "char": "老",
+              "zhuyin": "ㄌㄠˇ"
+            },
+            {
+              "char": "師",
+              "zhuyin": "ㄕ"
+            },
+            {
+              "char": "新",
+              "zhuyin": "ㄒㄧㄣ"
+            },
+            {
+              "char": "希",
+              "zhuyin": "ㄒㄧ"
+            },
+            {
+              "char": "望",
+              "zhuyin": "ㄨㄤˋ"
+            },
+            {
+              "char": "卻",
+              "zhuyin": "ㄑㄩㄝˋ"
+            },
+            {
+              "char": "始",
+              "zhuyin": "ㄕˇ"
+            },
+            {
+              "char": "緊",
+              "zhuyin": "ㄐㄧㄣˇ"
+            },
+            {
+              "char": "因",
+              "zhuyin": "ㄧㄣ"
+            },
+            {
+              "char": "為",
+              "zhuyin": "ㄨㄟˋ"
+            },
+            {
+              "char": "知",
+              "zhuyin": "ㄓ"
+            },
+            {
+              "char": "道",
+              "zhuyin": "ㄉㄠˋ"
+            },
+            {
+              "char": "怎",
+              "zhuyin": "ㄗㄣˇ"
+            },
+            {
+              "char": "消",
+              "zhuyin": "ㄒㄧㄠ"
+            },
+            {
+              "char": "失",
+              "zhuyin": "ㄕ"
+            },
+            {
+              "char": "習",
+              "zhuyin": "ㄒㄧˊ"
+            },
+            {
+              "char": "最",
+              "zhuyin": "ㄗㄨㄟˋ"
+            },
+            {
+              "char": "掛",
+              "zhuyin": "ㄍㄨㄚˋ"
+            }
+          ],
           "publicLearningLayerStatus": "ready-wordbank-and-listening",
           "textStructureStatus": "needs-licensed-text-or-teacher-review",
           "contentBoundary": "課文事件、人物、段落與理解題尚未有合法 text-structure brief；不可由課名或詞彙推測。",
@@ -450,6 +555,8 @@
       "label": "數學",
       "emoji": "📐",
       "accent": "#86d8ff",
+      "publisherLabel": "翰林114歷史參考",
+      "layerLabel": "historical renderer candidate",
       "path": "math/index.html",
       "intro": "以操作、圖像與生活問題建立數感、測量、加減與乘法基礎。",
       "units": [
@@ -457,13 +564,209 @@
           "id": "ma-01",
           "title": "200以內的數",
           "focus": "百位值、數序、大小比較與100元錢幣。",
-          "mission": "用百格、十條、單位積木表示指定數。"
+          "mission": "用百格、十條、單位積木表示指定數。",
+          "sourceLayer": {
+            "status": "114 historical renderer candidate",
+            "evidence": "114 翰林歷史資料只用來驗證低年級數學 renderer；115 康軒完整二上單元細目仍待 official outline gate。",
+            "boundary": "本頁不是 115 康軒正式教材，只驗證原創位值表徵與課堂互動；不重製課本題目或習作。"
+          },
+          "mathExtension": {
+            "status": "historical-content renderer Golden candidate",
+            "representationTitle": "百、十、個位值表徵",
+            "manipulative": {
+              "label": "位值拆解器",
+              "prompt": "輸入 100 到 200 的整數，觀察百、十、個位如何改變。",
+              "min": 100,
+              "max": 200,
+              "default": 137
+            },
+            "representations": [
+              {
+                "label": "137",
+                "parts": ["1 個百", "3 個十", "7 個一"],
+                "sentence": "137 是 1 個百、3 個十、7 個一；可以用 1 張百格、3 條十條、7 個單位積木表示。"
+              },
+              {
+                "label": "182",
+                "parts": ["1 個百", "8 個十", "2 個一"],
+                "sentence": "182 比 137 大，因為百位相同，先比較十位：8 個十比 3 個十大。"
+              },
+              {
+                "label": "100 元 + 30 元 + 7 元",
+                "parts": ["1 張 100 元", "3 個 10 元", "7 個 1 元"],
+                "sentence": "錢幣表徵可以幫學生把位值連到生活情境。"
+              }
+            ],
+            "workedExamples": [
+              {
+                "title": "比較 128 和 182",
+                "steps": [
+                  "先看百位：兩個數都是 1 個百。",
+                  "再看十位：128 有 2 個十，182 有 8 個十。",
+                  "8 個十比 2 個十大，所以 182 大於 128。"
+                ],
+                "check": "用數線檢查：182 在 128 的右邊。"
+              }
+            ],
+            "reasoningSteps": [
+              "讀數：先讀百位，再讀十位、個位。",
+              "表徵：用百格、十條、單位積木或錢幣把數量做出來。",
+              "比較：百位不同先比百位；百位相同再比十位；十位相同再比個位。",
+              "說明：用一句完整話說出比較理由。"
+            ],
+            "misconceptions": [
+              "只看最後一個數字比較大小，例如以為 128 比 182 大，因為 8 比 2 大。",
+              "把 137 的 3 說成 3 個一，沒有說清楚它在十位所以代表 3 個十。"
+            ],
+            "formativeChecks": [
+              {
+                "q": "137 裡的 3 表示什麼？",
+                "options": [
+                  {
+                    "text": "3 個十",
+                    "correct": true
+                  },
+                  {
+                    "text": "3 個一",
+                    "correct": false
+                  },
+                  {
+                    "text": "3 個百",
+                    "correct": false
+                  },
+                  {
+                    "text": "只是數字 3，沒有單位",
+                    "correct": false
+                  }
+                ]
+              },
+              {
+                "q": "比較 128 和 182，應該先說什麼？",
+                "options": [
+                  {
+                    "text": "兩個百位相同，再比較十位",
+                    "correct": true
+                  },
+                  {
+                    "text": "只看個位 8 和 2",
+                    "correct": false
+                  },
+                  {
+                    "text": "兩個數都不用比較",
+                    "correct": false
+                  },
+                  {
+                    "text": "先看哪個數寫得比較長",
+                    "correct": false
+                  }
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "ma-02",
           "title": "二位數的加減法",
           "focus": "二位數加減直式與生活情境。",
-          "mission": "先估答案範圍，再用直式計算並驗算。"
+          "mission": "先估答案範圍，再用直式計算並驗算。",
+          "sourceLayer": {
+            "status": "114 historical renderer candidate",
+            "evidence": "114 翰林歷史資料只用來驗證低年級數學 renderer；115 康軒完整二上單元細目仍待 official outline gate。",
+            "boundary": "本頁不是 115 康軒正式教材，只驗證原創加減推理與課堂互動；不重製課本題目或習作。"
+          },
+          "mathExtension": {
+            "status": "historical-content renderer candidate",
+            "representationTitle": "估算、直式、檢查三步驟",
+            "representations": [
+              {
+                "label": "46 + 28",
+                "parts": ["估：50 + 30 ≈ 80", "算：個位滿十進一", "查：答案應接近 80"],
+                "sentence": "先估大約 80，再用直式算出 74，最後確認 74 接近估計值。"
+              },
+              {
+                "label": "63 - 27",
+                "parts": ["估：60 - 30 ≈ 30", "算：個位不夠要退位", "查：36 接近 30"],
+                "sentence": "減法退位時，要說清楚 1 個十換成 10 個一。"
+              }
+            ],
+            "workedExamples": [
+              {
+                "title": "46 + 28",
+                "steps": [
+                  "估算：46 接近 50，28 接近 30，所以答案大約 80。",
+                  "個位：6 + 8 = 14，寫 4，向十位進 1。",
+                  "十位：4 個十 + 2 個十 + 進來的 1 個十 = 7 個十。",
+                  "答案：46 + 28 = 74。"
+                ],
+                "check": "74 接近估算的 80，方向合理。"
+              },
+              {
+                "title": "63 - 27",
+                "steps": [
+                  "估算：63 接近 60，27 接近 30，所以答案大約 30。",
+                  "個位：3 不夠減 7，從十位退 1 個十，變成 13 個一。",
+                  "個位：13 - 7 = 6。",
+                  "十位：退位後剩 5 個十，5 - 2 = 3。答案是 36。"
+                ],
+                "check": "36 接近估算的 30，且 36 + 27 = 63。"
+              }
+            ],
+            "reasoningSteps": [
+              "讀題：先找出已知數、要求的未知數與單位。",
+              "估算：先抓答案大概範圍，避免計算後完全不檢查。",
+              "直式：個位對個位、十位對十位，進位或退位要說出原因。",
+              "驗算：加法可用交換或估算檢查；減法可用加回去檢查。"
+            ],
+            "misconceptions": [
+              "直式沒有對齊位值，把個位寫到十位下面。",
+              "退位時只把十位少 1，忘記個位要多 10。",
+              "算完不看估算，錯很大也沒有發現。"
+            ],
+            "formativeChecks": [
+              {
+                "q": "直式計算 46 + 28 時，為什麼個位要進 1？",
+                "options": [
+                  {
+                    "text": "因為 6 + 8 = 14，滿十要進到十位",
+                    "correct": true
+                  },
+                  {
+                    "text": "因為 4 + 2 = 6",
+                    "correct": false
+                  },
+                  {
+                    "text": "因為題目有兩個數",
+                    "correct": false
+                  },
+                  {
+                    "text": "因為答案一定要大於 100",
+                    "correct": false
+                  }
+                ]
+              },
+              {
+                "q": "63 - 27 退位時，下列哪一句最正確？",
+                "options": [
+                  {
+                    "text": "從 6 個十退 1 個十，換成 10 個一",
+                    "correct": true
+                  },
+                  {
+                    "text": "把 3 直接改成 13，不需要說明",
+                    "correct": false
+                  },
+                  {
+                    "text": "把 7 改成 17",
+                    "correct": false
+                  },
+                  {
+                    "text": "只要把答案猜小一點",
+                    "correct": false
+                  }
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "ma-03",
@@ -520,6 +823,8 @@
       "label": "生活",
       "emoji": "🌱",
       "accent": "#a9dda9",
+      "publisherLabel": "翰林114歷史參考",
+      "layerLabel": "historical renderer reference",
       "path": "life/index.html",
       "intro": "從動物、風、泡泡、社區、色彩與冬天出發，經歷觀察、實作、分享與關懷。",
       "units": [

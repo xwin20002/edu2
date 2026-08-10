@@ -18,14 +18,14 @@
     {
       "id": "educloud-index",
       "type": "official-public-word-bank-index",
-      "localPath": "source/official/education-cloud-hanlin-grade2-chinese-114.html",
+      "localPath": "source/RAWdata/chinese/hanlin/114/education-cloud/education-cloud-hanlin-grade2-chinese-114.html",
       "url": "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&degree=2&press=%E7%BF%B0%E6%9E%97%E7%89%88&year=114_1",
       "status": "fetched-and-parsed"
     },
     {
       "id": "school-plan",
       "type": "public-school-curriculum-plan",
-      "localPath": "source/official/hanlin-grade2-chinese-114-spps-plan.md",
+      "localPath": "source/RAWdata/chinese/hanlin/114/school-plan/hanlin-grade2-chinese-114-spps-plan.md",
       "url": "https://web.spps.tp.edu.tw/uploads/1756199556141pTG3MWbx.pdf",
       "status": "fetched-and-converted"
     },
@@ -38,84 +38,84 @@
     {
       "id": "educloud-ch-01",
       "type": "official-public-word-bank",
-      "localPath": "source/official/education-cloud/ch-01.html",
+      "localPath": "source/RAWdata/chinese/hanlin/114/education-cloud/ch-01.html",
       "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140101",
       "status": "fetched-and-parsed"
     },
     {
       "id": "educloud-ch-02",
       "type": "official-public-word-bank",
-      "localPath": "source/official/education-cloud/ch-02.html",
+      "localPath": "source/RAWdata/chinese/hanlin/114/education-cloud/ch-02.html",
       "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140102",
       "status": "fetched-and-parsed"
     },
     {
       "id": "educloud-ch-03",
       "type": "official-public-word-bank",
-      "localPath": "source/official/education-cloud/ch-03.html",
+      "localPath": "source/RAWdata/chinese/hanlin/114/education-cloud/ch-03.html",
       "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140103",
       "status": "fetched-and-parsed"
     },
     {
       "id": "educloud-ch-04",
       "type": "official-public-word-bank",
-      "localPath": "source/official/education-cloud/ch-04.html",
+      "localPath": "source/RAWdata/chinese/hanlin/114/education-cloud/ch-04.html",
       "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140104",
       "status": "fetched-and-parsed"
     },
     {
       "id": "educloud-ch-05",
       "type": "official-public-word-bank",
-      "localPath": "source/official/education-cloud/ch-05.html",
+      "localPath": "source/RAWdata/chinese/hanlin/114/education-cloud/ch-05.html",
       "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140105",
       "status": "fetched-and-parsed"
     },
     {
       "id": "educloud-ch-06",
       "type": "official-public-word-bank",
-      "localPath": "source/official/education-cloud/ch-06.html",
+      "localPath": "source/RAWdata/chinese/hanlin/114/education-cloud/ch-06.html",
       "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140106",
       "status": "fetched-and-parsed"
     },
     {
       "id": "educloud-ch-07",
       "type": "official-public-word-bank",
-      "localPath": "source/official/education-cloud/ch-07.html",
+      "localPath": "source/RAWdata/chinese/hanlin/114/education-cloud/ch-07.html",
       "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140107",
       "status": "fetched-and-parsed"
     },
     {
       "id": "educloud-ch-08",
       "type": "official-public-word-bank",
-      "localPath": "source/official/education-cloud/ch-08.html",
+      "localPath": "source/RAWdata/chinese/hanlin/114/education-cloud/ch-08.html",
       "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140108",
       "status": "fetched-and-parsed"
     },
     {
       "id": "educloud-ch-09",
       "type": "official-public-word-bank",
-      "localPath": "source/official/education-cloud/ch-09.html",
+      "localPath": "source/RAWdata/chinese/hanlin/114/education-cloud/ch-09.html",
       "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140109",
       "status": "fetched-and-parsed"
     },
     {
       "id": "educloud-ch-10",
       "type": "official-public-word-bank",
-      "localPath": "source/official/education-cloud/ch-10.html",
+      "localPath": "source/RAWdata/chinese/hanlin/114/education-cloud/ch-10.html",
       "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140110",
       "status": "fetched-and-parsed"
     },
     {
       "id": "educloud-ch-11",
       "type": "official-public-word-bank",
-      "localPath": "source/official/education-cloud/ch-11.html",
+      "localPath": "source/RAWdata/chinese/hanlin/114/education-cloud/ch-11.html",
       "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140111",
       "status": "fetched-and-parsed"
     },
     {
       "id": "educloud-ch-12",
       "type": "official-public-word-bank",
-      "localPath": "source/official/education-cloud/ch-12.html",
+      "localPath": "source/RAWdata/chinese/hanlin/114/education-cloud/ch-12.html",
       "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021140112",
       "status": "fetched-and-parsed"
     }

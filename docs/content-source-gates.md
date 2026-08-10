@@ -9,6 +9,7 @@
 | `publisher-baseline-verified` | 學校版本表或同等正式公告 | 設定科目出版社、建立搜尋條件與 registry | 建立課名、單元、頁面、NotebookLM pack 或影片 |
 | `official-outline-verified` | exact 學年、年級、學期、科目、出版社的 Tier A/B outline | 登錄課名／主題、順序與直接列出的子題 | 推測課文、習題、教學活動、評量或媒體 |
 | `unit-brief-verified` | 單課／單元合法 source brief 加人工／教師 review | 建立該 unit 的原創教學任務與 subject Golden candidate | 批次擴散到其餘單元，或以詞彙／標題補足文意 |
+| `fallback-brief-approved` | 使用者明確接受相鄰學年／歷史資料，且來源同出版社、同年級、同學期、同課名，並完成權利與標示檢查 | 建立明確標示為 fallback / candidate 的原創教學層 | 標示為 official 115、重製課文、批次擴散到其他課 |
 | `publication-ready` | outline + unit brief + 權利檢查 + 內容 QA | 開啟該 unit 的正式導覽與發布頁 | 重製課文、習題、教師手冊、出版社音檔／圖像 |
 | `artifact-ready` | publication-ready + verified NotebookLM source pack + artifact QA | 產製／回填該 unit 的 NotebookLM 與 YouTube artifact | 使用全冊 overview 或他人影片冒充逐課媒體 |
 
@@ -21,10 +22,11 @@
 5. **Copyright**：公開 PDF、電子書、朗讀、Wordwall 與教師手冊均不等於可重製授權；只保留必要 metadata 或 link-only。
 6. **Subject Golden**：國語、數學、生活各自過 Golden；不可用國語注音／直式的完成度替代數學或生活的內容品質。
 7. **Artifact boundary**：NotebookLM／YouTube 是資料處理 Phase 3，不是用來補缺失資料。source brief 不足時，artifact status 必須保持 `pending`。
+8. **Fallback labeling**：若使用者接受 114 或其他歷史資料作為 fallback，必須在 data、source pack、頁面與 artifact manifest 中標示 `114-fallback / 115-candidate`；不得把 fallback 內容寫成 115 official。
 
 ## Current 115 application
 
-- 國語／翰林：`official-outline-verified`；已保存 4 主題、12 課課名與文體 metadata，仍等待 L01 合法 text-structure brief，故不可開啟頁面或建立 artifacts。
+- 國語／翰林：`official-outline-verified`；已保存 4 主題、12 課課名與文體 metadata。使用者已接受 114 資訊作為 fallback，可先做明確標示的 L01 fallback 原創教學層；仍不可標示為 115 official，也不可重製課文。
 - 數學／康軒：`publisher-baseline-verified`；115 官方介紹只提供片段示例，等待 exact outline。
 - 生活／南一：`official-outline-verified`；可保存 6 主題／16 子題 metadata，仍等待 T01 unit brief，故不可開啟頁面或建立 artifacts。
 
