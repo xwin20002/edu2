@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "subject": "chinese",
+  "publisher": "hanlin",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [113, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "L01",
+  "title": "我的心情",
+  "genre": "詩歌",
+  "sourceStatus": "fallback-brief-approved-cross-year-user-accepted",
+  "sourceRefs": [
+    "hanlin-115-low-primary-promo",
+    "ptc-114-hanlin-grade2-chinese-plan",
+    "education-cloud-hanlin-114-wordbank"
+  ],
+  "sourceBoundary": "115 翰林官方教材簡介只核對課名、作者、文體與順序；114 同出版社、年級、學期、課名的公開課程計畫只提供辨識情緒、完整句表達與句型記錄等教學訊號。使用者已核准 113–115 學年資料窗。本檔短文、活動與題目均由 edu2 原創，不重製或改寫課文、習作、教師手冊、出版社圖像或音檔，也不標示為 115 官方課文內容。",
+  "unit": {
+    "id": "ch-01",
+    "publisherUnitId": "L01",
+    "title": "我的心情",
+    "publisherLabel": "翰林115目標",
+    "layerLabel": "114 fallback／115 candidate · Golden",
+    "focus": "辨識情緒、說出情緒發生的原因，並用完整句表達自己的感受與需要。",
+    "mission": "完成「心情三段句」：我覺得＿＿，因為＿＿；我希望＿＿。",
+    "objectives": [
+      "從人物的話語與行動找出心情線索。",
+      "使用「我覺得……因為……」說出感受與原因。",
+      "朗讀人工核對注音的情緒詞語，注意聲調與語氣。",
+      "傾聽同學表達，給予尊重且合宜的回應。"
+    ],
+    "flow": [
+      "找心情線索 👀",
+      "朗讀情緒詞 🔊",
+      "說出原因 💬",
+      "完成心情句 ✍️",
+      "傾聽與回應 🤝"
+    ],
+    "sourceLayer": {
+      "status": "fallback-publication-ready · human confirmed",
+      "evidence": "115 翰林官方 L01 outline＋114 同版同年級同學期同課名公開課程計畫＋114 教育雲公開詞彙；使用者接受 113–115 學年來源窗。",
+      "boundary": "以下短文、句型活動與評量均為 edu2 原創，只支援 L01 fallback Golden；不是翰林課文、習作或 115 官方內容。"
+    },
+    "verticalSummary": "我會先說出心情，再說發生的事情，最後說出希望。這是本站原創朗讀句，不是課文本文。",
+    "vocabulary": [
+      {"word": "緊張", "meaning": "擔心自己做不好時，心裡不安的感覺。本站原創教學釋義。"},
+      {"word": "安心", "meaning": "知道事情安全、穩妥後，心裡安定的感覺。本站原創教學釋義。"},
+      {"word": "分享", "meaning": "把自己的想法、感受或物品告訴、提供給別人。本站原創教學釋義。"}
+    ],
+    "characters": [
+      {"char": "緊", "zhuyin": "ㄐㄧㄣˇ"},
+      {"char": "張", "zhuyin": "ㄓㄤ"},
+      {"char": "安", "zhuyin": "ㄢ"},
+      {"char": "心", "zhuyin": "ㄒㄧㄣ"},
+      {"char": "分", "zhuyin": "ㄈㄣ"},
+      {"char": "享", "zhuyin": "ㄒㄧㄤˇ"}
+    ],
+    "publicLearningLayerStatus": "ready-114-wordbank-and-listening-with-fallback-boundary",
+    "textStructureStatus": "original-reading-only-no-textbook-structure-claim",
+    "publicLayerBoundary": "114 教育雲詞彙與官方朗讀維持 historical／link-only；本頁的理解題只依本站原創短文，不依課名或詞彙推測出版社課文。",
+    "readingGuide": {
+      "audioUrl": "https://player.hle.com.tw/ech/playlist.html?volume=二上&unit=L1",
+      "audioLabel": "翰林聽 e 聽・二上第一課〈我的心情〉（官方外部朗讀入口）",
+      "audioBoundary": "官方朗讀只提供外連，不下載、嵌入、轉錄、重製或作為本站理解題答案來源。",
+      "listeningTasks": [
+        "第一次聽：找出一個你聽到的心情詞或語氣線索。",
+        "第二次聽：暫停後，用「我聽到＿＿」說一句完整的話。",
+        "聽完後：只分享自己確定聽到的內容；不確定時說「我想再聽一次」。"
+      ],
+      "textPlaceholderNote": "本站不放課文全文；請搭配合法課本或官方朗讀使用。下方另有可獨立閱讀的 edu2 原創短文。"
+    },
+    "originalAdaptation": {
+      "title": "原創閱讀｜上臺分享",
+      "comprehensionTitle": "閱讀理解（只依 edu2 原創短文作答）",
+      "attributionNote": "edu2 原創短文，依『辨識情緒、完整句表達、記錄心情』教學訊號撰寫；不是翰林課文或課文摘要。",
+      "paragraphs": [
+        "早上，我要上臺分享，心裡有一點緊張。",
+        "我先慢慢呼吸，再把想說的話說清楚。",
+        "分享結束，同學對我微笑，我覺得安心又開心。",
+        "我發現，說出心情，能讓別人更了解我。"
+      ],
+      "comprehension": [
+        {
+          "q": "上臺分享以前，「我」有什麼心情？",
+          "options": [
+            {"text": "有一點緊張", "correct": true},
+            {"text": "非常生氣", "correct": false},
+            {"text": "覺得無聊", "correct": false},
+            {"text": "完全不知道", "correct": false}
+          ]
+        },
+        {
+          "q": "「我」先做了什麼，幫助自己上臺？",
+          "options": [
+            {"text": "慢慢呼吸", "correct": true},
+            {"text": "離開教室", "correct": false},
+            {"text": "不聽同學", "correct": false},
+            {"text": "把話藏起來", "correct": false}
+          ]
+        },
+        {
+          "q": "這篇原創短文想告訴我們什麼？",
+          "options": [
+            {"text": "說出心情能幫助別人了解自己", "correct": true},
+            {"text": "緊張時一定不能說話", "correct": false},
+            {"text": "只有開心才可以分享", "correct": false},
+            {"text": "同學的心情都完全一樣", "correct": false}
+          ]
+        }
+      ]
+    },
+    "languageWorkshop": {
+      "title": "心情三段句",
+      "instruction": "依序選一個心情、一個原因與一個希望，讀出完整句；也可以把選項換成自己的話。",
+      "feelings": ["緊張", "開心", "難過", "安心"],
+      "reasons": ["等一下要上臺分享", "完成了原本不會的任務", "和朋友發生誤會", "有人願意聽我說"],
+      "wishes": ["先慢慢呼吸", "和同學一起慶祝", "把事情說清楚", "謝謝對方陪伴我"],
+      "sentenceTemplate": "我覺得{feeling}，因為{reason}；我希望{wish}。"
+    },
+    "teacherNotes": [
+      "先接受學生說出的情緒，不急著判斷對錯；再追問『你從哪個線索知道？』。",
+      "允許學生改用自己的原因與希望，避免把情緒活動做成唯一標準答案。",
+      "若學生不願公開私人事件，可使用原創短文人物或假想情境回答。"
+    ],
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

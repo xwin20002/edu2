@@ -4,22 +4,30 @@ import {fileURLToPath} from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const assetVersion = "20260810-golden-3";
+const chineseGoldenAssetVersion = "20260811-chinese-l01-1";
 const data = JSON.parse(await readFile(path.join(root, "data/hanlin-114.json"), "utf8"));
 const esc = value => String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[char]);
 const chineseIntake = JSON.parse(await readFile(path.join(root, "data/content-intake/chinese-hanlin-114.json"), "utf8"));
 const chineseIntakeByUnit = new Map(chineseIntake.units.map(unit => [unit.publisherUnitId, unit]));
+const chineseTargetBrief = JSON.parse(await readFile(path.join(root, "data/content-intake/chinese-hanlin-115-l01-brief.json"), "utf8"));
 const lifeTargetBriefs = await Promise.all(Array.from({length: 6}, async (_, index) =>
   JSON.parse(await readFile(path.join(root, `data/content-intake/life-nani-115-t${String(index + 1).padStart(2, "0")}-brief.json`), "utf8"))
 ));
-const renderSubjects = data.subjects.map(subject => subject.id === "life"
-  ? {
+const renderSubjects = data.subjects.map(subject => {
+  if (subject.id === "chinese") return {
+      ...subject,
+      intro: "L01 已完成 113–115 來源窗 fallback brief 與本站原創閱讀 vertical slice；L02–L12 維持 114 公開詞彙／朗讀 historical layer。所有頁面均不重製課文或題本。",
+      units: subject.units.map((unit, index) => index === 0 ? chineseTargetBrief.unit : unit)
+    };
+  if (subject.id === "life") return {
       ...subject,
       publisherLabel: "版本分層",
       layerLabel: "南一115目標·T01–T06 human confirmed",
       intro: "生活 T01–T06 已完成來源核對、technical QA 與使用者 human parity；全科以原創教學活動呈現，NotebookLM／YouTube 保留第二階段。",
       units: lifeTargetBriefs.map(brief => brief.unit)
-    }
-  : subject);
+    };
+  return subject;
+});
 const unitFolder = (subject, index) => subject.id === "chinese" ? `chinese/L${String(index + 1).padStart(2,"0")}` : subject.id === "math" ? `math/U${String(index + 1).padStart(2,"0")}` : `life/T${String(index + 1).padStart(2,"0")}`;
 const subjectObjectives = {
   chinese: unit => [unit.focus,"朗讀已核對詞彙，辨識生字、認讀字與語詞","使用兩個詞語造完整句","聆聽同學並提出一個問題"],
@@ -53,7 +61,8 @@ const chineseSourceWordBankHtml = unit => {
   const listening = intake.officialListening
     ? `<p class="source-link"><a href="${esc(intake.officialListening.playlistUrl)}" target="_blank" rel="noreferrer">前往翰林聽 e 聽：本課課文朗讀／領讀 →</a><br><small>${esc(intake.officialListening.accessBoundary)}</small></p>`
     : "";
-  return `<div class="section-title"><span>📚</span> 已核對詞彙與朗讀入口</div><section class="card public-layer"><p><strong>已完成公開學習層：</strong>課名、教育雲逐課詞彙與翰林朗讀入口均已核對。以下按原始類別列出詞彙；點按可使用本機瀏覽器的中文發音練習。</p>${group("生字", intake.sourceTerms["生字"])}${group("認讀字", intake.sourceTerms["認讀字"])}${group("語詞", intake.sourceTerms["語詞"])}<p class="source-link"><a href="${esc(intake.sourceUrl)}" target="_blank" rel="noreferrer">在教育雲查看本課公開詞彙與釋義 →</a></p>${listening}<p class="content-boundary">課文事件、人物、段落與理解題尚未有合法 text-structure brief；本站不以詞彙或課名推測課文內容，也不會在這個狀態產製本課 NotebookLM／YouTube 影片。</p></section>`;
+  const boundary = unit.publicLayerBoundary || "課文事件、人物、段落與理解題尚未有合法 text-structure brief；本站不以詞彙或課名推測課文內容，也不會在這個狀態產製本課 NotebookLM／YouTube 影片。";
+  return `<div class="section-title"><span>📚</span> 已核對詞彙與朗讀入口</div><section class="card public-layer"><p><strong>已完成公開學習層：</strong>課名、教育雲逐課詞彙與翰林朗讀入口均已核對。以下按原始類別列出詞彙；點按可使用本機瀏覽器的中文發音練習。</p>${group("生字", intake.sourceTerms["生字"])}${group("認讀字", intake.sourceTerms["認讀字"])}${group("語詞", intake.sourceTerms["語詞"])}<p class="source-link"><a href="${esc(intake.sourceUrl)}" target="_blank" rel="noreferrer">在教育雲查看本課公開詞彙與釋義 →</a></p>${listening}<p class="content-boundary">${esc(boundary)}</p></section>`;
 };
 const chineseReadingGuideHtml = unit => {
   const g = unit.readingGuide;
@@ -68,7 +77,13 @@ const chineseOriginalAdaptationHtml = unit => {
   if (!a) return "";
   const paras = a.paragraphs.map(p => `<p class="adaptation-para">${esc(p)}<button class="vocab-speak adaptation-speak" type="button" data-word="${esc(p)}" aria-label="朗讀這一段">🔊</button></p>`).join("");
   const comprehension = a.comprehension.map(q => `<div class="quiz-item"><div class="quiz-q">❓ ${esc(q.q)}</div><div class="quiz-opts">${q.options.map(o=>`<button class="quiz-opt" data-correct="${o.correct?"1":"0"}">${esc(o.text)}</button>`).join("")}</div></div>`).join("");
-  return `<div class="section-title"><span>📗</span> ${esc(a.title)}</div><section class="card adaptation-card"><p class="adaptation-attribution">${esc(a.attributionNote)}</p>${paras}</section><div class="section-title"><span>🧠</span> 閱讀理解（依原創改編故事）</div>${comprehension}`;
+  return `<div class="section-title"><span>📗</span> ${esc(a.title)}</div><section class="card adaptation-card"><p class="adaptation-attribution">${esc(a.attributionNote)}</p>${paras}</section><div class="section-title"><span>🧠</span> ${esc(a.comprehensionTitle || "閱讀理解（依原創改編故事）")}</div>${comprehension}`;
+};
+const chineseLanguageWorkshopHtml = unit => {
+  const workshop = unit.languageWorkshop;
+  if (!workshop) return "";
+  const options = values => values.map(value => `<option value="${esc(value)}">${esc(value)}</option>`).join("");
+  return `<div class="section-title"><span>🗣️</span> ${esc(workshop.title)}</div><section class="card language-workshop" data-template="${esc(workshop.sentenceTemplate)}"><p>${esc(workshop.instruction)}</p><div class="sentence-builder"><label>我的心情<select data-slot="feeling">${options(workshop.feelings)}</select></label><label>發生的事情<select data-slot="reason">${options(workshop.reasons)}</select></label><label>我的希望<select data-slot="wish">${options(workshop.wishes)}</select></label></div><p class="sentence-output" aria-live="polite"></p><button class="speak sentence-speak" type="button">🔊 朗讀完整句</button></section>`;
 };
 const lessonMediaHtml = unit => {
   const video = unit.artifact?.video;
@@ -163,12 +178,15 @@ for (const subject of renderSubjects) {
     const chineseSourceWordBank = subject.id === "chinese" ? chineseSourceWordBankHtml(unit) : "";
     const chineseReadingGuide = subject.id === "chinese" ? chineseReadingGuideHtml(unit) : "";
     const chineseOriginalAdaptation = subject.id === "chinese" ? chineseOriginalAdaptationHtml(unit) : "";
+    const chineseLanguageWorkshop = subject.id === "chinese" ? chineseLanguageWorkshopHtml(unit) : "";
     const sourceLayer = sourceLayerHtml(unit);
     const mathExtension = subject.id === "math" ? mathExtensionHtml(unit) : "";
     const lifeExtension = subject.id === "life" ? lifeExtensionHtml(unit) : "";
     const unitPublisherLabel = unit.publisherLabel || publisherLabel;
     const unitLayerLabel = unit.layerLabel || layerLabel;
+    const unitAssetVersion = subject.id === "chinese" && index === 0 ? chineseGoldenAssetVersion : assetVersion;
     const teacherUnderstandingQuestion = subject.id === "chinese" ? "你能選兩個已核對詞語，說出自己的完整句嗎？" : `你能用自己的話說明${esc(unit.title)}的重點嗎？`;
+    const teacherNotes = unit.teacherNotes?.length ? `<h3>本課教學提示</h3><ul>${unit.teacherNotes.map(note => `<li>${esc(note)}</li>`).join("")}</ul>` : "";
     const firstQuizQuestion = subject.id === "chinese" ? "這個公開詞彙練習最重要的學習焦點是什麼？" : `${esc(unit.title)}這一課／單元最重要的學習焦點是什麼？`;
     const sourceNote = subject.id === "chinese" ? "本頁依公開課程目錄與詞彙表設計，不重製課文或題本；請搭配合法教材使用。" : "本頁依公開課程目錄與學習目標設計，不重製課文或題本；請搭配合法教材使用。";
     const page = `<!doctype html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(unit.title)}｜${esc(publisherLabel)}小二上${esc(subject.label)}</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/css/unit.css"><style>:root{--accent:${subject.accent}}</style></head><body><a class="skip" href="#content">跳到主要內容</a><canvas id="draw-canvas"></canvas><div class="fullscreen" id="fullscreen"><img id="fullscreen-img" alt="放大的簡報頁"></div><header><div class="head"><a class="back" href="${back}">← 返回${esc(subject.label)}課程地圖</a><h1>${subject.emoji} 第 ${index+1} ${unitLabel}｜${esc(unit.title)}</h1><div class="badges"><span class="badge">${esc(publisherLabel)}</span><span class="badge">二年級上學期</span><span class="badge">${esc(layerLabel)}</span><span class="badge">原創教學設計</span></div></div></header><div class="mode-bar"><span id="mode-label">🧑‍🎓 學生模式</span><button class="mode-btn" id="mode-btn">✏️ 切換教師模式</button></div><aside class="tool-panel" aria-label="課堂工具"><div class="tool-content" id="tool-content"><div><div class="tool-lbl">字級</div><div class="font-ctrl"><button class="font-btn" id="font-dec">A−</button><span class="font-val" id="font-val">16px</span><button class="font-btn" id="font-inc">A＋</button></div></div><div><div class="tool-lbl">計時器</div><div class="timer-disp" id="timer-disp">05:00</div><div class="timer-presets"><button class="timer-preset" data-sec="60">1分</button><button class="timer-preset" data-sec="180">3分</button><button class="timer-preset" data-sec="300">5分</button><button class="timer-preset" data-sec="600">10分</button></div><div class="timer-btns"><button class="timer-btn" id="timer-start">▶ 開始</button><button class="timer-btn" id="timer-reset">↺ 重置</button></div></div><div><div class="tool-lbl">畫筆</div><button class="draw-btn" id="draw-toggle">🖌️ 開啟畫筆</button><div class="draw-colors"><button class="draw-color active" data-color="#ffd54f" style="background:#ffd54f" aria-label="黃色"></button><button class="draw-color" data-color="#ff8a80" style="background:#ff8a80" aria-label="紅色"></button><button class="draw-color" data-color="#81d4fa" style="background:#81d4fa" aria-label="藍色"></button><button class="draw-color" data-color="#a5d6a7" style="background:#a5d6a7" aria-label="綠色"></button></div><div class="draw-sizes"><button class="draw-size" data-size="3" style="width:9px;height:9px" aria-label="細筆"></button><button class="draw-size active" data-size="7" style="width:15px;height:15px" aria-label="中筆"></button><button class="draw-size" data-size="14" style="width:23px;height:23px" aria-label="粗筆"></button></div><button class="draw-btn" id="draw-clear">🗑️ 清除畫布</button></div></div><button class="tool-toggle" id="tool-toggle">工具</button></aside><main id="content"><section class="card hero"><h2>本課學習焦點</h2><p>${esc(unit.focus)}</p><button class="speak" id="speak-title">🔊 朗讀標題</button></section><div class="section-title"><span>🎯</span> 學習目標</div><section class="card"><div class="obj-grid">${objectives}</div></section><div class="section-title"><span>🗺️</span> 學習脈絡</div><section class="card"><div class="topic-flow">${flow}</div></section><div class="section-title"><span>📽️</span> NotebookLM 全冊教學簡報</div><section class="carousel" id="main-carousel"><div class="carousel-inner">${slideImages}</div><button class="carousel-btn prev" aria-label="上一頁">‹</button><button class="carousel-btn next" aria-label="下一頁">›</button><div class="carousel-dots">${slideDots}</div></section>${chineseExtension}<div class="section-title"><span>🧩</span> 課堂實作</div><div class="grid"><section class="panel"><h2>🎯 課堂任務</h2><p class="mission">${esc(unit.mission)}</p><h3>任務流程</h3><div class="steps"><div class="step"><strong>觀察</strong>：先說出你看見、聽見或已知道的線索。</div><div class="step"><strong>思考</strong>：和同學比較不同方法或想法。</div><div class="step"><strong>表達</strong>：完成任務並用一句完整的話分享發現。</div></div></section><section class="panel teacher teacher-only"><h2>👩‍🏫 教師提示</h2><h3>Bloom 三層提問</h3><ol><li><strong>記憶：</strong>這一課／單元有哪些重要詞語或概念？</li><li><strong>理解：</strong>${teacherUnderstandingQuestion}</li><li><strong>應用：</strong>你能在生活中找到相似例子，或完成今天的課堂任務嗎？</li></ol><h3>常見迷思</h3><p>${esc(misconception)}</p></section><section class="panel checks"><h2>✅ 自我檢核</h2><label><input type="checkbox"> 我能說出今天的學習重點。</label><label><input type="checkbox"> 我能完成課堂任務。</label><label><input type="checkbox"> 我能聽懂同學的方法並回應。</label><label><input type="checkbox"> 我能說出下一次想改進的地方。</label></section><section class="panel"><h2>💬 離堂小卡</h2><p>請完成一句話：</p><p class="mission">今天我學會＿＿＿＿；我還想知道＿＿＿＿。</p></section></div><div class="section-title"><span>📝</span> 形成性評量</div><div class="quiz-item"><div class="quiz-q">❓ ${firstQuizQuestion}</div><div class="quiz-opts"><button class="quiz-opt" data-correct="1">${esc(unit.focus)}</button><button class="quiz-opt" data-correct="0">只要把答案背起來</button><button class="quiz-opt" data-correct="0">只要完成速度最快</button><button class="quiz-opt" data-correct="0">不用說明思考方法</button></div></div><div class="quiz-item"><div class="quiz-q">❓ 完成任務後，哪一個做法最能幫助學習？</div><div class="quiz-opts"><button class="quiz-opt" data-correct="0">不聽別人的方法</button><button class="quiz-opt" data-correct="1">分享發現並回應同學</button><button class="quiz-opt" data-correct="0">只看答案不檢查</button><button class="quiz-opt" data-correct="0">跳過觀察與記錄</button></div></div><div class="section-title"><span>🎬</span> 學生自學影片</div><section class="card"><p>NotebookLM 生成｜小二上國語、數學、生活全冊學習導覽（5:58）</p><div class="video"><iframe src="https://www.youtube.com/embed/oD0GIU4UKPc" title="小二上全冊學生自學影片" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div></section><p class="source-note">${sourceNote}</p></main><footer>edu2 Complete Teaching Cockpit · ${esc(subject.label)}第 ${index+1} ${unitLabel}</footer><script src="../../assets/js/unit.js" defer></script></body></html>`;
@@ -177,15 +195,18 @@ for (const subject of renderSubjects) {
       ? page.replace(legacyNotebookDeckPattern, `<div class="section-title"><span>📽️</span> 本主題 NotebookLM 簡報</div><section class="card"><p><strong>第二階段待產製。</strong>完成本批 human parity 與 artifact QA 後，才會加入本主題專屬簡報；目前不混用 114 全冊簡報。</p></section>`)
       : page;
     const pageWithUnitLabels = pageWithArtifactBoundary
-      .replace(`href="../../assets/css/unit.css"`, `href="../../assets/css/unit.css?v=${assetVersion}"`)
-      .replace(`src="../../assets/js/unit.js"`, `src="../../assets/js/unit.js?v=${assetVersion}"`)
+      .replace(`href="../../assets/css/unit.css"`, `href="../../assets/css/unit.css?v=${unitAssetVersion}"`)
+      .replace(`src="../../assets/js/unit.js"`, `src="../../assets/js/unit.js?v=${unitAssetVersion}"`)
       .replace(`<title>${esc(unit.title)}｜${esc(publisherLabel)}小二上${esc(subject.label)}</title>`, `<title>${esc(unit.title)}｜${esc(unitPublisherLabel)}小二上${esc(subject.label)}</title>`)
       .replace(`<span class="badge">${esc(publisherLabel)}</span><span class="badge">二年級上學期</span><span class="badge">${esc(layerLabel)}</span>`, `<span class="badge">${esc(unitPublisherLabel)}</span><span class="badge">二年級上學期</span><span class="badge">${esc(unitLayerLabel)}</span>`);
-    const pageWithSourceLayer = sourceLayer
-      ? pageWithUnitLabels.replace(`</section><div class="section-title"><span>🎯</span> 學習目標</div>`, `</section>${sourceLayer}<div class="section-title"><span>🎯</span> 學習目標</div>`)
+    const pageWithTeacherNotes = teacherNotes
+      ? pageWithUnitLabels.replace(`</p></section><section class="panel checks">`, `</p>${teacherNotes}</section><section class="panel checks">`)
       : pageWithUnitLabels;
+    const pageWithSourceLayer = sourceLayer
+      ? pageWithTeacherNotes.replace(`</section><div class="section-title"><span>🎯</span> 學習目標</div>`, `</section>${sourceLayer}<div class="section-title"><span>🎯</span> 學習目標</div>`)
+      : pageWithTeacherNotes;
     const pageWithChineseSource = subject.id === "chinese"
-      ? pageWithSourceLayer.replace(`${chineseExtension}${practicalMarker}`, `${chineseExtension}${chineseSourceWordBank}${chineseReadingGuide}${chineseOriginalAdaptation}${practicalMarker}`)
+      ? pageWithSourceLayer.replace(`${chineseExtension}${practicalMarker}`, `${chineseExtension}${chineseSourceWordBank}${chineseReadingGuide}${chineseOriginalAdaptation}${chineseLanguageWorkshop}${practicalMarker}`)
       : pageWithSourceLayer.replace(practicalMarker, `${mathExtension}${lifeExtension}${practicalMarker}`);
     const renderedPage = pageWithChineseSource.replace(legacyOverviewVideoPattern, lessonMediaHtml(unit));
     if (renderedPage === page) throw new Error(`無法替換第 ${index + 1} ${unitLabel} 的共用全冊影片`);

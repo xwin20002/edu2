@@ -4,7 +4,7 @@
   "publisher": "hanlin",
   "academicYear": 115,
   "semester": 1,
-  "sourceStatus": "official-outline-verified-content-pending",
+  "sourceStatus": "official-outline-verified-l01-fallback-publication-ready",
   "source": {
     "id": "hanlin-115-low-primary-promo",
     "url": "https://website.hle.com.tw/market/el/%E8%A1%8C%E9%8A%B7%E7%B6%B2%E7%AB%99/115/1%E4%BD%8E%E5%B9%B4%E7%B4%9A/%E6%95%99%E6%9D%90/%E6%95%99%E6%9D%90%E7%89%B9%E8%89%B2/%E4%BD%8E%E7%B0%A1.pdf",
@@ -20,7 +20,7 @@
     {"publisherThemeId": "04", "title": "語文真有趣", "lessonIds": ["L10", "L11", "L12"], "titleStatus": "verified-publisher-outline"}
   ],
   "units": [
-    {"publisherUnitId": "L01", "title": "我的心情", "author": "游珮芸", "genre": "詩歌", "themeId": "01", "titleStatus": "verified-publisher-outline"},
+    {"publisherUnitId": "L01", "title": "我的心情", "author": "游珮芸", "genre": "詩歌", "themeId": "01", "titleStatus": "verified-publisher-outline", "unitBrief": "data/content-intake/chinese-hanlin-115-l01-brief.json", "contentStatus": "fallback-publication-ready-human-confirmed"},
     {"publisherUnitId": "L02", "title": "彩色的天空", "author": "王宗仁", "genre": "記敘文", "themeId": "01", "titleStatus": "verified-publisher-outline"},
     {"publisherUnitId": "L03", "title": "國王做新衣", "author": "林茂興", "genre": "記敘文", "themeId": "01", "titleStatus": "verified-publisher-outline"},
     {"publisherUnitId": "L04", "title": "水草下的呱呱", "author": "林哲璋", "genre": "詩歌", "themeId": "02", "titleStatus": "verified-publisher-outline"},

@@ -55,13 +55,15 @@ try {
     if (subjectId === "math" && (subject?.status !== "awaiting-official-outline" || (subject?.units || []).length !== 0)) errors.push("math: 115 正式 outline 未核對前必須保持空單元 manifest");
   }
   const chinese = manifest115.subjects?.find(item => item.id === "chinese");
-  if (chinese?.status !== "official-outline-verified-content-pending" || chinese?.contentIntake !== "data/content-intake/chinese-hanlin-115.json" || chinese?.units?.length !== 12) errors.push("chinese: 115 翰林官方 outline intake 狀態錯誤");
+  if (chinese?.status !== "official-outline-verified-l01-fallback-publication-ready" || chinese?.contentIntake !== "data/content-intake/chinese-hanlin-115.json" || chinese?.units?.length !== 12) errors.push("chinese: 115 翰林 L01 fallback promotion 狀態錯誤");
+  if (chinese?.units?.[0]?.unitBrief !== "data/content-intake/chinese-hanlin-115-l01-brief.json" || chinese?.units?.[0]?.status !== "fallback-publication-ready-human-confirmed") errors.push("chinese: L01 formal fallback brief promotion 關聯錯誤");
   try {
     const chineseIntake = JSON.parse(await read("data/content-intake/chinese-hanlin-115.json"));
     if (chineseIntake.publisher !== "hanlin" || chineseIntake.academicYear !== 115 || chineseIntake.units?.length !== 12 || chineseIntake.themes?.length !== 4 || chineseIntake.readingItems?.length !== 2) errors.push("國語 115 intake 版本、課次、主題或來閱讀數錯誤");
     if (!chineseIntake.units?.every(unit => unit.titleStatus === "verified-publisher-outline")) errors.push("國語 115 intake 含未核對的課名");
     if (chineseIntake.units?.some(unit => !["詩歌", "記敘文", "應用文（日記）"].includes(unit.genre))) errors.push("國語 115 intake 含非官方表列文體");
     if (chineseIntake.units?.find(unit => unit.publisherUnitId === "L01")?.title !== "我的心情") errors.push("國語 115 L01 必須是二上〈我的心情〉，不得誤用一下〈春天來了〉");
+    if (chineseIntake.units?.[0]?.unitBrief !== "data/content-intake/chinese-hanlin-115-l01-brief.json" || chineseIntake.units?.[0]?.contentStatus !== "fallback-publication-ready-human-confirmed") errors.push("國語 115 intake 缺少 L01 human-confirmed promotion 關聯");
     if (!chineseIntake.readingItems?.every(item => item.titleStatus === "verified-publisher-outline" && ["詩歌", "記敘文"].includes(item.genre))) errors.push("國語 115 intake 含未核對的來閱讀 metadata");
   } catch (error) { errors.push(`國語 115 intake 無法解析：${error.message}`); }
   const life = manifest115.subjects?.find(item => item.id === "life");
@@ -245,6 +247,18 @@ try {
   if (!candidate.evidence?.userFallbackDecision || !candidate.publicationRule?.includes("must not be labeled as official 115")) errors.push("L01 114 fallback candidate 缺少使用者決策或 official 115 禁止標示規則");
 } catch (error) { errors.push(`L01 cross-year candidate 無法解析：${error.message}`); }
 
+try {
+  const brief = JSON.parse(await read("data/content-intake/chinese-hanlin-115-l01-brief.json"));
+  if (brief.sourceStatus !== "fallback-brief-approved-cross-year-user-accepted") errors.push("L01 formal fallback brief gate 錯誤");
+  if (brief.targetAcademicYear !== 115 || brief.sourceAcademicYear !== 114 || JSON.stringify(brief.acceptedAcademicYearRange) !== "[113,115]") errors.push("L01 formal fallback brief 學年邊界錯誤");
+  if (!brief.sourceBoundary?.includes("不重製") || !brief.sourceBoundary?.includes("不標示為 115 官方")) errors.push("L01 formal fallback brief 缺少版權／官方標示邊界");
+  if (brief.unit?.originalAdaptation?.paragraphs?.length !== 4 || brief.unit?.originalAdaptation?.comprehension?.length !== 3) errors.push("L01 原創閱讀或理解題未達 Golden contract");
+  if (brief.unit?.characters?.some(item => !item.char || !item.zhuyin) || brief.unit?.characters?.length < 6) errors.push("L01 人工注音詞卡不足");
+  if (!brief.unit?.languageWorkshop?.sentenceTemplate?.includes("{feeling}")) errors.push("L01 心情三段句活動缺少 template");
+  if (brief.unit?.artifact?.notebooklm !== "pending-shared-stage-2" || brief.unit?.artifact?.youtube !== "pending-shared-stage-2") errors.push("L01 artifact 必須維持第二階段 pending");
+  if (brief.unit?.sourceLayer?.status !== "fallback-publication-ready · human confirmed") errors.push("L01 formal fallback brief 尚未記錄 human-confirmed promotion");
+} catch (error) { errors.push(`L01 formal fallback brief 無法解析：${error.message}`); }
+
 for (const template of ["data/templates/intake.template.json", "data/templates/publisher-mapping.template.json", "data/templates/unit-content.template.json"]) {
   try {
     JSON.parse(await read(template));
@@ -261,7 +275,12 @@ if (/(?:^|[;{])\s*direction\s*:/.test(unitCss)) errors.push("國語直式樣式�
 if (!unitCss.includes("flex-direction:row-reverse")) errors.push("國語生字排列缺少 row-reverse");
 if (chineseExample.includes("<ruby")) errors.push("國語注音不得使用 ruby");
 if (!chineseExample.includes("zy-tone")) errors.push("國語注音範例缺少聲調定位");
-if (!chineseExample.includes('<span class="zy-row">ㄥ<span class="zy-tone">ˊ</span>')) errors.push("國語注音聲調未放在末符號右側");
+if (!chineseExample.includes('<span class="zy-row">ㄣ<span class="zy-tone">ˇ</span>')) errors.push("國語注音聲調未放在末符號右側");
+if (!chineseExample.includes("原創閱讀｜上臺分享") || !chineseExample.includes("心情三段句")) errors.push("L01 fallback Golden 缺少原創閱讀或語文活動");
+if (!chineseExample.includes("不是翰林課文") || !chineseExample.includes("114 fallback／115 candidate")) errors.push("L01 fallback Golden 缺少來源邊界標示");
+if ((chineseExample.match(/閱讀理解（只依 edu2 原創短文作答）/g) || []).length !== 1) errors.push("L01 原創閱讀理解區塊數量錯誤");
+if ((chineseExample.match(/data-slot=/g) || []).length !== 3) errors.push("L01 心情三段句互動欄位不足");
+if (!chineseExample.includes("本課教學提示") || !chineseExample.includes("假想情境回答")) errors.push("L01 教師提示未接入頁面");
 
 try {
   const manifest = JSON.parse(await read("data/artifact-manifest.json"));

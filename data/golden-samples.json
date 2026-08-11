@@ -19,10 +19,11 @@
         "characterSpeech": "required"
       },
       "parity": {
-        "status": "technical-passed-fallback-human-confirmed",
-        "checklist": "docs/golden-wave-qa-2026-08-10.md",
-        "humanConfirmedOn": "2026-08-10",
-        "openGates": ["115-unit-brief"]
+        "status": "fallback-publication-ready-human-confirmed",
+        "checklist": "docs/chinese-l01-fallback-golden-qa-2026-08-11.md",
+        "previousHumanConfirmedOn": "2026-08-10",
+        "humanConfirmedOn": "2026-08-11",
+        "openGates": ["115-exact-unit-brief", "artifact-stage-2"]
       },
       "covers": ["vertical-summary", "vocabulary", "manual-flex-zhuyin", "tone-placement", "speech"]
     },
