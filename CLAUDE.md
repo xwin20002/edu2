@@ -95,7 +95,7 @@ edu2/
 
 ### Latest handoff — 2026-08-12
 
-- **Branch / base**：工作支線 `codex/edu2-chinese-l02-l12`；開工基準 `HEAD = origin/main = 0a34e25`。
+- **Branch / base**：工作支線 `codex/edu2-chinese-l02-l12`；開工基準 `HEAD = origin/main = 0a34e25`；內容 checkpoint `fb351a5` 已推送同名遠端支線。
 - **currentPhase**：Phase 5 technical validation 完成；Phase 6 quality parity 等待 human check。
 - **scopeClass / continuityStatus**：`subject`（國語長批次）／`resumed-and-revalidated`。
 - **lastVerifiedGate**：L01 維持 `fallback-publication-ready-human-confirmed`；L02–L06、L08–L12 為 `fallback-batch-technical-candidate`；L07 為 `blocked-cross-year-title-mismatch`。
