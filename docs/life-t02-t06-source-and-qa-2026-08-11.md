@@ -49,3 +49,12 @@
 5. T06 冬日照顧、保暖與關懷是否合宜。
 
 T02–T06 已晉為 `publication-ready-human-confirmed`；後續仍須通過 `main` deployment 與 production smoke，才可宣告線上發布完成。
+
+## Production promotion
+
+- Content／promotion commit：`ffdef03d2cea9a419e646349f91946f4afadcd59`。
+- 合併方式：`main` fast-forward，未建立額外 merge commit。
+- Main Rules check：run `31499848183`，terminal `success`。
+- GitHub Pages：run `31499848208`，terminal `success`。
+- Production smoke：`life/`、T01–T06、`workflow.html` 共 8×HTTP 200；不存在路徑 HTTP 404。
+- Content markers：總覽 `T01–T06 human confirmed`；T02 磁鐵測試紀錄、T03 outline-only boundary、T04 樹朋友身分卡、T05 風的證據地圖、T06 冬日照顧紀錄均命中。
