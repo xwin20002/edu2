@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "subject": "chinese",
+  "publisher": "hanlin",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [
+    113,
+    115
+  ],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "L10",
+  "title": "加加減減",
+  "genre": "記敘文",
+  "sourceStatus": "fallback-brief-approved-cross-year-user-accepted",
+  "sourceRefs": [
+    "hanlin-115-low-primary-promo",
+    "ptc-114-hanlin-grade2-chinese-plan",
+    "education-cloud-hanlin-114-wordbank"
+  ],
+  "sourceBoundary": "115 翰林官方教材簡介只核對 L10 課名、作者、文體與順序；114 同出版社、年級、學期、同課名公開課程計畫提供教學訊號：找出故事重點、認識猜字謎原則、了解文句反映的情緒。使用者已核准 113–115 學年資料窗。本檔短文、活動與題目均為 edu2 原創，不重製或改寫課文、習作、教師手冊、出版社圖像或音檔，也不標示為 115 官方課文內容。",
+  "instructionalSignals": [
+    "找出故事重點",
+    "認識猜字謎原則",
+    "了解文句反映的情緒"
+  ],
+  "unit": {
+    "id": "ch-10",
+    "publisherUnitId": "L10",
+    "title": "加加減減",
+    "publisherLabel": "翰林115目標",
+    "layerLabel": "114 fallback／115 candidate · batch QA",
+    "focus": "從字形部件、意思與提示找答案，並說明自己的推理。",
+    "mission": "設計一則有足夠線索的字謎，請同學回答並說明理由。",
+    "objectives": [
+      "從字形部件、意思與提示找答案，並說明自己的推理。",
+      "朗讀人工核對注音的練習字詞。",
+      "依原創短文回答並說明證據。",
+      "完成本課語文互動並尊重同學的不同表達。"
+    ],
+    "flow": [
+      "閱讀原創短文 📖",
+      "找出文本證據 🔎",
+      "朗讀練習字詞 🔊",
+      "完成語文任務 ✍️",
+      "分享與回應 🤝"
+    ],
+    "sourceLayer": {
+      "status": "fallback-brief-approved · batch technical candidate",
+      "evidence": "115 翰林官方 L10 outline＋114 同版同年級同學期同課名公開課程計畫＋114 教育雲公開詞彙；使用者接受 113–115 學年來源窗。",
+      "boundary": "以下短文、語文活動與評量均為 edu2 原創，只支援 fallback batch QA；不是翰林課文、習作或 115 官方內容。"
+    },
+    "verticalSummary": "從字形部件、意思與提示找答案，並說明自己的推理。這是本站原創朗讀句，不是課文本文。",
+    "vocabulary": [
+      {
+        "word": "字謎",
+        "meaning": "用字形、字義或讀音線索讓人猜字的謎語。本站原創教學釋義。"
+      },
+      {
+        "word": "回答",
+        "meaning": "針對問題說出想法或答案。本站原創教學釋義。"
+      },
+      {
+        "word": "突然",
+        "meaning": "事情發生得很快，讓人沒有預先想到。本站原創教學釋義。"
+      }
+    ],
+    "characters": [
+      {
+        "char": "減",
+        "zhuyin": "ㄐㄧㄢˇ"
+      },
+      {
+        "char": "讀",
+        "zhuyin": "ㄉㄨˊ"
+      },
+      {
+        "char": "謎",
+        "zhuyin": "ㄇㄧˊ"
+      },
+      {
+        "char": "答",
+        "zhuyin": "ㄉㄚˊ"
+      },
+      {
+        "char": "數",
+        "zhuyin": "ㄕㄨˋ"
+      },
+      {
+        "char": "題",
+        "zhuyin": "ㄊㄧˊ"
+      }
+    ],
+    "publicLearningLayerStatus": "ready-114-wordbank-and-listening-with-fallback-boundary",
+    "textStructureStatus": "original-reading-only-no-textbook-structure-claim",
+    "publicLayerBoundary": "114 教育雲詞彙與官方朗讀維持 historical／link-only；本頁理解題只依本站原創短文，不依課名或詞彙推測出版社課文。",
+    "readingGuide": {
+      "audioUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L10",
+      "audioLabel": "翰林聽 e 聽・二上第 10 課〈加加減減〉（官方外部朗讀入口）",
+      "audioBoundary": "官方朗讀只提供外連，不下載、嵌入、轉錄、重製或作為本站理解題答案來源。",
+      "listeningTasks": [
+        "第一次聽：找出一個自己確定聽到的詞語或語氣線索。",
+        "第二次聽：暫停後，用「我聽到＿＿」說一句完整的話。",
+        "聽完後：不確定時說「我想再聽一次」，不把猜想當成課文內容。"
+      ],
+      "textPlaceholderNote": "本站不放課文全文；請搭配合法課本或官方朗讀使用。下方另有可獨立閱讀的 edu2 原創短文。"
+    },
+    "originalAdaptation": {
+      "title": "原創閱讀｜一個字的偵探",
+      "comprehensionTitle": "閱讀理解（只依 edu2 原創短文作答）",
+      "attributionNote": "edu2 原創短文，依 L10 公開課程計畫的教學訊號撰寫；不是翰林課文、摘要或習題。",
+      "paragraphs": [
+        "語文角出現一張小卡，上面寫著：「太陽躲進門裡。」",
+        "小宇先圈出「太陽」和「門」兩個線索，再想它們能不能組成一個字。",
+        "他猜答案是「間」，因為「日」放在「門」裡。",
+        "同學沒有只說對或錯，而是一起檢查字形，說明每個線索的作用。"
+      ],
+      "comprehension": [
+        {
+          "q": "小宇先圈出哪兩個線索？",
+          "options": [
+            {
+              "text": "太陽和門",
+              "correct": true
+            },
+            {
+              "text": "月亮和山",
+              "correct": false
+            },
+            {
+              "text": "水和火",
+              "correct": false
+            },
+            {
+              "text": "人和木",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "小宇為什麼猜答案是『間』？",
+          "options": [
+            {
+              "text": "日放在門裡符合字形",
+              "correct": true
+            },
+            {
+              "text": "間和太陽讀音一樣",
+              "correct": false
+            },
+            {
+              "text": "卡片直接寫出答案",
+              "correct": false
+            },
+            {
+              "text": "同學先告訴他答案",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "猜字謎時，哪個做法最重要？",
+          "options": [
+            {
+              "text": "用每個線索說明推理",
+              "correct": true
+            },
+            {
+              "text": "只看誰回答最快",
+              "correct": false
+            },
+            {
+              "text": "沒有理由也可以亂猜",
+              "correct": false
+            },
+            {
+              "text": "把不懂的線索刪掉",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    "languageWorkshop": {
+      "title": "字謎線索組合",
+      "instruction": "選擇部件、位置與提示，說出一則可檢查的字謎。",
+      "slots": [
+        [
+          "partA",
+          "第一個部件",
+          [
+            "一個日",
+            "一個人",
+            "一個木"
+          ]
+        ],
+        [
+          "position",
+          "位置關係",
+          [
+            "放在門裡",
+            "站在木旁",
+            "加在另一個木旁"
+          ]
+        ],
+        [
+          "hint",
+          "意思提示",
+          [
+            "表示時間或空間的中間",
+            "和休息有關",
+            "會變成一片樹林"
+          ]
+        ]
+      ],
+      "template": "我的字謎是：{partA}{position}；提示是{hint}。"
+    },
+    "teacherNotes": [
+      "字謎必須能由公開字形知識推理，不引用出版社題目。",
+      "鼓勵學生說出排除其他答案的理由。",
+      "若線索不足，先請設計者補充，不把猜不到歸因於同學能力。"
+    ],
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

@@ -3,7 +3,7 @@
   "project": "edu2",
   "academicYear": 115,
   "semester": 1,
-  "lastReviewed": "2026-08-10",
+  "lastReviewed": "2026-08-12",
   "purpose": "115 小二上三科資料收集 registry。未通過 outline gate 的來源只能作發現紀錄，不得建立課次、內容、NotebookLM source pack 或媒體。",
   "subjectBaselines": {
     "chinese": "hanlin",
@@ -43,12 +43,12 @@
       "owner": "屏東縣課程計畫平台／公開學校課程計畫",
       "kind": "public-school-curriculum-plan-pdf",
       "url": "https://www.cp.ptc.edu.tw/storage/134665/134665_114_B-01_2A.pdf?1774950745=",
-      "coverage": "114 學年度、二年級、第一學期、翰林國語的 L01〈我的心情〉課程計畫；列出情緒表達、句型記錄心情等教學目標與學習活動，但不提供可重製的課文正文。",
-      "allowedUse": "作為與 115 官方課次表交叉相符的 L01 fallback evidence；使用者已接受 114 資訊作為過渡依據，可產出明確標示為 114-fallback / 115-candidate 的原創教學訊號與 short summary。",
-      "forbiddenUse": "不得以 114 計畫取代 115 official unit brief、不得宣稱完成 115 official 課文結構、不得重製課文、注音、字詞或題目。",
+      "coverage": "114 學年度、二年級、第一學期、翰林國語公開課程計畫。與 115 官方 outline 逐課比對後，L01–L06、L08–L12 課名相符，可提供教學訊號；L07 在 114 為〈不一樣的美食〉、115 為〈不一樣的故事〉，明確不相符。",
+      "allowedUse": "使用者接受 113–115 資料窗；可將十個同名課次的課程計畫訊號作為 114-fallback / 115-candidate 原創教學 brief evidence。L01 已 human-confirmed；L02–L06、L08–L12 僅為 batch technical candidates。",
+      "forbiddenUse": "不得以 114 計畫取代 115 official unit brief、不得宣稱完成 115 official 課文結構、不得重製課文、注音、字詞或題目；尤其禁止把 114 L07〈不一樣的美食〉套入 115 L07〈不一樣的故事〉。",
       "rightsStatus": "public-school-plan-reference; cross-year-candidate-not-promoted",
-      "reviewStatus": "verified-114-grade2-semester1-hanlin-l01; user-accepted-114-fallback-on-2026-07-12; requires-115-edition-or-teacher-crosscheck for official 115 promotion",
-      "acquisitionLogIds": ["SRC-20260712-011"]
+      "reviewStatus": "verified-114-grade2-semester1-hanlin; ten-title-matches-batch-candidates; l07-title-mismatch-source-blocked; user-accepted-113-115-window; requires-115-edition-or-teacher-crosscheck for official 115 promotion",
+      "acquisitionLogIds": ["SRC-20260712-011", "SRC-20260812-001"]
     },
     {
       "id": "education-cloud-115-textword",

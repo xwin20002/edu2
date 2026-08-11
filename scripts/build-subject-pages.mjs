@@ -5,19 +5,33 @@ import {fileURLToPath} from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const assetVersion = "20260810-golden-3";
 const chineseGoldenAssetVersion = "20260811-chinese-l01-1";
+const chineseBatchAssetVersion = "20260812-chinese-batch-1";
 const data = JSON.parse(await readFile(path.join(root, "data/hanlin-114.json"), "utf8"));
 const esc = value => String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[char]);
 const chineseIntake = JSON.parse(await readFile(path.join(root, "data/content-intake/chinese-hanlin-114.json"), "utf8"));
 const chineseIntakeByUnit = new Map(chineseIntake.units.map(unit => [unit.publisherUnitId, unit]));
-const chineseTargetBrief = JSON.parse(await readFile(path.join(root, "data/content-intake/chinese-hanlin-115-l01-brief.json"), "utf8"));
+const chineseBriefSequences = [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12];
+const chineseTargetBriefs = await Promise.all(chineseBriefSequences.map(async sequence =>
+  JSON.parse(await readFile(path.join(root, `data/content-intake/chinese-hanlin-115-l${String(sequence).padStart(2, "0")}-brief.json`), "utf8"))
+));
+const chineseTargetUnits = new Map(chineseTargetBriefs.map(brief => [brief.unit.publisherUnitId, brief.unit]));
+const chineseBlockedL07 = {
+  id: "ch-07",
+  publisherUnitId: "L07",
+  title: "不一樣的故事",
+  publisherLabel: "翰林115目標",
+  layerLabel: "source blocked · 114/115 title mismatch",
+  focus: "115 課名〈不一樣的故事〉與 114 公開資料〈不一樣的美食〉不同；等待 115 unit brief 後才開放。",
+  hrefStatus: "blocked"
+};
 const lifeTargetBriefs = await Promise.all(Array.from({length: 6}, async (_, index) =>
   JSON.parse(await readFile(path.join(root, `data/content-intake/life-nani-115-t${String(index + 1).padStart(2, "0")}-brief.json`), "utf8"))
 ));
 const renderSubjects = data.subjects.map(subject => {
   if (subject.id === "chinese") return {
       ...subject,
-      intro: "L01 已完成 113–115 來源窗 fallback brief 與本站原創閱讀 vertical slice；L02–L12 維持 114 公開詞彙／朗讀 historical layer。所有頁面均不重製課文或題本。",
-      units: subject.units.map((unit, index) => index === 0 ? chineseTargetBrief.unit : unit)
+      intro: "L01 已完成 human parity；L02–L06、L08–L12 為 113–115 來源窗 fallback batch technical candidates。L07 因 114／115 課名與內容不一致維持 source-blocked。所有短文與活動均為 edu2 原創，不重製課文或題本。",
+      units: subject.units.map((unit, index) => index === 6 ? chineseBlockedL07 : (chineseTargetUnits.get(`L${String(index + 1).padStart(2, "0")}`) || unit))
     };
   if (subject.id === "life") return {
       ...subject,
@@ -30,7 +44,7 @@ const renderSubjects = data.subjects.map(subject => {
 });
 const unitFolder = (subject, index) => subject.id === "chinese" ? `chinese/L${String(index + 1).padStart(2,"0")}` : subject.id === "math" ? `math/U${String(index + 1).padStart(2,"0")}` : `life/T${String(index + 1).padStart(2,"0")}`;
 const subjectObjectives = {
-  chinese: unit => [unit.focus,"朗讀已核對詞彙，辨識生字、認讀字與語詞","使用兩個詞語造完整句","聆聽同學並提出一個問題"],
+  chinese: unit => unit.publisherUnitId !== "L01" && unit.objectives?.length ? unit.objectives : [unit.focus,"朗讀已核對詞彙，辨識生字、認讀字與語詞","使用兩個詞語造完整句","聆聽同學並提出一個問題"],
   math: unit => [unit.focus,"用操作或圖像表徵問題","說明解題方法與檢查答案","把概念應用到生活情境"],
   life: unit => unit.objectives?.length ? unit.objectives : [unit.focus,"提出可觀察的問題","選擇合適的方法進行探究","記錄、比較並分享發現"]
 };
@@ -83,7 +97,13 @@ const chineseLanguageWorkshopHtml = unit => {
   const workshop = unit.languageWorkshop;
   if (!workshop) return "";
   const options = values => values.map(value => `<option value="${esc(value)}">${esc(value)}</option>`).join("");
-  return `<div class="section-title"><span>🗣️</span> ${esc(workshop.title)}</div><section class="card language-workshop" data-template="${esc(workshop.sentenceTemplate)}"><p>${esc(workshop.instruction)}</p><div class="sentence-builder"><label>我的心情<select data-slot="feeling">${options(workshop.feelings)}</select></label><label>發生的事情<select data-slot="reason">${options(workshop.reasons)}</select></label><label>我的希望<select data-slot="wish">${options(workshop.wishes)}</select></label></div><p class="sentence-output" aria-live="polite"></p><button class="speak sentence-speak" type="button">🔊 朗讀完整句</button></section>`;
+  const slots = workshop.slots?.map(([id, label, values]) => ({id, label, values})) || [
+    {id: "feeling", label: "我的心情", values: workshop.feelings},
+    {id: "reason", label: "發生的事情", values: workshop.reasons},
+    {id: "wish", label: "我的希望", values: workshop.wishes}
+  ];
+  const slotHtml = slots.map(slot => `<label>${esc(slot.label)}<select data-slot="${esc(slot.id)}">${options(slot.values)}</select></label>`).join("");
+  return `<div class="section-title"><span>🗣️</span> ${esc(workshop.title)}</div><section class="card language-workshop" data-template="${esc(workshop.template || workshop.sentenceTemplate)}"><p>${esc(workshop.instruction)}</p><div class="sentence-builder">${slotHtml}</div><p class="sentence-output" aria-live="polite"></p><button class="speak sentence-speak" type="button">🔊 朗讀完整句</button></section>`;
 };
 const lessonMediaHtml = unit => {
   const video = unit.artifact?.video;
@@ -152,7 +172,10 @@ for (const subject of renderSubjects) {
   const cards = subject.units.map((unit, index) => {
     const href = subject.id === "chinese" ? `chinese/L${String(index + 1).padStart(2,"0")}/index.html` : `${unitFolder(subject,index).split("/").slice(-1)[0]}/index.html`;
     const cardLayer = unit.layerLabel || layerLabel;
-    return `<article class="unit"><div class="num">第 ${index + 1} ${unitLabel}</div><div class="unit-layer">${esc(cardLayer)}</div><h3>${esc(unit.title)}</h3><p>${esc(unit.focus)}</p><a class="open" href="${href}">進入教學駕駛艙 →</a></article>`;
+    const entry = unit.hrefStatus === "blocked"
+      ? `<span class="open blocked" aria-disabled="true">來源待補，不開放</span>`
+      : `<a class="open" href="${href}">進入教學駕駛艙 →</a>`;
+    return `<article class="unit"><div class="num">第 ${index + 1} ${unitLabel}</div><div class="unit-layer">${esc(cardLayer)}</div><h3>${esc(unit.title)}</h3><p>${esc(unit.focus)}</p>${entry}</article>`;
   }).join("");
   const subjectSources = subject.id === "life"
     ? [
@@ -167,6 +190,7 @@ for (const subject of renderSubjects) {
   await writeFile(overviewTarget, overview + "\n");
 
   for (const [index, unit] of subject.units.entries()) {
+    if (unit.hrefStatus === "blocked") continue;
     const folder = path.join(root, unitFolder(subject,index));
     await mkdir(folder,{recursive:true});
     const back = subject.id === "chinese" ? "../../chinese.html" : "../index.html";
@@ -184,7 +208,7 @@ for (const subject of renderSubjects) {
     const lifeExtension = subject.id === "life" ? lifeExtensionHtml(unit) : "";
     const unitPublisherLabel = unit.publisherLabel || publisherLabel;
     const unitLayerLabel = unit.layerLabel || layerLabel;
-    const unitAssetVersion = subject.id === "chinese" && index === 0 ? chineseGoldenAssetVersion : assetVersion;
+    const unitAssetVersion = subject.id === "chinese" ? (index === 0 ? chineseGoldenAssetVersion : chineseBatchAssetVersion) : assetVersion;
     const teacherUnderstandingQuestion = subject.id === "chinese" ? "你能選兩個已核對詞語，說出自己的完整句嗎？" : `你能用自己的話說明${esc(unit.title)}的重點嗎？`;
     const teacherNotes = unit.teacherNotes?.length ? `<h3>本課教學提示</h3><ul>${unit.teacherNotes.map(note => `<li>${esc(note)}</li>`).join("")}</ul>` : "";
     const firstQuizQuestion = subject.id === "chinese" ? "這個公開詞彙練習最重要的學習焦點是什麼？" : `${esc(unit.title)}這一課／單元最重要的學習焦點是什麼？`;
@@ -193,7 +217,9 @@ for (const subject of renderSubjects) {
     const practicalMarker = `<div class="section-title"><span>🧩</span> 課堂實作</div>`;
     const pageWithArtifactBoundary = subject.id === "life"
       ? page.replace(legacyNotebookDeckPattern, `<div class="section-title"><span>📽️</span> 本主題 NotebookLM 簡報</div><section class="card"><p><strong>第二階段待產製。</strong>完成本批 human parity 與 artifact QA 後，才會加入本主題專屬簡報；目前不混用 114 全冊簡報。</p></section>`)
-      : page;
+      : subject.id === "chinese" && index > 0
+        ? page.replace(legacyNotebookDeckPattern, `<div class="section-title"><span>📽️</span> 本課 NotebookLM 簡報</div><section class="card"><p><strong>第二階段待產製。</strong>完成本批 human parity 與 artifact QA 後，才會加入本課專屬簡報；目前不混用 114 全冊簡報。</p></section>`)
+        : page;
     const pageWithUnitLabels = pageWithArtifactBoundary
       .replace(`href="../../assets/css/unit.css"`, `href="../../assets/css/unit.css?v=${unitAssetVersion}"`)
       .replace(`src="../../assets/js/unit.js"`, `src="../../assets/js/unit.js?v=${unitAssetVersion}"`)

@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "subject": "chinese",
+  "publisher": "hanlin",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [
+    113,
+    115
+  ],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "L11",
+  "title": "奇怪的門",
+  "genre": "詩歌",
+  "sourceStatus": "fallback-brief-approved-cross-year-user-accepted",
+  "sourceRefs": [
+    "hanlin-115-low-primary-promo",
+    "ptc-114-hanlin-grade2-chinese-plan",
+    "education-cloud-hanlin-114-wordbank"
+  ],
+  "sourceBoundary": "115 翰林官方教材簡介只核對 L11 課名、作者、文體與順序；114 同出版社、年級、學期、同課名公開課程計畫提供教學訊號：朗讀出角色的情緒與語氣、理解文字的趣味性、練習接說故事並說完事件。使用者已核准 113–115 學年資料窗。本檔短文、活動與題目均為 edu2 原創，不重製或改寫課文、習作、教師手冊、出版社圖像或音檔，也不標示為 115 官方課文內容。",
+  "instructionalSignals": [
+    "朗讀出角色的情緒與語氣",
+    "理解文字的趣味性",
+    "練習接說故事並說完事件"
+  ],
+  "unit": {
+    "id": "ch-11",
+    "publisherUnitId": "L11",
+    "title": "奇怪的門",
+    "publisherLabel": "翰林115目標",
+    "layerLabel": "114 fallback／115 candidate · batch QA",
+    "focus": "從角色語氣找出情緒，接續說出有因果、有結果的故事。",
+    "mission": "接說一段門後故事：角色看見什麼、怎麼反應、最後如何解決。",
+    "objectives": [
+      "從角色語氣找出情緒，接續說出有因果、有結果的故事。",
+      "朗讀人工核對注音的練習字詞。",
+      "依原創短文回答並說明證據。",
+      "完成本課語文互動並尊重同學的不同表達。"
+    ],
+    "flow": [
+      "閱讀原創短文 📖",
+      "找出文本證據 🔎",
+      "朗讀練習字詞 🔊",
+      "完成語文任務 ✍️",
+      "分享與回應 🤝"
+    ],
+    "sourceLayer": {
+      "status": "fallback-brief-approved · batch technical candidate",
+      "evidence": "115 翰林官方 L11 outline＋114 同版同年級同學期同課名公開課程計畫＋114 教育雲公開詞彙；使用者接受 113–115 學年來源窗。",
+      "boundary": "以下短文、語文活動與評量均為 edu2 原創，只支援 fallback batch QA；不是翰林課文、習作或 115 官方內容。"
+    },
+    "verticalSummary": "從角色語氣找出情緒，接續說出有因果、有結果的故事。這是本站原創朗讀句，不是課文本文。",
+    "vocabulary": [
+      {
+        "word": "奇怪",
+        "meaning": "和平常不同，讓人感到疑惑。本站原創教學釋義。"
+      },
+      {
+        "word": "立刻",
+        "meaning": "馬上、沒有拖延。本站原創教學釋義。"
+      },
+      {
+        "word": "仔細",
+        "meaning": "注意細節，不馬虎。本站原創教學釋義。"
+      }
+    ],
+    "characters": [
+      {
+        "char": "怪",
+        "zhuyin": "ㄍㄨㄞˋ"
+      },
+      {
+        "char": "門",
+        "zhuyin": "ㄇㄣˊ"
+      },
+      {
+        "char": "立",
+        "zhuyin": "ㄌㄧˋ"
+      },
+      {
+        "char": "刻",
+        "zhuyin": "ㄎㄜˋ"
+      },
+      {
+        "char": "報",
+        "zhuyin": "ㄅㄠˋ"
+      },
+      {
+        "char": "底",
+        "zhuyin": "ㄉㄧˇ"
+      }
+    ],
+    "publicLearningLayerStatus": "ready-114-wordbank-and-listening-with-fallback-boundary",
+    "textStructureStatus": "original-reading-only-no-textbook-structure-claim",
+    "publicLayerBoundary": "114 教育雲詞彙與官方朗讀維持 historical／link-only；本頁理解題只依本站原創短文，不依課名或詞彙推測出版社課文。",
+    "readingGuide": {
+      "audioUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L11",
+      "audioLabel": "翰林聽 e 聽・二上第 11 課〈奇怪的門〉（官方外部朗讀入口）",
+      "audioBoundary": "官方朗讀只提供外連，不下載、嵌入、轉錄、重製或作為本站理解題答案來源。",
+      "listeningTasks": [
+        "第一次聽：找出一個自己確定聽到的詞語或語氣線索。",
+        "第二次聽：暫停後，用「我聽到＿＿」說一句完整的話。",
+        "聽完後：不確定時說「我想再聽一次」，不把猜想當成課文內容。"
+      ],
+      "textPlaceholderNote": "本站不放課文全文；請搭配合法課本或官方朗讀使用。下方另有可獨立閱讀的 edu2 原創短文。"
+    },
+    "originalAdaptation": {
+      "title": "原創閱讀｜圖書館的小門",
+      "comprehensionTitle": "閱讀理解（只依 edu2 原創短文作答）",
+      "attributionNote": "edu2 原創短文，依 L11 公開課程計畫的教學訊號撰寫；不是翰林課文、摘要或習題。",
+      "paragraphs": [
+        "圖書館角落有一扇小門，門上貼著「請先敲三下」。",
+        "小晴覺得奇怪，沒有立刻打開，而是先問管理員。",
+        "管理員笑著說，那是放大型圖畫書的櫃子，敲門是閱讀活動的暗號。",
+        "小晴鬆了一口氣，也想出下一個暗號，邀請同學一起讀書。"
+      ],
+      "comprehension": [
+        {
+          "q": "小門上貼著什麼？",
+          "options": [
+            {
+              "text": "請先敲三下",
+              "correct": true
+            },
+            {
+              "text": "禁止進入",
+              "correct": false
+            },
+            {
+              "text": "今天休息",
+              "correct": false
+            },
+            {
+              "text": "請大聲說話",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "小晴為什麼先問管理員？",
+          "options": [
+            {
+              "text": "她覺得奇怪，想先確認",
+              "correct": true
+            },
+            {
+              "text": "她忘記怎麼敲門",
+              "correct": false
+            },
+            {
+              "text": "她想把門搬走",
+              "correct": false
+            },
+            {
+              "text": "管理員要求她離開",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "故事最後，小晴的心情可能怎麼變？",
+          "options": [
+            {
+              "text": "從疑惑到放心",
+              "correct": true
+            },
+            {
+              "text": "從開心到生氣",
+              "correct": false
+            },
+            {
+              "text": "從無聊到害怕",
+              "correct": false
+            },
+            {
+              "text": "完全沒有變化",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    "languageWorkshop": {
+      "title": "故事接說三步驟",
+      "instruction": "選擇發現、反應與結果，接說成一段完整小故事。",
+      "slots": [
+        [
+          "discovery",
+          "角色發現",
+          [
+            "門後傳來輕輕的聲音",
+            "門把上多了一張字卡",
+            "地上出現一串小腳印"
+          ]
+        ],
+        [
+          "reaction",
+          "角色反應",
+          [
+            "先停下來仔細觀察",
+            "用合宜語氣詢問",
+            "請可信任的成人一起確認"
+          ]
+        ],
+        [
+          "result",
+          "故事結果",
+          [
+            "原來是閱讀活動的提示",
+            "大家找到安全的解答",
+            "角色學會先查證再行動"
+          ]
+        ]
+      ],
+      "template": "角色發現{discovery}，於是{reaction}；最後{result}。"
+    },
+    "teacherNotes": [
+      "故事接說要有安全且合理的解決方式，不鼓勵擅闖未知空間。",
+      "朗讀同一句話時，可比較疑惑、緊張與放心三種語氣。",
+      "接受想像答案，但要求前後事件能連接。"
+    ],
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "subject": "chinese",
+  "publisher": "hanlin",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [
+    113,
+    115
+  ],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "L12",
+  "title": "詠鵝",
+  "genre": "記敘文",
+  "sourceStatus": "fallback-brief-approved-cross-year-user-accepted",
+  "sourceRefs": [
+    "hanlin-115-low-primary-promo",
+    "ptc-114-hanlin-grade2-chinese-plan",
+    "education-cloud-hanlin-114-wordbank"
+  ],
+  "sourceBoundary": "115 翰林官方教材簡介只核對 L12 課名、作者、文體與順序；114 同出版社、年級、學期、同課名公開課程計畫提供教學訊號：聽出主要人物與事件、辨認國字部件、形容動物的聲音和樣態。使用者已核准 113–115 學年資料窗。本檔短文、活動與題目均為 edu2 原創，不重製或改寫課文、習作、教師手冊、出版社圖像或音檔，也不標示為 115 官方課文內容。",
+  "instructionalSignals": [
+    "聽出主要人物與事件",
+    "辨認國字部件",
+    "形容動物的聲音和樣態"
+  ],
+  "unit": {
+    "id": "ch-12",
+    "publisherUnitId": "L12",
+    "title": "詠鵝",
+    "publisherLabel": "翰林115目標",
+    "layerLabel": "114 fallback／115 candidate · batch QA",
+    "focus": "用聲音、外形與動作詞觀察動物，寫出具體而尊重生命的描述。",
+    "mission": "完成一張動物觀察卡：聲音像什麼、外形如何、動作怎樣。",
+    "objectives": [
+      "用聲音、外形與動作詞觀察動物，寫出具體而尊重生命的描述。",
+      "朗讀人工核對注音的練習字詞。",
+      "依原創短文回答並說明證據。",
+      "完成本課語文互動並尊重同學的不同表達。"
+    ],
+    "flow": [
+      "閱讀原創短文 📖",
+      "找出文本證據 🔎",
+      "朗讀練習字詞 🔊",
+      "完成語文任務 ✍️",
+      "分享與回應 🤝"
+    ],
+    "sourceLayer": {
+      "status": "fallback-brief-approved · batch technical candidate",
+      "evidence": "115 翰林官方 L12 outline＋114 同版同年級同學期同課名公開課程計畫＋114 教育雲公開詞彙；使用者接受 113–115 學年來源窗。",
+      "boundary": "以下短文、語文活動與評量均為 edu2 原創，只支援 fallback batch QA；不是翰林課文、習作或 115 官方內容。"
+    },
+    "verticalSummary": "用聲音、外形與動作詞觀察動物，寫出具體而尊重生命的描述。這是本站原創朗讀句，不是課文本文。",
+    "vocabulary": [
+      {
+        "word": "詩人",
+        "meaning": "創作詩的人。本站原創教學釋義。"
+      },
+      {
+        "word": "脖子",
+        "meaning": "頭和身體之間的部位。本站原創教學釋義。"
+      },
+      {
+        "word": "身體",
+        "meaning": "人或動物的軀體。本站原創教學釋義。"
+      }
+    ],
+    "characters": [
+      {
+        "char": "詠",
+        "zhuyin": "ㄩㄥˇ"
+      },
+      {
+        "char": "鵝",
+        "zhuyin": "ㄜˊ"
+      },
+      {
+        "char": "曲",
+        "zhuyin": "ㄑㄩ"
+      },
+      {
+        "char": "項",
+        "zhuyin": "ㄒㄧㄤˋ"
+      },
+      {
+        "char": "掌",
+        "zhuyin": "ㄓㄤˇ"
+      },
+      {
+        "char": "波",
+        "zhuyin": "ㄅㄛ"
+      }
+    ],
+    "publicLearningLayerStatus": "ready-114-wordbank-and-listening-with-fallback-boundary",
+    "textStructureStatus": "original-reading-only-no-textbook-structure-claim",
+    "publicLayerBoundary": "114 教育雲詞彙與官方朗讀維持 historical／link-only；本頁理解題只依本站原創短文，不依課名或詞彙推測出版社課文。",
+    "readingGuide": {
+      "audioUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L12",
+      "audioLabel": "翰林聽 e 聽・二上第 12 課〈詠鵝〉（官方外部朗讀入口）",
+      "audioBoundary": "官方朗讀只提供外連，不下載、嵌入、轉錄、重製或作為本站理解題答案來源。",
+      "listeningTasks": [
+        "第一次聽：找出一個自己確定聽到的詞語或語氣線索。",
+        "第二次聽：暫停後，用「我聽到＿＿」說一句完整的話。",
+        "聽完後：不確定時說「我想再聽一次」，不把猜想當成課文內容。"
+      ],
+      "textPlaceholderNote": "本站不放課文全文；請搭配合法課本或官方朗讀使用。下方另有可獨立閱讀的 edu2 原創短文。"
+    },
+    "originalAdaptation": {
+      "title": "原創閱讀｜池面上的白鵝",
+      "comprehensionTitle": "閱讀理解（只依 edu2 原創短文作答）",
+      "attributionNote": "edu2 原創短文，依 L12 公開課程計畫的教學訊號撰寫；不是翰林課文、摘要或習題。",
+      "paragraphs": [
+        "白鵝慢慢游過池面，長長的脖子像一道彎彎的線。",
+        "牠轉動頭部，發出響亮的叫聲，水面也跟著出現波紋。",
+        "橘色的腳掌在水下撥動，身體卻穩穩地向前。",
+        "我站在欄杆外安靜觀察，用聲音、外形和動作記下牠的樣子。"
+      ],
+      "comprehension": [
+        {
+          "q": "原創短文把白鵝的脖子比成什麼？",
+          "options": [
+            {
+              "text": "一道彎彎的線",
+              "correct": true
+            },
+            {
+              "text": "一顆圓圓的球",
+              "correct": false
+            },
+            {
+              "text": "一扇小小的門",
+              "correct": false
+            },
+            {
+              "text": "一片方方的紙",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "白鵝怎麼讓身體向前？",
+          "options": [
+            {
+              "text": "用腳掌在水下撥動",
+              "correct": true
+            },
+            {
+              "text": "用翅膀推欄杆",
+              "correct": false
+            },
+            {
+              "text": "讓風把牠吹走",
+              "correct": false
+            },
+            {
+              "text": "站在池邊跳躍",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "觀察動物時，哪個做法合宜？",
+          "options": [
+            {
+              "text": "保持距離並安靜記錄",
+              "correct": true
+            },
+            {
+              "text": "追著動物靠近拍照",
+              "correct": false
+            },
+            {
+              "text": "餵食不明食物",
+              "correct": false
+            },
+            {
+              "text": "用聲音嚇牠移動",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    "languageWorkshop": {
+      "title": "動物觀察三句",
+      "instruction": "選擇聲音、外形與動作，組成具體的觀察描述。",
+      "slots": [
+        [
+          "sound",
+          "聲音",
+          [
+            "叫聲響亮",
+            "聲音短短的",
+            "我聽見規律的叫聲"
+          ]
+        ],
+        [
+          "shape",
+          "外形",
+          [
+            "脖子長長的",
+            "羽毛白白的",
+            "腳掌是橘色的"
+          ]
+        ],
+        [
+          "motion",
+          "動作",
+          [
+            "牠慢慢游過水面",
+            "牠轉動頭部觀察",
+            "牠用腳掌撥出波紋"
+          ]
+        ]
+      ],
+      "template": "我聽見牠{sound}；牠的{shape}，接著{motion}。"
+    },
+    "teacherNotes": [
+      "本頁不重製古詩或出版社課文，只用原創觀察文練習描述。",
+      "引導學生使用可觀察的聲音、外形與動作，不替動物猜測心情。",
+      "提醒保持距離、不追逐、不任意餵食。"
+    ],
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

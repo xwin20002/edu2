@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "subject": "chinese",
+  "publisher": "hanlin",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [
+    113,
+    115
+  ],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "L03",
+  "title": "國王做新衣",
+  "genre": "記敘文",
+  "sourceStatus": "fallback-brief-approved-cross-year-user-accepted",
+  "sourceRefs": [
+    "hanlin-115-low-primary-promo",
+    "ptc-114-hanlin-grade2-chinese-plan",
+    "education-cloud-hanlin-114-wordbank"
+  ],
+  "sourceBoundary": "115 翰林官方教材簡介只核對 L3 課名、作者、文體與順序；114 同出版社、年級、學期、同課名公開課程計畫提供教學訊號：用完整句回答並重述故事、利用故事結構協助理解、辨識情緒並適切表達。使用者已核准 113–115 學年資料窗。本檔短文、活動與題目均為 edu2 原創，不重製或改寫課文、習作、教師手冊、出版社圖像或音檔，也不標示為 115 官方課文內容。",
+  "instructionalSignals": [
+    "用完整句回答並重述故事",
+    "利用故事結構協助理解",
+    "辨識情緒並適切表達"
+  ],
+  "unit": {
+    "id": "ch-03",
+    "publisherUnitId": "L03",
+    "title": "國王做新衣",
+    "publisherLabel": "翰林115目標",
+    "layerLabel": "114 fallback／115 candidate · batch QA",
+    "focus": "找出故事中的人物、問題、行動與結果，練習有順序地重述。",
+    "mission": "用四張故事卡說清楚：誰遇到什麼問題、做了什麼、結果如何。",
+    "objectives": [
+      "找出故事中的人物、問題、行動與結果，練習有順序地重述。",
+      "朗讀人工核對注音的練習字詞。",
+      "依原創短文回答並說明證據。",
+      "完成本課語文互動並尊重同學的不同表達。"
+    ],
+    "flow": [
+      "閱讀原創短文 📖",
+      "找出文本證據 🔎",
+      "朗讀練習字詞 🔊",
+      "完成語文任務 ✍️",
+      "分享與回應 🤝"
+    ],
+    "sourceLayer": {
+      "status": "fallback-brief-approved · batch technical candidate",
+      "evidence": "115 翰林官方 L3 outline＋114 同版同年級同學期同課名公開課程計畫＋114 教育雲公開詞彙；使用者接受 113–115 學年來源窗。",
+      "boundary": "以下短文、語文活動與評量均為 edu2 原創，只支援 fallback batch QA；不是翰林課文、習作或 115 官方內容。"
+    },
+    "verticalSummary": "找出故事中的人物、問題、行動與結果，練習有順序地重述。這是本站原創朗讀句，不是課文本文。",
+    "vocabulary": [
+      {
+        "word": "國王",
+        "meaning": "國家的君主；本課只作公開詞彙練習。本站原創教學釋義。"
+      },
+      {
+        "word": "發現",
+        "meaning": "經過觀察或思考後知道原先不知道的事。本站原創教學釋義。"
+      },
+      {
+        "word": "分享",
+        "meaning": "把自己的想法或經驗告訴別人。本站原創教學釋義。"
+      }
+    ],
+    "characters": [
+      {
+        "char": "國",
+        "zhuyin": "ㄍㄨㄛˊ"
+      },
+      {
+        "char": "王",
+        "zhuyin": "ㄨㄤˊ"
+      },
+      {
+        "char": "喜",
+        "zhuyin": "ㄒㄧˇ"
+      },
+      {
+        "char": "歡",
+        "zhuyin": "ㄏㄨㄢ"
+      },
+      {
+        "char": "分",
+        "zhuyin": "ㄈㄣ"
+      },
+      {
+        "char": "享",
+        "zhuyin": "ㄒㄧㄤˇ"
+      }
+    ],
+    "publicLearningLayerStatus": "ready-114-wordbank-and-listening-with-fallback-boundary",
+    "textStructureStatus": "original-reading-only-no-textbook-structure-claim",
+    "publicLayerBoundary": "114 教育雲詞彙與官方朗讀維持 historical／link-only；本頁理解題只依本站原創短文，不依課名或詞彙推測出版社課文。",
+    "readingGuide": {
+      "audioUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L3",
+      "audioLabel": "翰林聽 e 聽・二上第 3 課〈國王做新衣〉（官方外部朗讀入口）",
+      "audioBoundary": "官方朗讀只提供外連，不下載、嵌入、轉錄、重製或作為本站理解題答案來源。",
+      "listeningTasks": [
+        "第一次聽：找出一個自己確定聽到的詞語或語氣線索。",
+        "第二次聽：暫停後，用「我聽到＿＿」說一句完整的話。",
+        "聽完後：不確定時說「我想再聽一次」，不把猜想當成課文內容。"
+      ],
+      "textPlaceholderNote": "本站不放課文全文；請搭配合法課本或官方朗讀使用。下方另有可獨立閱讀的 edu2 原創短文。"
+    },
+    "originalAdaptation": {
+      "title": "原創改編閱讀｜國王的新衣",
+      "attributionNote": "本篇故事為 edu2 原創改寫，取材自 1837 年安徒生發表、現已進入公共領域的童話《國王的新衣》之通行情節與主題；文字全部由本站原創撰寫，不是翰林課本原文，用詞與結局也不代表課本內容，仍請搭配合法課本使用。",
+      "paragraphs": [
+        "從前有一位國王，特別喜歡穿新衣服。有一天，兩個陌生人來到王宮，說他們有特別的方法，可以做出一種奇特的布：只有聰明誠實的人才看得見，不誠實的人什麼都看不到。國王聽了很好奇，馬上請他們開始設計這件新衣。",
+        "兩個人假裝認真地剪裁、縫製，說這件衣服的袖子又長又飄逸，領口還繡著金線，看起來越看越特別。大臣們來看的時候，其實什麼都看不見，但是誰也不敢說出來，怕別人覺得自己不夠聰明。國王試穿之後，也跟著小小地改了幾個地方，開心地走到大街上。",
+        "大家看著國王，也都說：「好漂亮啊！」這時候，一個小朋友大聲說：「國王，你根本沒有穿衣服呀！」全場突然安靜下來，大家你看我、我看你，不知道該怎麼辦。",
+        "國王低頭看了看自己，愣了一下，接著笑了出來：「哈哈，這真是個驚喜！謝謝你讓我發現真相。」他不但沒有生氣，還把這段有趣的經過分享給大家聽，大家也跟著笑了起來。"
+      ],
+      "comprehension": [
+        {
+          "q": "故事裡，兩個陌生人說的布，誰才看得見？",
+          "options": [
+            {
+              "text": "誠實聰明的人",
+              "correct": true
+            },
+            {
+              "text": "只有國王一個人",
+              "correct": false
+            },
+            {
+              "text": "沒有人看得見",
+              "correct": false
+            },
+            {
+              "text": "所有人都看得見",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "大臣們其實都看得見那塊特別的布。",
+          "options": [
+            {
+              "text": "對",
+              "correct": false
+            },
+            {
+              "text": "錯",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "q": "小朋友說出真相以後，國王的反應是？",
+          "options": [
+            {
+              "text": "生氣責備小朋友",
+              "correct": false
+            },
+            {
+              "text": "笑著感謝，並把經過分享給大家",
+              "correct": true
+            },
+            {
+              "text": "假裝沒聽到",
+              "correct": false
+            },
+            {
+              "text": "難過地哭了起來",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "comprehensionTitle": "閱讀理解（只依公共領域基礎的 edu2 原創改寫作答）"
+    },
+    "languageWorkshop": {
+      "title": "故事四格重述",
+      "instruction": "選擇人物、問題、行動與結果，組成一段完整故事。",
+      "slots": [
+        [
+          "character",
+          "人物",
+          [
+            "國王",
+            "大臣",
+            "說真話的小朋友"
+          ]
+        ],
+        [
+          "problem",
+          "問題",
+          [
+            "大家不敢說出真相",
+            "有人假裝做出奇特的布",
+            "人們擔心被笑不聰明"
+          ]
+        ],
+        [
+          "action",
+          "行動",
+          [
+            "小朋友說出看到的事實",
+            "國王停下來重新想一想",
+            "大家開始誠實交談"
+          ]
+        ],
+        [
+          "result",
+          "結果",
+          [
+            "真相終於被大家知道",
+            "人們學會勇敢說實話",
+            "國王感謝誠實的提醒"
+          ]
+        ]
+      ],
+      "template": "故事中的{character}遇到的問題是{problem}；後來{action}，結果{result}。"
+    },
+    "teacherNotes": [
+      "本區使用公共領域童話的 edu2 原創改寫，不對照或重述翰林課文。",
+      "引導學生區分『看見的事實』與『因害怕而跟著說的話』。",
+      "接受不同重述，只要人物、問題、行動與結果能互相連接。"
+    ],
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

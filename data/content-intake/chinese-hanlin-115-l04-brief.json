@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "subject": "chinese",
+  "publisher": "hanlin",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [
+    113,
+    115
+  ],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "L04",
+  "title": "水草下的呱呱",
+  "genre": "詩歌",
+  "sourceStatus": "fallback-brief-approved-cross-year-user-accepted",
+  "sourceRefs": [
+    "hanlin-115-low-primary-promo",
+    "ptc-114-hanlin-grade2-chinese-plan",
+    "education-cloud-hanlin-114-wordbank"
+  ],
+  "sourceBoundary": "115 翰林官方教材簡介只核對 L4 課名、作者、文體與順序；114 同出版社、年級、學期、同課名公開課程計畫提供教學訊號：找出詩歌重點、透過感官觀察大自然、運用簡單句型表達。使用者已核准 113–115 學年資料窗。本檔短文、活動與題目均為 edu2 原創，不重製或改寫課文、習作、教師手冊、出版社圖像或音檔，也不標示為 115 官方課文內容。",
+  "instructionalSignals": [
+    "找出詩歌重點",
+    "透過感官觀察大自然",
+    "運用簡單句型表達"
+  ],
+  "unit": {
+    "id": "ch-04",
+    "publisherUnitId": "L04",
+    "title": "水草下的呱呱",
+    "publisherLabel": "翰林115目標",
+    "layerLabel": "114 fallback／115 candidate · batch QA",
+    "focus": "分清楚感官觀察與自己的推測，用證據描述自然現象。",
+    "mission": "完成「我聽見／我看見／我推測」觀察句，並說出推測依據。",
+    "objectives": [
+      "分清楚感官觀察與自己的推測，用證據描述自然現象。",
+      "朗讀人工核對注音的練習字詞。",
+      "依原創短文回答並說明證據。",
+      "完成本課語文互動並尊重同學的不同表達。"
+    ],
+    "flow": [
+      "閱讀原創短文 📖",
+      "找出文本證據 🔎",
+      "朗讀練習字詞 🔊",
+      "完成語文任務 ✍️",
+      "分享與回應 🤝"
+    ],
+    "sourceLayer": {
+      "status": "fallback-brief-approved · batch technical candidate",
+      "evidence": "115 翰林官方 L4 outline＋114 同版同年級同學期同課名公開課程計畫＋114 教育雲公開詞彙；使用者接受 113–115 學年來源窗。",
+      "boundary": "以下短文、語文活動與評量均為 edu2 原創，只支援 fallback batch QA；不是翰林課文、習作或 115 官方內容。"
+    },
+    "verticalSummary": "分清楚感官觀察與自己的推測，用證據描述自然現象。這是本站原創朗讀句，不是課文本文。",
+    "vocabulary": [
+      {
+        "word": "呱呱",
+        "meaning": "模擬蛙類叫聲的詞。本站原創教學釋義。"
+      },
+      {
+        "word": "靠近",
+        "meaning": "向某個人或地方移動得更近。本站原創教學釋義。"
+      },
+      {
+        "word": "證明",
+        "meaning": "用事實或證據說明一件事。本站原創教學釋義。"
+      }
+    ],
+    "characters": [
+      {
+        "char": "呱",
+        "zhuyin": "ㄍㄨㄚ"
+      },
+      {
+        "char": "聞",
+        "zhuyin": "ㄨㄣˊ"
+      },
+      {
+        "char": "聲",
+        "zhuyin": "ㄕㄥ"
+      },
+      {
+        "char": "猜",
+        "zhuyin": "ㄘㄞ"
+      },
+      {
+        "char": "蛙",
+        "zhuyin": "ㄨㄚ"
+      },
+      {
+        "char": "靠",
+        "zhuyin": "ㄎㄠˋ"
+      }
+    ],
+    "publicLearningLayerStatus": "ready-114-wordbank-and-listening-with-fallback-boundary",
+    "textStructureStatus": "original-reading-only-no-textbook-structure-claim",
+    "publicLayerBoundary": "114 教育雲詞彙與官方朗讀維持 historical／link-only；本頁理解題只依本站原創短文，不依課名或詞彙推測出版社課文。",
+    "readingGuide": {
+      "audioUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L4",
+      "audioLabel": "翰林聽 e 聽・二上第 4 課〈水草下的呱呱〉（官方外部朗讀入口）",
+      "audioBoundary": "官方朗讀只提供外連，不下載、嵌入、轉錄、重製或作為本站理解題答案來源。",
+      "listeningTasks": [
+        "第一次聽：找出一個自己確定聽到的詞語或語氣線索。",
+        "第二次聽：暫停後，用「我聽到＿＿」說一句完整的話。",
+        "聽完後：不確定時說「我想再聽一次」，不把猜想當成課文內容。"
+      ],
+      "textPlaceholderNote": "本站不放課文全文；請搭配合法課本或官方朗讀使用。下方另有可獨立閱讀的 edu2 原創短文。"
+    },
+    "originalAdaptation": {
+      "title": "原創閱讀｜池邊的聲音",
+      "comprehensionTitle": "閱讀理解（只依 edu2 原創短文作答）",
+      "attributionNote": "edu2 原創短文，依 L04 公開課程計畫的教學訊號撰寫；不是翰林課文、摘要或習題。",
+      "paragraphs": [
+        "傍晚，我和老師站在池塘旁的步道上觀察。",
+        "我先聽見草叢傳來兩聲「呱呱」，但還沒有看見動物。",
+        "我猜聲音可能來自青蛙，又發現水草輕輕搖動。",
+        "老師提醒我保持距離，只記錄證據，不伸手抓小動物。"
+      ],
+      "comprehension": [
+        {
+          "q": "哪一句是確定的觀察？",
+          "options": [
+            {
+              "text": "草叢傳來兩聲呱呱",
+              "correct": true
+            },
+            {
+              "text": "一定有十隻青蛙",
+              "correct": false
+            },
+            {
+              "text": "青蛙想跟我說話",
+              "correct": false
+            },
+            {
+              "text": "池塘裡沒有動物",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "「我」為什麼猜聲音可能來自青蛙？",
+          "options": [
+            {
+              "text": "聽見呱呱聲並看見水草搖動",
+              "correct": true
+            },
+            {
+              "text": "老師已經抓到青蛙",
+              "correct": false
+            },
+            {
+              "text": "天空突然下起大雨",
+              "correct": false
+            },
+            {
+              "text": "同學說一定是小鳥",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "觀察池邊動物時，哪個做法合宜？",
+          "options": [
+            {
+              "text": "保持距離並記錄證據",
+              "correct": true
+            },
+            {
+              "text": "伸手進水草抓動物",
+              "correct": false
+            },
+            {
+              "text": "丟石頭測試聲音",
+              "correct": false
+            },
+            {
+              "text": "踩進池塘看清楚",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    "languageWorkshop": {
+      "title": "觀察與推測句",
+      "instruction": "先說感官證據，再說推測；不要把猜想當成事實。",
+      "slots": [
+        [
+          "sense",
+          "我用感官發現",
+          [
+            "我聽見兩聲呱呱",
+            "我看見水草搖動",
+            "我看見水面出現波紋"
+          ]
+        ],
+        [
+          "guess",
+          "我的推測",
+          [
+            "附近可能有小動物",
+            "聲音可能來自草叢",
+            "水下可能有東西移動"
+          ]
+        ],
+        [
+          "check",
+          "核對方法",
+          [
+            "保持距離再觀察",
+            "請老師一起確認",
+            "把不同時間的紀錄比較"
+          ]
+        ]
+      ],
+      "template": "{sense}；我推測{guess}，可以{check}。"
+    },
+    "teacherNotes": [
+      "要求學生先用『我看見／我聽見』描述，再使用『可能』提出推測。",
+      "自然觀察不以抓取或驚擾動物換取答案。",
+      "朗讀時可比較『呱呱』擬聲詞的節奏與語氣。"
+    ],
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

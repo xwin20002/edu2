@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "subject": "chinese",
+  "publisher": "hanlin",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [
+    113,
+    115
+  ],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "L02",
+  "title": "彩色的天空",
+  "genre": "記敘文",
+  "sourceStatus": "fallback-brief-approved-cross-year-user-accepted",
+  "sourceRefs": [
+    "hanlin-115-low-primary-promo",
+    "ptc-114-hanlin-grade2-chinese-plan",
+    "education-cloud-hanlin-114-wordbank"
+  ],
+  "sourceBoundary": "115 翰林官方教材簡介只核對 L2 課名、作者、文體與順序；114 同出版社、年級、學期、同課名公開課程計畫提供教學訊號：聆聽後參與討論並提出意見、用完整句回答問題並重述順序、使用短語與句型表達。使用者已核准 113–115 學年資料窗。本檔短文、活動與題目均為 edu2 原創，不重製或改寫課文、習作、教師手冊、出版社圖像或音檔，也不標示為 115 官方課文內容。",
+  "instructionalSignals": [
+    "聆聽後參與討論並提出意見",
+    "用完整句回答問題並重述順序",
+    "使用短語與句型表達"
+  ],
+  "unit": {
+    "id": "ch-02",
+    "publisherUnitId": "L02",
+    "title": "彩色的天空",
+    "publisherLabel": "翰林115目標",
+    "layerLabel": "114 fallback／115 candidate · batch QA",
+    "focus": "找出事情的先後順序，使用完整句重述觀察與感受。",
+    "mission": "完成「一開始／接著／最後」三段重述，讓同學聽懂事情怎麼發展。",
+    "objectives": [
+      "找出事情的先後順序，使用完整句重述觀察與感受。",
+      "朗讀人工核對注音的練習字詞。",
+      "依原創短文回答並說明證據。",
+      "完成本課語文互動並尊重同學的不同表達。"
+    ],
+    "flow": [
+      "閱讀原創短文 📖",
+      "找出文本證據 🔎",
+      "朗讀練習字詞 🔊",
+      "完成語文任務 ✍️",
+      "分享與回應 🤝"
+    ],
+    "sourceLayer": {
+      "status": "fallback-brief-approved · batch technical candidate",
+      "evidence": "115 翰林官方 L2 outline＋114 同版同年級同學期同課名公開課程計畫＋114 教育雲公開詞彙；使用者接受 113–115 學年來源窗。",
+      "boundary": "以下短文、語文活動與評量均為 edu2 原創，只支援 fallback batch QA；不是翰林課文、習作或 115 官方內容。"
+    },
+    "verticalSummary": "找出事情的先後順序，使用完整句重述觀察與感受。這是本站原創朗讀句，不是課文本文。",
+    "vocabulary": [
+      {
+        "word": "老師",
+        "meaning": "在學校帶領大家學習的人。本站原創教學釋義。"
+      },
+      {
+        "word": "希望",
+        "meaning": "心裡期待某件事情發生。本站原創教學釋義。"
+      },
+      {
+        "word": "緊張",
+        "meaning": "擔心自己做不好時，心裡不安的感覺。本站原創教學釋義。"
+      }
+    ],
+    "characters": [
+      {
+        "char": "老",
+        "zhuyin": "ㄌㄠˇ"
+      },
+      {
+        "char": "師",
+        "zhuyin": "ㄕ"
+      },
+      {
+        "char": "新",
+        "zhuyin": "ㄒㄧㄣ"
+      },
+      {
+        "char": "希",
+        "zhuyin": "ㄒㄧ"
+      },
+      {
+        "char": "望",
+        "zhuyin": "ㄨㄤˋ"
+      },
+      {
+        "char": "緊",
+        "zhuyin": "ㄐㄧㄣˇ"
+      }
+    ],
+    "publicLearningLayerStatus": "ready-114-wordbank-and-listening-with-fallback-boundary",
+    "textStructureStatus": "original-reading-only-no-textbook-structure-claim",
+    "publicLayerBoundary": "114 教育雲詞彙與官方朗讀維持 historical／link-only；本頁理解題只依本站原創短文，不依課名或詞彙推測出版社課文。",
+    "readingGuide": {
+      "audioUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L2",
+      "audioLabel": "翰林聽 e 聽・二上第 2 課〈彩色的天空〉（官方外部朗讀入口）",
+      "audioBoundary": "官方朗讀只提供外連，不下載、嵌入、轉錄、重製或作為本站理解題答案來源。",
+      "listeningTasks": [
+        "第一次聽：找出一個自己確定聽到的詞語或語氣線索。",
+        "第二次聽：暫停後，用「我聽到＿＿」說一句完整的話。",
+        "聽完後：不確定時說「我想再聽一次」，不把猜想當成課文內容。"
+      ],
+      "textPlaceholderNote": "本站不放課文全文；請搭配合法課本或官方朗讀使用。下方另有可獨立閱讀的 edu2 原創短文。"
+    },
+    "originalAdaptation": {
+      "title": "原創閱讀｜窗外的顏色",
+      "comprehensionTitle": "閱讀理解（只依 edu2 原創短文作答）",
+      "attributionNote": "edu2 原創短文，依 L02 公開課程計畫的教學訊號撰寫；不是翰林課文、摘要或習題。",
+      "paragraphs": [
+        "美術課前，老師請大家先看看窗外的天空。",
+        "一開始，遠處有一大片灰色的雲，我有一點擔心會下雨。",
+        "接著，陽光從雲旁露出來，天空慢慢亮了。",
+        "最後，我把看到的顏色依順序畫下來，也說出自己的心情。"
+      ],
+      "comprehension": [
+        {
+          "q": "老師請大家先做什麼？",
+          "options": [
+            {
+              "text": "看看窗外的天空",
+              "correct": true
+            },
+            {
+              "text": "立刻收起畫紙",
+              "correct": false
+            },
+            {
+              "text": "跑到操場比賽",
+              "correct": false
+            },
+            {
+              "text": "閉上眼睛睡覺",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "天空接著有什麼變化？",
+          "options": [
+            {
+              "text": "陽光從雲旁露出來",
+              "correct": true
+            },
+            {
+              "text": "所有顏色都消失",
+              "correct": false
+            },
+            {
+              "text": "教室突然停電",
+              "correct": false
+            },
+            {
+              "text": "天空變成晚上",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "哪組詞最能幫助重述順序？",
+          "options": [
+            {
+              "text": "一開始、接著、最後",
+              "correct": true
+            },
+            {
+              "text": "也許、可能、大概",
+              "correct": false
+            },
+            {
+              "text": "大小、多少、長短",
+              "correct": false
+            },
+            {
+              "text": "這裡、那裡、哪裡",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    "languageWorkshop": {
+      "title": "順序三段句",
+      "instruction": "依序選出三個片段，再朗讀成一段完整的重述。",
+      "slots": [
+        [
+          "begin",
+          "一開始",
+          [
+            "我先觀察窗外",
+            "我先聽清楚任務",
+            "我先整理畫具"
+          ]
+        ],
+        [
+          "next",
+          "接著",
+          [
+            "我記錄看見的顏色",
+            "我和同學交換發現",
+            "我用完整句說明"
+          ]
+        ],
+        [
+          "last",
+          "最後",
+          [
+            "我依順序分享",
+            "我檢查有沒有漏掉",
+            "我說出自己的心情"
+          ]
+        ]
+      ],
+      "template": "一開始，{begin}；接著，{next}；最後，{last}。"
+    },
+    "teacherNotes": [
+      "先請學生指認原創短文中的順序詞，再進行口頭重述。",
+      "若學生只說單詞，提示補上人物、動作與結果。",
+      "評量重點是順序清楚，不要求和範例句完全相同。"
+    ],
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

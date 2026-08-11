@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "subject": "chinese",
+  "publisher": "hanlin",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [
+    113,
+    115
+  ],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "L05",
+  "title": "沙灘上的畫",
+  "genre": "記敘文",
+  "sourceStatus": "fallback-brief-approved-cross-year-user-accepted",
+  "sourceRefs": [
+    "hanlin-115-low-primary-promo",
+    "ptc-114-hanlin-grade2-chinese-plan",
+    "education-cloud-hanlin-114-wordbank"
+  ],
+  "sourceBoundary": "115 翰林官方教材簡介只核對 L5 課名、作者、文體與順序；114 同出版社、年級、學期、同課名公開課程計畫提供教學訊號：聽出故事重點並說出大意、使用順敘法、運用字詞仿寫句子。使用者已核准 113–115 學年資料窗。本檔短文、活動與題目均為 edu2 原創，不重製或改寫課文、習作、教師手冊、出版社圖像或音檔，也不標示為 115 官方課文內容。",
+  "instructionalSignals": [
+    "聽出故事重點並說出大意",
+    "使用順敘法",
+    "運用字詞仿寫句子"
+  ],
+  "unit": {
+    "id": "ch-05",
+    "publisherUnitId": "L05",
+    "title": "沙灘上的畫",
+    "publisherLabel": "翰林115目標",
+    "layerLabel": "114 fallback／115 candidate · batch QA",
+    "focus": "依照先後順序說出觀察過程，並用原因與結果連接句子。",
+    "mission": "用「因為……所以……」解釋沙灘上的一項發現。",
+    "objectives": [
+      "依照先後順序說出觀察過程，並用原因與結果連接句子。",
+      "朗讀人工核對注音的練習字詞。",
+      "依原創短文回答並說明證據。",
+      "完成本課語文互動並尊重同學的不同表達。"
+    ],
+    "flow": [
+      "閱讀原創短文 📖",
+      "找出文本證據 🔎",
+      "朗讀練習字詞 🔊",
+      "完成語文任務 ✍️",
+      "分享與回應 🤝"
+    ],
+    "sourceLayer": {
+      "status": "fallback-brief-approved · batch technical candidate",
+      "evidence": "115 翰林官方 L5 outline＋114 同版同年級同學期同課名公開課程計畫＋114 教育雲公開詞彙；使用者接受 113–115 學年來源窗。",
+      "boundary": "以下短文、語文活動與評量均為 edu2 原創，只支援 fallback batch QA；不是翰林課文、習作或 115 官方內容。"
+    },
+    "verticalSummary": "依照先後順序說出觀察過程，並用原因與結果連接句子。這是本站原創朗讀句，不是課文本文。",
+    "vocabulary": [
+      {
+        "word": "沙灘",
+        "meaning": "海邊由沙粒形成的地面。本站原創教學釋義。"
+      },
+      {
+        "word": "腳印",
+        "meaning": "腳踩過後留下的形狀。本站原創教學釋義。"
+      },
+      {
+        "word": "夕陽",
+        "meaning": "傍晚接近地平線的太陽。本站原創教學釋義。"
+      }
+    ],
+    "characters": [
+      {
+        "char": "沙",
+        "zhuyin": "ㄕㄚ"
+      },
+      {
+        "char": "灘",
+        "zhuyin": "ㄊㄢ"
+      },
+      {
+        "char": "海",
+        "zhuyin": "ㄏㄞˇ"
+      },
+      {
+        "char": "邊",
+        "zhuyin": "ㄅㄧㄢ"
+      },
+      {
+        "char": "蟹",
+        "zhuyin": "ㄒㄧㄝˋ"
+      },
+      {
+        "char": "印",
+        "zhuyin": "ㄧㄣˋ"
+      }
+    ],
+    "publicLearningLayerStatus": "ready-114-wordbank-and-listening-with-fallback-boundary",
+    "textStructureStatus": "original-reading-only-no-textbook-structure-claim",
+    "publicLayerBoundary": "114 教育雲詞彙與官方朗讀維持 historical／link-only；本頁理解題只依本站原創短文，不依課名或詞彙推測出版社課文。",
+    "readingGuide": {
+      "audioUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L5",
+      "audioLabel": "翰林聽 e 聽・二上第 5 課〈沙灘上的畫〉（官方外部朗讀入口）",
+      "audioBoundary": "官方朗讀只提供外連，不下載、嵌入、轉錄、重製或作為本站理解題答案來源。",
+      "listeningTasks": [
+        "第一次聽：找出一個自己確定聽到的詞語或語氣線索。",
+        "第二次聽：暫停後，用「我聽到＿＿」說一句完整的話。",
+        "聽完後：不確定時說「我想再聽一次」，不把猜想當成課文內容。"
+      ],
+      "textPlaceholderNote": "本站不放課文全文；請搭配合法課本或官方朗讀使用。下方另有可獨立閱讀的 edu2 原創短文。"
+    },
+    "originalAdaptation": {
+      "title": "原創閱讀｜會改變的畫",
+      "comprehensionTitle": "閱讀理解（只依 edu2 原創短文作答）",
+      "attributionNote": "edu2 原創短文，依 L05 公開課程計畫的教學訊號撰寫；不是翰林課文、摘要或習題。",
+      "paragraphs": [
+        "傍晚，我在安全的沙地上畫了一條長長的魚。",
+        "海風吹過，細沙慢慢蓋住魚尾，畫變得不一樣了。",
+        "接著，一串小腳印穿過魚身，我蹲下來仔細觀察。",
+        "我把變化畫進紀錄本，明白自然也會一起完成這幅畫。"
+      ],
+      "comprehension": [
+        {
+          "q": "什麼先讓魚尾變得不清楚？",
+          "options": [
+            {
+              "text": "海風吹動細沙",
+              "correct": true
+            },
+            {
+              "text": "有人倒了一桶水",
+              "correct": false
+            },
+            {
+              "text": "螃蟹拿走畫筆",
+              "correct": false
+            },
+            {
+              "text": "太陽突然不見",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "「我」看到腳印後怎麼做？",
+          "options": [
+            {
+              "text": "蹲下來仔細觀察",
+              "correct": true
+            },
+            {
+              "text": "立刻把腳印擦掉",
+              "correct": false
+            },
+            {
+              "text": "追著小動物跑",
+              "correct": false
+            },
+            {
+              "text": "離開沙灘不記錄",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "原創短文中的畫為什麼會改變？",
+          "options": [
+            {
+              "text": "風和腳印都留下影響",
+              "correct": true
+            },
+            {
+              "text": "畫筆自己會移動",
+              "correct": false
+            },
+            {
+              "text": "所有沙灘都一樣",
+              "correct": false
+            },
+            {
+              "text": "因為天色很亮",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    "languageWorkshop": {
+      "title": "因果觀察句",
+      "instruction": "選擇一個原因、一個變化與一項紀錄，說明你看到的過程。",
+      "slots": [
+        [
+          "cause",
+          "原因",
+          [
+            "海風吹動細沙",
+            "小腳印穿過圖案",
+            "潮水慢慢靠近"
+          ]
+        ],
+        [
+          "effect",
+          "結果",
+          [
+            "線條變得比較淡",
+            "圖案多了新的痕跡",
+            "沙地的形狀改變了"
+          ]
+        ],
+        [
+          "record",
+          "我的做法",
+          [
+            "我把先後順序畫下來",
+            "我用完整句記錄",
+            "我和同學比較發現"
+          ]
+        ]
+      ],
+      "template": "因為{cause}，所以{effect}；接著{record}。"
+    },
+    "teacherNotes": [
+      "只使用原創短文練習因果，不要求學生回想出版社課文情節。",
+      "提醒學生在安全範圍觀察，不追逐或碰觸海邊生物。",
+      "可讓學生把同一事件改寫成『先……接著……最後……』。"
+    ],
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

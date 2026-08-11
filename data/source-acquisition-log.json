@@ -279,6 +279,20 @@
       "reviewStatus": "checked-no-115-grade2-hanlin-records-yet; no derived vocabulary content"
     },
     {
+      "id": "SRC-20260812-001",
+      "recordedAt": "2026-08-12",
+      "action": "reused-and-reconciled-cross-year-plan",
+      "sourceId": "ptc-114-hanlin-grade2-chinese-plan",
+      "sourceUrl": "https://www.cp.ptc.edu.tw/storage/134665/134665_114_B-01_2A.pdf?1774950745=",
+      "localPath": "source/RAWdata/chinese/hanlin/115/cross-year-candidates/ptc-114-hanlin-grade2-chinese-plan.pdf",
+      "derivedLocalPath": "source/RAWdata/chinese/hanlin/115/cross-year-candidates/ptc-114-hanlin-grade2-chinese-plan.md",
+      "sha256": "1fcaea0202ee8b70d4ade58446889f17bfb326522afc58ee2679e6f51fa476d6",
+      "contentRole": "與 115 官方 outline 逐課核對後，L02–L06、L08–L12 同名，可提供 fallback 原創教學訊號；L07 課名不一致，明確排除。",
+      "rightsStatus": "public-school-plan-reference; original-activities-only; no textbook reproduction",
+      "reviewStatus": "verified-source-year-114; accepted-user-window-113-115; ten-title-matches-batch-technical-candidates; l07-cross-year-title-mismatch-source-blocked",
+      "derivedOutput": "data/content-intake/chinese-hanlin-115-l02-brief.json through l06, and l08 through l12; no l07 brief"
+    },
+    {
       "id": "SRC-20260810-001",
       "recordedAt": "2026-08-10",
       "action": "discovered-and-reviewed-cross-year-unit-brief",

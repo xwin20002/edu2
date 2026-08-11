@@ -93,6 +93,23 @@ edu2/
 <!-- CC-SESSION-HANDOFF:START -->
 ## 📌 Session 交接區
 
+### Latest handoff — 2026-08-12
+
+- **Branch / base**：工作支線 `codex/edu2-chinese-l02-l12`；開工基準 `HEAD = origin/main = 0a34e25`。
+- **currentPhase**：Phase 5 technical validation 完成；Phase 6 quality parity 等待 human check。
+- **scopeClass / continuityStatus**：`subject`（國語長批次）／`resumed-and-revalidated`。
+- **lastVerifiedGate**：L01 維持 `fallback-publication-ready-human-confirmed`；L02–L06、L08–L12 為 `fallback-batch-technical-candidate`；L07 為 `blocked-cross-year-title-mismatch`。
+- **goldenProfile**：`chinese-lower-primary`，沿用 L01 renderer contract；本批支援各課 3–4 個動態句型 slot、6 張人工注音卡與原創閱讀／評量。
+- **sourceStatus**：115 翰林官方 outline 控制課名與順序；114 同版同年級同學期公開課程計畫與教育雲詞庫只支援使用者核准的 113–115 fallback window。L07 的 114〈不一樣的美食〉與 115〈不一樣的故事〉不一致，禁止套用且課程地圖不提供 href。
+- **artifactStatus**：NotebookLM／YouTube 維持 `pending-shared-stage-2`；本批頁面不混用 historical 114 全冊簡報作逐課 artifact。
+- **integrationStatus**：10 個 unit brief、生成器、renderer、shared JS/CSS、115 manifests、source registry／acquisition log、QA 文件與 10 個生成頁均已完成。
+- **technicalQA**：`validate-foundation` PASS；shared `audit_cockpit.py` 0 errors／0 warnings；所有 JSON parse、JavaScript syntax、`git diff --check`、local HTTP smoke 與 browser console／overflow／dynamic-slot interaction QA 通過。
+- **parityQA**：使用者尚未逐頁確認本批；不可寫成 publication-ready 或 Milestone B complete。
+- **openRisks**：L07 仍缺 115 lawful unit brief；L02–L06、L08–L12 仍是 cross-year fallback candidates；人工注音與原創內容尚待 human parity；production 仍是 `origin/main` 基準，本支線尚未合併／部署。
+- **nextSmallestTest**：由 `http://127.0.0.1:8766/chinese.html` 抽查 L02、L03、L06、L08、L12與 L07 blocked card；確認後再 promotion、fast-forward main、Pages terminal success 與 production smoke。
+
+## 📚 Historical handoff（2026-07-12）
+
 - **Last session**: 2026-07-12 — 115 source recollection gate 已固化，國語／生活完成 outline-only intake。
 - **Current state**:
   - GitHub repo 使用 `main`；不得重新 init 或改寫 history。

@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "subject": "chinese",
+  "publisher": "hanlin",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [
+    113,
+    115
+  ],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "L09",
+  "title": "好味道",
+  "genre": "詩歌",
+  "sourceStatus": "fallback-brief-approved-cross-year-user-accepted",
+  "sourceRefs": [
+    "hanlin-115-low-primary-promo",
+    "ptc-114-hanlin-grade2-chinese-plan",
+    "education-cloud-hanlin-114-wordbank"
+  ],
+  "sourceBoundary": "115 翰林官方教材簡介只核對 L9 課名、作者、文體與順序；114 同出版社、年級、學期、同課名公開課程計畫提供教學訊號：仔細聆聽並分享想法、體會家人料理食物所傳達的情感、運用疊字詞完成句子。使用者已核准 113–115 學年資料窗。本檔短文、活動與題目均為 edu2 原創，不重製或改寫課文、習作、教師手冊、出版社圖像或音檔，也不標示為 115 官方課文內容。",
+  "instructionalSignals": [
+    "仔細聆聽並分享想法",
+    "體會家人料理食物所傳達的情感",
+    "運用疊字詞完成句子"
+  ],
+  "unit": {
+    "id": "ch-09",
+    "publisherUnitId": "L09",
+    "title": "好味道",
+    "publisherLabel": "翰林115目標",
+    "layerLabel": "114 fallback／115 candidate · batch QA",
+    "focus": "從感官線索描述食物，也說出料理與分享帶來的情感。",
+    "mission": "用一個疊字詞描述味道或口感，再說出這道食物帶來的感受。",
+    "objectives": [
+      "從感官線索描述食物，也說出料理與分享帶來的情感。",
+      "朗讀人工核對注音的練習字詞。",
+      "依原創短文回答並說明證據。",
+      "完成本課語文互動並尊重同學的不同表達。"
+    ],
+    "flow": [
+      "閱讀原創短文 📖",
+      "找出文本證據 🔎",
+      "朗讀練習字詞 🔊",
+      "完成語文任務 ✍️",
+      "分享與回應 🤝"
+    ],
+    "sourceLayer": {
+      "status": "fallback-brief-approved · batch technical candidate",
+      "evidence": "115 翰林官方 L9 outline＋114 同版同年級同學期同課名公開課程計畫＋114 教育雲公開詞彙；使用者接受 113–115 學年來源窗。",
+      "boundary": "以下短文、語文活動與評量均為 edu2 原創，只支援 fallback batch QA；不是翰林課文、習作或 115 官方內容。"
+    },
+    "verticalSummary": "從感官線索描述食物，也說出料理與分享帶來的情感。這是本站原創朗讀句，不是課文本文。",
+    "vocabulary": [
+      {
+        "word": "米粒",
+        "meaning": "一顆一顆的米。本站原創教學釋義。"
+      },
+      {
+        "word": "海苔",
+        "meaning": "由海藻加工製成的食品。本站原創教學釋義。"
+      },
+      {
+        "word": "淡淡",
+        "meaning": "程度不濃、不強烈的樣子。本站原創教學釋義。"
+      }
+    ],
+    "characters": [
+      {
+        "char": "黃",
+        "zhuyin": "ㄏㄨㄤˊ"
+      },
+      {
+        "char": "粒",
+        "zhuyin": "ㄌㄧˋ"
+      },
+      {
+        "char": "熱",
+        "zhuyin": "ㄖㄜˋ"
+      },
+      {
+        "char": "蒸",
+        "zhuyin": "ㄓㄥ"
+      },
+      {
+        "char": "蛋",
+        "zhuyin": "ㄉㄢˋ"
+      },
+      {
+        "char": "淡",
+        "zhuyin": "ㄉㄢˋ"
+      }
+    ],
+    "publicLearningLayerStatus": "ready-114-wordbank-and-listening-with-fallback-boundary",
+    "textStructureStatus": "original-reading-only-no-textbook-structure-claim",
+    "publicLayerBoundary": "114 教育雲詞彙與官方朗讀維持 historical／link-only；本頁理解題只依本站原創短文，不依課名或詞彙推測出版社課文。",
+    "readingGuide": {
+      "audioUrl": "https://player.hle.com.tw/ech/playlist.html?volume=%E4%BA%8C%E4%B8%8A&unit=L9",
+      "audioLabel": "翰林聽 e 聽・二上第 9 課〈好味道〉（官方外部朗讀入口）",
+      "audioBoundary": "官方朗讀只提供外連，不下載、嵌入、轉錄、重製或作為本站理解題答案來源。",
+      "listeningTasks": [
+        "第一次聽：找出一個自己確定聽到的詞語或語氣線索。",
+        "第二次聽：暫停後，用「我聽到＿＿」說一句完整的話。",
+        "聽完後：不確定時說「我想再聽一次」，不把猜想當成課文內容。"
+      ],
+      "textPlaceholderNote": "本站不放課文全文；請搭配合法課本或官方朗讀使用。下方另有可獨立閱讀的 edu2 原創短文。"
+    },
+    "originalAdaptation": {
+      "title": "原創閱讀｜暖暖的早餐",
+      "comprehensionTitle": "閱讀理解（只依 edu2 原創短文作答）",
+      "attributionNote": "edu2 原創短文，依 L09 公開課程計畫的教學訊號撰寫；不是翰林課文、摘要或習題。",
+      "paragraphs": [
+        "清晨，廚房傳來淡淡的米香，我慢慢走到餐桌旁。",
+        "碗裡的粥熱熱的，上面放著細細的蔬菜。",
+        "家人提醒我先吹一吹，再小口品嘗。",
+        "我吃到的不只是味道，也感受到有人細心準備的溫暖。"
+      ],
+      "comprehension": [
+        {
+          "q": "清晨的廚房傳來什麼？",
+          "options": [
+            {
+              "text": "淡淡的米香",
+              "correct": true
+            },
+            {
+              "text": "很大的雷聲",
+              "correct": false
+            },
+            {
+              "text": "海水的味道",
+              "correct": false
+            },
+            {
+              "text": "濃濃的油漆味",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "家人為什麼提醒先吹一吹？",
+          "options": [
+            {
+              "text": "粥是熱的，要安全入口",
+              "correct": true
+            },
+            {
+              "text": "要把粥吹走",
+              "correct": false
+            },
+            {
+              "text": "要讓蔬菜消失",
+              "correct": false
+            },
+            {
+              "text": "要比誰吹得快",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "原創短文最後說『不只是味道』，還包含什麼？",
+          "options": [
+            {
+              "text": "家人準備食物的心意",
+              "correct": true
+            },
+            {
+              "text": "早餐的價錢",
+              "correct": false
+            },
+            {
+              "text": "碗的大小",
+              "correct": false
+            },
+            {
+              "text": "吃飯的速度",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    "languageWorkshop": {
+      "title": "味道與心意句",
+      "instruction": "用感官詞、疊字詞與情感句，說出一道食物帶來的感受。",
+      "slots": [
+        [
+          "sense",
+          "感官線索",
+          [
+            "我聞到淡淡的米香",
+            "我看見細細的蔬菜",
+            "我吃到軟軟的米粒"
+          ]
+        ],
+        [
+          "action",
+          "安全品嘗",
+          [
+            "我先吹一吹再入口",
+            "我先看清楚食材",
+            "我慢慢咀嚼感受味道"
+          ]
+        ],
+        [
+          "emotion",
+          "我的感受",
+          [
+            "我感受到家人的關心",
+            "我想謝謝準備食物的人",
+            "我覺得心裡暖暖的"
+          ]
+        ]
+      ],
+      "template": "{sense}；{action}，{emotion}。"
+    },
+    "teacherNotes": [
+      "討論家庭食物時尊重不同家庭組成、飲食習慣與取得條件。",
+      "疊字詞重點是語意合宜，不追求堆疊越多越好。",
+      "涉及過敏或飲食限制時只作語文描述，不進行實際試吃。"
+    ],
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}
