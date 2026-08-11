@@ -48,3 +48,11 @@ L01 頁面必須同時具備：
 - Human parity：PASS；2026-08-11 使用者確認 OK。
 - Promotion decision：`fallback-publication-ready-human-confirmed`；可以合併 `main` 並部署，但仍不得標為 115 官方課文。
 - Exact 115 unit brief：仍為 open gate；即使本頁通過，也只能維持 fallback／candidate 標示。
+
+## Production evidence
+
+- Content / promotion commit：`af6b5101208acf08b91e7831a822035d8f95a0cf`，已 fast-forward 合併並推送 `main`。
+- Rules check run：`31507794764`，terminal `success`。
+- GitHub Pages run：`31507794802`，terminal `success`。
+- Production smoke：首頁、國語總覽、L01、CSS、JS、workflow 均為 HTTP 200；negative path 為 404。
+- L01 cache-busting response 已命中 human-confirmed 狀態、原創閱讀、心情三段句、權利邊界與 `20260811-chinese-l01-1` asset key。
