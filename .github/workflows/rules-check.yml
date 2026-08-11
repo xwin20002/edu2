@@ -1,0 +1,22 @@
+name: Rules check
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  pointer-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: AGENTS.md must stay a short pointer to CLAUDE.md
+        shell: bash
+        run: |
+          grep -q 'CLAUDE.md' AGENTS.md || { echo "::error file=AGENTS.md::AGENTS.md 未指向 CLAUDE.md"; exit 1; }
+          lines=$(grep -cve '^[[:space:]]*$' AGENTS.md || true)
+          if [ "$lines" -gt 3 ]; then
+            echo "::error file=AGENTS.md::AGENTS.md 有 ${lines} 行非空行（上限 3）；規則本體只能存在於 CLAUDE.md"
+            exit 1
+          fi
+          [ -s CLAUDE.md ] || { echo "::error file=CLAUDE.md::CLAUDE.md 不存在或為空"; exit 1; }
+          echo "PASS: CLAUDE.md 是唯一規則本體；AGENTS.md 非空行數：${lines}"
