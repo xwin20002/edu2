@@ -8,14 +8,16 @@ const data = JSON.parse(await readFile(path.join(root, "data/hanlin-114.json"), 
 const esc = value => String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[char]);
 const chineseIntake = JSON.parse(await readFile(path.join(root, "data/content-intake/chinese-hanlin-114.json"), "utf8"));
 const chineseIntakeByUnit = new Map(chineseIntake.units.map(unit => [unit.publisherUnitId, unit]));
-const lifeTargetT01 = JSON.parse(await readFile(path.join(root, "data/content-intake/life-nani-115-t01-brief.json"), "utf8"));
+const lifeTargetBriefs = await Promise.all(Array.from({length: 6}, async (_, index) =>
+  JSON.parse(await readFile(path.join(root, `data/content-intake/life-nani-115-t${String(index + 1).padStart(2, "0")}-brief.json`), "utf8"))
+));
 const renderSubjects = data.subjects.map(subject => subject.id === "life"
   ? {
       ...subject,
       publisherLabel: "版本分層",
-      layerLabel: "T01 南一115目標·T02–T06 114歷史參考",
-      intro: "T01 依 115 南一大綱與同版本 114 公開課程計畫建立原創教學 Golden；T02–T06 仍是 114 歷史 renderer reference。",
-      units: [lifeTargetT01.unit, ...subject.units.slice(1).map(unit => ({...unit, publisherLabel: subject.publisherLabel, layerLabel: subject.layerLabel}))]
+      layerLabel: "南一115目標·T01 production·T02–T06 parity candidates",
+      intro: "T01 已完成使用者 parity；T02–T06 依 115 官方 outline 與可匹配的 113–115 公開課程訊號建立原創教學候選頁，待一次性 human parity 確認。",
+      units: lifeTargetBriefs.map(brief => brief.unit)
     }
   : subject);
 const unitFolder = (subject, index) => subject.id === "chinese" ? `chinese/L${String(index + 1).padStart(2,"0")}` : subject.id === "math" ? `math/U${String(index + 1).padStart(2,"0")}` : `life/T${String(index + 1).padStart(2,"0")}`;
@@ -108,23 +110,24 @@ const lifeExtensionHtml = unit => {
     ? `<div class="observation-record">${life.observationPrompts.map(item => `<label><strong>${esc(item.label)}</strong><span>${esc(item.prompt)}</span><textarea rows="3" placeholder="請輸入或畫下你的紀錄" aria-label="${esc(item.label)}"></textarea></label>`).join("")}</div>`
     : "";
   const inquiry = life.inquiryFlow?.length
-    ? `<section class="card life-inquiry"><h2>🔎 探究流程</h2><ol>${life.inquiryFlow.map(step => `<li>${esc(step)}</li>`).join("")}</ol></section>`
+    ? `<section class="card life-inquiry"><h2>🔎 ${esc(life.inquiryTitle || "探究流程")}</h2><ol>${life.inquiryFlow.map(step => `<li>${esc(step)}</li>`).join("")}</ol></section>`
     : "";
   const safety = life.safetyNotes?.length
-    ? `<section class="card life-safety"><h2>🛡️ 安全觀察規則</h2><ul>${life.safetyNotes.map(note => `<li>${esc(note)}</li>`).join("")}</ul></section>`
+    ? `<section class="card life-safety"><h2>🛡️ ${esc(life.safetyTitle || "安全觀察規則")}</h2><ul>${life.safetyNotes.map(note => `<li>${esc(note)}</li>`).join("")}</ul></section>`
     : "";
   const reflection = life.reflectionPrompt
-    ? `<section class="card life-reflection"><h2>🪞 證據反思</h2><p>${esc(life.reflectionPrompt)}</p><textarea rows="4" placeholder="用圖、符號或一句完整的話留下發現" aria-label="證據反思紀錄"></textarea></section>`
+    ? `<section class="card life-reflection"><h2>🪞 ${esc(life.reflectionTitle || "證據反思")}</h2><p>${esc(life.reflectionPrompt)}</p><textarea rows="4" placeholder="用圖、符號或一句完整的話留下發現" aria-label="證據反思紀錄"></textarea></section>`
     : "";
   const teacherChecklist = life.teacherChecklist?.length
     ? `<section class="card teacher teacher-only life-teacher-check"><h2>👩‍🏫 教師 evidence checklist</h2>${life.teacherChecklist.map(item => `<label><input type="checkbox"> ${esc(item)}</label>`).join("")}</section>`
     : "";
   const formative = life.formativeChecks?.length
-    ? `<div class="section-title"><span>🧪</span> 標誌觀察小檢核</div>${life.formativeChecks.map(q => `<div class="quiz-item"><div class="quiz-q">❓ ${esc(q.q)}</div><div class="quiz-opts">${q.options.map(option => `<button class="quiz-opt" data-correct="${option.correct ? "1" : "0"}">${esc(option.text)}</button>`).join("")}</div></div>`).join("")}`
+    ? `<div class="section-title"><span>🧪</span> ${esc(life.checkTitle || "生活探究小檢核")}</div>${life.formativeChecks.map(q => `<div class="quiz-item"><div class="quiz-q">❓ ${esc(q.q)}</div><div class="quiz-opts">${q.options.map(option => `<button class="quiz-opt" data-correct="${option.correct ? "1" : "0"}">${esc(option.text)}</button>`).join("")}</div></div>`).join("")}`
     : "";
-  return `<div class="section-title"><span>📋</span> 標誌偵探觀察紀錄</div><section class="card life-observation"><p><strong>先記錄 observation，再寫 inference，最後用 evidence 核對。</strong></p>${observation}</section><div class="grid life-grid">${inquiry}${safety}${reflection}${teacherChecklist}</div>${formative}`;
+  return `<div class="section-title"><span>📋</span> ${esc(life.recordTitle || "標誌偵探觀察紀錄")}</div><section class="card life-observation"><p><strong>${esc(life.recordInstruction || "先記錄 observation，再寫 inference，最後用 evidence 核對。")}</strong></p>${observation}</section><div class="grid life-grid">${inquiry}${safety}${reflection}${teacherChecklist}</div>${formative}`;
 };
 const legacyOverviewVideoPattern = /<div class="section-title"><span>🎬<\/span> 學生自學影片<\/div><section class="card"><p>NotebookLM 生成｜小二上國語、數學、生活全冊學習導覽（5:58）<\/p><div class="video"><iframe[^>]*><\/iframe><\/div><\/section>/;
+const legacyNotebookDeckPattern = /<div class="section-title"><span>📽️<\/span> NotebookLM 全冊教學簡報<\/div><section class="carousel" id="main-carousel">[\s\S]*?<\/section>/;
 
 for (const subject of renderSubjects) {
   const overviewDepth = subject.path.includes("/") ? "../" : "";
@@ -136,7 +139,13 @@ for (const subject of renderSubjects) {
     const cardLayer = unit.layerLabel || layerLabel;
     return `<article class="unit"><div class="num">第 ${index + 1} ${unitLabel}</div><div class="unit-layer">${esc(cardLayer)}</div><h3>${esc(unit.title)}</h3><p>${esc(unit.focus)}</p><a class="open" href="${href}">進入教學駕駛艙 →</a></article>`;
   }).join("");
-  const sources = data.sources.map(source => `<li><a href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.label)}</a></li>`).join("");
+  const subjectSources = subject.id === "life"
+    ? [
+        {label: "南一 115 低年級教材簡介（生活主題 outline）", url: "https://naniexpo.nani.com.tw/uploads/pdf/20260312_201419_4ea29e252cdd.pdf"},
+        {label: "東園國小 114 二上南一生活課程計畫（跨年同名主題信號）", url: "https://tten.tp.edu.tw/Login/Downment?grade=2&spid=34e77ca2-f290-4b10-8700-89ec75155e60&subject=LifeCourse"}
+      ]
+    : data.sources;
+  const sources = subjectSources.map(source => `<li><a href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.label)}</a></li>`).join("");
   const overview = `<!doctype html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(subject.label)}教學駕駛艙｜${esc(publisherLabel)}小二上</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="${overviewDepth}assets/css/subject.css"><style>:root{--accent:${subject.accent}}</style></head><body><a class="skip" href="#content">跳到主要內容</a><header><div class="head"><a href="${overviewDepth}index.html">← 返回首頁</a><h1>${subject.emoji} ${esc(subject.label)}教學駕駛艙</h1><div class="meta"><span class="badge">${esc(publisherLabel)}</span><span class="badge">二年級上學期</span><span class="badge">${esc(layerLabel)}</span><span class="badge">原創教學活動</span></div></div></header><main id="content"><p class="intro">${esc(subject.intro)}</p><div class="tools"><button id="font-up">A+ 放大</button><button id="font-down">A- 縮小</button></div><h2>課程地圖</h2><div class="grid">${cards}</div><aside class="sources"><strong>資料來源與使用邊界</strong><p>課名與單元依公開課程資料核對；本站不重製課文、習題或教師手冊。教學活動為本站原創，請搭配合法教材。</p><ul>${sources}</ul></aside></main><footer>edu2 · ${esc(publisherLabel)}小二上 ${esc(subject.label)}</footer><script src="${overviewDepth}assets/js/subject.js" defer></script></body></html>`;
   const overviewTarget = path.join(root, subject.path);
   await mkdir(path.dirname(overviewTarget), {recursive:true});
@@ -164,7 +173,10 @@ for (const subject of renderSubjects) {
     const sourceNote = subject.id === "chinese" ? "本頁依公開課程目錄與詞彙表設計，不重製課文或題本；請搭配合法教材使用。" : "本頁依公開課程目錄與學習目標設計，不重製課文或題本；請搭配合法教材使用。";
     const page = `<!doctype html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(unit.title)}｜${esc(publisherLabel)}小二上${esc(subject.label)}</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/css/unit.css"><style>:root{--accent:${subject.accent}}</style></head><body><a class="skip" href="#content">跳到主要內容</a><canvas id="draw-canvas"></canvas><div class="fullscreen" id="fullscreen"><img id="fullscreen-img" alt="放大的簡報頁"></div><header><div class="head"><a class="back" href="${back}">← 返回${esc(subject.label)}課程地圖</a><h1>${subject.emoji} 第 ${index+1} ${unitLabel}｜${esc(unit.title)}</h1><div class="badges"><span class="badge">${esc(publisherLabel)}</span><span class="badge">二年級上學期</span><span class="badge">${esc(layerLabel)}</span><span class="badge">原創教學設計</span></div></div></header><div class="mode-bar"><span id="mode-label">🧑‍🎓 學生模式</span><button class="mode-btn" id="mode-btn">✏️ 切換教師模式</button></div><aside class="tool-panel" aria-label="課堂工具"><div class="tool-content" id="tool-content"><div><div class="tool-lbl">字級</div><div class="font-ctrl"><button class="font-btn" id="font-dec">A−</button><span class="font-val" id="font-val">16px</span><button class="font-btn" id="font-inc">A＋</button></div></div><div><div class="tool-lbl">計時器</div><div class="timer-disp" id="timer-disp">05:00</div><div class="timer-presets"><button class="timer-preset" data-sec="60">1分</button><button class="timer-preset" data-sec="180">3分</button><button class="timer-preset" data-sec="300">5分</button><button class="timer-preset" data-sec="600">10分</button></div><div class="timer-btns"><button class="timer-btn" id="timer-start">▶ 開始</button><button class="timer-btn" id="timer-reset">↺ 重置</button></div></div><div><div class="tool-lbl">畫筆</div><button class="draw-btn" id="draw-toggle">🖌️ 開啟畫筆</button><div class="draw-colors"><button class="draw-color active" data-color="#ffd54f" style="background:#ffd54f" aria-label="黃色"></button><button class="draw-color" data-color="#ff8a80" style="background:#ff8a80" aria-label="紅色"></button><button class="draw-color" data-color="#81d4fa" style="background:#81d4fa" aria-label="藍色"></button><button class="draw-color" data-color="#a5d6a7" style="background:#a5d6a7" aria-label="綠色"></button></div><div class="draw-sizes"><button class="draw-size" data-size="3" style="width:9px;height:9px" aria-label="細筆"></button><button class="draw-size active" data-size="7" style="width:15px;height:15px" aria-label="中筆"></button><button class="draw-size" data-size="14" style="width:23px;height:23px" aria-label="粗筆"></button></div><button class="draw-btn" id="draw-clear">🗑️ 清除畫布</button></div></div><button class="tool-toggle" id="tool-toggle">工具</button></aside><main id="content"><section class="card hero"><h2>本課學習焦點</h2><p>${esc(unit.focus)}</p><button class="speak" id="speak-title">🔊 朗讀標題</button></section><div class="section-title"><span>🎯</span> 學習目標</div><section class="card"><div class="obj-grid">${objectives}</div></section><div class="section-title"><span>🗺️</span> 學習脈絡</div><section class="card"><div class="topic-flow">${flow}</div></section><div class="section-title"><span>📽️</span> NotebookLM 全冊教學簡報</div><section class="carousel" id="main-carousel"><div class="carousel-inner">${slideImages}</div><button class="carousel-btn prev" aria-label="上一頁">‹</button><button class="carousel-btn next" aria-label="下一頁">›</button><div class="carousel-dots">${slideDots}</div></section>${chineseExtension}<div class="section-title"><span>🧩</span> 課堂實作</div><div class="grid"><section class="panel"><h2>🎯 課堂任務</h2><p class="mission">${esc(unit.mission)}</p><h3>任務流程</h3><div class="steps"><div class="step"><strong>觀察</strong>：先說出你看見、聽見或已知道的線索。</div><div class="step"><strong>思考</strong>：和同學比較不同方法或想法。</div><div class="step"><strong>表達</strong>：完成任務並用一句完整的話分享發現。</div></div></section><section class="panel teacher teacher-only"><h2>👩‍🏫 教師提示</h2><h3>Bloom 三層提問</h3><ol><li><strong>記憶：</strong>這一課／單元有哪些重要詞語或概念？</li><li><strong>理解：</strong>${teacherUnderstandingQuestion}</li><li><strong>應用：</strong>你能在生活中找到相似例子，或完成今天的課堂任務嗎？</li></ol><h3>常見迷思</h3><p>${esc(misconception)}</p></section><section class="panel checks"><h2>✅ 自我檢核</h2><label><input type="checkbox"> 我能說出今天的學習重點。</label><label><input type="checkbox"> 我能完成課堂任務。</label><label><input type="checkbox"> 我能聽懂同學的方法並回應。</label><label><input type="checkbox"> 我能說出下一次想改進的地方。</label></section><section class="panel"><h2>💬 離堂小卡</h2><p>請完成一句話：</p><p class="mission">今天我學會＿＿＿＿；我還想知道＿＿＿＿。</p></section></div><div class="section-title"><span>📝</span> 形成性評量</div><div class="quiz-item"><div class="quiz-q">❓ ${firstQuizQuestion}</div><div class="quiz-opts"><button class="quiz-opt" data-correct="1">${esc(unit.focus)}</button><button class="quiz-opt" data-correct="0">只要把答案背起來</button><button class="quiz-opt" data-correct="0">只要完成速度最快</button><button class="quiz-opt" data-correct="0">不用說明思考方法</button></div></div><div class="quiz-item"><div class="quiz-q">❓ 完成任務後，哪一個做法最能幫助學習？</div><div class="quiz-opts"><button class="quiz-opt" data-correct="0">不聽別人的方法</button><button class="quiz-opt" data-correct="1">分享發現並回應同學</button><button class="quiz-opt" data-correct="0">只看答案不檢查</button><button class="quiz-opt" data-correct="0">跳過觀察與記錄</button></div></div><div class="section-title"><span>🎬</span> 學生自學影片</div><section class="card"><p>NotebookLM 生成｜小二上國語、數學、生活全冊學習導覽（5:58）</p><div class="video"><iframe src="https://www.youtube.com/embed/oD0GIU4UKPc" title="小二上全冊學生自學影片" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div></section><p class="source-note">${sourceNote}</p></main><footer>edu2 Complete Teaching Cockpit · ${esc(subject.label)}第 ${index+1} ${unitLabel}</footer><script src="../../assets/js/unit.js" defer></script></body></html>`;
     const practicalMarker = `<div class="section-title"><span>🧩</span> 課堂實作</div>`;
-    const pageWithUnitLabels = page
+    const pageWithArtifactBoundary = subject.id === "life"
+      ? page.replace(legacyNotebookDeckPattern, `<div class="section-title"><span>📽️</span> 本主題 NotebookLM 簡報</div><section class="card"><p><strong>第二階段待產製。</strong>完成本批 human parity 與 artifact QA 後，才會加入本主題專屬簡報；目前不混用 114 全冊簡報。</p></section>`)
+      : page;
+    const pageWithUnitLabels = pageWithArtifactBoundary
       .replace(`href="../../assets/css/unit.css"`, `href="../../assets/css/unit.css?v=${assetVersion}"`)
       .replace(`src="../../assets/js/unit.js"`, `src="../../assets/js/unit.js?v=${assetVersion}"`)
       .replace(`<title>${esc(unit.title)}｜${esc(publisherLabel)}小二上${esc(subject.label)}</title>`, `<title>${esc(unit.title)}｜${esc(unitPublisherLabel)}小二上${esc(subject.label)}</title>`)

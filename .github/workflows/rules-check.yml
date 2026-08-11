@@ -20,3 +20,27 @@ jobs:
           fi
           [ -s CLAUDE.md ] || { echo "::error file=CLAUDE.md::CLAUDE.md 不存在或為空"; exit 1; }
           echo "PASS: CLAUDE.md 是唯一規則本體；AGENTS.md 非空行數：${lines}"
+
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Reject obvious committed credentials
+        shell: bash
+        run: |
+          pattern='BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY|gh[pousr]_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{20,}|AIza[0-9A-Za-z_-]{30,}'
+          if git grep -I -n -E "$pattern" -- . ':!*.md' ':!source/RAWdata/**'; then
+            echo "::error::偵測到疑似 private key 或 API credential；請移除並輪替憑證"
+            exit 1
+          fi
+          echo "PASS: tracked source 未發現明顯 credential pattern"
+
+  foundation-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Validate manifests, source gates, generated pages, and Golden contracts
+        run: node scripts/validate-foundation.mjs

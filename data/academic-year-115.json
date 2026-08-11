@@ -34,15 +34,15 @@
     {
       "id": "life",
       "publisher": "nani",
-      "status": "official-outline-verified-t01-publication-ready",
+      "status": "official-outline-verified-all-units-technical-candidate",
       "contentIntake": "data/content-intake/life-nani-115.json",
       "units": [
         {"id": "T01", "title": "標誌與生活", "unitBrief": "data/content-intake/life-nani-115-t01-brief.json", "status": "publication-ready-human-confirmed"},
-        {"id": "T02", "title": "吸住了"},
-        {"id": "T03", "title": "我愛泡泡"},
-        {"id": "T04", "title": "大樹"},
-        {"id": "T05", "title": "和風做朋友"},
-        {"id": "T06", "title": "冬天"}
+        {"id": "T02", "title": "吸住了", "unitBrief": "data/content-intake/life-nani-115-t02-brief.json", "status": "technical-passed-awaiting-human-parity"},
+        {"id": "T03", "title": "我愛泡泡", "unitBrief": "data/content-intake/life-nani-115-t03-brief.json", "status": "technical-passed-awaiting-human-parity"},
+        {"id": "T04", "title": "大樹", "unitBrief": "data/content-intake/life-nani-115-t04-brief.json", "status": "technical-passed-awaiting-human-parity"},
+        {"id": "T05", "title": "和風做朋友", "unitBrief": "data/content-intake/life-nani-115-t05-brief.json", "status": "technical-passed-awaiting-human-parity"},
+        {"id": "T06", "title": "冬天", "unitBrief": "data/content-intake/life-nani-115-t06-brief.json", "status": "technical-passed-awaiting-human-parity"}
       ]
     }
   ]

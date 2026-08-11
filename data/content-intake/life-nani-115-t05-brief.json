@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "subject": "life",
+  "publisher": "nani",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [113, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "T05",
+  "title": "和風做朋友",
+  "sourceStatus": "unit-brief-verified-cross-year-title-matched",
+  "sourceRefs": ["nani-115-low-primary-promo", "dongyuan-114-nani-grade2-life-plan"],
+  "sourceBoundary": "115 官方 outline 的 T05 與 114 二上課程計畫的主題四同名；跨年以標題對應，不沿用舊編號或教材表述。",
+  "unit": {
+    "id": "li-115-nani-05",
+    "publisherUnitId": "T05",
+    "title": "和風做朋友",
+    "publisherLabel": "南一115目標",
+    "layerLabel": "113–115 來源窗·title-matched brief",
+    "focus": "從身體感受與物體變化找出風的證據，比較風的強弱，並設計安全的玩風方法。",
+    "mission": "完成「風的證據地圖」：在三個安全位置觀察風讓什麼改變，用符號記錄後比較。",
+    "objectives": [
+      "從皮膚感受、聲音與物體移動辨認風的證據。",
+      "用一致的觀察物比較不同位置或時間的風勢。",
+      "說出風對生活可能帶來的幫助與需要注意的情況。",
+      "製作或操作簡單風玩具，並依測試結果改進。"
+    ],
+    "flow": ["找風的證據 🍃", "做簡單風標 🎗️", "三點觀察 📍", "比較強弱 📊", "安全玩風 🌬️"],
+    "sourceLayer": {
+      "status": "unit-brief-verified-cross-year-title-matched",
+      "evidence": "115 南一官方 T05 大綱＋114 東園國小南一版二上同名主題（當年編為主題四）第 4 頁。",
+      "boundary": "活動與紀錄為 edu2 原創；不重製課本、歌曲、習作或教師手冊。"
+    },
+    "lifeExtension": {
+      "recordTitle": "風的證據地圖",
+      "recordInstruction": "用相同工具比較 place/time，記錄 evidence，不用看不到的風當答案。",
+      "checkTitle": "風的證據小檢核",
+      "observationPrompts": [
+        {"label": "觀察位置與時間", "prompt": "在哪裡、什麼時候觀察？"},
+        {"label": "風的可見證據", "prompt": "絲帶、葉片、衣角或其他物體如何移動？"},
+        {"label": "我的比較", "prompt": "哪裡的風較明顯？比較依據是什麼？"}
+      ],
+      "inquiryFlow": [
+        "用同長度的輕紙條或絲帶做風標，確認沒有尖銳零件。",
+        "在教師指定的三個位置，用同一風標觀察相同時間。",
+        "以不動、微動、明顯擺動三種符號記錄，必要時重測。",
+        "比較結果，討論風的用途、影響與安全玩風的方法。"
+      ],
+      "safetyNotes": [
+        "不在馬路、樓梯、屋頂、強風邊坡或水邊追逐風玩具。",
+        "不用塑膠袋套頭，不向人投擲風箏、紙飛機或硬質物件。",
+        "遇雷雨、強風或教師喊停時立即停止並進入安全處。"
+      ],
+      "reflectionPrompt": "我在＿＿＿＿看到的風證據是＿＿＿＿；比較後我認為＿＿＿＿；安全玩風要＿＿＿＿。",
+      "teacherChecklist": [
+        "學生能指出至少一項風造成的可觀察變化。",
+        "學生用相同工具與相近時間比較位置。",
+        "學生能說出一項風的生活影響與一項安全規則。"
+      ],
+      "formativeChecks": [
+        {"q": "看不見風時，哪一項能作為風存在的證據？", "options": [
+          {"text": "同一條絲帶持續向一側擺動。", "correct": true},
+          {"text": "我今天穿藍色衣服。", "correct": false},
+          {"text": "教室牆壁是白色。", "correct": false},
+          {"text": "我希望有風。", "correct": false}
+        ]},
+        {"q": "戶外突然出現強風和雷聲時怎麼做？", "options": [
+          {"text": "停止活動，依老師指示進入安全處。", "correct": true},
+          {"text": "到空曠高處追風箏。", "correct": false},
+          {"text": "躲在單獨的大樹下。", "correct": false},
+          {"text": "繼續比誰跑得快。", "correct": false}
+        ]}
+      ]
+    },
+    "artifact": {"notebooklm": "pending-shared-stage-2", "youtube": "pending-shared-stage-2"}
+  }
+}

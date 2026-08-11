@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "subject": "life",
+  "publisher": "nani",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [113, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "T06",
+  "title": "冬天",
+  "sourceStatus": "unit-brief-verified-cross-year-user-accepted",
+  "sourceRefs": ["nani-115-low-primary-promo", "dongyuan-114-nani-grade2-life-plan"],
+  "sourceBoundary": "115 南一官方簡介核對主題與子題；114 東園國小同出版社、年級、學期與同名主題課程計畫提供天氣、穿著、作息與送暖信號。活動與題目均為 edu2 原創。",
+  "unit": {
+    "id": "li-115-nani-06",
+    "publisherUnitId": "T06",
+    "title": "冬天",
+    "publisherLabel": "南一115目標",
+    "layerLabel": "113–115 來源窗·unit brief verified",
+    "focus": "觀察冷天的天氣、環境與穿著變化，選擇合適的保暖方法，並以安全可行的方式關懷他人。",
+    "mission": "完成「冬日照顧計畫」：看天氣與身體感受，搭配一項穿著、一項作息和一項關懷行動。",
+    "objectives": [
+      "記錄氣溫感受、風雨、環境與人們穿著的變化。",
+      "根據活動地點與身體感受調整洋蔥式穿著。",
+      "說出冷天作息、飲水與活動安全的做法。",
+      "提出尊重需求、不造成負擔的冬日關懷行動。"
+    ],
+    "flow": ["看天氣線索 🌥️", "感受身體 🌡️", "選保暖方法 🧥", "檢查安全 ✅", "送出合宜關懷 🤝"],
+    "sourceLayer": {
+      "status": "unit-brief-verified-cross-year-user-accepted",
+      "evidence": "115 南一官方主題大綱＋114 東園國小南一版二上同名主題課程計畫第 5 頁。",
+      "boundary": "生活照顧建議為一般教學活動，不取代家長、學校或醫療專業指示；不重製教材內容。"
+    },
+    "lifeExtension": {
+      "recordTitle": "冬日照顧紀錄",
+      "recordInstruction": "把 weather evidence、body signal 與 action 配對，不只用日期猜冷暖。",
+      "checkTitle": "冬日安全小檢核",
+      "observationPrompts": [
+        {"label": "今天的天氣線索", "prompt": "風、雨、陽光、體感或可取得的氣溫資料。"},
+        {"label": "我的身體與活動", "prompt": "冷、熱、流汗或發抖？今天在室內還是戶外活動？"},
+        {"label": "我選的照顧方法", "prompt": "穿著、飲水、休息或關懷行動如何配合線索？"}
+      ],
+      "inquiryFlow": [
+        "觀察早晨與中午的天氣線索，記下環境和穿著差異。",
+        "辨認身體發冷、流汗或衣物潮濕等訊號，說出需要調整什麼。",
+        "用洋蔥式穿法情境卡比較室內、戶外與運動後的做法。",
+        "設計一項自己做得到、先詢問對方需求的冬日關懷行動。"
+      ],
+      "safetyNotes": [
+        "保暖器具、熱水與電器由成人操作；不觸摸不明熱源。",
+        "運動後若流汗或衣物潮濕，先擦乾並依成人指示更換，不持續吹冷風。",
+        "若持續發抖、呼吸不適、頭暈或身體明顯不舒服，立即告知成人。"
+      ],
+      "reflectionPrompt": "今天的冷天證據是＿＿＿＿；我的身體告訴我＿＿＿＿；所以我選擇＿＿＿＿並關心＿＿＿＿。",
+      "teacherChecklist": [
+        "學生能以天氣或身體線索說明保暖選擇。",
+        "學生知道熱水與電器需由成人協助。",
+        "學生提出的關懷行動會先詢問需求並尊重對方。"
+      ],
+      "formativeChecks": [
+        {"q": "冬天進入暖和教室後開始流汗，怎麼做較合適？", "options": [
+          {"text": "依身體感受適度脫一層，保持乾爽。", "correct": true},
+          {"text": "把所有外套一直穿著不調整。", "correct": false},
+          {"text": "立刻跑到冷風中降溫。", "correct": false},
+          {"text": "不告訴任何人身體不舒服。", "correct": false}
+        ]},
+        {"q": "哪一種送暖方式最尊重別人？", "options": [
+          {"text": "先詢問對方需要，再做能力可及的協助。", "correct": true},
+          {"text": "不問需求就強迫對方接受。", "correct": false},
+          {"text": "使用熱水和電器時不找成人。", "correct": false},
+          {"text": "只取笑穿很多衣服的人。", "correct": false}
+        ]}
+      ]
+    },
+    "artifact": {"notebooklm": "pending-shared-stage-2", "youtube": "pending-shared-stage-2"}
+  }
+}

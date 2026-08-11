@@ -9,10 +9,15 @@
   </style>
 </head>
 <body>
-  <header><div class="wrap"><nav class="nav" aria-label="網站分頁"><a href="index.html">教學成果</a><a href="workflow.html" aria-current="page">工作流程</a></nav><h1>🧭 教學駕駛艙工作流程</h1><p class="lead">記錄從資料、NotebookLM、YouTube 到教學內頁與部署的可重用流程。</p><span class="status">115 migration · content recollection pending</span></div></header>
+  <header><div class="wrap"><nav class="nav" aria-label="網站分頁"><a href="index.html">教學成果</a><a href="workflow.html" aria-current="page">工作流程</a></nav><h1>🧭 教學駕駛艙工作流程</h1><p class="lead">記錄從資料、NotebookLM、YouTube 到教學內頁與部署的可重用流程。</p><span class="status">115 life · T01 production · T02–T06 parity candidates</span></div></header>
   <main>
     <h2>目前完成狀態</h2>
-    <div class="pipeline"><div class="step">✅ Milestone A：repo 接管、資料模型、模板、validator 與工程入口</div><div class="step">⏳ Milestone B（115）：三科正式目錄、逐課資料、NotebookLM artifacts、YouTube 與 production QA 待重新蒐集</div><div class="step">✅ Reference layer：edu1 L8、edu2 L01、edu3 作核准基準；114 產物只保留為歷史 reference</div><div class="step">✅ Reusable renderer：未來換年級、冊別或出版社時只換內容資料</div></div>
+    <div class="pipeline"><div class="step">✅ Milestone A：repo 接管、資料模型、模板、validator 與工程入口</div><div class="step">🟡 Milestone B（115）：生活 T01 production；T02–T06 technical passed、等待一次 human parity；媒體 artifacts 第二階段處理</div><div class="step">✅ Reference layer：edu1 L8、edu2 L01、edu3 作核准基準；114 產物只保留為歷史 reference</div><div class="step">✅ Reusable renderer：未來換年級、冊別或出版社時只換內容資料</div></div>
+
+    <h2>2026-08-11｜生活整科長批次</h2>
+    <div class="rule"><strong>目的：</strong>沿用 T01 Golden，一次完成 T02–T06 的來源核對、原創 unit briefs、renderer、validator 與跨裝置 QA，將人工確認次數從五次降為一次。</div>
+    <div class="grid"><article class="card"><h3>來源 reconciliation</h3><p>115 南一官方 outline 控制課名與順序；114 東園二上南一課程計畫依「同名」映射 T02、T04、T05、T06。T03 沒有同年級同名計畫，只用官方 outline，細部活動標成原創。</p></article><article class="card"><h3>編號防呆</h3><p>114 的「大樹」「和風做朋友」分別是主題三、四，但 115 是 T04、T05。跨學年不可只按編號搬移，必須以年級、學期、出版社與標題共同核對。</p></article><article class="card"><h3>Artifact boundary</h3><p>生活 T01–T06 不混用 114 全冊 NotebookLM／YouTube；human parity 後才進共用第二階段 artifact pipeline。</p></article><article class="card"><h3>QA gate</h3><p>JSON、foundation validator、桌機／390px mobile、教師模式、評量 interaction 與 console 均須通過；T02–T06 在人工確認前維持 technical candidate。</p></article></div>
+    <p class="links"><a href="docs/life-t02-t06-source-and-qa-2026-08-11.md">查看本批來源映射與 QA evidence →</a></p>
 
     <h2>六階段標準 Pipeline</h2>
     <div class="rule"><strong>Phase 0 · Reuse／Scope／Continuity Preflight：</strong>開始六階段前，必須先盤點 reference GitHub、已安裝／共用 Skills、repo handoff 與 Obsidian 心得，產出 <code>reuse / adapt / recollect / forbidden-content</code> reuse map；同時標記 <code>scopeClass</code> 與 <code>continuityStatus</code>。未完成不得開始批次產頁。</div>
@@ -40,7 +45,7 @@
 
     <h2>Golden Samples</h2>
     <p>Golden Sample 是批次產製前的 quality gate，識別單位是「科目 × 年段 × 教材能力需求」。共用 shell 可以沿用，但不同科目與年段必須使用不同 presentation profile。115 資料尚未完成前，既有 Golden 只驗證 renderer／interaction，不驗證 115 課程內容。</p>
-    <div class="grid"><article class="card"><h3>Global Shell Reference</h3><p><a href="https://xwin20002.github.io/edu1/L8/index.html">edu1 L8</a></p><p>只控制資訊架構、學生／教師模式、課堂工具與 responsive 水準，不決定各科教材呈現。</p></article><article class="card"><h3>低年段國語 Golden</h3><p><a href="chinese/L01/index.html">L01 我的心情</a></p><p><code>chinese-lower-primary</code>：密集注音、生字、聲調定位、點讀與直式導讀是核心。</p></article><article class="card"><h3>低年段數學 Golden</h3><p><a href="math/U01/index.html">U01 200以內的數</a></p><p><code>math-lower-primary</code>：控制操作、圖像表徵、解題方法與形成性評量，不套用國語注音 contract。</p></article><article class="card"><h3>低年段生活 Golden</h3><p><a href="life/T01/index.html">T01 動物好朋友</a></p><p><code>life-lower-primary</code>：控制觀察、探究、實作、紀錄與反思，不套用國語注音 contract。</p></article></div>
+    <div class="grid"><article class="card"><h3>Global Shell Reference</h3><p><a href="https://xwin20002.github.io/edu1/L8/index.html">edu1 L8</a></p><p>只控制資訊架構、學生／教師模式、課堂工具與 responsive 水準，不決定各科教材呈現。</p></article><article class="card"><h3>低年段國語 Golden</h3><p><a href="chinese/L01/index.html">L01 我的心情</a></p><p><code>chinese-lower-primary</code>：密集注音、生字、聲調定位、點讀與直式導讀是核心。</p></article><article class="card"><h3>低年段數學 Golden</h3><p><a href="math/U01/index.html">U01 200以內的數</a></p><p><code>math-lower-primary</code>：控制操作、圖像表徵、解題方法與形成性評量，不套用國語注音 contract。</p></article><article class="card"><h3>低年段生活 Golden</h3><p><a href="life/T01/index.html">T01 標誌與生活</a></p><p><code>life-lower-primary</code>：控制觀察、探究、實作、紀錄與反思，不套用國語注音 contract。</p></article></div>
     <div class="rule"><strong>跨年段：</strong>小三／小四國語應建立 <code>chinese-middle-primary</code> Golden，注音採 <code>selective</code>，只標生字、難詞與易誤讀字；不可直接複製小二的密集注音 profile。</div>
     <div class="rule"><strong>Promotion rule：</strong>共用層變更需通過三科 Golden；科目 renderer 變更需通過該科 Golden。Golden 未通過，不得批次重建或宣告全部頁面已優化。</div>
 

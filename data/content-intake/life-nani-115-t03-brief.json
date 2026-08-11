@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "subject": "life",
+  "publisher": "nani",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 115,
+  "acceptedAcademicYearRange": [113, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "T03",
+  "title": "我愛泡泡",
+  "sourceStatus": "official-outline-verified-original-inquiry",
+  "sourceRefs": ["nani-115-low-primary-promo"],
+  "sourceBoundary": "115 南一官方簡介只核對主題與三個子題；未找到同年級、同學期、同版本且同名的 113–115 公開課程計畫。下列探究活動與題目為 edu2 原創，不宣稱是官方教學內容。",
+  "unit": {
+    "id": "li-115-nani-03",
+    "publisherUnitId": "T03",
+    "title": "我愛泡泡",
+    "publisherLabel": "南一115目標",
+    "layerLabel": "115 official outline·original inquiry",
+    "focus": "觀察泡泡如何形成，改變一個條件進行安全測試，並用圖形、動作或語句表達泡泡的變化。",
+    "mission": "完成「泡泡變因小實驗」：選一種安全工具，只改變一個條件，比較泡泡的數量、大小或持續時間。",
+    "objectives": [
+      "描述泡泡的形狀、大小、移動與破裂等可見現象。",
+      "在教師準備的安全材料下，提出可測試的泡泡問題。",
+      "一次改變一個條件，使用簡單符號記錄比較結果。",
+      "以圖畫、肢體或完整語句分享泡泡觀察與改進方法。"
+    ],
+    "flow": ["找生活泡泡 👀", "提出問題 ❓", "安全試吹 🫧", "比較變化 📊", "創作分享 🎨"],
+    "sourceLayer": {
+      "status": "official-outline-verified-original-inquiry",
+      "evidence": "115 南一官方簡介第 12 頁確認主題與子題；細部活動為 edu2 原創。",
+      "boundary": "沒有把其他年級泡泡單元冒充二上官方內容；不提供課本配方、歌曲、習作、圖像或原題。"
+    },
+    "lifeExtension": {
+      "recordTitle": "泡泡變因觀察紀錄",
+      "recordInstruction": "一次只改變 one variable，記錄看得到的現象，不用嘴巴接觸泡泡水。",
+      "checkTitle": "泡泡安全探究小檢核",
+      "observationPrompts": [
+        {"label": "我改變的條件", "prompt": "工具、吹氣方式或移動方式只能選一項改變。"},
+        {"label": "我看到的變化", "prompt": "記錄泡泡數量、大小、移動或持續時間。"},
+        {"label": "我的下一次改進", "prompt": "根據結果，下一次要保留什麼、改變什麼？"}
+      ],
+      "inquiryFlow": [
+        "觀察洗手或教師示範中的泡泡，提出一個可測試問題。",
+        "使用教師準備的安全泡泡水與工具，先確認比較條件。",
+        "做兩次測試，一次只改變一個條件，畫記號或表格記錄。",
+        "比較結果，用圖畫、動作或一句話表達泡泡的變化。"
+      ],
+      "safetyNotes": [
+        "泡泡水不可飲用，不用吸管吸入；操作後洗手。",
+        "地面濕滑時立即停止並擦乾，吹泡泡區與走動區分開。",
+        "不朝同學臉部吹；眼睛接觸泡泡水時立刻用大量清水沖洗並告知成人。"
+      ],
+      "reflectionPrompt": "我改變的是＿＿＿＿；我看到＿＿＿＿；證據讓我下一次想＿＿＿＿。",
+      "teacherChecklist": [
+        "學生說得出本次只改變哪一個條件。",
+        "學生記錄的是可見現象，而非只寫喜不喜歡。",
+        "學生遵守不入口、防滑與不朝臉吹的安全規則。"
+      ],
+      "formativeChecks": [
+        {"q": "想知道不同工具是否影響泡泡，怎麼比比較公平？", "options": [
+          {"text": "泡泡水相同，只更換工具並記錄結果。", "correct": true},
+          {"text": "同時換工具、泡泡水和地點。", "correct": false},
+          {"text": "只選自己最喜歡的結果。", "correct": false},
+          {"text": "不用記錄，憑印象回答。", "correct": false}
+        ]},
+        {"q": "泡泡水灑在地上時應該怎麼做？", "options": [
+          {"text": "先停止活動、提醒同學並請成人協助擦乾。", "correct": true},
+          {"text": "在濕地上跑步踩泡泡。", "correct": false},
+          {"text": "假裝沒看見。", "correct": false},
+          {"text": "用嘴巴把水吸走。", "correct": false}
+        ]}
+      ]
+    },
+    "artifact": {"notebooklm": "pending-shared-stage-2", "youtube": "pending-shared-stage-2"}
+  }
+}

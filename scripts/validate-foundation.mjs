@@ -65,20 +65,28 @@ try {
     if (!chineseIntake.readingItems?.every(item => item.titleStatus === "verified-publisher-outline" && ["詩歌", "記敘文"].includes(item.genre))) errors.push("國語 115 intake 含未核對的來閱讀 metadata");
   } catch (error) { errors.push(`國語 115 intake 無法解析：${error.message}`); }
   const life = manifest115.subjects?.find(item => item.id === "life");
-  if (life?.status !== "official-outline-verified-t01-publication-ready" || life?.contentIntake !== "data/content-intake/life-nani-115.json" || life?.units?.length !== 6) errors.push("life: 115 南一 outline / T01 publication-ready 狀態錯誤");
+  if (life?.status !== "official-outline-verified-all-units-technical-candidate" || life?.contentIntake !== "data/content-intake/life-nani-115.json" || life?.units?.length !== 6) errors.push("life: 115 南一全科 technical candidate 狀態錯誤");
   try {
     const lifeIntake = JSON.parse(await read("data/content-intake/life-nani-115.json"));
     if (lifeIntake.publisher !== "nani" || lifeIntake.academicYear !== 115 || lifeIntake.units?.length !== 6) errors.push("生活 115 intake 版本或主題數錯誤");
     if (!lifeIntake.units?.every(unit => unit.titleStatus === "verified-publisher-outline")) errors.push("生活 115 intake 含未核對的主題");
-    if (lifeIntake.units?.[0]?.unitBrief !== "data/content-intake/life-nani-115-t01-brief.json") errors.push("生活 T01 intake 缺少 unit brief 關聯");
+    if (!lifeIntake.units?.every((unit, index) => unit.unitBrief === `data/content-intake/life-nani-115-t${String(index + 1).padStart(2, "0")}-brief.json`)) errors.push("生活 intake 缺少 T01–T06 unit brief 關聯");
+    if (lifeIntake.units?.[0]?.contentStatus !== "publication-ready-human-confirmed") errors.push("生活 T01 必須保留 human-confirmed production 狀態");
+    if (!lifeIntake.units?.slice(1).every(unit => unit.contentStatus === "technical-passed-awaiting-human-parity")) errors.push("生活 T02–T06 必須維持 awaiting human parity");
   } catch (error) { errors.push(`生活 115 intake 無法解析：${error.message}`); }
-  try {
-    const lifeBrief = JSON.parse(await read("data/content-intake/life-nani-115-t01-brief.json"));
-    if (lifeBrief.sourceStatus !== "unit-brief-verified-cross-year-user-accepted" || lifeBrief.targetAcademicYear !== 115 || lifeBrief.sourceAcademicYear !== 114) errors.push("生活 T01 cross-year brief 學年或狀態錯誤");
-    if (lifeBrief.unit?.title !== "標誌與生活" || lifeBrief.unit?.publisherLabel !== "南一115目標") errors.push("生活 T01 brief 主題或出版社標示錯誤");
-    const ext = lifeBrief.unit?.lifeExtension;
-    if (ext?.observationPrompts?.length < 3 || ext?.inquiryFlow?.length < 4 || ext?.safetyNotes?.length < 3 || !ext?.reflectionPrompt || ext?.formativeChecks?.length < 2) errors.push("生活 T01 Golden 缺少 observation/inquiry/safety/reflection/assessment contract");
-  } catch (error) { errors.push(`生活 T01 unit brief 無法解析：${error.message}`); }
+  const lifeTitles = ["標誌與生活", "吸住了", "我愛泡泡", "大樹", "和風做朋友", "冬天"];
+  for (const [index, title] of lifeTitles.entries()) {
+    const id = `T${String(index + 1).padStart(2, "0")}`;
+    try {
+      const lifeBrief = JSON.parse(await read(`data/content-intake/life-nani-115-t${String(index + 1).padStart(2, "0")}-brief.json`));
+      if (lifeBrief.targetAcademicYear !== 115 || lifeBrief.grade !== 2 || lifeBrief.semester !== 1) errors.push(`生活 ${id} brief 年級／學期／目標學年錯誤`);
+      if (lifeBrief.unit?.title !== title || lifeBrief.unit?.publisherUnitId !== id || lifeBrief.unit?.publisherLabel !== "南一115目標") errors.push(`生活 ${id} brief 主題或出版社標示錯誤`);
+      if (!lifeBrief.sourceRefs?.includes("nani-115-low-primary-promo")) errors.push(`生活 ${id} brief 缺少 115 官方 outline source`);
+      const ext = lifeBrief.unit?.lifeExtension;
+      if (ext?.observationPrompts?.length < 3 || ext?.inquiryFlow?.length < 4 || ext?.safetyNotes?.length < 3 || !ext?.reflectionPrompt || ext?.teacherChecklist?.length < 3 || ext?.formativeChecks?.length < 2) errors.push(`生活 ${id} 缺少 observation/inquiry/safety/reflection/assessment contract`);
+      if (!ext?.formativeChecks?.every(check => check.options?.length >= 4 && check.options.filter(option => option.correct).length === 1)) errors.push(`生活 ${id} formative checks 選項契約錯誤`);
+    } catch (error) { errors.push(`生活 ${id} unit brief 無法解析：${error.message}`); }
+  }
 } catch (error) { errors.push(`115 content manifest 無法解析：${error.message}`); }
 
 try {
@@ -153,6 +161,7 @@ const sourceGates = await read("docs/content-source-gates.md");
 const sourceAcquisition = await read("docs/source-acquisition.md");
 const mathGoldenPage = await read("math/U01/index.html");
 const lifeGoldenPage = await read("life/T01/index.html");
+const lifeOverviewPage = await read("life/index.html");
 const legacyPatterns = [/三年級/,/三下/,/href=["'](?:chinese\.html|math\/|science\/|L\d)/];
 for (const pattern of legacyPatterns) {
   if (pattern.test(homepage)) errors.push(`首頁仍含舊教材內容：${pattern}`);
@@ -166,9 +175,26 @@ if (!mathGoldenPage.includes("base-ten-builder") || !mathGoldenPage.includes("�
 if (mathGoldenPage.includes("康軒115目標")) errors.push("數學 U01 歷史頁誤標為康軒 115 目標內容");
 if (!lifeGoldenPage.includes("南一115目標") || !lifeGoldenPage.includes("標誌偵探觀察紀錄")) errors.push("生活 T01 缺少南一 115 目標或觀察紀錄 Golden");
 if (lifeGoldenPage.includes("動物好朋友") || lifeGoldenPage.includes("翰林114歷史參考")) errors.push("生活 T01 仍混入舊歷史主題或標示");
+if (!lifeOverviewPage.includes("南一 115 低年級教材簡介") || !lifeOverviewPage.includes("東園國小 114 二上南一生活課程計畫")) errors.push("生活總覽缺少正確的南一／東園來源入口");
 for (const marker of ["observation-record", "life-inquiry", "life-safety", "life-reflection", "life-teacher-check"]) {
   if (!lifeGoldenPage.includes(marker)) errors.push(`生活 T01 頁缺少 ${marker}`);
 }
+const lifePageExpectations = [
+  ["T02", "吸住了", "磁鐵測試紀錄"],
+  ["T03", "我愛泡泡", "泡泡變因觀察紀錄"],
+  ["T04", "大樹", "樹朋友身分卡"],
+  ["T05", "和風做朋友", "風的證據地圖"],
+  ["T06", "冬天", "冬日照顧紀錄"]
+];
+for (const [id, title, recordTitle] of lifePageExpectations) {
+  const page = await read(`life/${id}/index.html`);
+  for (const required of [title, "南一115目標", recordTitle, "observation-record", "life-inquiry", "life-safety", "life-reflection", "life-teacher-check"]) {
+    if (!page.includes(required)) errors.push(`生活 ${id} 頁缺少 ${required}`);
+  }
+  if (page.includes("114歷史參考") || page.includes("動物好朋友")) errors.push(`生活 ${id} 仍混入歷史 reference 標示或內容`);
+  if (page.includes("NotebookLM 全冊教學簡報") || !page.includes("第二階段待產製")) errors.push(`生活 ${id} artifact boundary 錯誤`);
+}
+if (lifeGoldenPage.includes("NotebookLM 全冊教學簡報") || !lifeGoldenPage.includes("第二階段待產製")) errors.push("生活 T01 artifact boundary 錯誤");
 if (!workflowPage.includes("國語 Reference Rules")) errors.push("workflow.html 缺少國語 reference 規則");
 if (!workflowPage.includes("vertical-rl")) errors.push("workflow.html 缺少直式規格記錄");
 for (const stage of ["架構起始", "重新蒐集資料", "資料處理", "資料換入架構", "技術驗證", "品質確認與舊版對比"]) {

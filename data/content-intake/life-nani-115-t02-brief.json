@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "subject": "life",
+  "publisher": "nani",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [113, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "T02",
+  "title": "吸住了",
+  "sourceStatus": "unit-brief-verified-cross-year-user-accepted",
+  "sourceRefs": ["nani-115-low-primary-promo", "dongyuan-114-nani-grade2-life-plan"],
+  "sourceBoundary": "115 南一官方簡介核對主題與子題；114 東園國小同出版社、年級、學期與同名主題課程計畫提供磁鐵探究與評量訊號。活動、紀錄與題目均為 edu2 原創。",
+  "unit": {
+    "id": "li-115-nani-02",
+    "publisherUnitId": "T02",
+    "title": "吸住了",
+    "publisherLabel": "南一115目標",
+    "layerLabel": "113–115 來源窗·unit brief verified",
+    "focus": "用公平測試找出磁鐵能吸住的物品，記錄材料與結果，再說明磁鐵在生活中的用途。",
+    "mission": "完成「磁鐵測試站」：先預測、逐一測試、留下結果，再用證據修正原來的想法。",
+    "objectives": [
+      "分清預測與測試結果，不把猜測當成事實。",
+      "控制磁鐵、距離與測試方式，逐一比較不同材料。",
+      "根據紀錄說出哪些物品能被磁鐵吸住。",
+      "舉出磁鐵在生活中的用途，並遵守操作安全。"
+    ],
+    "flow": ["觀察材料 👀", "先做預測 💭", "公平測試 🧲", "記錄比較 📝", "解釋用途 💬"],
+    "sourceLayer": {
+      "status": "unit-brief-verified-cross-year-user-accepted",
+      "evidence": "115 南一官方主題大綱＋114 東園國小南一版二上同名主題課程計畫第 3 頁。",
+      "boundary": "活動與題目為 edu2 原創；不重製課本、歌曲、習作、圖像或教師手冊。"
+    },
+    "lifeExtension": {
+      "recordTitle": "磁鐵測試紀錄",
+      "recordInstruction": "先寫 prediction，再做 test，最後用 evidence 修正想法。",
+      "checkTitle": "磁鐵公平測試小檢核",
+      "observationPrompts": [
+        {"label": "我的預測", "prompt": "這個物品可能會被吸住嗎？先寫理由。"},
+        {"label": "測試結果", "prompt": "用同一顆磁鐵、相近距離測試，記下吸住或沒吸住。"},
+        {"label": "材料與證據", "prompt": "物品主要是什麼材料？哪一次觀察支持結論？"}
+      ],
+      "inquiryFlow": [
+        "選紙夾、木片、塑膠蓋、鋁箔與硬幣等安全小物，先不測試只預測。",
+        "固定同一顆磁鐵與靠近方式，一次只測一件物品。",
+        "把結果記成吸住／沒吸住／不確定，不確定就重測。",
+        "依材料整理結果，說出磁鐵適合用在哪一種生活任務。"
+      ],
+      "safetyNotes": [
+        "磁鐵不靠近嘴巴、鼻子、耳朵，也不讓幼兒或寵物誤吞。",
+        "磁鐵遠離手機、磁卡、醫療裝置與未經教師允許的電子設備。",
+        "不使用尖銳、破損或太重的物品進行吸附測試。"
+      ],
+      "reflectionPrompt": "我原本預測＿＿＿＿；測試證據是＿＿＿＿；所以我把想法改成＿＿＿＿。",
+      "teacherChecklist": [
+        "學生能區分預測與實際結果。",
+        "學生以相同方式逐一測試，沒有一次改變多個條件。",
+        "學生能以紀錄支持結論，且操作符合安全規則。"
+      ],
+      "formativeChecks": [
+        {"q": "哪一種做法最像公平測試？", "options": [
+          {"text": "用同一顆磁鐵、相近距離，一次測一件物品。", "correct": true},
+          {"text": "每件物品都換不同磁鐵和距離。", "correct": false},
+          {"text": "只看外表就決定答案。", "correct": false},
+          {"text": "把全部物品一起丟向磁鐵。", "correct": false}
+        ]},
+        {"q": "預測和結果不同時，最好的做法是什麼？", "options": [
+          {"text": "保留紀錄，重測並依證據修正想法。", "correct": true},
+          {"text": "把不同的結果擦掉。", "correct": false},
+          {"text": "只相信第一次猜測。", "correct": false},
+          {"text": "改寫別人的結果。", "correct": false}
+        ]}
+      ]
+    },
+    "artifact": {"notebooklm": "pending-shared-stage-2", "youtube": "pending-shared-stage-2"}
+  }
+}

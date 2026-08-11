@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "subject": "life",
+  "publisher": "nani",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 114,
+  "acceptedAcademicYearRange": [113, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "T04",
+  "title": "大樹",
+  "sourceStatus": "unit-brief-verified-cross-year-title-matched",
+  "sourceRefs": ["nani-115-low-primary-promo", "dongyuan-114-nani-grade2-life-plan"],
+  "sourceBoundary": "115 官方 outline 的 T04 與 114 二上課程計畫的主題三同名；只依標題與可公開課程訊號建立原創觀察活動，不沿用舊單元編號。",
+  "unit": {
+    "id": "li-115-nani-04",
+    "publisherUnitId": "T04",
+    "title": "大樹",
+    "publisherLabel": "南一115目標",
+    "layerLabel": "113–115 來源窗·title-matched brief",
+    "focus": "運用五官中的安全方式觀察樹的外形與細節，比較樹朋友的異同，並提出愛護行動。",
+    "mission": "完成「我的樹朋友身分卡」：記錄位置、樹幹、分枝、葉形與周圍生命，再提出一項不傷害樹的親近方法。",
+    "objectives": [
+      "從位置、樹幹、分枝與葉片記錄大樹的可見特徵。",
+      "比較兩棵樹至少一項相同與一項不同。",
+      "用拓印以外的低干擾方式留下觀察，例如畫圖、照片或落葉觀察。",
+      "說出並實踐不折枝、不刻字、不破壞棲地的愛護方式。"
+    ],
+    "flow": ["安全找樹 🌳", "五官觀察 👀", "畫下細節 ✏️", "比較異同 🔎", "提出愛護行動 💚"],
+    "sourceLayer": {
+      "status": "unit-brief-verified-cross-year-title-matched",
+      "evidence": "115 南一官方 T04 大綱＋114 東園國小南一版二上同名主題（當年編為主題三）第 3 頁。",
+      "boundary": "跨年只採同名課程信號；活動、圖表與題目為 edu2 原創，不重製教材內容。"
+    },
+    "lifeExtension": {
+      "recordTitle": "樹朋友身分卡",
+      "recordInstruction": "先記錄可見特徵，再比較差異，最後提出 low-impact care action。",
+      "checkTitle": "大樹觀察小檢核",
+      "observationPrompts": [
+        {"label": "樹的整體", "prompt": "位置、高矮、樹幹與分枝看起來如何？"},
+        {"label": "樹的細節", "prompt": "葉片形狀、紋路、顏色與地面落葉有哪些特徵？"},
+        {"label": "樹與周圍生命", "prompt": "有哪些動物、植物或人會在樹旁活動？只記錄，不干擾。"}
+      ],
+      "inquiryFlow": [
+        "在教師指定的安全區選一棵樹，先從遠處看整體。",
+        "靠近後用眼看、耳聽與輕觸已允許部位，不舔、不折、不攀爬。",
+        "以畫圖、符號或落葉觀察留下細節，再找另一棵樹比較。",
+        "分享樹與其他生命的關係，提出一項可做到的愛護行動。"
+      ],
+      "safetyNotes": [
+        "不攀爬、不折枝、不拔葉、不刻字，只撿已掉落且教師允許的材料。",
+        "不碰觸不明昆蟲、菌類、果實或有刺植物；保持適當距離。",
+        "戶外觀察依天候補水、防曬，始終在教師指定範圍內活動。"
+      ],
+      "reflectionPrompt": "我的樹朋友最明顯的特徵是＿＿＿＿；比較證據是＿＿＿＿；我會用＿＿＿＿愛護它。",
+      "teacherChecklist": [
+        "學生記錄至少三項可見特徵。",
+        "學生能以證據比較兩棵樹，而非只說喜好。",
+        "學生提出的親近與愛護方式不傷害樹及周圍生命。"
+      ],
+      "formativeChecks": [
+        {"q": "哪一個做法最適合留下樹葉觀察？", "options": [
+          {"text": "畫下葉形，或觀察地上已掉落的葉片。", "correct": true},
+          {"text": "折下很多新葉帶回教室。", "correct": false},
+          {"text": "在樹幹上刻名字。", "correct": false},
+          {"text": "搖樹讓果實掉下來。", "correct": false}
+        ]},
+        {"q": "比較兩棵樹時，哪一句有觀察證據？", "options": [
+          {"text": "甲樹葉片較長，乙樹葉片較圓。", "correct": true},
+          {"text": "甲樹一定比較開心。", "correct": false},
+          {"text": "我只喜歡甲樹，所以不用看乙樹。", "correct": false},
+          {"text": "所有樹都完全一樣。", "correct": false}
+        ]}
+      ]
+    },
+    "artifact": {"notebooklm": "pending-shared-stage-2", "youtube": "pending-shared-stage-2"}
+  }
+}

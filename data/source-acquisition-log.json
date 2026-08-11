@@ -284,10 +284,12 @@
       "action": "discovered-and-reviewed-cross-year-unit-brief",
       "sourceId": "dongyuan-114-nani-grade2-life-plan",
       "sourceUrl": "https://tten.tp.edu.tw/Login/Downment?grade=2&spid=34e77ca2-f290-4b10-8700-89ec75155e60&subject=LifeCourse",
-      "contentRole": "114 東園國小南一版二上生活 T01「標誌與生活」公開課程計畫；與 115 南一官方 outline 交叉核對，用於建立原創 observation/safety/record/reflection vertical slice",
+      "contentRole": "114 東園國小南一版二上生活公開課程計畫；與 115 南一官方 outline 依標題交叉核對，可支援 T01「標誌與生活」、T02「吸住了」、T04「大樹」、T05「和風做朋友」、T06「冬天」的原創 observation/safety/record/reflection briefs；不支援 T03「我愛泡泡」",
+      "sha256": "250057ba79cfc6cae7874365b6113967cfe4a5df01d533e194cee6510d1ca76c",
+      "evidencePages": [1, 2, 3, 4, 5],
       "rightsStatus": "public-school-plan-reference; original-activities-only; no textbook reproduction",
-      "reviewStatus": "verified-source-year-114; accepted-user-window-113-115; grade2-semester1-publisher-title match; cross-checked-with-115-outline",
-      "derivedOutput": "data/content-intake/life-nani-115-t01-brief.json"
+      "reviewStatus": "verified-source-year-114; accepted-user-window-113-115; grade2-semester1-publisher-title matches t01-t02-t04-t05-t06; t03-not-covered; cross-checked-with-115-outline",
+      "derivedOutput": "data/content-intake/life-nani-115-t01-brief.json through life-nani-115-t06-brief.json; T03 uses official outline only"
     }
   ]
 }
