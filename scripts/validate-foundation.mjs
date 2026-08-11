@@ -65,14 +65,14 @@ try {
     if (!chineseIntake.readingItems?.every(item => item.titleStatus === "verified-publisher-outline" && ["詩歌", "記敘文"].includes(item.genre))) errors.push("國語 115 intake 含未核對的來閱讀 metadata");
   } catch (error) { errors.push(`國語 115 intake 無法解析：${error.message}`); }
   const life = manifest115.subjects?.find(item => item.id === "life");
-  if (life?.status !== "official-outline-verified-all-units-technical-candidate" || life?.contentIntake !== "data/content-intake/life-nani-115.json" || life?.units?.length !== 6) errors.push("life: 115 南一全科 technical candidate 狀態錯誤");
+  if (life?.status !== "official-outline-verified-all-units-publication-ready" || life?.contentIntake !== "data/content-intake/life-nani-115.json" || life?.units?.length !== 6) errors.push("life: 115 南一全科 publication-ready 狀態錯誤");
   try {
     const lifeIntake = JSON.parse(await read("data/content-intake/life-nani-115.json"));
     if (lifeIntake.publisher !== "nani" || lifeIntake.academicYear !== 115 || lifeIntake.units?.length !== 6) errors.push("生活 115 intake 版本或主題數錯誤");
     if (!lifeIntake.units?.every(unit => unit.titleStatus === "verified-publisher-outline")) errors.push("生活 115 intake 含未核對的主題");
     if (!lifeIntake.units?.every((unit, index) => unit.unitBrief === `data/content-intake/life-nani-115-t${String(index + 1).padStart(2, "0")}-brief.json`)) errors.push("生活 intake 缺少 T01–T06 unit brief 關聯");
     if (lifeIntake.units?.[0]?.contentStatus !== "publication-ready-human-confirmed") errors.push("生活 T01 必須保留 human-confirmed production 狀態");
-    if (!lifeIntake.units?.slice(1).every(unit => unit.contentStatus === "technical-passed-awaiting-human-parity")) errors.push("生活 T02–T06 必須維持 awaiting human parity");
+    if (!lifeIntake.units?.every(unit => unit.contentStatus === "publication-ready-human-confirmed")) errors.push("生活 T01–T06 必須全數為 publication-ready-human-confirmed");
   } catch (error) { errors.push(`生活 115 intake 無法解析：${error.message}`); }
   const lifeTitles = ["標誌與生活", "吸住了", "我愛泡泡", "大樹", "和風做朋友", "冬天"];
   for (const [index, title] of lifeTitles.entries()) {

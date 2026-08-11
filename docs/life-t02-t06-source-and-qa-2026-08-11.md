@@ -4,7 +4,7 @@
 
 - 目標：115 學年度南一二上生活 T02–T06。
 - Golden：已由使用者確認的 T01「標誌與生活」。
-- 狀態：T02–T06 已完成 technical QA，等待一次性 human parity；NotebookLM／YouTube 保留第二階段。
+- 狀態：T02–T06 已完成 technical QA，並於 2026-08-11 由使用者一次性確認 human parity；NotebookLM／YouTube 保留第二階段。
 
 ## 來源與映射
 
@@ -38,9 +38,9 @@
 - Interaction：教師模式可切換、教師區可見、正確選項會顯示 `correct`；console 0 errors / 0 warnings。
 - Artifact boundary：生活 T01–T06 不再混用 114 全冊 NotebookLM 簡報／YouTube；顯示第二階段 pending。
 
-## Human parity gate
+## Human parity gate（PASS）
 
-請由 `life/index.html` 一次檢查五頁：
+使用者已由 `life/index.html` 一次檢查五頁並回覆「確認OK」：
 
 1. T02 磁鐵公平測試與安全規則是否適合二年級。
 2. T03 泡泡活動是否清楚標示原創、且安全規則足夠。
@@ -48,4 +48,4 @@
 4. T05 風的證據與強弱比較是否容易帶班。
 5. T06 冬日照顧、保暖與關懷是否合宜。
 
-人工確認前，T02–T06 維持 `technical-passed-awaiting-human-parity`，不得標成 production complete。
+T02–T06 已晉為 `publication-ready-human-confirmed`；後續仍須通過 `main` deployment 與 production smoke，才可宣告線上發布完成。

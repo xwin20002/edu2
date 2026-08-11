@@ -15,8 +15,8 @@ const renderSubjects = data.subjects.map(subject => subject.id === "life"
   ? {
       ...subject,
       publisherLabel: "版本分層",
-      layerLabel: "南一115目標·T01 production·T02–T06 parity candidates",
-      intro: "T01 已完成使用者 parity；T02–T06 依 115 官方 outline 與可匹配的 113–115 公開課程訊號建立原創教學候選頁，待一次性 human parity 確認。",
+      layerLabel: "南一115目標·T01–T06 human confirmed",
+      intro: "生活 T01–T06 已完成來源核對、technical QA 與使用者 human parity；全科以原創教學活動呈現，NotebookLM／YouTube 保留第二階段。",
       units: lifeTargetBriefs.map(brief => brief.unit)
     }
   : subject);
