@@ -8,21 +8,21 @@
     {
       "id": "chinese",
       "publisher": "hanlin",
-      "status": "official-outline-verified-l01-human-confirmed-ten-fallback-batch-candidates-l07-blocked",
+      "status": "official-outline-verified-eleven-fallback-human-confirmed-l07-blocked",
       "contentIntake": "data/content-intake/chinese-hanlin-115.json",
       "units": [
         {"id": "L01", "title": "我的心情", "unitBrief": "data/content-intake/chinese-hanlin-115-l01-brief.json", "status": "fallback-publication-ready-human-confirmed"},
-        {"id": "L02", "title": "彩色的天空", "unitBrief": "data/content-intake/chinese-hanlin-115-l02-brief.json", "status": "fallback-batch-technical-candidate"},
-        {"id": "L03", "title": "國王做新衣", "unitBrief": "data/content-intake/chinese-hanlin-115-l03-brief.json", "status": "fallback-batch-technical-candidate"},
-        {"id": "L04", "title": "水草下的呱呱", "unitBrief": "data/content-intake/chinese-hanlin-115-l04-brief.json", "status": "fallback-batch-technical-candidate"},
-        {"id": "L05", "title": "沙灘上的畫", "unitBrief": "data/content-intake/chinese-hanlin-115-l05-brief.json", "status": "fallback-batch-technical-candidate"},
-        {"id": "L06", "title": "草叢裡的星星", "unitBrief": "data/content-intake/chinese-hanlin-115-l06-brief.json", "status": "fallback-batch-technical-candidate"},
+        {"id": "L02", "title": "彩色的天空", "unitBrief": "data/content-intake/chinese-hanlin-115-l02-brief.json", "status": "fallback-publication-ready-human-confirmed"},
+        {"id": "L03", "title": "國王做新衣", "unitBrief": "data/content-intake/chinese-hanlin-115-l03-brief.json", "status": "fallback-publication-ready-human-confirmed"},
+        {"id": "L04", "title": "水草下的呱呱", "unitBrief": "data/content-intake/chinese-hanlin-115-l04-brief.json", "status": "fallback-publication-ready-human-confirmed"},
+        {"id": "L05", "title": "沙灘上的畫", "unitBrief": "data/content-intake/chinese-hanlin-115-l05-brief.json", "status": "fallback-publication-ready-human-confirmed"},
+        {"id": "L06", "title": "草叢裡的星星", "unitBrief": "data/content-intake/chinese-hanlin-115-l06-brief.json", "status": "fallback-publication-ready-human-confirmed"},
         {"id": "L07", "title": "不一樣的故事", "status": "blocked-cross-year-title-mismatch"},
-        {"id": "L08", "title": "美食分享日", "unitBrief": "data/content-intake/chinese-hanlin-115-l08-brief.json", "status": "fallback-batch-technical-candidate"},
-        {"id": "L09", "title": "好味道", "unitBrief": "data/content-intake/chinese-hanlin-115-l09-brief.json", "status": "fallback-batch-technical-candidate"},
-        {"id": "L10", "title": "加加減減", "unitBrief": "data/content-intake/chinese-hanlin-115-l10-brief.json", "status": "fallback-batch-technical-candidate"},
-        {"id": "L11", "title": "奇怪的門", "unitBrief": "data/content-intake/chinese-hanlin-115-l11-brief.json", "status": "fallback-batch-technical-candidate"},
-        {"id": "L12", "title": "詠鵝", "unitBrief": "data/content-intake/chinese-hanlin-115-l12-brief.json", "status": "fallback-batch-technical-candidate"}
+        {"id": "L08", "title": "美食分享日", "unitBrief": "data/content-intake/chinese-hanlin-115-l08-brief.json", "status": "fallback-publication-ready-human-confirmed"},
+        {"id": "L09", "title": "好味道", "unitBrief": "data/content-intake/chinese-hanlin-115-l09-brief.json", "status": "fallback-publication-ready-human-confirmed"},
+        {"id": "L10", "title": "加加減減", "unitBrief": "data/content-intake/chinese-hanlin-115-l10-brief.json", "status": "fallback-publication-ready-human-confirmed"},
+        {"id": "L11", "title": "奇怪的門", "unitBrief": "data/content-intake/chinese-hanlin-115-l11-brief.json", "status": "fallback-publication-ready-human-confirmed"},
+        {"id": "L12", "title": "詠鵝", "unitBrief": "data/content-intake/chinese-hanlin-115-l12-brief.json", "status": "fallback-publication-ready-human-confirmed"}
       ]
     },
     {

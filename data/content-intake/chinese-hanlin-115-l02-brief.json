@@ -30,7 +30,7 @@
     "publisherUnitId": "L02",
     "title": "彩色的天空",
     "publisherLabel": "翰林115目標",
-    "layerLabel": "114 fallback／115 candidate · batch QA",
+    "layerLabel": "114 fallback／115 candidate · human confirmed",
     "focus": "找出事情的先後順序，使用完整句重述觀察與感受。",
     "mission": "完成「一開始／接著／最後」三段重述，讓同學聽懂事情怎麼發展。",
     "objectives": [
@@ -47,9 +47,9 @@
       "分享與回應 🤝"
     ],
     "sourceLayer": {
-      "status": "fallback-brief-approved · batch technical candidate",
+      "status": "fallback-publication-ready · human confirmed",
       "evidence": "115 翰林官方 L2 outline＋114 同版同年級同學期同課名公開課程計畫＋114 教育雲公開詞彙；使用者接受 113–115 學年來源窗。",
-      "boundary": "以下短文、語文活動與評量均為 edu2 原創，只支援 fallback batch QA；不是翰林課文、習作或 115 官方內容。"
+      "boundary": "以下短文、語文活動與評量均為 edu2 原創，已通過本站 technical QA 與使用者 human parity；不是翰林課文、習作或 115 官方內容。"
     },
     "verticalSummary": "找出事情的先後順序，使用完整句重述觀察與感受。這是本站原創朗讀句，不是課文本文。",
     "vocabulary": [

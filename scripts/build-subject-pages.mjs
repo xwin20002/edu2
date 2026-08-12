@@ -30,7 +30,7 @@ const lifeTargetBriefs = await Promise.all(Array.from({length: 6}, async (_, ind
 const renderSubjects = data.subjects.map(subject => {
   if (subject.id === "chinese") return {
       ...subject,
-      intro: "L01 已完成 human parity；L02–L06、L08–L12 為 113–115 來源窗 fallback batch technical candidates。L07 因 114／115 課名與內容不一致維持 source-blocked。所有短文與活動均為 edu2 原創，不重製課文或題本。",
+      intro: "L01–L06、L08–L12 已完成 technical QA 與使用者 human parity，仍屬 113–115 來源窗 fallback／115 candidates。L07 因 114／115 課名與內容不一致維持 source-blocked。所有短文與活動均為 edu2 原創，不重製課文或題本。",
       units: subject.units.map((unit, index) => index === 6 ? chineseBlockedL07 : (chineseTargetUnits.get(`L${String(index + 1).padStart(2, "0")}`) || unit))
     };
   if (subject.id === "life") return {
@@ -218,7 +218,7 @@ for (const subject of renderSubjects) {
     const pageWithArtifactBoundary = subject.id === "life"
       ? page.replace(legacyNotebookDeckPattern, `<div class="section-title"><span>📽️</span> 本主題 NotebookLM 簡報</div><section class="card"><p><strong>第二階段待產製。</strong>完成本批 human parity 與 artifact QA 後，才會加入本主題專屬簡報；目前不混用 114 全冊簡報。</p></section>`)
       : subject.id === "chinese" && index > 0
-        ? page.replace(legacyNotebookDeckPattern, `<div class="section-title"><span>📽️</span> 本課 NotebookLM 簡報</div><section class="card"><p><strong>第二階段待產製。</strong>完成本批 human parity 與 artifact QA 後，才會加入本課專屬簡報；目前不混用 114 全冊簡報。</p></section>`)
+        ? page.replace(legacyNotebookDeckPattern, `<div class="section-title"><span>📽️</span> 本課 NotebookLM 簡報</div><section class="card"><p><strong>第二階段待產製。</strong>完成逐課 artifact source pack 與 artifact QA 後，才會加入本課專屬簡報；目前不混用 114 全冊簡報。</p></section>`)
         : page;
     const pageWithUnitLabels = pageWithArtifactBoundary
       .replace(`href="../../assets/css/unit.css"`, `href="../../assets/css/unit.css?v=${unitAssetVersion}"`)

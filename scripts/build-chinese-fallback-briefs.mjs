@@ -279,15 +279,15 @@ for (const config of configs) {
       publisherUnitId: `L${String(config.n).padStart(2, "0")}`,
       title: target.title,
       publisherLabel: "翰林115目標",
-      layerLabel: "114 fallback／115 candidate · batch QA",
+      layerLabel: "114 fallback／115 candidate · human confirmed",
       focus: config.focus,
       mission: config.mission,
       objectives: [config.focus, "朗讀人工核對注音的練習字詞。", "依原創短文回答並說明證據。", "完成本課語文互動並尊重同學的不同表達。"],
       flow: ["閱讀原創短文 📖", "找出文本證據 🔎", "朗讀練習字詞 🔊", "完成語文任務 ✍️", "分享與回應 🤝"],
       sourceLayer: {
-        status: "fallback-brief-approved · batch technical candidate",
+        status: "fallback-publication-ready · human confirmed",
         evidence: `115 翰林官方 L${config.n} outline＋114 同版同年級同學期同課名公開課程計畫＋114 教育雲公開詞彙；使用者接受 113–115 學年來源窗。`,
-        boundary: "以下短文、語文活動與評量均為 edu2 原創，只支援 fallback batch QA；不是翰林課文、習作或 115 官方內容。"
+        boundary: "以下短文、語文活動與評量均為 edu2 原創，已通過本站 technical QA 與使用者 human parity；不是翰林課文、習作或 115 官方內容。"
       },
       verticalSummary: `${config.focus}這是本站原創朗讀句，不是課文本文。`,
       vocabulary: config.vocab.map(([word, meaning]) => ({word, meaning: `${meaning}本站原創教學釋義。`})),

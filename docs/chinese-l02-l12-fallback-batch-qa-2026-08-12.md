@@ -2,7 +2,7 @@
 
 ## 結論
 
-- 本批建立 L02–L06、L08–L12 共 10 課的 fallback unit brief 與教學頁，狀態為 batch technical candidate。
+- 本批建立 L02–L06、L08–L12 共 10 課的 fallback unit brief 與教學頁；technical QA 與使用者 human parity 均已通過，狀態升為 fallback publication-ready human-confirmed。
 - L01 保留既有 human confirmed Golden。
 - L07 不建立 brief、不提供課程地圖連結：115 官方課名是〈不一樣的故事〉，114 公開課程計畫與詞庫是〈不一樣的美食〉，不得跨課套用。
 - NotebookLM／YouTube 仍是第二階段 artifact pipeline，本批不混用 114 全冊簡報充當逐課教材。
@@ -24,13 +24,13 @@
 - 6 張人工核對注音練習字卡，且字來自 114 公開詞庫。
 - 學習目標、teacher notes、來源狀態、版權邊界與第二階段 artifact pending 標示。
 
-## Human parity check
+## Human parity result
 
-請由國語課程地圖進入至少 L02、L03、L06、L08、L12，確認：
+2026-08-12 使用者由國語課程地圖完成本批 human parity，回覆 OK。抽查契約如下：
 
 - L07 顯示「來源待補，不開放」，沒有進入連結。
 - 原創短文、理解題、注音與 3–4 欄句型活動可讀、可操作。
 - 任一 select 變更後，完整句會依該課 template 更新。
 - 教師模式、字級、計時器、畫筆與語音朗讀維持可用。
 
-Human parity 尚未完成前，不升格為 publication-ready，也不 commit／push。
+L02–L06、L08–L12 已可 promotion；L07 仍維持 blocked。這項確認不會把 fallback 內容變成翰林 115 官方課文，也不會提前完成 NotebookLM／YouTube artifact gate。

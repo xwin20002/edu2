@@ -55,7 +55,7 @@ try {
     if (subjectId === "math" && (subject?.status !== "awaiting-official-outline" || (subject?.units || []).length !== 0)) errors.push("math: 115 正式 outline 未核對前必須保持空單元 manifest");
   }
   const chinese = manifest115.subjects?.find(item => item.id === "chinese");
-  if (chinese?.status !== "official-outline-verified-l01-human-confirmed-ten-fallback-batch-candidates-l07-blocked" || chinese?.contentIntake !== "data/content-intake/chinese-hanlin-115.json" || chinese?.units?.length !== 12) errors.push("chinese: 115 翰林長批次狀態錯誤");
+  if (chinese?.status !== "official-outline-verified-eleven-fallback-human-confirmed-l07-blocked" || chinese?.contentIntake !== "data/content-intake/chinese-hanlin-115.json" || chinese?.units?.length !== 12) errors.push("chinese: 115 翰林長批次 promotion 狀態錯誤");
   if (chinese?.units?.[0]?.unitBrief !== "data/content-intake/chinese-hanlin-115-l01-brief.json" || chinese?.units?.[0]?.status !== "fallback-publication-ready-human-confirmed") errors.push("chinese: L01 formal fallback brief promotion 關聯錯誤");
   try {
     const chineseIntake = JSON.parse(await read("data/content-intake/chinese-hanlin-115.json"));
@@ -68,7 +68,7 @@ try {
     for (const sequence of chineseBatchSequences) {
       const unit = chineseIntake.units?.[sequence - 1];
       const briefPath = `data/content-intake/chinese-hanlin-115-l${String(sequence).padStart(2, "0")}-brief.json`;
-      if (unit?.unitBrief !== briefPath || unit?.contentStatus !== "fallback-batch-technical-candidate") errors.push(`國語 L${String(sequence).padStart(2, "0")} intake 缺少 batch candidate 關聯`);
+      if (unit?.unitBrief !== briefPath || unit?.contentStatus !== "fallback-publication-ready-human-confirmed") errors.push(`國語 L${String(sequence).padStart(2, "0")} intake 缺少 human-confirmed promotion 關聯`);
     }
     const blockedL07 = chineseIntake.units?.[6];
     if (blockedL07?.contentStatus !== "blocked-cross-year-title-mismatch" || blockedL07?.unitBrief || !blockedL07?.blockedReason?.includes("不一樣的美食")) errors.push("國語 L07 必須維持 cross-year title mismatch blocked");
@@ -285,7 +285,7 @@ for (const [sequence, title] of chineseBatchTitles) {
     if (unit?.characters?.length !== 6 || unit.characters.some(item => !item.char || !item.zhuyin)) errors.push(`${id}: 人工注音卡 contract 錯誤`);
     if (unit?.languageWorkshop?.slots?.length < 3 || !unit.languageWorkshop.template) errors.push(`${id}: 動態句型 contract 錯誤`);
     if (unit?.artifact?.notebooklm !== "pending-shared-stage-2" || unit?.artifact?.youtube !== "pending-shared-stage-2") errors.push(`${id}: artifact 必須維持第二階段 pending`);
-    if (unit?.sourceLayer?.status !== "fallback-brief-approved · batch technical candidate") errors.push(`${id}: batch technical candidate 標示錯誤`);
+    if (unit?.sourceLayer?.status !== "fallback-publication-ready · human confirmed") errors.push(`${id}: human-confirmed promotion 標示錯誤`);
   } catch (error) { errors.push(`${id}: fallback brief 無法解析：${error.message}`); }
 }
 
@@ -316,7 +316,7 @@ if (chineseOverview.includes('href="chinese/L07/index.html"') || !chineseOvervie
 for (const [sequence, title] of chineseBatchTitles) {
   const id = `L${String(sequence).padStart(2, "0")}`;
   const page = await read(`chinese/${id}/index.html`);
-  if (!page.includes(title) || !page.includes("fallback-brief-approved · batch technical candidate")) errors.push(`${id}: 頁面缺少課名或 batch marker`);
+  if (!page.includes(title) || !page.includes("fallback-publication-ready · human confirmed")) errors.push(`${id}: 頁面缺少課名或 human-confirmed marker`);
   if (!page.includes("第二階段待產製") || page.includes("NotebookLM 全冊教學簡報")) errors.push(`${id}: artifact boundary 錯誤`);
   if (page.includes("<ruby") || /(?:^|[;{])\s*direction\s*:/.test(page)) errors.push(`${id}: 注音或直式排版 contract 錯誤`);
   const brief = JSON.parse(await read(`data/content-intake/chinese-hanlin-115-l${String(sequence).padStart(2, "0")}-brief.json`));
