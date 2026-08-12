@@ -204,6 +204,14 @@ Obsidian preflight 不只讀 `edu2/工作筆記.md`：還要以 `駕駛艙`、�
 4. 下載 artifacts，依命名規則整理、轉檔與壓縮。
 5. 將影片上傳指定 YouTube channel，預設 `unlisted`，記錄 video ID。
 6. 建立逐課／逐單元頁，嵌入 artifacts 與 YouTube。
+
+### Artifact concurrency 與 audience safety
+
+- NotebookLM 同時最多一個 generation，且一次只處理一科；queue 正本為 `data/artifact-queue.json`。
+- Slides 必須先完成下載與 PDF visual QA，才可啟動 video；video QA 未通過，不得上傳 YouTube。
+- Remote status 為 `unknown`、沒有 download URL 或下載失敗時，保持 active／blocked 狀態，不重送同一工作。
+- YouTube 預設 `unlisted`，小學教材必須明確傳入 `madeForKids: true`；uploader 不得以 false 作隱含預設。
+- 114 historical notebook 與 115 target-year notebook 必須隔離；overview artifact 不得冒充逐單元 artifact。
 7. 加入教師提示、Bloom 分層、形成性評量與課堂工具。
 8. 驗證桌機、平板、手機、投影、音訊、互動、素材與 console。
 9. 部署 GitHub Pages 並做 production smoke test。

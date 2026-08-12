@@ -22,7 +22,29 @@
     {"id": "course-quiz", "type": "quiz", "title": "學科測驗", "status": "historical-114-notebooklm", "sourceCount": 4}
   ],
   "unitArtifacts": {"status": "115-not-started", "rule": "Do not label or embed the historical overview video as a 115 unit artifact. Each 115 unit requires its own verified source pack, NotebookLM artifact, QA record, and returned media ID."},
-  "youtube": {"account": "xwin20002@gmail.com", "channel": "xwin2000-mimi", "visibility": "unlisted", "status": "ready", "videos": [{"id": "oD0GIU4UKPc", "url": "https://youtu.be/oD0GIU4UKPc", "scope": "all-subject-overview-not-unit"}]},
-  "academicYearScope": "114 historical artifacts only; 115 artifacts pending official outlines and verified source packs.",
-  "updatedAt": "2026-07-12T00:00:00+08:00"
+  "subjectArtifacts": [
+    {
+      "id": "math-kanghsuan-115-pilot",
+      "scope": "115-subject-overview-u01-u10-not-unit-artifact",
+      "status": "site-integrated-local-validated",
+      "sourcePack": "sources/notebooklm/115/math-kanghsuan-115.md",
+      "notebook": {
+        "id": "e3dab5a2-7fe0-4413-9c82-fba3c9a00038",
+        "title": "edu2｜115 康軒數學｜Artifact Pilot",
+        "url": "https://notebooklm.google.com/notebook/e3dab5a2-7fe0-4413-9c82-fba3c9a00038"
+      },
+      "remoteSourceId": "622eb85f-ed8f-4671-bf1e-733f3c6239bf",
+      "slideDeck": {
+        "remoteArtifactId": "a1764852-34ce-440e-8100-2c5743c580cb",
+        "supersedesRemoteArtifactIds": ["bc746823-9fe7-4b38-aa10-63fea6cfca57", "5760b36a-ea04-4f3c-8a59-8575d188e5ce"],
+        "status": "artifact-qa-passed",
+        "localPath": "assets/notebooklm/115/math-kanghsuan-115-slides.pdf",
+        "qa": "passed-14-pages-after-slide-5-second-revision"
+      },
+      "video": {"remoteArtifactId": "ba9e415e-62cd-46bc-bb78-59943b37b50a", "supersedesRemoteArtifactIds": ["860ad9ce-0e82-4a21-95c2-1b23c4989e42"], "status": "artifact-qa-passed", "duration": "9:56", "localPath": "assets/notebooklm/115/math-kanghsuan-115-video-revision.mp4", "qa": "passed-dense-74-frame-and-focused-u03-visual-review", "youtubeStatus": "uploaded-unlisted-verified", "youtubeId": "F-JHxa_XTEI", "youtubeUrl": "https://youtu.be/F-JHxa_XTEI", "madeForKids": true}
+    }
+  ],
+  "youtube": {"account": "xwin20002@gmail.com", "channel": "xwin2000-mimi", "channelHandle": "@xwin2000-p4d", "visibility": "unlisted", "status": "active", "videos": [{"id": "oD0GIU4UKPc", "url": "https://youtu.be/oD0GIU4UKPc", "scope": "historical-114-all-subject-overview-not-unit"}, {"id": "F-JHxa_XTEI", "url": "https://youtu.be/F-JHxa_XTEI", "scope": "115-math-subject-overview-u01-u10-not-unit", "madeForKids": true, "status": "uploaded-unlisted-verified"}]},
+  "academicYearScope": "114 historical artifacts remain isolated. The only active 115 pilot is the verified edu2 math subject overview; unit artifacts remain not started.",
+  "updatedAt": "2026-08-12T14:38:18+08:00"
 }

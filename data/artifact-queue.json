@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "maxActiveNotebookLmGenerations": 1,
+    "maxActiveSubjects": 1,
+    "maxDailyYouTubeUploads": 1,
+    "youtubeVisibility": "unlisted",
+    "madeForKids": true,
+    "stopOnUnknownRemoteState": true
+  },
+  "jobs": [
+    {
+      "id": "edu2-math-kanghsuan-115-slides",
+      "repo": "edu2",
+      "subject": "math",
+      "publisher": "kanghsuan",
+      "targetAcademicYear": 115,
+      "scope": "subject-overview-u01-u10",
+      "type": "slide_deck",
+      "dependsOn": [],
+      "sourceGate": "publication-ready-human-confirmed-all-units",
+      "sourcePack": "sources/notebooklm/115/math-kanghsuan-115.md",
+      "remoteSourceId": "622eb85f-ed8f-4671-bf1e-733f3c6239bf",
+      "status": "site-integrated",
+      "notebook": {"id": "e3dab5a2-7fe0-4413-9c82-fba3c9a00038", "url": "https://notebooklm.google.com/notebook/e3dab5a2-7fe0-4413-9c82-fba3c9a00038"},
+      "remoteArtifactId": "a1764852-34ce-440e-8100-2c5743c580cb",
+      "supersedesRemoteArtifactIds": ["bc746823-9fe7-4b38-aa10-63fea6cfca57", "5760b36a-ea04-4f3c-8a59-8575d188e5ce"],
+      "downloadPath": "assets/notebooklm/115/math-kanghsuan-115-slides.pdf",
+      "qa": {"status": "passed", "record": "14-page PDF visual QA; slide 5 passed after second revision with exact 3-to-12 markers and 9 cm arrow"}
+    },
+    {
+      "id": "edu2-math-kanghsuan-115-video",
+      "repo": "edu2",
+      "subject": "math",
+      "publisher": "kanghsuan",
+      "targetAcademicYear": 115,
+      "scope": "subject-overview-u01-u10",
+      "type": "video",
+      "dependsOn": ["edu2-math-kanghsuan-115-slides"],
+      "sourceGate": "publication-ready-human-confirmed-all-units",
+      "sourcePack": "sources/notebooklm/115/math-kanghsuan-115.md",
+      "remoteSourceId": "622eb85f-ed8f-4671-bf1e-733f3c6239bf",
+      "status": "artifact-qa-passed",
+      "notebook": {"id": "e3dab5a2-7fe0-4413-9c82-fba3c9a00038", "url": "https://notebooklm.google.com/notebook/e3dab5a2-7fe0-4413-9c82-fba3c9a00038"},
+      "remoteArtifactId": "ba9e415e-62cd-46bc-bb78-59943b37b50a",
+      "supersedesRemoteArtifactIds": ["860ad9ce-0e82-4a21-95c2-1b23c4989e42"],
+      "downloadPath": "assets/notebooklm/115/math-kanghsuan-115-video-revision.mp4",
+      "qa": {"status": "passed", "record": "9:55 MP4; 74-frame dense visual QA at 8-second intervals plus focused U03 sampling passed. The rejected ruler-number contradiction and English Addition/Subtraction labels are absent; ruler explanation now uses unlabeled endpoint-minus-startpoint visuals."},
+      "youtube": {"visibility": "unlisted", "madeForKids": true, "videoId": "F-JHxa_XTEI", "url": "https://youtu.be/F-JHxa_XTEI", "status": "uploaded-unlisted-verified"}
+    }
+  ]
+}

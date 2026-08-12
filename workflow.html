@@ -9,7 +9,7 @@
   </style>
 </head>
 <body>
-  <header><div class="wrap"><nav class="nav" aria-label="網站分頁"><a href="index.html">教學成果</a><a href="workflow.html" aria-current="page">工作流程</a></nav><h1>🧭 教學駕駛艙工作流程</h1><p class="lead">記錄從資料、NotebookLM、YouTube 到教學內頁與部署的可重用流程。</p><span class="status">115 life · T01–T06 human confirmed</span></div></header>
+  <header><div class="wrap"><nav class="nav" aria-label="網站分頁"><a href="index.html">教學成果</a><a href="workflow.html" aria-current="page">工作流程</a></nav><h1>🧭 教學駕駛艙工作流程</h1><p class="lead">記錄從資料、NotebookLM、YouTube 到教學內頁與部署的可重用流程。</p><span class="status">115 math · slides QA passed · video QA rejected</span></div></header>
   <main>
     <h2>目前完成狀態</h2>
     <div class="pipeline"><div class="step">✅ Milestone A：repo 接管、資料模型、模板、validator 與工程入口</div><div class="step">✅ Milestone B（115／生活內容層）：T01–T06 technical QA 與 human parity 已通過；媒體 artifacts 第二階段處理</div><div class="step">✅ Reference layer：edu1 L8、edu2 L01、edu3 作核准基準；114 產物只保留為歷史 reference</div><div class="step">✅ Reusable renderer：未來換年級、冊別或出版社時只換內容資料</div></div>
@@ -18,6 +18,11 @@
     <div class="rule"><strong>目的：</strong>沿用 T01 Golden，一次完成 T02–T06 的來源核對、原創 unit briefs、renderer、validator 與跨裝置 QA，將人工確認次數從五次降為一次。</div>
     <div class="grid"><article class="card"><h3>來源 reconciliation</h3><p>115 南一官方 outline 控制課名與順序；114 東園二上南一課程計畫依「同名」映射 T02、T04、T05、T06。T03 沒有同年級同名計畫，只用官方 outline，細部活動標成原創。</p></article><article class="card"><h3>編號防呆</h3><p>114 的「大樹」「和風做朋友」分別是主題三、四，但 115 是 T04、T05。跨學年不可只按編號搬移，必須以年級、學期、出版社與標題共同核對。</p></article><article class="card"><h3>Artifact boundary</h3><p>生活 T01–T06 不混用 114 全冊 NotebookLM／YouTube；human parity 後才進共用第二階段 artifact pipeline。</p></article><article class="card"><h3>QA gate</h3><p>JSON、foundation validator、桌機／390px mobile、教師模式、評量 interaction 與 console 均須通過；T02–T06 在人工確認前維持 technical candidate。</p></article></div>
     <p class="links"><a href="docs/life-t02-t06-source-and-qa-2026-08-11.md">查看本批來源映射與 QA evidence →</a></p>
+
+    <h2>2026-08-12｜edu2／edu4 共用 Artifact Pipeline Pilot</h2>
+    <div class="rule"><strong>並行控制：</strong>NotebookLM 同時最多 1 個 generation、一次只處理 1 科。Slides 下載並通過人工 QA 前，video 保持 blocked；video QA 通過前，YouTube 保持 blocked。若 remote status 是 <code>unknown</code> 或沒有 download URL，不重送、不啟動下一項。</div>
+    <div class="grid"><article class="card"><h3>Source isolation</h3><p>114 historical notebook 不追加 115 source。edu2 康軒 115 數學建立獨立 notebook，只附加 1 份 U01–U10 subject pack；edu4 三科因 rights review 未完成，queue 全部 blocked。</p></article><article class="card"><h3>Slides QA</h3><p>14 頁簡報經 PDF render 全頁檢查。第 5 頁尺規端點兩次未通過，第二次 revision 改用 3／12 刻度標記與 9 公分箭頭後才 promotion；rejected IDs 保留在 manifest。</p></article><article class="card"><h3>Web integration</h3><p><a href="math/artifacts.html">數學全科複習簡報</a>提供切頁、range、鍵盤與 fullscreen；桌機 console 0 error，390px 無水平 overflow。影片未通過前只顯示 pending，不混用 114 overview。</p></article><article class="card"><h3>Video rejection／YouTube safety</h3><p>首支 video 的尺規圖起點與 <code>12－3＝9</code> 矛盾，已標成 QA rejected，不上傳。YouTube 固定 <code>unlisted</code>、<code>madeForKids: true</code>；每日 queue 上限先保守設為 1。</p></article></div>
+    <p class="links"><a href="docs/artifact-pipeline.md">查看共用 artifact contract →</a> · <a href="docs/math-115-artifact-qa-2026-08-12.md">查看本次 QA evidence →</a></p>
 
     <h2>六階段標準 Pipeline</h2>
     <div class="rule"><strong>Phase 0 · Reuse／Scope／Continuity Preflight：</strong>開始六階段前，必須先盤點 reference GitHub、已安裝／共用 Skills、repo handoff 與 Obsidian 心得，產出 <code>reuse / adapt / recollect / forbidden-content</code> reuse map；同時標記 <code>scopeClass</code> 與 <code>continuityStatus</code>。未完成不得開始批次產頁。</div>
