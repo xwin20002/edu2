@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "subject": "math",
+  "publisher": "kanghsuan",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 115,
+  "acceptedAcademicYearRange": [113, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "U02",
+  "title": "二位數的直式加減",
+  "sourceStatus": "unit-brief-verified-exact-year",
+  "sourceRefs": [
+    "kanghsuan-115-low-primary-promo",
+    "gongguan-115-kanghsuan-grade2-math-plan"
+  ],
+  "sourceBoundary": "115 康軒低年級官方簡介與 115 公館國小康軒版二上數學課程計畫只用來核對公開單元順序、課程目標與學習範圍；本站操作任務、數字、題目與回饋均為 edu2 原創，不重製課本、習作、教師手冊、題目或圖像。",
+  "unit": {
+    "id": "ma-115-kanghsuan-02",
+    "publisherUnitId": "U02",
+    "title": "二位數的直式加減",
+    "publisherLabel": "康軒115",
+    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "focus": "以位值和圖像理解二位數加減直式，讓十位與個位正確對齊，並解決二位數加減與比較型問題。",
+    "mission": "完成「直式修理站」：先用十格條與單位點表示數量，再排直式、計算，最後找出一個錯位算式並修正。",
+    "objectives": [
+      "用位值圖像說明二位數加減直式的記錄方式。",
+      "讓十位與個位正確對齊，完成二位數加法直式。",
+      "讓十位與個位正確對齊，完成二位數減法直式。",
+      "根據生活情境判斷使用加法或減法，解決比較型問題。"
+    ],
+    "flow": [
+      "讀懂數量情境 👀",
+      "畫十和一模型 🧱",
+      "相同位值對齊 ↕️",
+      "由個位開始計算 ✏️",
+      "估一估並說明答案 ✅"
+    ],
+    "sourceLayer": {
+      "status": "unit-brief-verified-exact-year",
+      "evidence": "115 康軒低年級官方教材簡介＋115 公館國小二年級康軒版數學第一學期課程計畫 U02。",
+      "boundary": "公開來源只界定學習範圍；位值圖、算式數字、情境與錯誤診斷均為 edu2 原創，不重製出版社題目或圖像。"
+    },
+    "mathExtension": {
+      "status": "technical-candidate · edu2 original",
+      "representationTitle": "從十和一走到直式",
+      "representations": [
+        {"label": "十格條與單位點", "description": "46 表示成 4 條十與 6 個一，27 表示成 2 條十與 7 個一。"},
+        {"label": "位值直式", "description": "十位對十位、個位對個位，從個位開始合併或拿走。"}
+      ],
+      "workedExamples": [
+        {"prompt": "計算 46＋27。", "solution": "個位 6＋7＝13，寫 3 並把 1 個十換到十位；十位 4＋2＋1＝7，所以答案是 73。", "check": "73 比 46 大約多 27，大小合理。"}
+      ],
+      "reasoningSteps": [
+        "先判斷題意是合起來還是拿走。",
+        "將兩個數依十位、個位上下對齊。",
+        "從個位計算，滿十時換成 1 個十。",
+        "再算十位，最後用估算或反向運算檢查。"
+      ],
+      "misconceptions": [
+        {"claim": "直式只要把數字靠左排整齊。", "correction": "必須讓相同位值對齊；二位數的個位要對個位。"},
+        {"claim": "個位相加超過 9，只寫最後一個數字就完成。", "correction": "滿十要換成 1 個十，並加到十位。"}
+      ],
+      "formativeChecks": [
+        {"q": "算 35＋28 時，5＋8＝13，十位還要加什麼？", "options": [{"text": "多換出的 1 個十", "correct": true}, {"text": "3 個十", "correct": false}, {"text": "不必再加", "correct": false}]},
+        {"q": "哪個直式排列正確？", "options": [{"text": "十位對十位、個位對個位", "correct": true}, {"text": "所有數字靠左", "correct": false}, {"text": "個位對十位", "correct": false}]}
+      ],
+      "interactive": {
+        "type": "column-arithmetic",
+        "operations": ["addition", "subtraction"],
+        "min": 10,
+        "max": 99,
+        "defaults": {"operation": "addition", "a": 46, "b": 27},
+        "prompt": "拖曳數字讓位值對齊，再逐欄完成計算。"
+      }
+    },
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

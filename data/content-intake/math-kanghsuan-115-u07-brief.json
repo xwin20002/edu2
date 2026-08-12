@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "subject": "math",
+  "publisher": "kanghsuan",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 115,
+  "acceptedAcademicYearRange": [115, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "U07",
+  "title": "2、5、4、8 的乘法",
+  "sourceStatus": "unit-brief-verified-exact-year",
+  "sourceRefs": [
+    "kanghsuan-115-low-primary-promo",
+    "gongguan-115-kanghsuan-grade2-math-plan"
+  ],
+  "sourceBoundary": "115 康軒官方低年級教材簡介核對二上第七單元名稱與倍、2、5、4、8 乘法的課程架構；115 公館國小康軒版二上數學計畫核對 N-2-6、N-2-7 學習內容與學習目標。本檔活動、圖示規格、例題與評量均為 edu2 原創，不重製課本、習作、教師手冊、圖像或題目。",
+  "unit": {
+    "id": "ma-115-kanghsuan-07",
+    "publisherUnitId": "U07",
+    "title": "2、5、4、8 的乘法",
+    "publisherLabel": "康軒115",
+    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "focus": "從等組排列與連加理解乘法算式和『倍』的意義，建立並運用被乘數為 2、5、4、8 的乘法事實。",
+    "mission": "完成「整齊分組設計師」：把物品排成每組一樣多的陣列，說出每組數、組數、連加與乘法算式，再用圖檢查乘積。",
+    "objectives": [
+      "從等組情境辨認每組數量與組數，並以連加表示總量。",
+      "將連加改寫成乘法算式，說明算式中兩個數和乘積的意義。",
+      "使用『幾倍』描述相同數量重複出現的關係，解決具體問題。",
+      "建立並熟練被乘數為 2、5、4、8 的乘法表，利用陣列或已知乘法檢查答案。"
+    ],
+    "flow": [
+      "確認每一組都一樣多 👀",
+      "說出每組數量與共有幾組 🗣️",
+      "用連加記錄總量 ➕",
+      "改寫成乘法算式並求積 ✖️",
+      "用陣列或交換觀察檢查答案 ✅"
+    ],
+    "sourceLayer": {
+      "status": "unit-brief-verified-exact-year",
+      "evidence": "115 康軒低年級官方教材簡介二上課程架構＋115 公館國小康軒版二上數學課程計畫第七單元。",
+      "boundary": "只引用單元範圍、課綱代碼與學習目標；所有分組情境、數值、陣列、例題與題目均為 edu2 原創。"
+    },
+    "mathExtension": {
+      "status": "technical-candidate · edu2 original",
+      "representations": [
+        {"id": "groups", "label": "等組圖", "use": "圈出每組相同數量，分清每組數和組數。"},
+        {"id": "array", "label": "點陣排列", "use": "用整齊的列與行表示乘法，點數並檢查總量。"},
+        {"id": "repeated-addition", "label": "連加與乘法對照", "use": "把相同加數的連加改寫為乘法算式。"}
+      ],
+      "workedExamples": [
+        {
+          "prompt": "每個展示盤放 4 個模型，共有 6 個展示盤，一共有多少個模型？",
+          "model": "等組圖：每組 4 個，共 6 組；連加：4＋4＋4＋4＋4＋4。",
+          "solution": "4＋4＋4＋4＋4＋4＝24，可以寫成 4×6＝24，所以共有 24 個模型。",
+          "boundary": "edu2 original example; not reproduced from publisher materials"
+        }
+      ],
+      "reasoningSteps": [
+        "檢查物品是否分成每組一樣多的等組情境。",
+        "先說清楚每組有幾個，再數共有幾組。",
+        "把每組數量重複相加，確認總量。",
+        "依『每組數量 × 組數』寫出乘法算式並求積。",
+        "回到點陣逐列或逐行檢查，確認沒有漏數或重複。"
+      ],
+      "misconceptions": [
+        {"claim": "只要看到很多物品就能直接用乘法。", "correction": "乘法等組情境要求每一組數量相同；不等組時要先重新整理或使用其他方法。"},
+        {"claim": "4×6 是把 4 和 6 相加。", "correction": "在本單元情境中，4×6 表示 4 重複相加 6 次。"},
+        {"claim": "每組數和組數可以只寫答案，不必說明。", "correction": "先辨認兩個量的角色，才能讓算式和情境正確連結。"}
+      ],
+      "formativeChecks": [
+        {
+          "q": "5 個袋子，每袋有 2 顆球，哪個算式符合情境？",
+          "options": [
+            {"text": "2×5＝10", "correct": true},
+            {"text": "2＋5＝7", "correct": false},
+            {"text": "5－2＝3", "correct": false},
+            {"text": "2×2＝4", "correct": false}
+          ]
+        },
+        {
+          "q": "哪一種排列最能表示 8×3？",
+          "options": [
+            {"text": "每組 8 個，共 3 組。", "correct": true},
+            {"text": "每組數量都不同，共 3 組。", "correct": false},
+            {"text": "8 個和 3 個排在一起，不分組。", "correct": false},
+            {"text": "每組 3 個，只排 2 組。", "correct": false}
+          ]
+        }
+      ],
+      "interactive": {
+        "type": "groups-array",
+        "prompt": "選擇每組放 2、5、4 或 8 個，再調整組數；畫面同步顯示等組圖、點陣、連加與乘法算式。",
+        "controls": [
+          {"id": "itemsPerGroup", "values": [2, 5, 4, 8]},
+          {"id": "groupCount", "min": 1, "max": 9}
+        ],
+        "studentOutput": "每組有＿＿個，共＿＿組；連加是＿＿；乘法算式是＿＿。",
+        "successCriteria": ["每組數量相同", "正確辨認每組數與組數", "連加項數等於組數", "乘積和點陣總數一致"]
+      }
+    },
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

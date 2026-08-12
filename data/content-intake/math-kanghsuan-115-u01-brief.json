@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "subject": "math",
+  "publisher": "kanghsuan",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 115,
+  "acceptedAcademicYearRange": [113, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "U01",
+  "title": "200 以內的數",
+  "sourceStatus": "unit-brief-verified-exact-year",
+  "sourceRefs": [
+    "kanghsuan-115-low-primary-promo",
+    "gongguan-115-kanghsuan-grade2-math-plan"
+  ],
+  "sourceBoundary": "115 康軒低年級官方簡介與 115 公館國小康軒版二上數學課程計畫只用來核對公開單元順序、課程目標與學習範圍；本站操作任務、數字、題目與回饋均為 edu2 原創，不重製課本、習作、教師手冊、題目或圖像。",
+  "unit": {
+    "id": "ma-115-kanghsuan-01",
+    "publisherUnitId": "U01",
+    "title": "200 以內的數",
+    "publisherLabel": "康軒115",
+    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "focus": "建立 100 到 200 的數詞序列與百位位值，透過數量、位值表與錢幣進行讀寫、化聚及大小比較。",
+    "mission": "完成「數字建造站」：調整百、十、個位積木組成指定數，讀出數字，再用不同組合表示相同數量。",
+    "objectives": [
+      "說、讀、聽、寫及表示 100 到 200 的數。",
+      "辨認百位、十位與個位，並進行位值化聚。",
+      "混合使用 1 元、5 元、10 元、50 元與 100 元表示指定錢數。",
+      "使用大於、小於與等於關係比較 200 以內的數。"
+    ],
+    "flow": [
+      "點數跨過 100 🔢",
+      "放進百十個位表 🧱",
+      "讀寫並交換表示 ✍️",
+      "用錢幣組合核對 🪙",
+      "比較大小說理由 ✅"
+    ],
+    "sourceLayer": {
+      "status": "unit-brief-verified-exact-year",
+      "evidence": "115 康軒低年級官方教材簡介＋115 公館國小二年級康軒版數學第一學期課程計畫 U01。",
+      "boundary": "公開來源只界定學習範圍；位值操作、數字例子、互動與檢核均為 edu2 原創，不重製出版社題目或圖像。"
+    },
+    "mathExtension": {
+      "status": "technical-candidate · edu2 original",
+      "representationTitle": "同一個數的三種表示",
+      "representations": [
+        {"label": "位值積木", "description": "以 1 個百、4 個十、6 個一組成 146。"},
+        {"label": "位值表", "description": "百位填 1、十位填 4、個位填 6，連結數字位置與數量。"},
+        {"label": "展開式", "description": "146 可以寫成 100＋40＋6。"}
+      ],
+      "workedExamples": [
+        {"prompt": "用位值說明 172。", "solution": "172 是 1 個百、7 個十和 2 個一，也就是 100＋70＋2。", "check": "把三部分相加，得到 172。"}
+      ],
+      "reasoningSteps": [
+        "先確認數量介於 100 和 200 之間。",
+        "從百位開始，辨認每一位有幾個單位。",
+        "把百、十、個位分別寫成對應數量。",
+        "將各位數量合起來，檢查是否回到原數。"
+      ],
+      "misconceptions": [
+        {"claim": "105 中間的 0 可以不寫。", "correction": "0 保留十位的位置；寫成 15 就變成不同的數。"},
+        {"claim": "位數相同時，只要找哪個數字出現 9 就比較大。", "correction": "要從最高位開始逐位比較，第一個不同位才決定大小。"}
+      ],
+      "formativeChecks": [
+        {"q": "1 個百、3 個十和 8 個一是多少？", "options": [{"text": "138", "correct": true}, {"text": "318", "correct": false}, {"text": "38", "correct": false}]},
+        {"q": "哪個數比 149 大？", "options": [{"text": "145", "correct": false}, {"text": "150", "correct": true}, {"text": "139", "correct": false}]}
+      ],
+      "interactive": {
+        "type": "place-value",
+        "min": 100,
+        "max": 200,
+        "defaults": {"hundreds": 1, "tens": 4, "ones": 6},
+        "prompt": "調整百、十、個位，組成指定數並讀出來。"
+      }
+    },
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

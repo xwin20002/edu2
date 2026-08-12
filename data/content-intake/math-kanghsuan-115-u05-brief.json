@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "subject": "math",
+  "publisher": "kanghsuan",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 115,
+  "acceptedAcademicYearRange": [115, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "U05",
+  "title": "面積的大小比較",
+  "sourceStatus": "unit-brief-verified-exact-year",
+  "sourceRefs": [
+    "kanghsuan-115-low-primary-promo",
+    "gongguan-115-kanghsuan-grade2-math-plan"
+  ],
+  "sourceBoundary": "115 康軒官方低年級教材簡介核對二上第五單元名稱與直接、間接、個別單位比較的課程架構；115 公館國小康軒版二上數學計畫核對 N-2-12、S-2-5 學習內容與學習目標。本檔活動、圖示規格、例題與評量均為 edu2 原創，不重製課本、習作、教師手冊、圖像或題目。",
+  "unit": {
+    "id": "ma-115-kanghsuan-05",
+    "publisherUnitId": "U05",
+    "title": "面積的大小比較",
+    "publisherLabel": "康軒115",
+    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "focus": "以重疊、轉印和相同大小方格覆蓋，建立面積是平面占有大小的概念，並比較兩個面的大小。",
+    "mission": "完成「桌墊設計站」：先直接疊合兩張桌墊，再用同一張透明紙轉印，最後用同樣大小的方格完整鋪排並說明比較結果。",
+    "objectives": [
+      "指出物體表面的範圍，初步理解面積表示一個面所占的大小。",
+      "將兩個面疊合，依露出部分進行面積的直接比較。",
+      "使用同一個中介物轉印或描邊，完成不能移動物件的面積間接比較。",
+      "以相同大小的個別單位無縫隙、不重疊地覆蓋，點數後比較面積。"
+    ],
+    "flow": [
+      "找出要比較的面 👀",
+      "可以移動就直接疊合 🟨",
+      "不能移動就用同一中介物轉印 📄",
+      "改用等大方格完整覆蓋 🔲",
+      "點數並用證據說出比較結果 ✅"
+    ],
+    "sourceLayer": {
+      "status": "unit-brief-verified-exact-year",
+      "evidence": "115 康軒低年級官方教材簡介二上課程架構＋115 公館國小康軒版二上數學課程計畫第五單元。",
+      "boundary": "只引用單元範圍、課綱代碼與學習目標；所有操作情境、數值、圖示、例題與題目均為 edu2 原創。"
+    },
+    "mathExtension": {
+      "status": "technical-candidate · edu2 original",
+      "representations": [
+        {"id": "overlay", "label": "疊合輪廓", "use": "把兩個面的一角和邊對齊，以露出部分判斷哪一個面較大。"},
+        {"id": "area-grid", "label": "等大方格覆蓋", "use": "用大小相同的方格無縫隙、不重疊地鋪滿，再比較方格數。"}
+      ],
+      "workedExamples": [
+        {
+          "prompt": "甲卡鋪滿 3 排、每排 4 個等大方格；乙卡鋪滿 2 排、每排 5 個同樣方格。哪一張卡面積較大？",
+          "model": "甲：3 × 4 的方格排列；乙：2 × 5 的方格排列。",
+          "solution": "甲有 12 格，乙有 10 格；因方格大小相同，12 大於 10，所以甲卡面積較大。",
+          "boundary": "edu2 original example; not reproduced from publisher materials"
+        }
+      ],
+      "reasoningSteps": [
+        "確認比較的是平面所占大小，而不是周界長短、顏色或厚度。",
+        "先判斷能否把兩個面移動後直接疊合。",
+        "若用個別單位，確認每個單位大小相同，而且鋪排沒有縫隙或重疊。",
+        "點數單位並比較，最後說明所用方法和證據。"
+      ],
+      "misconceptions": [
+        {"claim": "圖形邊界比較長，面積一定比較大。", "correction": "周界長短和面積是不同概念；本單元要比較面所占的大小。"},
+        {"claim": "甲用了 8 個大方格、乙用了 10 個小方格，所以乙一定較大。", "correction": "只有個別單位大小相同時，才能直接用個數比較面積。"},
+        {"claim": "方格鋪得有空隙也可以直接點數。", "correction": "面積覆蓋必須無縫隙且不重疊，才能代表整個面。"}
+      ],
+      "formativeChecks": [
+        {
+          "q": "兩張紙不能移動時，哪個方法最適合做面積的間接比較？",
+          "options": [
+            {"text": "用同一張透明紙描下兩個面的輪廓再比較。", "correct": true},
+            {"text": "分別用大小不同的貼紙覆蓋。", "correct": false},
+            {"text": "只比較兩張紙的顏色深淺。", "correct": false},
+            {"text": "只量其中一條邊。", "correct": false}
+          ]
+        },
+        {
+          "q": "用方格比較面積時，哪一項條件最重要？",
+          "options": [
+            {"text": "方格要等大，並且完整鋪滿、不重疊。", "correct": true},
+            {"text": "兩個圖形必須同色。", "correct": false},
+            {"text": "方格越大越準確。", "correct": false},
+            {"text": "只數最外圍的方格。", "correct": false}
+          ]
+        }
+      ],
+      "interactive": {
+        "type": "area-grid",
+        "prompt": "調整甲、乙兩個長方形的排數與每排格數，使用同樣大小的方格鋪滿，再比較總格數。",
+        "controls": ["甲的排數", "甲每排格數", "乙的排數", "乙每排格數"],
+        "studentOutput": "我算出甲有＿＿格、乙有＿＿格，因此＿＿的面積較大／兩者一樣大。",
+        "successCriteria": ["方格大小一致", "完整鋪滿且不重疊", "以總格數支持結論"]
+      }
+    },
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

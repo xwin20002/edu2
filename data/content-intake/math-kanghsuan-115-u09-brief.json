@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "subject": "math",
+  "publisher": "kanghsuan",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 115,
+  "acceptedAcademicYearRange": [115, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "U09",
+  "title": "3、6、9、7 的乘法",
+  "sourceStatus": "unit-brief-verified-exact-year",
+  "sourceRefs": ["kanghsuan-115-low-primary-promo", "gongguan-115-kanghsuan-grade2-math-plan"],
+  "sourceBoundary": "115 康軒官方低年級簡介核對單元；115 公館國小康軒版二上數學課程計畫提供同年度、同版、同年級與同學期的乘法目標。本站任務、例子、互動與評量均為 edu2 原創，不重製課本、習作、教師手冊、圖像或題目。",
+  "unit": {
+    "id": "U09",
+    "publisherUnitId": "U09",
+    "title": "3、6、9、7 的乘法",
+    "publisherLabel": "康軒115",
+    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "focus": "以等組、陣列和連加理解 3、6、9、7 的乘法，建立乘法表並在具體情境中擬題解題。",
+    "mission": "完成「陣列解說卡」：排出一個等組陣列，寫出乘法算式，口頭說明幾組、每組幾個與總數。",
+    "objectives": ["以等組或連加說明乘法算式的意義。", "解決被乘數為 3、6、9、7 的乘法問題。", "運用陣列或跳數建立並熟練相應乘法表。", "依指定乘法算式編寫合理的生活問題並求解。"],
+    "flow": ["排出等組物件 🟠", "說出幾個幾 🗣️", "連結連加與乘法 ✍️", "用陣列或跳數檢查 🔎", "依算式自編問題 💡"],
+    "sourceLayer": {"status": "unit-brief-verified-exact-year", "evidence": "115 康軒官方低年級簡介＋115 公館國小康軒版二上數學課程計畫第九單元，明列 3、6、9、7 乘法、熟練乘法及情境擬題。", "boundary": "單元範圍依 exact-year evidence；所有示例、陣列、互動及評量為 edu2 原創，不重製出版社內容。"},
+    "mathExtension": {
+      "status": "technical-candidate · edu2 original",
+      "representations": [{"type": "groups", "purpose": "以每組相同數量呈現『幾個幾』。"}, {"type": "array", "purpose": "用列與行快速看出等組和總數。"}, {"type": "skip-count-line", "purpose": "以固定間隔跳數連結乘法表。"}],
+      "workedExamples": [{"title": "整理盒彩筆", "problem": "每盒有 6 枝彩筆，桌上有 4 盒，共有幾枝？", "answer": "24 枝", "reasoning": "4 組、每組 6 枝，可寫成 6＋6＋6＋6，也可寫 6×4＝24。"}],
+      "reasoningSteps": ["找出每組有幾個。", "找出一共有幾組。", "用圖或物件確認每組數量相同。", "寫成連加和乘法算式。", "用跳數或陣列重數檢查總數。"],
+      "misconceptions": [{"claim": "算式 6×4 表示每組 4 個、有 6 組是唯一解讀。", "correction": "本單元先固定以被乘數表示每組數量，需依情境說清楚兩個數各代表什麼。"}, {"claim": "只要總數相同，各組數量可以不同。", "correction": "乘法等組情境要求每組數量相同。"}],
+      "formativeChecks": [{"q": "5 組、每組 7 個，哪個算式符合本單元約定？", "options": [{"text": "7×5＝35", "correct": true}, {"text": "7＋5＝12", "correct": false}, {"text": "35－7＝28", "correct": false}]}, {"q": "哪個描述是 3×6 的等組情境？", "options": [{"text": "6 組、每組 3 個", "correct": true}, {"text": "3 個再加 6 個", "correct": false}, {"text": "兩組數量不相同", "correct": false}]}],
+      "interactive": {"type": "groups-array", "prompt": "設定每組 7 個、共 5 組，觀察陣列並完成算式。", "factors": {"eachGroup": 7, "groups": 5}, "answer": 35, "feedback": "陣列共有 5 組 7，也就是 7×5＝35。"}
+    },
+    "artifact": {"notebooklm": "pending-shared-stage-2", "youtube": "pending-shared-stage-2"}
+  }
+}

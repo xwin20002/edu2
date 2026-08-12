@@ -221,9 +221,23 @@
       "localPath": "source/RAWdata/math/kanghsuan/115/official-candidates/kanghsuan-115-low-primary-promo.pdf",
       "derivedLocalPath": "source/RAWdata/math/kanghsuan/115/official-candidates/kanghsuan-115-low-primary-promo.md",
       "sha256": "f8dfd8c882bd8e2ad07993896799fe0310277e98f7cc3565e024117ab3a9b5b2",
-      "contentRole": "115 康軒低年級教材簡介；核對 115 版本與二上數學部分概念示例",
+      "contentRole": "115 康軒低年級教材簡介；第 7 頁核對二上 U01–U10 完整課程架構，第 9–10 頁核對部分教材特色例證",
       "rightsStatus": "publisher-public-promo-reference; no textbook reproduction",
-      "reviewStatus": "verified-cover-page-1-and-partial-math-pages-9-10; insufficient-for-full-unit-outline"
+      "reviewStatus": "verified-cover-page-1-complete-math-outline-page-7-and-feature-examples-pages-9-10"
+    },
+    {
+      "id": "SRC-20260812-002",
+      "recordedAt": "2026-08-12",
+      "action": "downloaded-and-verified-exact-year-math-plan",
+      "sourceId": "gongguan-115-kanghsuan-grade2-math-plan",
+      "sourceUrl": "https://www.cp.ptc.edu.tw/storage/134712/134712_115_B-04_2A.pdf?1783189284=",
+      "localPath": "source/RAWdata/math/kanghsuan/115/public-curriculum-plan/gongguan-115-grade2-math-kanghsuan.pdf",
+      "sha256": "722ebd215c47e8f0d6ee81a89bb1b3c06cb2743ec344ea397930c38cecc6a015",
+      "contentRole": "115 康軒二上數學 U01–U10 exact-year 單元順序、公開學習目標與課綱代碼；與康軒官方 115 低年級教材簡介交叉核對。",
+      "evidencePages": [1,2,3,4,5,6,7,8,9],
+      "rightsStatus": "public-school-plan-reference; original-activities-only; no textbook reproduction",
+      "reviewStatus": "verified-document-year-115-grade2-semester1-publisher-kanghsuan; ten-unit-outline-and-public-objectives",
+      "derivedOutput": "data/content-intake/math-kanghsuan-115.json and math-kanghsuan-115-u01-brief.json through u10-brief.json"
     },
     {
       "id": "SRC-20260712-009",

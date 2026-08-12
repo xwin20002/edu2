@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "subject": "math",
+  "publisher": "kanghsuan",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 115,
+  "acceptedAcademicYearRange": [115, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "U06",
+  "title": "兩步驟的加減",
+  "sourceStatus": "unit-brief-verified-exact-year",
+  "sourceRefs": [
+    "kanghsuan-115-low-primary-promo",
+    "gongguan-115-kanghsuan-grade2-math-plan"
+  ],
+  "sourceBoundary": "115 康軒官方低年級教材簡介核對二上第六單元名稱與兩步驟加法、減法、加減問題；115 公館國小康軒版二上數學計畫核對 N-2-8、R-2-2 學習內容與學習目標。本檔活動、圖示規格、例題與評量均為 edu2 原創，不重製課本、習作、教師手冊、圖像或題目。",
+  "unit": {
+    "id": "ma-115-kanghsuan-06",
+    "publisherUnitId": "U06",
+    "title": "兩步驟的加減",
+    "publisherLabel": "康軒115",
+    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "focus": "在具體情境中依事件順序解決加法、減法或加減混合的兩步驟問題，並用圖示和兩個算式說明每一步的意義。",
+    "mission": "完成「班級物資紀錄員」：讀懂物品先增加或減少的順序，畫出兩段變化，分兩步計算，最後檢查答案是否符合情境。",
+    "objectives": [
+      "從具體情境辨認起始量、第一次變化、第二次變化與最後結果。",
+      "以兩個算式依序解決兩步驟加法、兩步驟減法或加減混合問題。",
+      "使用線段圖或事件流程圖表示每一步數量的增加與減少。",
+      "說明三數相加時改變加數順序不影響總和，並選擇方便的計算順序。"
+    ],
+    "flow": [
+      "圈出起始量與問題目標 🎯",
+      "排出兩次事件的先後順序 ➡️",
+      "畫兩段數量變化圖 📊",
+      "分別寫出第一步與第二步算式 ✏️",
+      "把答案放回情境檢查單位與合理性 ✅"
+    ],
+    "sourceLayer": {
+      "status": "unit-brief-verified-exact-year",
+      "evidence": "115 康軒低年級官方教材簡介二上課程架構＋115 公館國小康軒版二上數學課程計畫第六單元。",
+      "boundary": "只引用單元範圍、課綱代碼與學習目標；所有故事、數值、圖示、例題與題目均為 edu2 原創。"
+    },
+    "mathExtension": {
+      "status": "technical-candidate · edu2 original",
+      "representations": [
+        {"id": "event-line", "label": "事件變化線", "use": "依時間順序標出開始、第一次變化、第二次變化和最後結果。"},
+        {"id": "bar-model", "label": "分段線段圖", "use": "用長條的增加或縮短表示加法與減法，連結兩個算式。"}
+      ],
+      "workedExamples": [
+        {
+          "prompt": "閱讀角原有 26 本書，上午放回 8 本，下午又放回 6 本，現在共有幾本？",
+          "model": "事件線：26 → 加 8 → 加 6。",
+          "solution": "第一步 26＋8＝34；第二步 34＋6＝40。現在共有 40 本。也可先算 8＋6＝14，再算 26＋14＝40。",
+          "boundary": "edu2 original example; not reproduced from publisher materials"
+        }
+      ],
+      "reasoningSteps": [
+        "確認題目問的是最後剩下、最後共有，或其中一段的數量。",
+        "依文字中的時間或動作線索，排出兩次數量變化的順序。",
+        "判斷每一次是增加還是減少，畫圖並寫出第一步算式。",
+        "把第一步結果帶入第二步計算，保留正確單位。",
+        "用估想或反向檢查，確認答案和事件變化方向一致。"
+      ],
+      "misconceptions": [
+        {"claim": "看到三個數字就全部相加。", "correction": "先依事件判斷每一步是增加還是減少，再決定運算。"},
+        {"claim": "可以任意交換加法和減法的事件順序。", "correction": "三數相加可調整加數順序，但包含減法時須保留事件意義並逐步檢查。"},
+        {"claim": "第一步算完就直接當成題目的答案。", "correction": "兩步驟問題還有第二次變化，第一步結果只是中間量。"}
+      ],
+      "formativeChecks": [
+        {
+          "q": "盒子裡有 35 顆珠子，先拿走 7 顆，再放入 4 顆。哪一組事件線正確？",
+          "options": [
+            {"text": "35 → 減 7 → 加 4", "correct": true},
+            {"text": "35 → 加 7 → 加 4", "correct": false},
+            {"text": "35 → 減 4 → 加 7", "correct": false},
+            {"text": "35 → 加 7 → 減 4", "correct": false}
+          ]
+        },
+        {
+          "q": "18＋7＋3 用哪個順序計算較方便？",
+          "options": [
+            {"text": "先算 7＋3，再加 18。", "correct": true},
+            {"text": "把加法全部改成減法。", "correct": false},
+            {"text": "只算 18＋7 就停止。", "correct": false},
+            {"text": "數字順序永遠不能調整。", "correct": false}
+          ]
+        }
+      ],
+      "interactive": {
+        "type": "two-step",
+        "prompt": "起始量是 36。第一張事件卡是『送出 8』，第二張是『收到 5』；拖曳兩張卡到事件線並完成兩步算式。",
+        "start": 36,
+        "events": [
+          {"operation": "subtract", "value": 8},
+          {"operation": "add", "value": 5}
+        ],
+        "answer": 33,
+        "studentOutput": "第一步＿＿；第二步＿＿；最後有＿＿，因為＿＿。",
+        "successCriteria": ["事件順序正確", "兩個運算符號符合情境", "中間量與最後量正確", "答案包含單位"]
+      }
+    },
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

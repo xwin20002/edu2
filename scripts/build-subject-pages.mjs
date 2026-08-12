@@ -6,6 +6,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const assetVersion = "20260810-golden-3";
 const chineseGoldenAssetVersion = "20260811-chinese-l01-1";
 const chineseBatchAssetVersion = "20260812-chinese-batch-1";
+const mathBatchAssetVersion = "20260812-math-batch-1";
 const data = JSON.parse(await readFile(path.join(root, "data/hanlin-114.json"), "utf8"));
 const esc = value => String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[char]);
 const chineseIntake = JSON.parse(await readFile(path.join(root, "data/content-intake/chinese-hanlin-114.json"), "utf8"));
@@ -27,6 +28,9 @@ const chineseBlockedL07 = {
 const lifeTargetBriefs = await Promise.all(Array.from({length: 6}, async (_, index) =>
   JSON.parse(await readFile(path.join(root, `data/content-intake/life-nani-115-t${String(index + 1).padStart(2, "0")}-brief.json`), "utf8"))
 ));
+const mathTargetBriefs = await Promise.all(Array.from({length: 10}, async (_, index) =>
+  JSON.parse(await readFile(path.join(root, `data/content-intake/math-kanghsuan-115-u${String(index + 1).padStart(2, "0")}-brief.json`), "utf8"))
+));
 const renderSubjects = data.subjects.map(subject => {
   if (subject.id === "chinese") return {
       ...subject,
@@ -39,6 +43,13 @@ const renderSubjects = data.subjects.map(subject => {
       layerLabel: "南一115目標·T01–T06 human confirmed",
       intro: "生活 T01–T06 已完成來源核對、technical QA 與使用者 human parity；全科以原創教學活動呈現，NotebookLM／YouTube 保留第二階段。",
       units: lifeTargetBriefs.map(brief => brief.unit)
+    };
+  if (subject.id === "math") return {
+      ...subject,
+      publisherLabel: "康軒115",
+      layerLabel: "115 exact-year · technical candidate",
+      intro: "數學 U01–U10 已由康軒 115 官方教材簡介與 115 exact-year 公開課程計畫核對；操作、例題與評量均為 edu2 原創。Technical QA 完成後再進行一次全科 human parity。",
+      units: mathTargetBriefs.map(brief => brief.unit)
     };
   return subject;
 });
@@ -107,8 +118,9 @@ const chineseLanguageWorkshopHtml = unit => {
 };
 const lessonMediaHtml = unit => {
   const video = unit.artifact?.video;
-  if (video?.youtubeId) return `<div class="section-title"><span>🎬</span> 本課學生自學影片</div><section class="card"><p>${esc(video.title || "NotebookLM 本課學生自學影片")}</p><div class="video"><iframe src="https://www.youtube.com/embed/${esc(video.youtubeId)}" title="${esc(video.title || "本課學生自學影片")}" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div></section>`;
-  return `<div class="section-title"><span>🎬</span> 本課媒體狀態</div><section class="card"><p><strong>本課專屬 NotebookLM 簡報／影片尚未產製。</strong>必須先完成來源包、內容核對與 artifact QA，才會嵌入本課影片。</p><p>目前可用的是 <a href="https://youtu.be/oD0GIU4UKPc" target="_blank" rel="noreferrer">全冊學習導覽</a>，它不是本課專屬影片。</p></section>`;
+  const scope = String(unit.publisherUnitId || "").startsWith("U") ? "本單元" : "本課";
+  if (video?.youtubeId) return `<div class="section-title"><span>🎬</span> ${scope}學生自學影片</div><section class="card"><p>${esc(video.title || `NotebookLM ${scope}學生自學影片`)}</p><div class="video"><iframe src="https://www.youtube.com/embed/${esc(video.youtubeId)}" title="${esc(video.title || `${scope}學生自學影片`)}" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div></section>`;
+  return `<div class="section-title"><span>🎬</span> ${scope}媒體狀態</div><section class="card"><p><strong>${scope}專屬 NotebookLM 簡報／影片尚未產製。</strong>必須先完成來源包、內容核對與 artifact QA，才會嵌入${scope}影片。</p><p>目前可用的是 <a href="https://youtu.be/oD0GIU4UKPc" target="_blank" rel="noreferrer">全冊學習導覽</a>，它不是${scope}專屬影片。</p></section>`;
 };
 const sourceLayerHtml = unit => {
   const layer = unit.sourceLayer;
@@ -121,22 +133,25 @@ const mathExtensionHtml = unit => {
   const manipulative = math.manipulative
     ? `<div class="base-ten-builder" data-min="${Number(math.manipulative.min)}" data-max="${Number(math.manipulative.max)}" data-default="${Number(math.manipulative.default)}"><h3>${esc(math.manipulative.label)}</h3><p>${esc(math.manipulative.prompt)}</p><div class="base-ten-controls"><label>要拆解的數 <input class="base-ten-input" type="number" inputmode="numeric" min="${Number(math.manipulative.min)}" max="${Number(math.manipulative.max)}" value="${Number(math.manipulative.default)}"></label><button class="base-ten-run" type="button">拆解位值</button></div><p class="base-ten-output" aria-live="polite"></p><div class="base-ten-visual" aria-hidden="true"></div></div>`
     : "";
+  const interactive = math.interactive
+    ? `<div class="math-interactive" data-math-config="${esc(JSON.stringify(math.interactive))}"><h3>互動操作</h3><p>${esc(math.interactive.prompt || "調整數值並觀察表徵如何改變。")}</p><div class="math-interactive-controls"></div><p class="math-interactive-output" aria-live="polite"></p><div class="math-interactive-visual" aria-hidden="true"></div></div>`
+    : "";
   const representations = math.representations?.length
-    ? `<div class="math-card-grid">${math.representations.map(item => `<article class="math-card"><h3>${esc(item.label)}</h3><div class="math-parts">${(item.parts || []).map(part => `<span class="math-part">${esc(part)}</span>`).join("")}</div><p>${esc(item.sentence)}</p></article>`).join("")}</div>`
+    ? `<div class="math-card-grid">${math.representations.map(item => `<article class="math-card"><h3>${esc(item.label || item.type || "數學表徵")}</h3>${item.parts?.length ? `<div class="math-parts">${item.parts.map(part => `<span class="math-part">${esc(part)}</span>`).join("")}</div>` : ""}<p>${esc(item.sentence || item.purpose || "")}</p></article>`).join("")}</div>`
     : "";
   const workedExamples = math.workedExamples?.length
-    ? math.workedExamples.map(example => `<article class="worked-example"><h3>${esc(example.title)}</h3><ol>${(example.steps || []).map(step => `<li>${esc(step)}</li>`).join("")}</ol>${example.check ? `<p class="math-check"><strong>檢查：</strong>${esc(example.check)}</p>` : ""}</article>`).join("")
+    ? math.workedExamples.map((example, index) => `<article class="worked-example"><h3>${esc(example.title || `例題 ${index + 1}`)}</h3>${example.problem || example.prompt ? `<p><strong>題目：</strong>${esc(example.problem || example.prompt)}</p>` : ""}${example.model ? `<p><strong>表徵：</strong>${esc(example.model)}</p>` : ""}${example.steps?.length ? `<ol>${example.steps.map(step => `<li>${esc(step)}</li>`).join("")}</ol>` : ""}${example.reasoning || example.solution ? `<p><strong>想法：</strong>${esc(example.reasoning || example.solution)}</p>` : ""}${example.answer ? `<p class="math-check"><strong>答案：</strong>${esc(example.answer)}</p>` : ""}${example.check ? `<p class="math-check"><strong>檢查：</strong>${esc(example.check)}</p>` : ""}</article>`).join("")
     : "";
   const reasoning = math.reasoningSteps?.length
     ? `<section class="card"><h2>推理流程</h2><ol class="reasoning-list">${math.reasoningSteps.map(step => `<li>${esc(step)}</li>`).join("")}</ol></section>`
     : "";
   const misconceptions = math.misconceptions?.length
-    ? `<section class="card misconception-card"><h2>常見錯誤警訊</h2><ul>${math.misconceptions.map(item => `<li>${esc(item)}</li>`).join("")}</ul></section>`
+    ? `<section class="card misconception-card"><h2>常見錯誤警訊</h2><ul>${math.misconceptions.map(item => `<li>${typeof item === "string" ? esc(item) : `<strong>${esc(item.claim || "常見誤解")}</strong><br>${esc(item.correction || "")}`}</li>`).join("")}</ul></section>`
     : "";
   const formative = math.formativeChecks?.length
     ? `<div class="section-title"><span>🧪</span> 單元小檢核</div>${math.formativeChecks.map(q => `<div class="quiz-item"><div class="quiz-q">❓ ${esc(q.q)}</div><div class="quiz-opts">${q.options.map(option => `<button class="quiz-opt" data-correct="${option.correct ? "1" : "0"}">${esc(option.text)}</button>`).join("")}</div></div>`).join("")}`
     : "";
-  return `<div class="section-title"><span>🧮</span> ${esc(math.representationTitle || "數學操作與表徵")}</div><section class="card math-lab"><p><strong>${esc(math.status || "teacher-ready slice")}</strong></p>${manipulative}${representations}</section>${workedExamples ? `<div class="section-title"><span>✏️</span> Worked Examples</div><section class="card worked-grid">${workedExamples}</section>` : ""}<div class="grid math-grid">${reasoning}${misconceptions}</div>${formative}`;
+  return `<div class="section-title"><span>🧮</span> ${esc(math.representationTitle || "數學操作與表徵")}</div><section class="card math-lab"><p><strong>${esc(math.status || "teacher-ready slice")}</strong></p>${manipulative}${interactive}${representations}</section>${workedExamples ? `<div class="section-title"><span>✏️</span> Worked Examples</div><section class="card worked-grid">${workedExamples}</section>` : ""}<div class="grid math-grid">${reasoning}${misconceptions}</div>${formative}`;
 };
 const lifeExtensionHtml = unit => {
   const life = unit.lifeExtension;
@@ -182,7 +197,12 @@ for (const subject of renderSubjects) {
         {label: "南一 115 低年級教材簡介（生活主題 outline）", url: "https://naniexpo.nani.com.tw/uploads/pdf/20260312_201419_4ea29e252cdd.pdf"},
         {label: "東園國小 114 二上南一生活課程計畫（跨年同名主題信號）", url: "https://tten.tp.edu.tw/Login/Downment?grade=2&spid=34e77ca2-f290-4b10-8700-89ec75155e60&subject=LifeCourse"}
       ]
-    : data.sources;
+    : subject.id === "math"
+      ? [
+          {label: "康軒 115 低年級教材簡介（數學 U01–U10 outline）", url: "https://945cloud.knsh.com.tw/show/E/expo/pic/textbook_levels_low/115%E5%BA%B7%E8%BB%92%E7%89%88%E5%9C%8B%E5%B0%8F%E6%95%99%E6%9D%90%E7%B0%A1%E4%BB%8B%E2%94%80%E4%BD%8E%E5%B9%B4%E7%B4%9A.pdf"},
+          {label: "公館國小 115 二上康軒數學課程計畫（exact-year 目標）", url: "https://www.cp.ptc.edu.tw/storage/134712/134712_115_B-04_2A.pdf?1783189284="}
+        ]
+      : data.sources;
   const sources = subjectSources.map(source => `<li><a href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.label)}</a></li>`).join("");
   const overview = `<!doctype html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(subject.label)}教學駕駛艙｜${esc(publisherLabel)}小二上</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="${overviewDepth}assets/css/subject.css"><style>:root{--accent:${subject.accent}}</style></head><body><a class="skip" href="#content">跳到主要內容</a><header><div class="head"><a href="${overviewDepth}index.html">← 返回首頁</a><h1>${subject.emoji} ${esc(subject.label)}教學駕駛艙</h1><div class="meta"><span class="badge">${esc(publisherLabel)}</span><span class="badge">二年級上學期</span><span class="badge">${esc(layerLabel)}</span><span class="badge">原創教學活動</span></div></div></header><main id="content"><p class="intro">${esc(subject.intro)}</p><div class="tools"><button id="font-up">A+ 放大</button><button id="font-down">A- 縮小</button></div><h2>課程地圖</h2><div class="grid">${cards}</div><aside class="sources"><strong>資料來源與使用邊界</strong><p>課名與單元依公開課程資料核對；本站不重製課文、習題或教師手冊。教學活動為本站原創，請搭配合法教材。</p><ul>${sources}</ul></aside></main><footer>edu2 · ${esc(publisherLabel)}小二上 ${esc(subject.label)}</footer><script src="${overviewDepth}assets/js/subject.js" defer></script></body></html>`;
   const overviewTarget = path.join(root, subject.path);
@@ -208,7 +228,7 @@ for (const subject of renderSubjects) {
     const lifeExtension = subject.id === "life" ? lifeExtensionHtml(unit) : "";
     const unitPublisherLabel = unit.publisherLabel || publisherLabel;
     const unitLayerLabel = unit.layerLabel || layerLabel;
-    const unitAssetVersion = subject.id === "chinese" ? (index === 0 ? chineseGoldenAssetVersion : chineseBatchAssetVersion) : assetVersion;
+    const unitAssetVersion = subject.id === "chinese" ? (index === 0 ? chineseGoldenAssetVersion : chineseBatchAssetVersion) : subject.id === "math" ? mathBatchAssetVersion : assetVersion;
     const teacherUnderstandingQuestion = subject.id === "chinese" ? "你能選兩個已核對詞語，說出自己的完整句嗎？" : `你能用自己的話說明${esc(unit.title)}的重點嗎？`;
     const teacherNotes = unit.teacherNotes?.length ? `<h3>本課教學提示</h3><ul>${unit.teacherNotes.map(note => `<li>${esc(note)}</li>`).join("")}</ul>` : "";
     const firstQuizQuestion = subject.id === "chinese" ? "這個公開詞彙練習最重要的學習焦點是什麼？" : `${esc(unit.title)}這一課／單元最重要的學習焦點是什麼？`;
@@ -217,6 +237,8 @@ for (const subject of renderSubjects) {
     const practicalMarker = `<div class="section-title"><span>🧩</span> 課堂實作</div>`;
     const pageWithArtifactBoundary = subject.id === "life"
       ? page.replace(legacyNotebookDeckPattern, `<div class="section-title"><span>📽️</span> 本主題 NotebookLM 簡報</div><section class="card"><p><strong>第二階段待產製。</strong>完成本批 human parity 與 artifact QA 後，才會加入本主題專屬簡報；目前不混用 114 全冊簡報。</p></section>`)
+      : subject.id === "math"
+        ? page.replace(legacyNotebookDeckPattern, `<div class="section-title"><span>📽️</span> 本單元 NotebookLM 簡報</div><section class="card"><p><strong>第二階段待產製。</strong>完成全科 human parity、逐單元 artifact source pack 與 artifact QA 後，才會加入本單元專屬簡報；目前不混用 114 全冊簡報。</p></section>`)
       : subject.id === "chinese" && index > 0
         ? page.replace(legacyNotebookDeckPattern, `<div class="section-title"><span>📽️</span> 本課 NotebookLM 簡報</div><section class="card"><p><strong>第二階段待產製。</strong>完成逐課 artifact source pack 與 artifact QA 後，才會加入本課專屬簡報；目前不混用 114 全冊簡報。</p></section>`)
         : page;

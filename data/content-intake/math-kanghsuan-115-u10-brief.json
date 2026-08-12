@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "subject": "math",
+  "publisher": "kanghsuan",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 115,
+  "acceptedAcademicYearRange": [115, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "U10",
+  "title": "容量與重量",
+  "sourceStatus": "unit-brief-verified-exact-year",
+  "sourceRefs": ["kanghsuan-115-low-primary-promo", "gongguan-115-kanghsuan-grade2-math-plan"],
+  "sourceBoundary": "115 康軒官方低年級簡介核對單元；115 公館國小康軒版二上數學課程計畫提供同年度、同版、同年級與同學期的容量、重量及遞移關係目標。本站任務、例子、互動與評量均為 edu2 原創，不重製課本、習作、教師手冊、圖像或題目。",
+  "unit": {
+    "id": "U10",
+    "publisherUnitId": "U10",
+    "title": "容量與重量",
+    "publisherLabel": "康軒115",
+    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "focus": "以操作進行容量與重量的直接、間接及個別單位比較，並用遞移關係說明比較結果。",
+    "mission": "完成「公平比較實驗」：選定相同中介容器或個別單位，比較三個物件的容量或重量並排列順序。",
+    "objectives": ["以倒水或並置方式直接比較兩個容器的容量。", "使用相同中介容器或個別單位間接比較容量。", "以手掂、天平或相同個別單位比較重量。", "在具體情境中運用遞移關係排列三個物件的容量或重量。"],
+    "flow": ["先辨認比較的量 💧", "選公平工具 ⚖️", "直接或間接操作 👐", "記錄大於小於 📝", "用第三個物件驗證 🔁"],
+    "sourceLayer": {"status": "unit-brief-verified-exact-year", "evidence": "115 康軒官方低年級簡介＋115 公館國小康軒版二上數學課程計畫第十單元，明列容量與重量的直接、間接、個別單位比較及重量遞移律。", "boundary": "單元範圍依 exact-year evidence；所有比較材料、數據、互動及評量為 edu2 原創，不重製出版社內容。"},
+    "mathExtension": {
+      "status": "technical-candidate · edu2 original",
+      "representations": [{"type": "pouring-model", "purpose": "倒入相同中介容器比較容量。"}, {"type": "balance-scale", "purpose": "以天平高低比較重量。"}, {"type": "comparison-chain", "purpose": "用 A＞B、B＞C 推得 A＞C。"}],
+      "workedExamples": [{"title": "比較三袋積木", "problem": "甲袋比乙袋重，乙袋比丙袋重。哪一袋最重？", "answer": "甲袋", "reasoning": "甲＞乙且乙＞丙，依大小的遞移關係可知甲＞丙，所以甲最重。"}],
+      "reasoningSteps": ["先確認要比較容量還是重量。", "選擇相同且合適的比較工具或個別單位。", "一次只比較兩個物件並記錄結果。", "串連兩次比較形成大小關係。", "改變擺放位置再測一次，檢查結果是否一致。"],
+      "misconceptions": [{"claim": "容器比較高，容量一定比較大。", "correction": "容量還受寬度與形狀影響，要以倒水或相同個別單位公平比較。"}, {"claim": "體積較大的物件一定比較重。", "correction": "大小外觀不能直接決定重量，需用手掂或天平比較。"}],
+      "formativeChecks": [{"q": "要間接比較兩個不方便互倒的容器容量，哪種做法較公平？", "options": [{"text": "都用同一個小杯逐杯量", "correct": true}, {"text": "一個用大杯、一個用小杯", "correct": false}, {"text": "只看容器高度", "correct": false}]}, {"q": "若紅盒比藍盒重，藍盒比黃盒重，哪個判斷正確？", "options": [{"text": "紅盒比黃盒重", "correct": true}, {"text": "黃盒比紅盒重", "correct": false}, {"text": "三盒一定一樣重", "correct": false}]}],
+      "interactive": {"type": "compare-measures", "prompt": "使用同一個小杯比較 A、B 兩個容器的容量，再用天平比較 C、D 兩袋物品的重量。", "measures": ["capacity", "weight"], "answerRule": "使用相同工具與單位後，依實際格數或天平高低判斷。", "feedback": "先確認比較的是哪一種量；公平比較必須維持相同工具或單位。"}
+    },
+    "artifact": {"notebooklm": "pending-shared-stage-2", "youtube": "pending-shared-stage-2"}
+  }
+}

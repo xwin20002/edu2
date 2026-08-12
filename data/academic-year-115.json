@@ -28,8 +28,20 @@
     {
       "id": "math",
       "publisher": "kanghsuan",
-      "status": "awaiting-official-outline",
-      "units": []
+      "status": "official-outline-verified-unit-briefs-technical-candidate",
+      "contentIntake": "data/content-intake/math-kanghsuan-115.json",
+      "units": [
+        {"publisherUnitId":"U01","title":"200以內的數","contentStatus":"technical-candidate"},
+        {"publisherUnitId":"U02","title":"二位數的直式加減","contentStatus":"technical-candidate"},
+        {"publisherUnitId":"U03","title":"量長度","contentStatus":"technical-candidate"},
+        {"publisherUnitId":"U04","title":"加減關係與應用","contentStatus":"technical-candidate"},
+        {"publisherUnitId":"U05","title":"面積的大小比較","contentStatus":"technical-candidate"},
+        {"publisherUnitId":"U06","title":"兩步驟的加減","contentStatus":"technical-candidate"},
+        {"publisherUnitId":"U07","title":"2、5、4、8的乘法","contentStatus":"technical-candidate"},
+        {"publisherUnitId":"U08","title":"幾時幾分","contentStatus":"technical-candidate"},
+        {"publisherUnitId":"U09","title":"3、6、9、7的乘法","contentStatus":"technical-candidate"},
+        {"publisherUnitId":"U10","title":"容量與重量","contentStatus":"technical-candidate"}
+      ]
     },
     {
       "id": "life",

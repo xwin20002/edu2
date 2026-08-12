@@ -31,7 +31,7 @@ if (catalog) {
   for (const [subjectId, publisher] of Object.entries(expectedPublishers)) {
     const subject = catalog.subjects?.find(item => item.id === subjectId);
     if (subject?.publisher !== publisher) errors.push(`${subjectId}: 115 出版社應為 ${publisher}`);
-    const allowedStatus = subjectId === "math" ? "awaiting-catalog" : "outline-verified-content-pending";
+    const allowedStatus = subjectId === "math" ? "official-outline-verified-technical-candidate" : "outline-verified-content-pending";
     if (subject?.status !== allowedStatus || subject?.href !== null) errors.push(`${subjectId}: 115 資料狀態或停用 href 不符合 source gate`);
   }
 }
@@ -52,7 +52,6 @@ try {
   for (const [subjectId, publisher] of Object.entries(expected)) {
     const subject = manifest115.subjects?.find(item => item.id === subjectId);
     if (subject?.publisher !== publisher) errors.push(`115 content manifest 缺少 ${subjectId}→${publisher}`);
-    if (subjectId === "math" && (subject?.status !== "awaiting-official-outline" || (subject?.units || []).length !== 0)) errors.push("math: 115 正式 outline 未核對前必須保持空單元 manifest");
   }
   const chinese = manifest115.subjects?.find(item => item.id === "chinese");
   if (chinese?.status !== "official-outline-verified-eleven-fallback-human-confirmed-l07-blocked" || chinese?.contentIntake !== "data/content-intake/chinese-hanlin-115.json" || chinese?.units?.length !== 12) errors.push("chinese: 115 翰林長批次 promotion 狀態錯誤");
@@ -74,6 +73,30 @@ try {
     if (blockedL07?.contentStatus !== "blocked-cross-year-title-mismatch" || blockedL07?.unitBrief || !blockedL07?.blockedReason?.includes("不一樣的美食")) errors.push("國語 L07 必須維持 cross-year title mismatch blocked");
     if (!chineseIntake.readingItems?.every(item => item.titleStatus === "verified-publisher-outline" && ["詩歌", "記敘文"].includes(item.genre))) errors.push("國語 115 intake 含未核對的來閱讀 metadata");
   } catch (error) { errors.push(`國語 115 intake 無法解析：${error.message}`); }
+  const math = manifest115.subjects?.find(item => item.id === "math");
+  const mathTitles = ["200以內的數", "二位數的直式加減", "量長度", "加減關係與應用", "面積的大小比較", "兩步驟的加減", "2、5、4、8的乘法", "幾時幾分", "3、6、9、7的乘法", "容量與重量"];
+  const mathInteractiveTypes = ["place-value", "column-arithmetic", "length-measure", "fact-family", "area-grid", "two-step", "groups-array", "clock", "groups-array", "compare-measures"];
+  if (math?.status !== "official-outline-verified-unit-briefs-technical-candidate" || math?.contentIntake !== "data/content-intake/math-kanghsuan-115.json" || math?.units?.length !== 10) errors.push("math: 115 康軒全科 technical candidate 狀態錯誤");
+  try {
+    const mathIntake = JSON.parse(await read("data/content-intake/math-kanghsuan-115.json"));
+    if (mathIntake.publisher !== "kanghsuan" || mathIntake.academicYear !== 115 || mathIntake.units?.length !== 10) errors.push("數學 115 intake 版本或單元數錯誤");
+    if (!mathIntake.units?.every((unit, index) => unit.title === mathTitles[index] && unit.titleStatus === "verified-publisher-outline" && unit.unitBrief === `data/content-intake/math-kanghsuan-115-u${String(index + 1).padStart(2, "0")}-brief.json` && unit.contentStatus === "technical-candidate")) errors.push("數學 115 intake 單元順序、brief 關聯或狀態錯誤");
+  } catch (error) { errors.push(`數學 115 intake 無法解析：${error.message}`); }
+  for (const [index, canonicalTitle] of mathTitles.entries()) {
+    const id = `U${String(index + 1).padStart(2, "0")}`;
+    try {
+      const brief = JSON.parse(await read(`data/content-intake/math-kanghsuan-115-u${String(index + 1).padStart(2, "0")}-brief.json`));
+      const normalizedTitle = value => String(value || "").replaceAll(" ", "");
+      if (brief.targetAcademicYear !== 115 || brief.sourceAcademicYear !== 115 || brief.grade !== 2 || brief.semester !== 1) errors.push(`數學 ${id} brief 年級／學期／學年錯誤`);
+      if (brief.unitId !== id || brief.unit?.publisherUnitId !== id || normalizedTitle(brief.unit?.title) !== canonicalTitle || brief.unit?.publisherLabel !== "康軒115") errors.push(`數學 ${id} brief 單元或出版社標示錯誤`);
+      if (brief.sourceStatus !== "unit-brief-verified-exact-year" || !["kanghsuan-115-low-primary-promo", "gongguan-115-kanghsuan-grade2-math-plan"].every(source => brief.sourceRefs?.includes(source))) errors.push(`數學 ${id} brief 缺少 exact-year source gate`);
+      const ext = brief.unit?.mathExtension;
+      if (ext?.representations?.length < 2 || ext?.workedExamples?.length < 1 || ext?.reasoningSteps?.length < 4 || ext?.misconceptions?.length < 2 || ext?.formativeChecks?.length < 2) errors.push(`數學 ${id} 缺少 representation/example/reasoning/misconception/assessment contract`);
+      if (!ext?.formativeChecks?.every(check => check.options?.length >= 3 && check.options.filter(option => option.correct).length === 1)) errors.push(`數學 ${id} formative checks 選項契約錯誤`);
+      if (ext?.interactive?.type !== mathInteractiveTypes[index]) errors.push(`數學 ${id} interactive type 錯誤`);
+      if (brief.unit?.artifact?.notebooklm !== "pending-shared-stage-2" || brief.unit?.artifact?.youtube !== "pending-shared-stage-2") errors.push(`數學 ${id} artifact 必須維持第二階段 pending`);
+    } catch (error) { errors.push(`數學 ${id} unit brief 無法解析：${error.message}`); }
+  }
   const life = manifest115.subjects?.find(item => item.id === "life");
   if (life?.status !== "official-outline-verified-all-units-publication-ready" || life?.contentIntake !== "data/content-intake/life-nani-115.json" || life?.units?.length !== 6) errors.push("life: 115 南一全科 publication-ready 狀態錯誤");
   try {
@@ -105,7 +128,7 @@ try {
   for (const [subject, publisher] of Object.entries(expected)) {
     if (collection.subjectBaselines?.[subject] !== publisher) errors.push(`115 collection registry 缺少 ${subject}→${publisher}`);
   }
-  for (const id of ["hanlin-115-low-primary-promo", "tlsps-grade2-curriculum-plan-candidate", "ptc-114-hanlin-grade2-chinese-plan", "education-cloud-115-textword", "kanghsuan-primary-curriculum-plan", "kanghsuan-primary-math-digitalmaster", "kanghsuan-115-low-primary-promo", "cyc-115-public-curriculum-platform", "nani-primary-source-discovery", "nani-115-low-primary-promo", "dongyuan-114-nani-grade2-life-plan"]) {
+  for (const id of ["hanlin-115-low-primary-promo", "tlsps-grade2-curriculum-plan-candidate", "ptc-114-hanlin-grade2-chinese-plan", "education-cloud-115-textword", "kanghsuan-primary-curriculum-plan", "kanghsuan-primary-math-digitalmaster", "kanghsuan-115-low-primary-promo", "gongguan-115-kanghsuan-grade2-math-plan", "cyc-115-public-curriculum-platform", "nani-primary-source-discovery", "nani-115-low-primary-promo", "dongyuan-114-nani-grade2-life-plan"]) {
     if (!collection.sources?.some(source => source.id === id)) errors.push(`115 collection registry 缺少 ${id}`);
   }
 } catch (error) { errors.push(`115 source collection registry 無法解析：${error.message}`); }
@@ -157,6 +180,10 @@ try {
   for (const subject of ["math", "life"]) {
     const sample = golden.samples?.find(item => item.subject === subject);
     if (!sample?.parity?.checklist || !sample?.parity?.status) errors.push(`${subject} Golden 缺少 parity checklist/status`);
+    else {
+      try { await access(new URL(`../${sample.parity.checklist}`, import.meta.url)); }
+      catch { errors.push(`${subject} Golden parity checklist 不存在：${sample.parity.checklist}`); }
+    }
   }
   const middleChinese = golden.futureProfiles?.find(profile => profile.profile === "chinese-middle-primary");
   if (middleChinese?.zhuyinPolicy !== "selective") errors.push("中年段國語 profile 必須使用 selective zhuyin policy");
@@ -170,6 +197,7 @@ const workflowPage = await read("workflow.html");
 const sourceGates = await read("docs/content-source-gates.md");
 const sourceAcquisition = await read("docs/source-acquisition.md");
 const mathGoldenPage = await read("math/U01/index.html");
+const mathOverviewPage = await read("math/index.html");
 const lifeGoldenPage = await read("life/T01/index.html");
 const lifeOverviewPage = await read("life/index.html");
 const legacyPatterns = [/三年級/,/三下/,/href=["'](?:chinese\.html|math\/|science\/|L\d)/];
@@ -181,8 +209,17 @@ if (!homepage.includes("compare-view")) errors.push("首頁缺少 comparison vie
 if (!foundationPage.includes("Milestone A")) errors.push("foundation.html 缺少 Milestone A 定義");
 if (!foundationPage.includes("Milestone B")) errors.push("foundation.html 缺少 Milestone B 邊界");
 if (!homepage.includes('href="workflow.html"')) errors.push("首頁缺少工作流程分頁入口");
-if (!mathGoldenPage.includes("base-ten-builder") || !mathGoldenPage.includes("位值拆解器")) errors.push("數學 U01 頁缺少可操作位值表徵");
-if (mathGoldenPage.includes("康軒115目標")) errors.push("數學 U01 歷史頁誤標為康軒 115 目標內容");
+if (!mathOverviewPage.includes("康軒115") || !mathOverviewPage.includes("115 exact-year · technical candidate")) errors.push("數學總覽缺少 115 康軒 technical candidate 標示");
+if (!mathOverviewPage.includes("康軒 115 低年級教材簡介") || !mathOverviewPage.includes("公館國小 115 二上康軒數學課程計畫")) errors.push("數學總覽缺少 exact-year 來源入口");
+const mathPageExpectations = ["200 以內的數", "二位數的直式加減", "量長度", "加減關係與應用", "面積的大小比較", "兩步驟的加減", "2、5、4、8 的乘法", "幾時幾分", "3、6、9、7 的乘法", "容量與重量"];
+for (const [index, title] of mathPageExpectations.entries()) {
+  const id = `U${String(index + 1).padStart(2, "0")}`;
+  const page = index === 0 ? mathGoldenPage : await read(`math/${id}/index.html`);
+  for (const required of [title, "康軒115", "math-interactive", "Worked Examples", "單元小檢核", "第二階段待產製"]) {
+    if (!page.includes(required)) errors.push(`數學 ${id} 頁缺少 ${required}`);
+  }
+  if (page.includes("翰林114歷史參考") || page.includes("NotebookLM 全冊教學簡報")) errors.push(`數學 ${id} 仍混入歷史 reference 或已完成 artifact 標示`);
+}
 if (!lifeGoldenPage.includes("南一115目標") || !lifeGoldenPage.includes("標誌偵探觀察紀錄")) errors.push("生活 T01 缺少南一 115 目標或觀察紀錄 Golden");
 if (lifeGoldenPage.includes("動物好朋友") || lifeGoldenPage.includes("翰林114歷史參考")) errors.push("生活 T01 仍混入舊歷史主題或標示");
 if (!lifeOverviewPage.includes("南一 115 低年級教材簡介") || !lifeOverviewPage.includes("東園國小 114 二上南一生活課程計畫")) errors.push("生活總覽缺少正確的南一／東園來源入口");
@@ -243,7 +280,7 @@ try {
   const log = JSON.parse(await read("data/source-acquisition-log.json"));
   const serializedLog = JSON.stringify(log);
   if (serializedLog.includes("source/official/")) errors.push("source acquisition log 仍含舊 source/official 路徑");
-  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005", "SRC-20260711-006", "SRC-20260711-007", "SRC-20260711-008", "SRC-20260711-009", "SRC-20260711-010", "SRC-20260711-011", "SRC-20260711-012", "SRC-20260712-001", "SRC-20260712-002", "SRC-20260712-003", "SRC-20260712-004", "SRC-20260712-005", "SRC-20260712-006", "SRC-20260712-007", "SRC-20260712-008", "SRC-20260712-009", "SRC-20260712-010", "SRC-20260712-011", "SRC-20260712-012", "SRC-20260810-001", "SRC-20260812-001"]) {
+  for (const id of ["SRC-20260711-001", "SRC-20260711-002", "SRC-20260711-003", "SRC-20260711-004", "SRC-20260711-005", "SRC-20260711-006", "SRC-20260711-007", "SRC-20260711-008", "SRC-20260711-009", "SRC-20260711-010", "SRC-20260711-011", "SRC-20260711-012", "SRC-20260712-001", "SRC-20260712-002", "SRC-20260712-003", "SRC-20260712-004", "SRC-20260712-005", "SRC-20260712-006", "SRC-20260712-007", "SRC-20260712-008", "SRC-20260712-009", "SRC-20260712-010", "SRC-20260712-011", "SRC-20260712-012", "SRC-20260810-001", "SRC-20260812-001", "SRC-20260812-002"]) {
     if (!log.records?.some(record => record.id === id)) errors.push(`source acquisition log 缺少 ${id}`);
   }
 } catch (error) { errors.push(`source registry 或 acquisition log 無法解析：${error.message}`); }

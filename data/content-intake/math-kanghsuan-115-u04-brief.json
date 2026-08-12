@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "subject": "math",
+  "publisher": "kanghsuan",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 115,
+  "acceptedAcademicYearRange": [113, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "U04",
+  "title": "加減關係與應用",
+  "sourceStatus": "unit-brief-verified-exact-year",
+  "sourceRefs": [
+    "kanghsuan-115-low-primary-promo",
+    "gongguan-115-kanghsuan-grade2-math-plan"
+  ],
+  "sourceBoundary": "115 康軒低年級官方簡介與 115 公館國小康軒版二上數學課程計畫只用來核對公開單元順序、課程目標與學習範圍；本站操作任務、數字、題目與回饋均為 edu2 原創，不重製課本、習作、教師手冊、題目或圖像。",
+  "unit": {
+    "id": "ma-115-kanghsuan-04",
+    "publisherUnitId": "U04",
+    "title": "加減關係與應用",
+    "publisherLabel": "康軒115",
+    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "focus": "連結部分與整體，理解加法與減法互逆關係，利用關係驗算，並解決加數未知或減數未知的生活問題。",
+    "mission": "完成「算式家族偵探」：用兩個部分拼成整體，寫出兩道加法與兩道減法，再選一組算式檢查答案。",
+    "objectives": [
+      "用部分—整體模型說明加法與減法的互逆關係。",
+      "由三個相關數寫出兩道加法與兩道減法算式。",
+      "運用加減互逆關係驗算二位數加減答案。",
+      "判斷未知量的位置，解決加數未知與減數未知的應用問題。"
+    ],
+    "flow": [
+      "找出整體和部分 🧩",
+      "畫部分整體圖 ◯",
+      "寫四道家族算式 ✏️",
+      "找未知量的位置 🔎",
+      "用逆運算驗算 ✅"
+    ],
+    "sourceLayer": {
+      "status": "unit-brief-verified-exact-year",
+      "evidence": "115 康軒低年級官方教材簡介＋115 公館國小二年級康軒版數學第一學期課程計畫 U04。",
+      "boundary": "公開來源只界定學習範圍；部分整體模型、數字、問題情境與互動均為 edu2 原創，不重製出版社題目或圖像。"
+    },
+    "mathExtension": {
+      "status": "technical-candidate · edu2 original",
+      "representationTitle": "一組數，四道相關算式",
+      "representations": [
+        {"label": "部分—整體圖", "description": "整體 63 分成 28 和 35 兩個部分。"},
+        {"label": "算式家族", "description": "28＋35＝63、35＋28＝63、63－28＝35、63－35＝28。"}
+      ],
+      "workedExamples": [
+        {"prompt": "盒中原有一些積木，放入 28 個後共有 63 個，原有多少個？", "solution": "未知的是另一個部分，用 63－28＝35，所以原有 35 個。", "check": "把原有 35 個和放入 28 個相加，35＋28＝63。"}
+      ],
+      "reasoningSteps": [
+        "先圈出題目中的整體數量。",
+        "再找已知部分與未知部分。",
+        "依部分—整體關係選擇加法或減法。",
+        "用相反運算把答案放回原情境驗算。"
+      ],
+      "misconceptions": [
+        {"claim": "看到『放入』就一定用加法。", "correction": "要看未知量的位置；若加入前的數量未知，可能要用整體減去已知部分。"},
+        {"claim": "驗算就是把同一個算式再算一次。", "correction": "可利用加減互逆，用另一種運算檢查三個數是否符合原來關係。"}
+      ],
+      "formativeChecks": [
+        {"q": "24＋31＝55，可以用哪一道算式驗算？", "options": [{"text": "55－31＝24", "correct": true}, {"text": "55＋31＝86", "correct": false}, {"text": "31－24＝7", "correct": false}]},
+        {"q": "整體是 72，一個部分是 29，另一個部分怎麼求？", "options": [{"text": "72－29", "correct": true}, {"text": "72＋29", "correct": false}, {"text": "29－72", "correct": false}]}
+      ],
+      "interactive": {
+        "type": "fact-family",
+        "min": 0,
+        "max": 99,
+        "defaults": {"whole": 63, "partA": 28, "partB": 35},
+        "prompt": "拖曳兩個部分組成整體，再完成四道算式家族。"
+      }
+    },
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

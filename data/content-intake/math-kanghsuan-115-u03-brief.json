@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "subject": "math",
+  "publisher": "kanghsuan",
+  "targetAcademicYear": 115,
+  "sourceAcademicYear": 115,
+  "acceptedAcademicYearRange": [113, 115],
+  "grade": 2,
+  "semester": 1,
+  "unitId": "U03",
+  "title": "量長度",
+  "sourceStatus": "unit-brief-verified-exact-year",
+  "sourceRefs": [
+    "kanghsuan-115-low-primary-promo",
+    "gongguan-115-kanghsuan-grade2-math-plan"
+  ],
+  "sourceBoundary": "115 康軒低年級官方簡介與 115 公館國小康軒版二上數學課程計畫只用來核對公開單元順序、課程目標與學習範圍；本站操作任務、數字、題目與回饋均為 edu2 原創，不重製課本、習作、教師手冊、題目或圖像。",
+  "unit": {
+    "id": "ma-115-kanghsuan-03",
+    "publisherUnitId": "U03",
+    "title": "量長度",
+    "publisherLabel": "康軒115",
+    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "focus": "從個別單位比較走向公分，正確操作直尺進行實測與估測，畫指定長度線段，並處理公分單位的長度加減。",
+    "mission": "完成「測量小工程」：先估一件文具的長度，再把起點對準刻度、讀出終點，最後畫出指定長度並比較估測誤差。",
+    "objectives": [
+      "說明使用不同個別單位測同一物品時，單位數可能不同。",
+      "認識 1 公分，並以公分刻度尺正確測量長度。",
+      "先估測再實測，建立公分的長度量感。",
+      "畫出指定長度線段，並解決以公分為單位的長度加減問題。"
+    ],
+    "flow": [
+      "先用眼睛估一估 👀",
+      "確認單位是公分 📏",
+      "起點對準刻度線 ↔️",
+      "讀終點或算刻度差 ✏️",
+      "實測核對並說誤差 ✅"
+    ],
+    "sourceLayer": {
+      "status": "unit-brief-verified-exact-year",
+      "evidence": "115 康軒低年級官方教材簡介＋115 公館國小二年級康軒版數學第一學期課程計畫 U03。",
+      "boundary": "公開來源只界定學習範圍；測量物、刻度數值、線段任務與檢核均為 edu2 原創，不重製出版社題目或圖像。"
+    },
+    "mathExtension": {
+      "status": "technical-candidate · edu2 original",
+      "representationTitle": "物品、刻度與長度算式",
+      "representations": [
+        {"label": "直尺刻度", "description": "物品左端對準 3 公分、右端對準 12 公分，以刻度差找長度。"},
+        {"label": "線段模型", "description": "把起點到終點畫成線段，標示 12－3＝9 公分。"}
+      ],
+      "workedExamples": [
+        {"prompt": "一條紙帶從直尺 3 公分刻度開始，到 12 公分刻度結束，長多少？", "solution": "終點刻度減起點刻度：12－3＝9，所以紙帶長 9 公分。", "check": "逐格數 3 到 12 之間共有 9 個 1 公分間隔。"}
+      ],
+      "reasoningSteps": [
+        "先確認測量使用的單位是公分。",
+        "讓物品兩端對齊刻度線，不只看數字位置。",
+        "若起點不是 0，用終點刻度減起點刻度。",
+        "將實測結果和原先估測比較，判斷是否合理。"
+      ],
+      "misconceptions": [
+        {"claim": "物品右端指到 12，所以長度一定是 12 公分。", "correction": "只有起點在 0 時才能直接讀終點；起點不是 0 要計算刻度差。"},
+        {"claim": "不同大小的迴紋針都可以當成相同測量單位。", "correction": "個別單位大小不同會讓單位數失去一致意義，因此需要公分等共同單位。"}
+      ],
+      "formativeChecks": [
+        {"q": "線段從刻度 2 到刻度 10，長多少公分？", "options": [{"text": "8 公分", "correct": true}, {"text": "10 公分", "correct": false}, {"text": "12 公分", "correct": false}]},
+        {"q": "測量前先估一估有什麼用？", "options": [{"text": "建立量感並檢查實測是否合理", "correct": true}, {"text": "可以完全不用直尺", "correct": false}, {"text": "讓物品變長", "correct": false}]}
+      ],
+      "interactive": {
+        "type": "length-measure",
+        "unit": "cm",
+        "min": 0,
+        "max": 15,
+        "defaults": {"startCm": 3, "endCm": 12},
+        "prompt": "移動紙帶兩端，先估測，再用刻度差算出長度。"
+      }
+    },
+    "artifact": {
+      "notebooklm": "pending-shared-stage-2",
+      "youtube": "pending-shared-stage-2"
+    }
+  }
+}

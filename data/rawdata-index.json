@@ -83,9 +83,9 @@
       "academicYear": 115,
       "purpose": "official-candidates",
       "path": "source/RAWdata/math/kanghsuan/115/official-candidates/",
-      "sourceIds": ["kanghsuan-115-low-primary-promo"],
-      "status": "partial-official-evidence-outline-pending",
-      "allowedUse": "Partial official evidence only; not a complete grade 2 semester 1 outline."
+      "sourceIds": ["kanghsuan-115-low-primary-promo", "gongguan-115-kanghsuan-grade2-math-plan"],
+      "status": "official-outline-and-unit-objectives-verified",
+      "allowedUse": "115 publisher outline and exact-year public-school plan may define U01–U10 order, scope, and public objectives; no textbook reproduction."
     },
     {
       "id": "life-nani-115-official-outline",
