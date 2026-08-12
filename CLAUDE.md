@@ -95,9 +95,9 @@ edu2/
 
 ### Latest handoff — 2026-08-12
 
-- **Branch / production commit**：`main`；數學 U01–U10 已由 `codex/edu2-math-u01-u10` fast-forward 合併，production content commit 為 `6b014585c3eab05a3a963772a1a67ea4423c055a`。
-- **currentPhase**：Phase 6 quality parity 與 production promotion 完成；NotebookLM／YouTube artifact pipeline 維持獨立第二階段。
-- **scopeClass / continuityStatus**：`subject`（數學全科 U01–U10）／`promoted-and-production-verified`。
+- **Branch / production commit**：`main`；數學內容 commit `6b014585c3eab05a3a963772a1a67ea4423c055a`，artifact release `6d7c87c67a6c90ec149cc9185563eb908591d875`，production evidence `1e62b8abf57dc9649491ba56a7a8c642186eeb93`。
+- **currentPhase**：數學主教材 Phase 6 與 subject artifact Phase 3–5／production verification 均完成。
+- **scopeClass / continuityStatus**：`subject`（數學全科 U01–U10 artifact pilot）／`production-verified-closed`。
 - **lastVerifiedGate**：數學 U01–U10 均為 `publication-ready-human-confirmed`；首頁 catalog 已升為 `ready` 並開放 `math/index.html`。
 - **goldenProfile**：`math-lower-primary`；涵蓋表徵、操作、分步推理、worked examples、常見迷思、形成性評量與十種單元互動。
 - **sourceStatus**：康軒 115 官方低年級教材簡介控制 U01–U10 名稱／順序；公館國小 115 二上康軒數學課程計畫提供 exact-year 公開學習目標。所有例題、數值、活動、互動及評量均為 edu2 原創，不重製出版社教材。
