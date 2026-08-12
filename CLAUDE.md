@@ -95,18 +95,19 @@ edu2/
 
 ### Latest handoff — 2026-08-12
 
-- **Branch / base**：工作支線 `codex/edu2-chinese-l02-l12`；開工基準 `HEAD = origin/main = 0a34e25`；內容 checkpoint `fb351a5` 已推送同名遠端支線。
-- **currentPhase**：Phase 5 technical validation 完成；Phase 6 quality parity 等待 human check。
-- **scopeClass / continuityStatus**：`subject`（國語長批次）／`resumed-and-revalidated`。
-- **lastVerifiedGate**：L01 維持 `fallback-publication-ready-human-confirmed`；L02–L06、L08–L12 為 `fallback-batch-technical-candidate`；L07 為 `blocked-cross-year-title-mismatch`。
-- **goldenProfile**：`chinese-lower-primary`，沿用 L01 renderer contract；本批支援各課 3–4 個動態句型 slot、6 張人工注音卡與原創閱讀／評量。
+- **Branch / production commit**：`main`；國語長批次已由 `codex/edu2-chinese-l02-l12` fast-forward 合併，production content commit 為 `634040e20842d43d39c05e1f0824a4fe0c21c93e`。
+- **currentPhase**：Phase 6 quality parity 與 production promotion 完成；NotebookLM／YouTube artifact pipeline 維持獨立第二階段。
+- **scopeClass / continuityStatus**：`subject`（國語長批次）／`promoted-and-production-verified`。
+- **lastVerifiedGate**：L01–L06、L08–L12 均為 `fallback-publication-ready-human-confirmed`；L07 維持 `blocked-cross-year-title-mismatch`。
+- **goldenProfile**：`chinese-lower-primary`，沿用 L01 renderer contract；各課支援 3–4 個動態句型 slot、6 張人工核對注音卡與原創閱讀／評量。
 - **sourceStatus**：115 翰林官方 outline 控制課名與順序；114 同版同年級同學期公開課程計畫與教育雲詞庫只支援使用者核准的 113–115 fallback window。L07 的 114〈不一樣的美食〉與 115〈不一樣的故事〉不一致，禁止套用且課程地圖不提供 href。
-- **artifactStatus**：NotebookLM／YouTube 維持 `pending-shared-stage-2`；本批頁面不混用 historical 114 全冊簡報作逐課 artifact。
+- **artifactStatus**：NotebookLM／YouTube 維持 `pending-shared-stage-2`；需先建立逐課 artifact source pack 與 artifact QA，本批頁面不混用 historical 114 全冊簡報。
 - **integrationStatus**：10 個 unit brief、生成器、renderer、shared JS/CSS、115 manifests、source registry／acquisition log、QA 文件與 10 個生成頁均已完成。
 - **technicalQA**：`validate-foundation` PASS；shared `audit_cockpit.py` 0 errors／0 warnings；所有 JSON parse、JavaScript syntax、`git diff --check`、local HTTP smoke 與 browser console／overflow／dynamic-slot interaction QA 通過。
-- **parityQA**：使用者尚未逐頁確認本批；不可寫成 publication-ready 或 Milestone B complete。
-- **openRisks**：L07 仍缺 115 lawful unit brief；L02–L06、L08–L12 仍是 cross-year fallback candidates；人工注音與原創內容尚待 human parity；production 仍是 `origin/main` 基準，本支線尚未合併／部署。
-- **nextSmallestTest**：由 `http://127.0.0.1:8766/chinese.html` 抽查 L02、L03、L06、L08、L12與 L07 blocked card；確認後再 promotion、fast-forward main、Pages terminal success 與 production smoke。
+- **parityQA**：使用者於 2026-08-12 確認本批 human parity OK；十課已 promotion，L07 未因批次確認而解除來源封鎖。
+- **deploymentEvidence**：Rules run `31549121050` 與 Pages run `31549121033` terminal `success`。正式站首頁、國語總覽、L02／L03／L06／L08／L12、workflow 與 shared JS 均 HTTP 200；隨機不存在路徑 404；human-confirmed、L07 blocked 與逐課 artifact pending 標記皆命中。
+- **openRisks**：L07 仍缺 115 lawful unit brief；十課雖已 human confirmed，內容證據仍是核准的 113–115 cross-year fallback window，不是出版社 115 課文；GitHub Actions 有非阻斷 Node.js 20 deprecation annotation；逐課 artifacts 尚未產製。
+- **nextSmallestTest**：主教材可轉往 115 康軒數學下一批；若取得 L07 合法 brief，則獨立解除該課 source gate。NotebookLM／YouTube 依共用第二階段規格另行處理。
 
 ## 📚 Historical handoff（2026-07-12）
 
