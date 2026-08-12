@@ -95,19 +95,19 @@ edu2/
 
 ### Latest handoff — 2026-08-12
 
-- **Branch / production commit**：`main`；國語長批次已由 `codex/edu2-chinese-l02-l12` fast-forward 合併，production content commit 為 `634040e20842d43d39c05e1f0824a4fe0c21c93e`。
+- **Branch / production commit**：`main`；數學 U01–U10 已由 `codex/edu2-math-u01-u10` fast-forward 合併，production content commit 為 `6b014585c3eab05a3a963772a1a67ea4423c055a`。
 - **currentPhase**：Phase 6 quality parity 與 production promotion 完成；NotebookLM／YouTube artifact pipeline 維持獨立第二階段。
-- **scopeClass / continuityStatus**：`subject`（國語長批次）／`promoted-and-production-verified`。
-- **lastVerifiedGate**：L01–L06、L08–L12 均為 `fallback-publication-ready-human-confirmed`；L07 維持 `blocked-cross-year-title-mismatch`。
-- **goldenProfile**：`chinese-lower-primary`，沿用 L01 renderer contract；各課支援 3–4 個動態句型 slot、6 張人工核對注音卡與原創閱讀／評量。
-- **sourceStatus**：115 翰林官方 outline 控制課名與順序；114 同版同年級同學期公開課程計畫與教育雲詞庫只支援使用者核准的 113–115 fallback window。L07 的 114〈不一樣的美食〉與 115〈不一樣的故事〉不一致，禁止套用且課程地圖不提供 href。
-- **artifactStatus**：NotebookLM／YouTube 維持 `pending-shared-stage-2`；需先建立逐課 artifact source pack 與 artifact QA，本批頁面不混用 historical 114 全冊簡報。
-- **integrationStatus**：10 個 unit brief、生成器、renderer、shared JS/CSS、115 manifests、source registry／acquisition log、QA 文件與 10 個生成頁均已完成。
-- **technicalQA**：`validate-foundation` PASS；shared `audit_cockpit.py` 0 errors／0 warnings；所有 JSON parse、JavaScript syntax、`git diff --check`、local HTTP smoke 與 browser console／overflow／dynamic-slot interaction QA 通過。
-- **parityQA**：使用者於 2026-08-12 確認本批 human parity OK；十課已 promotion，L07 未因批次確認而解除來源封鎖。
-- **deploymentEvidence**：Rules run `31549121050` 與 Pages run `31549121033` terminal `success`。正式站首頁、國語總覽、L02／L03／L06／L08／L12、workflow 與 shared JS 均 HTTP 200；隨機不存在路徑 404；human-confirmed、L07 blocked 與逐課 artifact pending 標記皆命中。
-- **openRisks**：L07 仍缺 115 lawful unit brief；十課雖已 human confirmed，內容證據仍是核准的 113–115 cross-year fallback window，不是出版社 115 課文；GitHub Actions 有非阻斷 Node.js 20 deprecation annotation；逐課 artifacts 尚未產製。
-- **nextSmallestTest**：主教材可轉往 115 康軒數學下一批；若取得 L07 合法 brief，則獨立解除該課 source gate。NotebookLM／YouTube 依共用第二階段規格另行處理。
+- **scopeClass / continuityStatus**：`subject`（數學全科 U01–U10）／`promoted-and-production-verified`。
+- **lastVerifiedGate**：數學 U01–U10 均為 `publication-ready-human-confirmed`；首頁 catalog 已升為 `ready` 並開放 `math/index.html`。
+- **goldenProfile**：`math-lower-primary`；涵蓋表徵、操作、分步推理、worked examples、常見迷思、形成性評量與十種單元互動。
+- **sourceStatus**：康軒 115 官方低年級教材簡介控制 U01–U10 名稱／順序；公館國小 115 二上康軒數學課程計畫提供 exact-year 公開學習目標。所有例題、數值、活動、互動及評量均為 edu2 原創，不重製出版社教材。
+- **artifactStatus**：NotebookLM／YouTube 維持 `pending-shared-stage-2`；目前只保留明確標示為 historical 114 的全冊 overview，不作 115 逐單元 artifact。
+- **integrationStatus**：10 個 unit brief、數學 intake、生成器、renderer、shared JS/CSS、115 manifests、source registry／acquisition log、QA 文件、首頁 catalog 與 10 個生成頁均已完成。
+- **technicalQA**：`validate-foundation` PASS；shared `audit_cockpit.py` 0 errors／0 warnings；JSON／JavaScript／diff、local HTTP、十頁 browser runtime、390×844 overflow 與 U09 互動皆通過；首頁 cache-busting／fallback ready gate 已補齊。
+- **parityQA**：使用者於 2026-08-12 由數學總覽抽看全科後確認 OK；U01–U10 已 promotion。
+- **deploymentEvidence**：Rules run `31556466247` 與 Pages run `31556466371` terminal `success`。正式站首頁、數學總覽、U01／U05／U09／U10、workflow 與 shared JS 均 HTTP 200；隨機不存在路徑 404；首頁顯示數學「可使用」，U09 互動輸出 `3＋3＋3＋3＝12`／`3×4＝12`，browser console 0 error。
+- **openRisks**：GitHub Actions 有非阻斷 Node.js 20 deprecation annotation；逐單元 NotebookLM／YouTube artifacts 尚未產製；國語 L07 仍缺合法 115 brief。
+- **nextSmallestTest**：盤點 edu2 主教材剩餘 gate，接著建立 edu2／edu4 共用 NotebookLM＋YouTube artifact pipeline；若先取得國語 L07 合法 brief，可獨立解除 source block。
 
 ## 📚 Historical handoff（2026-07-12）
 
