@@ -6,7 +6,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const assetVersion = "20260810-golden-3";
 const chineseGoldenAssetVersion = "20260811-chinese-l01-1";
 const chineseBatchAssetVersion = "20260812-chinese-batch-1";
-const mathBatchAssetVersion = "20260812-math-batch-1";
+const mathBatchAssetVersion = "20260812-math-production-1";
 const data = JSON.parse(await readFile(path.join(root, "data/hanlin-114.json"), "utf8"));
 const esc = value => String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[char]);
 const chineseIntake = JSON.parse(await readFile(path.join(root, "data/content-intake/chinese-hanlin-114.json"), "utf8"));
@@ -47,8 +47,8 @@ const renderSubjects = data.subjects.map(subject => {
   if (subject.id === "math") return {
       ...subject,
       publisherLabel: "康軒115",
-      layerLabel: "115 exact-year · technical candidate",
-      intro: "數學 U01–U10 已由康軒 115 官方教材簡介與 115 exact-year 公開課程計畫核對；操作、例題與評量均為 edu2 原創。Technical QA 完成後再進行一次全科 human parity。",
+      layerLabel: "115 exact-year · human confirmed",
+      intro: "數學 U01–U10 已由康軒 115 官方教材簡介與 115 exact-year 公開課程計畫核對，並完成 technical QA 與使用者全科 human parity；操作、例題與評量均為 edu2 原創。",
       units: mathTargetBriefs.map(brief => brief.unit)
     };
   return subject;

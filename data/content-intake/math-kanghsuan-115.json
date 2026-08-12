@@ -4,7 +4,7 @@
   "publisher": "kanghsuan",
   "academicYear": 115,
   "semester": 1,
-  "sourceStatus": "official-outline-verified-unit-briefs-technical-candidate",
+  "sourceStatus": "official-outline-verified-all-units-publication-ready-human-confirmed",
   "sources": [
     {
       "id": "kanghsuan-115-low-primary-promo",
@@ -23,16 +23,16 @@
     }
   ],
   "units": [
-    {"publisherUnitId":"U01","title":"200以內的數","subtopics":["數到200","幾個百、幾個十、幾個一","使用錢幣","比大小"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u01-brief.json","contentStatus":"technical-candidate"},
-    {"publisherUnitId":"U02","title":"二位數的直式加減","subtopics":["加法直式計算","減法直式計算","加加減減"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u02-brief.json","contentStatus":"technical-candidate"},
-    {"publisherUnitId":"U03","title":"量長度","subtopics":["個別單位的測量","認識公分","量長度","長度的加減"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u03-brief.json","contentStatus":"technical-candidate"},
-    {"publisherUnitId":"U04","title":"加減關係與應用","subtopics":["加減關係","用加減關係驗算","加減應用問題"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u04-brief.json","contentStatus":"technical-candidate"},
-    {"publisherUnitId":"U05","title":"面積的大小比較","subtopics":["面積的直接比較","面積的間接比較","面積的個別單位比較"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u05-brief.json","contentStatus":"technical-candidate"},
-    {"publisherUnitId":"U06","title":"兩步驟的加減","subtopics":["兩步驟的加法問題","兩步驟的減法問題","兩步驟的加減問題"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u06-brief.json","contentStatus":"technical-candidate"},
-    {"publisherUnitId":"U07","title":"2、5、4、8的乘法","subtopics":["倍的問題","2的乘法","5的乘法","4的乘法","8的乘法"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u07-brief.json","contentStatus":"technical-candidate"},
-    {"publisherUnitId":"U08","title":"幾時幾分","subtopics":["幾時幾分","數字鐘","經過幾小時","會是幾時幾分"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u08-brief.json","contentStatus":"technical-candidate"},
-    {"publisherUnitId":"U09","title":"3、6、9、7的乘法","subtopics":["3的乘法","6的乘法","9的乘法","7的乘法","擬題活動"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u09-brief.json","contentStatus":"technical-candidate"},
-    {"publisherUnitId":"U10","title":"容量與重量","subtopics":["容量的比較（一）","容量的比較（二）","重量的比較（一）","重量的比較（二）","重量的遞移律"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u10-brief.json","contentStatus":"technical-candidate"}
+    {"publisherUnitId":"U01","title":"200以內的數","subtopics":["數到200","幾個百、幾個十、幾個一","使用錢幣","比大小"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u01-brief.json","contentStatus":"publication-ready-human-confirmed"},
+    {"publisherUnitId":"U02","title":"二位數的直式加減","subtopics":["加法直式計算","減法直式計算","加加減減"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u02-brief.json","contentStatus":"publication-ready-human-confirmed"},
+    {"publisherUnitId":"U03","title":"量長度","subtopics":["個別單位的測量","認識公分","量長度","長度的加減"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u03-brief.json","contentStatus":"publication-ready-human-confirmed"},
+    {"publisherUnitId":"U04","title":"加減關係與應用","subtopics":["加減關係","用加減關係驗算","加減應用問題"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u04-brief.json","contentStatus":"publication-ready-human-confirmed"},
+    {"publisherUnitId":"U05","title":"面積的大小比較","subtopics":["面積的直接比較","面積的間接比較","面積的個別單位比較"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u05-brief.json","contentStatus":"publication-ready-human-confirmed"},
+    {"publisherUnitId":"U06","title":"兩步驟的加減","subtopics":["兩步驟的加法問題","兩步驟的減法問題","兩步驟的加減問題"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u06-brief.json","contentStatus":"publication-ready-human-confirmed"},
+    {"publisherUnitId":"U07","title":"2、5、4、8的乘法","subtopics":["倍的問題","2的乘法","5的乘法","4的乘法","8的乘法"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u07-brief.json","contentStatus":"publication-ready-human-confirmed"},
+    {"publisherUnitId":"U08","title":"幾時幾分","subtopics":["幾時幾分","數字鐘","經過幾小時","會是幾時幾分"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u08-brief.json","contentStatus":"publication-ready-human-confirmed"},
+    {"publisherUnitId":"U09","title":"3、6、9、7的乘法","subtopics":["3的乘法","6的乘法","9的乘法","7的乘法","擬題活動"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u09-brief.json","contentStatus":"publication-ready-human-confirmed"},
+    {"publisherUnitId":"U10","title":"容量與重量","subtopics":["容量的比較（一）","容量的比較（二）","重量的比較（一）","重量的比較（二）","重量的遞移律"],"titleStatus":"verified-publisher-outline","unitBrief":"data/content-intake/math-kanghsuan-115-u10-brief.json","contentStatus":"publication-ready-human-confirmed"}
   ],
   "publicationRule": "單元名稱、順序與公開學習目標已由 115 exact-year 來源核對。本站例子、表徵、互動與評量必須獨立撰寫；不得重製康軒課本、習作、圖像、原題或教師手冊。"
 }

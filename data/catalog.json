@@ -17,7 +17,7 @@
   ],
   "subjects": [
     {"id": "chinese", "label": "國語", "emoji": "📖", "color": "yellow", "publisher": "hanlin", "href": null, "status": "outline-verified-content-pending", "description": "115 翰林版二上 12 課與四主題已由官方教材簡介核對；課文結構、注音、詞彙、活動與 QA 仍在蒐集，尚未開放"},
-    {"id": "math", "label": "數學", "emoji": "📐", "color": "blue", "publisher": "kanghsuan", "href": null, "status": "official-outline-verified-technical-candidate", "description": "115 康軒二上 U01–U10 已由官方教材簡介與 exact-year 公開課程計畫核對；全冊原創教學頁進入 technical QA，human parity 前首頁入口維持關閉"},
+    {"id": "math", "label": "數學", "emoji": "📐", "color": "blue", "publisher": "kanghsuan", "href": "math/index.html", "status": "ready", "description": "115 康軒二上 U01–U10 已完成 exact-year 來源核對、technical QA 與使用者全科 human parity；原創教學頁正式開放"},
     {"id": "life", "label": "生活", "emoji": "🌱", "color": "green", "publisher": "nani", "href": null, "status": "outline-verified-content-pending", "description": "115 南一版 6 主題已由官方教材簡介核對；教學內容、活動與 QA 仍在蒐集，尚未開放"}
   ],
   "comparisonDimensions": ["common-outcome", "publisher-specific", "teaching-sequence"],

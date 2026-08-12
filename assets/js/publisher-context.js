@@ -11,7 +11,7 @@
     ],
     subjects: [
       {id: "chinese", label: "國語", emoji: "📖", color: "yellow", publisher: "hanlin", href: null, status: "awaiting-catalog", description: "115 翰林版已確認；等待正式目錄與逐課來源重新蒐集"},
-      {id: "math", label: "數學", emoji: "📐", color: "blue", publisher: "kanghsuan", href: null, status: "awaiting-catalog", description: "115 康軒版已確認；等待正式目錄、單元與教學來源重新蒐集"},
+      {id: "math", label: "數學", emoji: "📐", color: "blue", publisher: "kanghsuan", href: "math/index.html", status: "ready", description: "115 康軒二上 U01–U10 已完成 exact-year 來源核對、technical QA 與使用者全科 human parity；原創教學頁正式開放"},
       {id: "life", label: "生活", emoji: "🌱", color: "green", publisher: "nani", href: null, status: "awaiting-catalog", description: "115 南一版已確認；等待正式目錄、主題與教學來源重新蒐集"}
     ]
   };
@@ -68,7 +68,7 @@
     setMode("course");
   }
 
-  fetch("data/catalog.json")
+  fetch("data/catalog.json?v=20260812-math-production-1", {cache: "no-store"})
     .then(response => response.ok ? response.json() : Promise.reject(new Error(`HTTP ${response.status}`)))
     .then(initialize)
     .catch(error => {

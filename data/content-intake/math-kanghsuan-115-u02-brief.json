@@ -20,7 +20,7 @@
     "publisherUnitId": "U02",
     "title": "二位數的直式加減",
     "publisherLabel": "康軒115",
-    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "layerLabel": "115 exact-year · human confirmed",
     "focus": "以位值和圖像理解二位數加減直式，讓十位與個位正確對齊，並解決二位數加減與比較型問題。",
     "mission": "完成「直式修理站」：先用十格條與單位點表示數量，再排直式、計算，最後找出一個錯位算式並修正。",
     "objectives": [
@@ -42,7 +42,7 @@
       "boundary": "公開來源只界定學習範圍；位值圖、算式數字、情境與錯誤診斷均為 edu2 原創，不重製出版社題目或圖像。"
     },
     "mathExtension": {
-      "status": "technical-candidate · edu2 original",
+      "status": "publication-ready-human-confirmed · edu2 original",
       "representationTitle": "從十和一走到直式",
       "representations": [
         {"label": "十格條與單位點", "description": "46 表示成 4 條十與 6 個一，27 表示成 2 條十與 7 個一。"},

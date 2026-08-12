@@ -40,10 +40,12 @@
         "methodExplanation": "required"
       },
       "parity": {
-        "status": "exact-year-technical-candidate",
+        "status": "publication-ready-human-confirmed",
         "checklist": "docs/math-u01-u10-source-and-qa-2026-08-12.md",
         "historicalRendererHumanConfirmedOn": "2026-08-10",
-        "openGates": ["full-subject-human-parity", "artifact-stage-2"]
+        "technicalConfirmedOn": "2026-08-12",
+        "humanConfirmedOn": "2026-08-12",
+        "openGates": ["artifact-stage-2"]
       },
       "covers": ["concept-focus", "representation-flow", "formative-assessment", "classroom-tools"]
     },

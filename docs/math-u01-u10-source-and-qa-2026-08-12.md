@@ -3,8 +3,8 @@
 ## Outcome
 
 - Scope：115 學年度、康軒、二年級上學期數學 U01–U10。
-- Current gate：`exact-year-technical-candidate`。
-- Human gate：尚待一次全科 parity check；未開放首頁 catalog，也未合併 production。
+- Current gate：`publication-ready-human-confirmed`。
+- Human gate：使用者於 2026-08-12 完成一次全科 parity check；允許開放首頁 catalog 與進入 production promotion。
 - Artifact gate：NotebookLM 與單元 YouTube 維持 `pending-shared-stage-2`。
 
 ## Source evidence
@@ -54,6 +54,9 @@
 
 ## Remaining gates
 
-1. 使用者進行一次全科 human parity，從總覽抽看單元內容、投影可讀性與教學合理性。
-2. 通過後才將數學 catalog 升為 ready、合併 production。
-3. NotebookLM／YouTube 留在 edu2、edu4 共用的第二階段 artifact pipeline。
+1. NotebookLM／YouTube 留在 edu2、edu4 共用的第二階段 artifact pipeline。
+
+## Human parity
+
+- 2026-08-12：使用者由數學總覽抽看 U01–U10 後確認 OK。
+- Promotion decision：全科晉為 `publication-ready-human-confirmed`；允許 catalog ready、合併 `main` 與 production deploy。

@@ -20,7 +20,7 @@
     "publisherUnitId": "U05",
     "title": "面積的大小比較",
     "publisherLabel": "康軒115",
-    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "layerLabel": "115 exact-year · human confirmed",
     "focus": "以重疊、轉印和相同大小方格覆蓋，建立面積是平面占有大小的概念，並比較兩個面的大小。",
     "mission": "完成「桌墊設計站」：先直接疊合兩張桌墊，再用同一張透明紙轉印，最後用同樣大小的方格完整鋪排並說明比較結果。",
     "objectives": [
@@ -42,7 +42,7 @@
       "boundary": "只引用單元範圍、課綱代碼與學習目標；所有操作情境、數值、圖示、例題與題目均為 edu2 原創。"
     },
     "mathExtension": {
-      "status": "technical-candidate · edu2 original",
+      "status": "publication-ready-human-confirmed · edu2 original",
       "representations": [
         {"id": "overlay", "label": "疊合輪廓", "use": "把兩個面的一角和邊對齊，以露出部分判斷哪一個面較大。"},
         {"id": "area-grid", "label": "等大方格覆蓋", "use": "用大小相同的方格無縫隙、不重疊地鋪滿，再比較方格數。"}

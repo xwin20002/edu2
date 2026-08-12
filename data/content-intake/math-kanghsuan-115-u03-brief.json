@@ -20,7 +20,7 @@
     "publisherUnitId": "U03",
     "title": "量長度",
     "publisherLabel": "康軒115",
-    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "layerLabel": "115 exact-year · human confirmed",
     "focus": "從個別單位比較走向公分，正確操作直尺進行實測與估測，畫指定長度線段，並處理公分單位的長度加減。",
     "mission": "完成「測量小工程」：先估一件文具的長度，再把起點對準刻度、讀出終點，最後畫出指定長度並比較估測誤差。",
     "objectives": [
@@ -42,7 +42,7 @@
       "boundary": "公開來源只界定學習範圍；測量物、刻度數值、線段任務與檢核均為 edu2 原創，不重製出版社題目或圖像。"
     },
     "mathExtension": {
-      "status": "technical-candidate · edu2 original",
+      "status": "publication-ready-human-confirmed · edu2 original",
       "representationTitle": "物品、刻度與長度算式",
       "representations": [
         {"label": "直尺刻度", "description": "物品左端對準 3 公分、右端對準 12 公分，以刻度差找長度。"},

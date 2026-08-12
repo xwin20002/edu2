@@ -20,7 +20,7 @@
     "publisherUnitId": "U04",
     "title": "加減關係與應用",
     "publisherLabel": "康軒115",
-    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "layerLabel": "115 exact-year · human confirmed",
     "focus": "連結部分與整體，理解加法與減法互逆關係，利用關係驗算，並解決加數未知或減數未知的生活問題。",
     "mission": "完成「算式家族偵探」：用兩個部分拼成整體，寫出兩道加法與兩道減法，再選一組算式檢查答案。",
     "objectives": [
@@ -42,7 +42,7 @@
       "boundary": "公開來源只界定學習範圍；部分整體模型、數字、問題情境與互動均為 edu2 原創，不重製出版社題目或圖像。"
     },
     "mathExtension": {
-      "status": "technical-candidate · edu2 original",
+      "status": "publication-ready-human-confirmed · edu2 original",
       "representationTitle": "一組數，四道相關算式",
       "representations": [
         {"label": "部分—整體圖", "description": "整體 63 分成 28 和 35 兩個部分。"},

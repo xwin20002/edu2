@@ -20,7 +20,7 @@
     "publisherUnitId": "U07",
     "title": "2、5、4、8 的乘法",
     "publisherLabel": "康軒115",
-    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "layerLabel": "115 exact-year · human confirmed",
     "focus": "從等組排列與連加理解乘法算式和『倍』的意義，建立並運用被乘數為 2、5、4、8 的乘法事實。",
     "mission": "完成「整齊分組設計師」：把物品排成每組一樣多的陣列，說出每組數、組數、連加與乘法算式，再用圖檢查乘積。",
     "objectives": [
@@ -42,7 +42,7 @@
       "boundary": "只引用單元範圍、課綱代碼與學習目標；所有分組情境、數值、陣列、例題與題目均為 edu2 原創。"
     },
     "mathExtension": {
-      "status": "technical-candidate · edu2 original",
+      "status": "publication-ready-human-confirmed · edu2 original",
       "representations": [
         {"id": "groups", "label": "等組圖", "use": "圈出每組相同數量，分清每組數和組數。"},
         {"id": "array", "label": "點陣排列", "use": "用整齊的列與行表示乘法，點數並檢查總量。"},

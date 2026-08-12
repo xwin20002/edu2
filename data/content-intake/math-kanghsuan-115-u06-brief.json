@@ -20,7 +20,7 @@
     "publisherUnitId": "U06",
     "title": "兩步驟的加減",
     "publisherLabel": "康軒115",
-    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "layerLabel": "115 exact-year · human confirmed",
     "focus": "在具體情境中依事件順序解決加法、減法或加減混合的兩步驟問題，並用圖示和兩個算式說明每一步的意義。",
     "mission": "完成「班級物資紀錄員」：讀懂物品先增加或減少的順序，畫出兩段變化，分兩步計算，最後檢查答案是否符合情境。",
     "objectives": [
@@ -42,7 +42,7 @@
       "boundary": "只引用單元範圍、課綱代碼與學習目標；所有故事、數值、圖示、例題與題目均為 edu2 原創。"
     },
     "mathExtension": {
-      "status": "technical-candidate · edu2 original",
+      "status": "publication-ready-human-confirmed · edu2 original",
       "representations": [
         {"id": "event-line", "label": "事件變化線", "use": "依時間順序標出開始、第一次變化、第二次變化和最後結果。"},
         {"id": "bar-model", "label": "分段線段圖", "use": "用長條的增加或縮短表示加法與減法，連結兩個算式。"}

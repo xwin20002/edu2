@@ -31,8 +31,9 @@ if (catalog) {
   for (const [subjectId, publisher] of Object.entries(expectedPublishers)) {
     const subject = catalog.subjects?.find(item => item.id === subjectId);
     if (subject?.publisher !== publisher) errors.push(`${subjectId}: 115 出版社應為 ${publisher}`);
-    const allowedStatus = subjectId === "math" ? "official-outline-verified-technical-candidate" : "outline-verified-content-pending";
-    if (subject?.status !== allowedStatus || subject?.href !== null) errors.push(`${subjectId}: 115 資料狀態或停用 href 不符合 source gate`);
+    const allowedStatus = subjectId === "math" ? "ready" : "outline-verified-content-pending";
+    const allowedHref = subjectId === "math" ? "math/index.html" : null;
+    if (subject?.status !== allowedStatus || subject?.href !== allowedHref) errors.push(`${subjectId}: 115 資料狀態或 href 不符合 promotion gate`);
   }
 }
 
@@ -76,11 +77,13 @@ try {
   const math = manifest115.subjects?.find(item => item.id === "math");
   const mathTitles = ["200以內的數", "二位數的直式加減", "量長度", "加減關係與應用", "面積的大小比較", "兩步驟的加減", "2、5、4、8的乘法", "幾時幾分", "3、6、9、7的乘法", "容量與重量"];
   const mathInteractiveTypes = ["place-value", "column-arithmetic", "length-measure", "fact-family", "area-grid", "two-step", "groups-array", "clock", "groups-array", "compare-measures"];
-  if (math?.status !== "official-outline-verified-unit-briefs-technical-candidate" || math?.contentIntake !== "data/content-intake/math-kanghsuan-115.json" || math?.units?.length !== 10) errors.push("math: 115 康軒全科 technical candidate 狀態錯誤");
+  if (math?.status !== "official-outline-verified-all-units-publication-ready-human-confirmed" || math?.contentIntake !== "data/content-intake/math-kanghsuan-115.json" || math?.units?.length !== 10) errors.push("math: 115 康軒全科 human-confirmed promotion 狀態錯誤");
+  if (!math?.units?.every(unit => unit.contentStatus === "publication-ready-human-confirmed")) errors.push("math: U01–U10 並非全數 human-confirmed");
   try {
     const mathIntake = JSON.parse(await read("data/content-intake/math-kanghsuan-115.json"));
     if (mathIntake.publisher !== "kanghsuan" || mathIntake.academicYear !== 115 || mathIntake.units?.length !== 10) errors.push("數學 115 intake 版本或單元數錯誤");
-    if (!mathIntake.units?.every((unit, index) => unit.title === mathTitles[index] && unit.titleStatus === "verified-publisher-outline" && unit.unitBrief === `data/content-intake/math-kanghsuan-115-u${String(index + 1).padStart(2, "0")}-brief.json` && unit.contentStatus === "technical-candidate")) errors.push("數學 115 intake 單元順序、brief 關聯或狀態錯誤");
+    if (mathIntake.sourceStatus !== "official-outline-verified-all-units-publication-ready-human-confirmed") errors.push("數學 115 intake 尚未記錄全科 human parity promotion");
+    if (!mathIntake.units?.every((unit, index) => unit.title === mathTitles[index] && unit.titleStatus === "verified-publisher-outline" && unit.unitBrief === `data/content-intake/math-kanghsuan-115-u${String(index + 1).padStart(2, "0")}-brief.json` && unit.contentStatus === "publication-ready-human-confirmed")) errors.push("數學 115 intake 單元順序、brief 關聯或 promotion 狀態錯誤");
   } catch (error) { errors.push(`數學 115 intake 無法解析：${error.message}`); }
   for (const [index, canonicalTitle] of mathTitles.entries()) {
     const id = `U${String(index + 1).padStart(2, "0")}`;
@@ -94,6 +97,7 @@ try {
       if (ext?.representations?.length < 2 || ext?.workedExamples?.length < 1 || ext?.reasoningSteps?.length < 4 || ext?.misconceptions?.length < 2 || ext?.formativeChecks?.length < 2) errors.push(`數學 ${id} 缺少 representation/example/reasoning/misconception/assessment contract`);
       if (!ext?.formativeChecks?.every(check => check.options?.length >= 3 && check.options.filter(option => option.correct).length === 1)) errors.push(`數學 ${id} formative checks 選項契約錯誤`);
       if (ext?.interactive?.type !== mathInteractiveTypes[index]) errors.push(`數學 ${id} interactive type 錯誤`);
+      if (brief.unit?.layerLabel !== "115 exact-year · human confirmed" || ext?.status !== "publication-ready-human-confirmed · edu2 original") errors.push(`數學 ${id} 未記錄 human-confirmed presentation gate`);
       if (brief.unit?.artifact?.notebooklm !== "pending-shared-stage-2" || brief.unit?.artifact?.youtube !== "pending-shared-stage-2") errors.push(`數學 ${id} artifact 必須維持第二階段 pending`);
     } catch (error) { errors.push(`數學 ${id} unit brief 無法解析：${error.message}`); }
   }
@@ -209,7 +213,10 @@ if (!homepage.includes("compare-view")) errors.push("首頁缺少 comparison vie
 if (!foundationPage.includes("Milestone A")) errors.push("foundation.html 缺少 Milestone A 定義");
 if (!foundationPage.includes("Milestone B")) errors.push("foundation.html 缺少 Milestone B 邊界");
 if (!homepage.includes('href="workflow.html"')) errors.push("首頁缺少工作流程分頁入口");
-if (!mathOverviewPage.includes("康軒115") || !mathOverviewPage.includes("115 exact-year · technical candidate")) errors.push("數學總覽缺少 115 康軒 technical candidate 標示");
+if (!homepage.includes("publisher-context.js?v=20260812-math-production-1")) errors.push("首頁缺少數學 promotion cache-busting asset key");
+const publisherContext = await read("assets/js/publisher-context.js");
+if (!publisherContext.includes('href: "math/index.html", status: "ready"') || !publisherContext.includes('{cache: "no-store"}')) errors.push("首頁 fallback catalog 或 catalog cache policy 未同步數學 promotion");
+if (!mathOverviewPage.includes("康軒115") || !mathOverviewPage.includes("115 exact-year · human confirmed")) errors.push("數學總覽缺少 115 康軒 human-confirmed 標示");
 if (!mathOverviewPage.includes("康軒 115 低年級教材簡介") || !mathOverviewPage.includes("公館國小 115 二上康軒數學課程計畫")) errors.push("數學總覽缺少 exact-year 來源入口");
 const mathPageExpectations = ["200 以內的數", "二位數的直式加減", "量長度", "加減關係與應用", "面積的大小比較", "兩步驟的加減", "2、5、4、8 的乘法", "幾時幾分", "3、6、9、7 的乘法", "容量與重量"];
 for (const [index, title] of mathPageExpectations.entries()) {

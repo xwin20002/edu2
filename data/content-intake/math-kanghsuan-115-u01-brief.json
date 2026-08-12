@@ -20,7 +20,7 @@
     "publisherUnitId": "U01",
     "title": "200 以內的數",
     "publisherLabel": "康軒115",
-    "layerLabel": "115 exact-year unit brief · technical candidate",
+    "layerLabel": "115 exact-year · human confirmed",
     "focus": "建立 100 到 200 的數詞序列與百位位值，透過數量、位值表與錢幣進行讀寫、化聚及大小比較。",
     "mission": "完成「數字建造站」：調整百、十、個位積木組成指定數，讀出數字，再用不同組合表示相同數量。",
     "objectives": [
@@ -42,7 +42,7 @@
       "boundary": "公開來源只界定學習範圍；位值操作、數字例子、互動與檢核均為 edu2 原創，不重製出版社題目或圖像。"
     },
     "mathExtension": {
-      "status": "technical-candidate · edu2 original",
+      "status": "publication-ready-human-confirmed · edu2 original",
       "representationTitle": "同一個數的三種表示",
       "representations": [
         {"label": "位值積木", "description": "以 1 個百、4 個十、6 個一組成 146。"},
