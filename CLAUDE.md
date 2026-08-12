@@ -105,9 +105,9 @@ edu2/
 - **integrationStatus**：10 個 unit brief、數學 intake、生成器、renderer、shared JS/CSS、115 manifests、source registry／acquisition log、QA 文件、首頁 catalog 與 10 個生成頁均已完成。
 - **technicalQA**：`validate-foundation` PASS；shared `audit_cockpit.py` 0 errors／0 warnings；JSON／JavaScript／diff、local HTTP、十頁 browser runtime、390×844 overflow 與 U09 互動皆通過；首頁 cache-busting／fallback ready gate 已補齊。
 - **parityQA**：使用者於 2026-08-12 由數學總覽抽看全科後確認 OK；U01–U10 已 promotion。
-- **deploymentEvidence**：Rules run `31556466247` 與 Pages run `31556466371` terminal `success`。正式站首頁、數學總覽、U01／U05／U09／U10、workflow 與 shared JS 均 HTTP 200；隨機不存在路徑 404；首頁顯示數學「可使用」，U09 互動輸出 `3＋3＋3＋3＝12`／`3×4＝12`，browser console 0 error。
+- **deploymentEvidence**：主教材 Rules `31556466247`／Pages `31556466371` 與 artifact pilot Rules `31571813983`／Pages `31571814036` 均 terminal `success`。Artifact release commit `6d7c87c`；正式站首頁、數學總覽、artifact viewer、slide asset 均 HTTP 200，negative path 404；383px production browser 無 overflow，14 張簡報與 YouTube embed `F-JHxa_XTEI` 正常載入。
 - **openRisks**：GitHub Actions 有非阻斷 Node.js 20 deprecation annotation；逐單元 NotebookLM／YouTube artifacts 尚未產製；國語 L07 仍缺合法 115 brief。
-- **nextSmallestTest**：完成本次 artifact pilot 的 commit／push、Pages terminal success 與 production smoke；通過後才選下一科，仍保持一次只跑一科、NotebookLM concurrency = 1。若先取得國語 L07 合法 brief，可獨立解除 source block。
+- **nextSmallestTest**：Artifact pilot 已 production-verified；下一步選生活或國語作第二個 subject artifact wave，仍保持一次只跑一科、NotebookLM concurrency = 1。國語 L07 仍需合法 brief 才能解除 source block。
 
 ## 📚 Historical handoff（2026-07-12）
 

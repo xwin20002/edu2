@@ -53,3 +53,5 @@
 - 全片 visual review 亦覆蓋位值、直式、乘法等組、時間、容量與重量；沒有發現新的 blocking visual defect。結尾約 4 秒靜音為正常收尾。
 - YouTube preflight：Google 帳號 `xwin20002@gmail.com`；頻道 `xwin2000-mimi`／`@xwin2000-p4d`。
 - 上傳結果：`https://youtu.be/F-JHxa_XTEI`；`unlisted`、`madeForKids: true`、Education、`zh-TW`。YouTube Studio 已確認兒童專屬、不公開、9:56 且標準畫質處理完成；本機 artifact viewer 的 privacy-enhanced embed 可載入並顯示正確頻道。
+- Release commit `6d7c87c67a6c90ec149cc9185563eb908591d875` 已推送 `main`；Rules run `31571813983` 與 Pages run `31571814036` terminal success。
+- Production smoke：首頁、數學總覽、artifact viewer 與第 14 張 JPG 全數 HTTP 200，negative path 404；production HTML 命中正確 video ID。383px browser runtime 無水平 overflow，14 張簡報與 YouTube privacy-enhanced iframe 均載入。

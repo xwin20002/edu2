@@ -26,7 +26,7 @@
     {
       "id": "math-kanghsuan-115-pilot",
       "scope": "115-subject-overview-u01-u10-not-unit-artifact",
-      "status": "site-integrated-local-validated",
+      "status": "production-verified",
       "sourcePack": "sources/notebooklm/115/math-kanghsuan-115.md",
       "notebook": {
         "id": "e3dab5a2-7fe0-4413-9c82-fba3c9a00038",
@@ -46,5 +46,5 @@
   ],
   "youtube": {"account": "xwin20002@gmail.com", "channel": "xwin2000-mimi", "channelHandle": "@xwin2000-p4d", "visibility": "unlisted", "status": "active", "videos": [{"id": "oD0GIU4UKPc", "url": "https://youtu.be/oD0GIU4UKPc", "scope": "historical-114-all-subject-overview-not-unit"}, {"id": "F-JHxa_XTEI", "url": "https://youtu.be/F-JHxa_XTEI", "scope": "115-math-subject-overview-u01-u10-not-unit", "madeForKids": true, "status": "uploaded-unlisted-verified"}]},
   "academicYearScope": "114 historical artifacts remain isolated. The only active 115 pilot is the verified edu2 math subject overview; unit artifacts remain not started.",
-  "updatedAt": "2026-08-12T14:38:18+08:00"
+  "updatedAt": "2026-08-12T15:00:00+08:00"
 }

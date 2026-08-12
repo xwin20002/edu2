@@ -21,7 +21,7 @@
       "sourceGate": "publication-ready-human-confirmed-all-units",
       "sourcePack": "sources/notebooklm/115/math-kanghsuan-115.md",
       "remoteSourceId": "622eb85f-ed8f-4671-bf1e-733f3c6239bf",
-      "status": "site-integrated",
+      "status": "production-verified",
       "notebook": {"id": "e3dab5a2-7fe0-4413-9c82-fba3c9a00038", "url": "https://notebooklm.google.com/notebook/e3dab5a2-7fe0-4413-9c82-fba3c9a00038"},
       "remoteArtifactId": "a1764852-34ce-440e-8100-2c5743c580cb",
       "supersedesRemoteArtifactIds": ["bc746823-9fe7-4b38-aa10-63fea6cfca57", "5760b36a-ea04-4f3c-8a59-8575d188e5ce"],
